@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppConsts {
+  static const String mainFont =  'Raleway';
   static const Color mainColor = Color.fromRGBO(0, 87, 255, 1);
   static const Color black = Color.fromRGBO(0, 0, 0, 1);
   static const Color greyLight = Color.fromRGBO(232, 232, 232, 1);
