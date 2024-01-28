@@ -34,7 +34,7 @@ class CreatePassBody extends StatelessWidget {
 
             ///Password
             CustomTextFormField(
-              perfixIcon: Image.asset(Assets.imagesLock),
+              perfixIcon: Image.asset(Assets.imagesLockPng),
               hint: StringsEn.password,
               suffixIcon: const Icon(Icons.visibility),
             ),
@@ -42,13 +42,13 @@ class CreatePassBody extends StatelessWidget {
             ///hint
             Text(
               StringsEn.passwordLeast8Cha,
-              style: AppConsts.style16.copyWith(color: AppConsts.neutral400),
+              style: AppConsts.style14.copyWith(color: AppConsts.neutral400),
             ),
             SizedBox(height: size.height * .05.h),
 
             ///Password
             CustomTextFormField(
-              perfixIcon: Image.asset(Assets.imagesLock),
+              perfixIcon: Image.asset(Assets.imagesLockPng),
               hint: StringsEn.password,
               suffixIcon: const Icon(Icons.visibility),
               obscureText: true,
@@ -57,7 +57,7 @@ class CreatePassBody extends StatelessWidget {
             ///hint
             Text(
               StringsEn.bothPassMustMatch,
-              style: AppConsts.style16.copyWith(color: AppConsts.neutral400),
+              style: AppConsts.style14.copyWith(color: AppConsts.neutral400),
             ),
             SizedBox(height: size.height * .3.h),
 

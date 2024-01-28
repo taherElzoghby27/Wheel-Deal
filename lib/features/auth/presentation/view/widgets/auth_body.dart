@@ -227,6 +227,7 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
                           controller.stop();
                           controller.reset();
                         }
+                        navigateToAnotherPage();
                       } else {
                         if (!controller.isAnimating) {
                           controller
@@ -273,9 +274,10 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
   //navigate to another page
   navigateToAnotherPage() async {
     await Future.delayed(const Duration(milliseconds: 1500));
+    // ignore: use_build_context_synchronously
     GoRouter.of(context).pushReplacement(
       _authMode == AuthMode.ResetPassword
-          ? homePath
+          ? createPassPath
           : _authMode == AuthMode.Login
               ? homePath
               : homePath,
