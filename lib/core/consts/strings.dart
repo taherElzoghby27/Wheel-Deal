@@ -8,9 +8,10 @@ abstract class StringsEn {
   static const String pleaseCreateAccount =
       'Please create an account to find your dream job';
   static const String userName = 'Username';
-  static  const String email = 'Email';
+  static const String email = 'Email';
   static const String password = 'Password';
-  static const String passwordLeast8Cha = 'Password must be at least 8 characters';
+  static const String passwordLeast8Cha =
+      'Password must be at least 8 characters';
   static const String alreadyHaveAccount = 'Already have an account?';
   static const String login = 'Login';
   static const String orSignUp = 'Or Sign up With Account';
@@ -19,7 +20,8 @@ abstract class StringsEn {
   static const String yourAccountHasBeenSetUp = 'Your account has been set up!';
   static const String weHaveCustomizedFeeds =
       'We have customized feeds according to your preferences';
-  static const String pleaseLoginToFindJop = 'Please login to find your dream car';
+  static const String pleaseLoginToFindJop =
+      'Please login to find your dream car';
   static const String remeberMe = 'Remember me';
   static const String forgotPass = 'Forgot Password?';
   static const String dontHaveAccount = 'Dont’t have an account?';
@@ -38,7 +40,8 @@ abstract class StringsEn {
   static const String openEmailApp = 'Open email app';
   static const String createNewPassword = 'Create new password';
   static const String notifications = 'Notifications';
-  static const String setYourNewPass = 'Set your new password so you can login ';
+  static const String setYourNewPass =
+      'Set your new password so you can login ';
   static const String bothPassMustMatch = 'Both password must match';
   static const String passChangeSuccess = 'Password changed succesfully!';
   static const String yourPassChanged =
@@ -53,7 +56,7 @@ abstract class StringsEn {
   static const String egp = 'EGP';
   static const String home = 'Home';
   static const String orders = 'Orders';
-  static const String chat = 'Chat';
+  static const String chat = 'Chats';
   static const String profile = 'Profile';
   static const String favourites = 'Favourites';
   static const String emptyFavourite = 'Oops your wishlist is empty!';
@@ -107,7 +110,8 @@ abstract class StringsEn {
   static const String hybrid = "Hybrid";
   static const String engineCapacity = 'Engine Capacity  *';
   static const String adTitle = 'Ad Title *';
-  static const String describeWhatYouAreSelling = 'Describe What You Are Selling *';
+  static const String describeWhatYouAreSelling =
+      'Describe What You Are Selling *';
   static const String trackOrder = 'Track Order';
   static const String noOrderYet = 'No Orders Yet ?';
   static const String noMessagesYet = 'No Messages Yet ?';
@@ -300,7 +304,7 @@ abstract class StringsEn {
   static String contacted = 'Contacted';
   static String about = 'About';
   static String aboutInfo =
-  """I'm Rafif Dian Axelingga, I’m UI/UX Designer, I have experience designing UI Design for approximately 1 year. I am currently joining the Vektora studio team based in Surakarta, Indonesia.I am a person who has a high spirit and likes to work to achieve what I dream of.
+      """I'm Rafif Dian Axelingga, I’m UI/UX Designer, I have experience designing UI Design for approximately 1 year. I am currently joining the Vektora studio team based in Surakarta, Indonesia.I am a person who has a high spirit and likes to work to achieve what I dream of.
         """;
   static String edit = 'Edit';
   static String general = 'General';

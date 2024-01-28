@@ -279,8 +279,8 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
       _authMode == AuthMode.ResetPassword
           ? createPassPath
           : _authMode == AuthMode.Login
-              ? homePath
-              : homePath,
+              ? navPath
+              : navPath,
     );
   }
 }

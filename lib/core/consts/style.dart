@@ -208,4 +208,11 @@ abstract class AppConsts {
     color: AppConsts.neutral200,
     borderRadius: BorderRadius.circular(40.sp),
   );
+  static OutlineInputBorder circleFloatButtonBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(40),
+    borderSide: const BorderSide(
+      width: 0,
+      color: AppConsts.primary500,
+    ),
+  );
 }

@@ -1,8 +1,11 @@
 import 'package:cars/features/auth/presentation/view/auth_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/home/presentation/view/home_view.dart';
+import 'package:cars/features/nav/presentation/view/nav_view.dart';
+import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:cars/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../helper/custom_animation.dart';
@@ -10,6 +13,7 @@ import '../helper/custom_animation.dart';
 const String splashPath = '/';
 const String boardPath = '/board';
 const String authPath = '/auth';
+const String navPath = '/navPath';
 const String homePath = '/home';
 const String createPassPath = '/resetPassPath';
 // GoRouter configuration
@@ -41,6 +45,17 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const OnBoardingView(),
+      ),
+    ),
+    GoRoute(
+      path: navPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: BlocProvider(
+          create: (_) => NavBarCubit(),
+          child: const NavView(),
+        ),
       ),
     ),
     GoRoute(
