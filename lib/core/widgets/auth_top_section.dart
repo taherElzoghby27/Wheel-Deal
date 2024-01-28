@@ -3,7 +3,6 @@ import 'package:cars/core/consts/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
 class AuthTopSection extends StatelessWidget {
   const AuthTopSection({
@@ -34,7 +33,7 @@ class AuthTopSection extends StatelessWidget {
               widget,
               SizedBox(
                 height: size.height * .1,
-                child: Lottie.asset(Assets.imagesLoadCar, fit: BoxFit.fitWidth),
+                child: Image.asset(Assets.imagesLogo),
               ),
             ],
           ),

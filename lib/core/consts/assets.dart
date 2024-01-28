@@ -63,7 +63,7 @@ class Assets {
 
   /// Assets for imagesLogo
   /// assets/images/logo.jpg
-  static const String imagesLogo = "assets/images/logo.jpg";
+  static const String imagesLogo = "assets/images/logo.png";
 
   /// Assets for imagesNoMessages
   /// assets/images/no_messages.svg

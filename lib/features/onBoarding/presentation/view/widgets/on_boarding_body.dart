@@ -87,10 +87,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
             children: [
               SizedBox(
                 height: size.height * .1,
-                child: Lottie.asset(
-                  Assets.imagesLoadCar,
-                  fit: BoxFit.fitWidth,
-                ),
+                child: Image.asset(Assets.imagesLogo),
               ),
 
               ///skip
