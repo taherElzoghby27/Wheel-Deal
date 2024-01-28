@@ -35,7 +35,7 @@ class AuthTopSection extends StatelessWidget {
               SizedBox(
                 height: size.height * .1,
                 child: Lottie.asset(Assets.imagesLoadCar, fit: BoxFit.fitWidth),
-              )
+              ),
             ],
           ),
         ),

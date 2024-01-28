@@ -5,6 +5,18 @@ class Assets {
   /// assets/images/assets.svg
   static const String imagesAssets = "assets/images/assets.svg";
 
+  /// Assets for imagesBoard1
+  /// assets/images/board1.svg
+  static const String imagesBoard1 = "assets/images/board1.png";
+
+  /// Assets for imagesBoard2
+  /// assets/images/board2.svg
+  static const String imagesBoard2 = "assets/images/board2.png";
+
+  /// Assets for imagesBoard3
+  /// assets/images/board3.svg
+  static const String imagesBoard3 = "assets/images/board3.png";
+
   /// Assets for imagesBookmark2
   /// assets/images/bookmark-2.svg
   static const String imagesBookmark2 = "assets/images/bookmark-2.svg";
@@ -47,7 +59,7 @@ class Assets {
 
   /// Assets for imagesLock
   /// assets/images/lock.png
-  static const String imagesLockpng = "assets/images/lock.png";
+  static const String imagesLockPng = "assets/images/lock.png";
 
   /// Assets for imagesLogo
   /// assets/images/logo.jpg
@@ -67,7 +79,7 @@ class Assets {
 
   /// Assets for imagesProfile
   /// assets/images/profile.png
-  static const String imagesProfilepng = "assets/images/profile.png";
+  static const String imagesProfilePng = "assets/images/profile.png";
 
   /// Assets for imagesSms
   /// assets/images/sms.png

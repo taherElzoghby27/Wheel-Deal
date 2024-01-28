@@ -121,7 +121,7 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
                                   ? Container()
                                   : CustomTextFormField(
                                       perfixIcon:
-                                          Image.asset(Assets.imagesProfilepng),
+                                          Image.asset(Assets.imagesProfilePng),
                                       hint: StringsEn.userName,
                                       onChanged: (String? value) =>
                                           name = value,
@@ -141,7 +141,7 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
                           _authMode == AuthMode.ResetPassword
                               ? Container()
                               : CustomTextFormField(
-                                  perfixIcon: Image.asset(Assets.imagesLockpng),
+                                  perfixIcon: Image.asset(Assets.imagesLockPng),
                                   hint: StringsEn.password,
                                   obscureText: visible,
                                   onChanged: (String? value) =>
