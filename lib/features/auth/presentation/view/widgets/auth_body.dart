@@ -177,7 +177,6 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
                   );
                 },
               ),
-              const SizedBox.shrink(),
 
               ///already have an account
               Row(
