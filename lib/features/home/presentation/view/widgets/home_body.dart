@@ -1,3 +1,7 @@
+import 'package:cars/core/consts/assets.dart';
+import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
@@ -5,13 +9,19 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('home'),
-        ],
-      ),
+    return Column(
+      children: [
+        ///custom appBar
+        CustomAppBar(
+          image: Assets.imagesLogo,
+          title: StringsEn.logo,
+          trailingOnTap: () {},
+          trailingWidget: const Icon(
+            Icons.favorite_outline,
+            color: AppConsts.primary300,
+          ),
+        ),
+      ],
     );
   }
 }
