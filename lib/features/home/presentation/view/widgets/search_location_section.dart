@@ -1,3 +1,5 @@
+import 'package:cars/features/home/presentation/view/widgets/location_section.dart';
+import 'package:cars/features/home/presentation/view/widgets/search_section.dart';
 import 'package:flutter/material.dart';
 
 class SearchLocationSection extends StatelessWidget {
@@ -5,8 +7,13 @@ class SearchLocationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [],
+    return const Column(
+      children: [
+        //location section
+        LocationSection(),
+        //search section
+        SearchSection(),
+      ],
     );
   }
 }
