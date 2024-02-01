@@ -16,6 +16,7 @@ class SearchSection extends StatelessWidget {
       child: CustomTextField(
         perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
         hint: StringsEn.search,
+        readOnly: true,
         onTap: () => GoRouter.of(context).push(''),
         border: AppConsts.normalBorderField.copyWith(
           borderRadius: BorderRadius.circular(35),
