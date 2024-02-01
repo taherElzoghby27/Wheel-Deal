@@ -15,7 +15,8 @@ String checkPhotoType(String image) =>
                 ? StringsEn.svg
                 : StringsEn.network;
 //handle image
-Widget handleImage({required String image, double? height, double? width}) {
+Widget handleImage(
+    {required String image, double? height, double? width, BoxFit? fit}) {
   String type = checkPhotoType(image);
   switch (type) {
     case 'jpg' || 'png':
@@ -23,20 +24,20 @@ Widget handleImage({required String image, double? height, double? width}) {
         image,
         height: height,
         width: width,
-        fit: BoxFit.fill,
+        fit: fit ?? BoxFit.fill,
       );
     case 'svg':
       return SvgPicture.asset(
         image,
         height: height,
         width: width,
-        fit: BoxFit.fill,
+        fit: fit??BoxFit.fill,
       );
     case 'network':
       return CachedNetworkImage(
         height: height,
         width: width,
-        fit: BoxFit.fill,
+        fit:fit?? BoxFit.fill,
         imageUrl: image,
         placeholder: (context, url) => const LoadingWidget(),
         errorWidget: (context, url, error) => const Icon(Icons.error),

@@ -14,7 +14,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
+    return ListView(
       children: [
         //custom appBar
         CustomAppBar(
@@ -29,10 +29,10 @@ class HomeBody extends StatelessWidget {
 
         //search section
         const SearchLocationSection(),
-        SizedBox(height: size.height*.02.h),
+        SizedBox(height: size.height * .02.h),
         //special offer section
         const SpecialOfferSection(),
-        SizedBox(height: size.height*.02.h),
+        SizedBox(height: size.height * .02.h),
         //categories section
         const CategoriesSection(),
       ],
