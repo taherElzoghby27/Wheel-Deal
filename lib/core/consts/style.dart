@@ -67,6 +67,9 @@ abstract class AppConsts {
   static const Color danger300 = Color.fromRGBO(255, 164, 127, 1);
   static const Color danger200 = Color.fromRGBO(255, 201, 170, 1);
   static const Color danger100 = Color.fromRGBO(255, 231, 212, 1);
+
+  //padding
+  static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 8.w);
   static const TextStyle style30 = TextStyle(
     fontWeight: FontWeight.w900,
     fontSize: 30,
@@ -199,6 +202,9 @@ abstract class AppConsts {
   static BoxDecoration decorationPhoto = BoxDecoration(
     border: Border.all(width: 4, color: AppConsts.neutral100),
     borderRadius: BorderRadius.circular(90),
+  );
+  static BoxDecoration decoration = BoxDecoration(
+    borderRadius: BorderRadius.circular(15),
   );
   static BoxDecoration decorationBlur = BoxDecoration(
     borderRadius: BorderRadius.circular(90),

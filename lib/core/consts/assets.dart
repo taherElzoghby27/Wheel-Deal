@@ -88,4 +88,8 @@ class Assets {
   /// Assets for imagesUser
   /// assets/images/user.svg
   static const String imagesUser = "assets/images/user.svg";
+  static const String car1 = "assets/images/car1.jpg";
+  static const String car2 = "assets/images/car2.jpg";
+  static const String car3 = "assets/images/car3.jpg";
+
 }

@@ -408,6 +408,11 @@ abstract class StringsEn {
   static String notOpen = 'not open';
   static String formatDate = 'MMMM yyyy';
   static String defaultDate = 'Month Year';
+  static String jpg = 'jpg';
+  static String png = 'png';
+  static String svg = 'svg';
+  static String https = 'https';
+  static String network = 'network';
 }
 
 ///strings by arabic

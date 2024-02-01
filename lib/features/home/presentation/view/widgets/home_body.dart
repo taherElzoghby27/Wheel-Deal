@@ -13,29 +13,29 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
-      child: Column(
-        children: [
-          //custom appBar
-          CustomAppBar(
-            image: Assets.imagesLogo,
-            title: StringsEn.logo,
-            trailingOnTap: () {},
-            trailingWidget: const Icon(
-              Icons.favorite_outline,
-              color: AppConsts.primary300,
-            ),
+    Size size = MediaQuery.of(context).size;
+    return Column(
+      children: [
+        //custom appBar
+        CustomAppBar(
+          image: Assets.imagesLogo,
+          title: StringsEn.logo,
+          trailingOnTap: () {},
+          trailingWidget: const Icon(
+            Icons.favorite_outline,
+            color: AppConsts.primary300,
           ),
+        ),
 
-          //search section
-          const SearchLocationSection(),
-          //special offer section
-          const SpecialOfferSection(),
-          //categories section
-          const CategoriesSection(),
-        ],
-      ),
+        //search section
+        const SearchLocationSection(),
+        SizedBox(height: size.height*.02.h),
+        //special offer section
+        const SpecialOfferSection(),
+        SizedBox(height: size.height*.02.h),
+        //categories section
+        const CategoriesSection(),
+      ],
     );
   }
 }
