@@ -17,7 +17,7 @@ class HomeBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Column(
         children: [
-          ///custom appBar
+          //custom appBar
           CustomAppBar(
             image: Assets.imagesLogo,
             title: StringsEn.logo,
