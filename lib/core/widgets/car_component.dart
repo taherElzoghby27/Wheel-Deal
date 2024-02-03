@@ -1,8 +1,9 @@
 import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../consts/style.dart';
 
 class CarComponent extends StatelessWidget {
   const CarComponent({super.key});
@@ -15,7 +16,8 @@ class CarComponent extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: AppConsts.neutral100,
+          color: AppConsts.white,
+          boxShadow: AppConsts.boxShadows,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -45,7 +47,6 @@ class CarComponent extends StatelessWidget {
               padding: AppConsts.mainPadding,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-
                 children: [
                   const Text(
                     'BMW 320i M Sport',

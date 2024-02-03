@@ -14,12 +14,12 @@ class CategoryDetails extends StatelessWidget {
         crossAxisCount: 2, // number of items in each row
         mainAxisSpacing: 10, // spacing between rows
         crossAxisSpacing: 10, // spacing between columns
-        childAspectRatio: 2.25/3,
+        childAspectRatio: 2.25 / 3,
       ),
+      itemCount: 10,
       itemBuilder: (context, index) {
         return CarComponent();
       },
-      itemCount: 10,
     );
   }
 }

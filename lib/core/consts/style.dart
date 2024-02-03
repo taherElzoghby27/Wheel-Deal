@@ -221,4 +221,13 @@ abstract class AppConsts {
       color: AppConsts.primary500,
     ),
   );
+
+  //box shadows
+  static List<BoxShadow> boxShadows = const [
+    BoxShadow(
+      color: AppConsts.neutral100,
+      blurRadius: 7,
+      spreadRadius: 7,
+    ),
+  ];
 }
