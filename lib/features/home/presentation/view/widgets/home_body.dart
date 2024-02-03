@@ -22,7 +22,7 @@ class HomeBody extends StatelessWidget {
           title: StringsEn.logo,
           trailingOnTap: () {},
           trailingWidget: const Icon(
-            Icons.favorite_outline,
+            Icons.favorite,
             color: AppConsts.primary300,
           ),
         ),

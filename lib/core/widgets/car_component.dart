@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../consts/style.dart';
+import 'book_mark_animation.dart';
 
 class CarComponent extends StatelessWidget {
   const CarComponent({super.key});
@@ -32,12 +33,9 @@ class CarComponent extends StatelessWidget {
                     child: handleImage(image: Assets.car3),
                   ),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.centerRight,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_outline_rounded),
-                  ),
+                  child: IconWidgetAnimation(icon: Icons.favorite),
                 ),
               ],
             ),
