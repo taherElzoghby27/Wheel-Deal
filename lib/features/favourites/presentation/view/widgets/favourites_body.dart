@@ -1,6 +1,5 @@
-import 'package:cars/core/consts/assets.dart';
+import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
-import 'package:cars/core/widgets/empty_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +14,7 @@ class FavouritesBody extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      padding: AppConsts.mainPadding,
       child: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
