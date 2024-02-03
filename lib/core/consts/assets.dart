@@ -91,5 +91,5 @@ class Assets {
   static const String car1 = "assets/images/car1.jpg";
   static const String car2 = "assets/images/car2.jpg";
   static const String car3 = "assets/images/car3.jpg";
-
+  static const String emptyCart = "assets/images/emptyCart.svg";
 }

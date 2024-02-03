@@ -1,5 +1,6 @@
 import 'package:cars/features/auth/presentation/view/auth_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
+import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
 import 'package:cars/features/home/presentation/view/home_view.dart';
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
@@ -16,6 +17,7 @@ const String authPath = '/auth';
 const String navPath = '/navPath';
 const String homePath = '/home';
 const String createPassPath = '/resetPassPath';
+const String favouritesPath = '/favouritesPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -64,6 +66,14 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const HomeView(),
+      ),
+    ),
+    GoRoute(
+      path: favouritesPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const FavouritesView(),
       ),
     ),
   ],

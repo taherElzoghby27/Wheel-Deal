@@ -15,6 +15,12 @@ class Categories extends StatelessWidget {
         const TabsWidget(),
         SizedBox(height: size.height * .02.h),
         //category details
+        //if empty
+        // const EmptyWidget(
+        //   icon: Assets.emptyCart,
+        //   title: StringsEn.emptyFavourite,
+        //   subTitle: StringsEn.subTitleEmptyFavourite,
+        // ),
         const CategoryDetails(),
       ],
     );
