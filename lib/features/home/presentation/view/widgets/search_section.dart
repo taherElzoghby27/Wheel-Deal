@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/text_field.dart';
@@ -17,7 +18,7 @@ class SearchSection extends StatelessWidget {
         perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
         hint: StringsEn.search,
         readOnly: true,
-        onTap: () => GoRouter.of(context).push(''),
+        onTap: () => GoRouter.of(context).push(searchPath),
         border: AppConsts.normalBorderField.copyWith(
           borderRadius: BorderRadius.circular(35),
         ),

@@ -1,5 +1,6 @@
 import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/helper/handle_image.dart';
+import 'package:cars/core/models/car_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +8,12 @@ import '../consts/style.dart';
 import 'book_mark_animation.dart';
 
 class CarComponent extends StatelessWidget {
-  const CarComponent({super.key});
+  const CarComponent({
+    super.key,
+    this.car,
+  });
+
+  final CarModel? car;
 
   @override
   Widget build(BuildContext context) {

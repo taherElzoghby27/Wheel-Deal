@@ -5,6 +5,7 @@ import 'package:cars/features/home/presentation/view/home_view.dart';
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:cars/features/onBoarding/presentation/view/on_boarding_view.dart';
+import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +19,7 @@ const String navPath = '/navPath';
 const String homePath = '/home';
 const String createPassPath = '/resetPassPath';
 const String favouritesPath = '/favouritesPath';
+const String searchPath = '/searchPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -74,6 +76,14 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const FavouritesView(),
+      ),
+    ),
+    GoRoute(
+      path: searchPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const SearchView(),
       ),
     ),
   ],

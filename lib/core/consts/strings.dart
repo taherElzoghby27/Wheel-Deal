@@ -50,6 +50,7 @@ abstract class StringsEn {
   static const String specialOffers = "Special Offers";
   static const String categories = "Categories";
   static const String all = "All";
+  static const String cars = "Cars";
   static const String newCar = "New Car";
   static const String usedCar = 'Used Car';
   static const String rentCar = 'Rent Car';
