@@ -10,9 +10,9 @@ class CustomButtonIcon extends StatelessWidget {
     required this.icon,
   }) : super(key: key);
 
-  final Widget label;
+  final String label;
 
-  final Widget icon;
+  final IconData icon;
   final void Function() onTap;
 
   @override
@@ -20,22 +20,31 @@ class CustomButtonIcon extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(25),
-      child: Container(
-        height: size.height * .0475.h,
-        width: size.width * .85.w,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          border: Border.all(color: AppConsts.primary500),
-        ),
-        child: Center(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              icon,
-              label,
-            ],
+      borderRadius: BorderRadius.circular(10),
+      child: Padding(
+        padding: EdgeInsets.all(8.0.sp),
+        child: Container(
+          height: size.height * .05.h,
+          decoration: BoxDecoration(
+            color: AppConsts.primary500,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Center(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  color: AppConsts.neutral100,
+                ),
+                SizedBox(width: size.width * .05.w),
+                Text(
+                  label,
+                  style: AppConsts.style16White,
+                ),
+              ],
+            ),
           ),
         ),
       ),
