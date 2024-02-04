@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget {
     this.trailingOnTap,
     this.trailingWidget,
     this.image,
+    this.color = AppConsts.neutral900,
   });
 
   final void Function()? leadingOnTap;
@@ -17,6 +18,7 @@ class CustomAppBar extends StatelessWidget {
   final void Function()? trailingOnTap;
   final Widget? trailingWidget;
   final String? image;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,10 @@ class CustomAppBar extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: leadingOnTap,
-                      icon: const Icon(Icons.arrow_back),
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: color,
+                      ),
                     ),
                     SizedBox(width: size.width * .2.w),
                   ],
@@ -43,7 +48,7 @@ class CustomAppBar extends StatelessWidget {
               ? Text(
                   title,
                   style: AppConsts.style20.copyWith(
-                    color: AppConsts.neutral900,
+                    color: color,
                   ),
                 )
               : Row(
@@ -59,7 +64,7 @@ class CustomAppBar extends StatelessWidget {
                     Text(
                       title,
                       style: AppConsts.style20.copyWith(
-                        color: AppConsts.neutral900,
+                        color: color,
                       ),
                     ),
                   ],

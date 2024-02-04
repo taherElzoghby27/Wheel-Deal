@@ -71,7 +71,7 @@ abstract class StringsEn {
   static const String useCurrentLocation = "Use Current Location";
   static const String chooseRegion = "Choose Region";
   static const String details = "Details";
-  static const String brand = 'Brand;';
+  static const String brand = 'Brand:';
   static const String model = 'Model:';
   static const String adType = 'Ad Type:';
   static const String transmission = 'Transmission:';
