@@ -13,11 +13,13 @@ class SectionSearch extends StatelessWidget {
     required this.onChanged,
     this.controller,
     required this.hint,
+    this.trailingWidget,
   });
 
   final void Function(String)? onChanged;
   final TextEditingController? controller;
   final String hint;
+  final Widget? trailingWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class SectionSearch extends StatelessWidget {
             ),
           ),
         ),
+        trailingWidget ?? Container(),
       ],
     );
   }

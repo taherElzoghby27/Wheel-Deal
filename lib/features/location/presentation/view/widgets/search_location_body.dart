@@ -4,6 +4,8 @@ import 'package:cars/features/search/presentation/view/widgets/search_section.da
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/consts/style.dart';
+
 class SearchLocationBody extends StatelessWidget {
   const SearchLocationBody({super.key});
 
@@ -19,6 +21,13 @@ class SearchLocationBody extends StatelessWidget {
         SectionSearch(
           hint: StringsEn.searchArea,
           onChanged: (String value) {},
+          trailingWidget: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.my_location,
+              color: AppConsts.primary500,
+            ),
+          ),
         ),
         SizedBox(height: size.height * .015.h),
         SizedBox(height: size.height * .015.h),
