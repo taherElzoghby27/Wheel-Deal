@@ -12,10 +12,12 @@ class SectionSearch extends StatelessWidget {
     super.key,
     required this.onChanged,
     this.controller,
+    required this.hint,
   });
 
   final void Function(String)? onChanged;
   final TextEditingController? controller;
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class SectionSearch extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
             child: CustomTextField(
               perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
-              hint: StringsEn.typeSomething,
+              hint: hint,
               border: AppConsts.normalBorderField.copyWith(
                 borderRadius: BorderRadius.circular(35),
               ),

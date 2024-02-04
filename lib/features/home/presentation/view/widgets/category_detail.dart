@@ -24,7 +24,7 @@ class CategoryDetails extends StatelessWidget {
             position: index,
             duration: const Duration(milliseconds: 575),
             columnCount: 2,
-            child: ScaleAnimation(
+            child: const ScaleAnimation(
               child: FadeInAnimation(
                 child: CarComponent(),
               ),

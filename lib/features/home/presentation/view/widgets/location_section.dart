@@ -1,6 +1,8 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LocationSection extends StatelessWidget {
   const LocationSection({super.key});
@@ -9,40 +11,17 @@ class LocationSection extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        DropdownButtonHideUnderline(
-          child: DropdownMenu<String>(
-            inputDecorationTheme: const InputDecorationTheme(
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white),
-              ),
-              activeIndicatorBorder: BorderSide(width: 0),
-              outlineBorder: BorderSide(width: 0),
-            ),
-            leadingIcon: const Icon(Icons.location_on),
-            trailingIcon: const Icon(Icons.expand_more),
-            selectedTrailingIcon: const Icon(Icons.expand_less),
-            width: size.width * .375.w,
-            hintText: 'egypt',
-            textStyle: AppConsts.style14,
-            dropdownMenuEntries: const [
-              DropdownMenuEntry<String>(
-                value: 'egypt',
-                label: 'egypt',
-              ),
-              DropdownMenuEntry<String>(
-                value: 'tanta',
-                label: 'tanta',
-              ),
-              DropdownMenuEntry<String>(
-                value: 'cairo',
-                label: 'cairo',
-              ),
-              DropdownMenuEntry<String>(
-                value: 'qutor',
-                label: 'qutor',
-              ),
-            ],
+        TextButton.icon(
+          onPressed: () => GoRouter.of(context).push(locationPath),
+          icon: const Icon(
+            Icons.my_location,
+            color: AppConsts.primary500,
+          ),
+          label: const Text(
+            'Egypt',
+            style: AppConsts.style14,
           ),
         ),
       ],

@@ -47,6 +47,7 @@ abstract class StringsEn {
   static const String yourPassChanged =
       'Your password has been changed successfully, we will let you know if there are more problems with your account';
   static const String search = "Search";
+  static const String searchArea ='Search area, city or country';
   static const String specialOffers = "Special Offers";
   static const String categories = "Categories";
   static const String all = "All";

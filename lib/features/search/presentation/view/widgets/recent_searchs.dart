@@ -7,13 +7,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/widgets/tile_widget.dart';
 
 class RecentSearch extends StatelessWidget {
-  const RecentSearch({super.key});
+  const RecentSearch({
+    super.key,
+    required this.tileHint,
+  });
+
+  final String tileHint;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TileWidget(label: StringsEn.recentSearches),
+        TileWidget(label: tileHint),
 
         ///recent searches
         ListView.builder(
