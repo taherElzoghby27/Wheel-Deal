@@ -24,7 +24,6 @@ class CustomButtonIcon extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(8.0.sp),
         child: Container(
-          height: size.height * .05.h,
           decoration: BoxDecoration(
             color: AppConsts.primary500,
             borderRadius: BorderRadius.circular(10),

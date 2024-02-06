@@ -1,7 +1,6 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_button_icon.dart';
-import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/car_details/presentation/view/widgets/tile_detail_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -181,17 +180,23 @@ class DetailsCarComponent extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: CustomButtonIcon(
-                  label: StringsEn.chat,
-                  icon: Icons.chat,
-                  onTap: () {},
+                child: AspectRatio(
+                  aspectRatio: AppConsts.aspectRatioButtonDetailsCar,
+                  child: CustomButtonIcon(
+                    label: StringsEn.chat,
+                    icon: Icons.chat,
+                    onTap: () {},
+                  ),
                 ),
               ),
               Expanded(
-                child: CustomButtonIcon(
-                  label: StringsEn.call,
-                  icon: Icons.call,
-                  onTap: () {},
+                child: AspectRatio(
+                  aspectRatio: AppConsts.aspectRatioButtonDetailsCar,
+                  child: CustomButtonIcon(
+                    label: StringsEn.call,
+                    icon: Icons.call,
+                    onTap: () {},
+                  ),
                 ),
               ),
             ],

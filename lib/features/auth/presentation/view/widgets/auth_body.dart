@@ -208,7 +208,7 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
 
               ///Create account or login or reset pass
               AspectRatio(
-                aspectRatio:AppConsts.aspectRatioButton,
+                aspectRatio:AppConsts.aspectRatioButtonAuth,
                 child: Visibility(
                   visible: !isLoading,
                   replacement: const LoadingWidget(),

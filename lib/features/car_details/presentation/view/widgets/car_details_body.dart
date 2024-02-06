@@ -7,7 +7,6 @@ class CarDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return ListView(
       physics: const BouncingScrollPhysics(),
       children: const [

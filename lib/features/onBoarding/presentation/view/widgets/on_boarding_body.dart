@@ -117,7 +117,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: AspectRatio(
-                aspectRatio: AppConsts.aspectRatioButton,
+                aspectRatio: AppConsts.aspectRatioButtonAuth,
                 child: CustomButton(
                   text:
                       currentPage == 2 ? StringsEn.getStarted : StringsEn.next,

@@ -67,7 +67,8 @@ abstract class AppConsts {
   static const Color danger300 = Color.fromRGBO(255, 164, 127, 1);
   static const Color danger200 = Color.fromRGBO(255, 201, 170, 1);
   static const Color danger100 = Color.fromRGBO(255, 231, 212, 1);
-  static const double aspectRatioButton = 3 / .4;
+  static const double aspectRatioButtonAuth = 3 / .4;
+  static const double aspectRatioButtonDetailsCar =2/.65;
 
   //padding
   static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 8.w);
