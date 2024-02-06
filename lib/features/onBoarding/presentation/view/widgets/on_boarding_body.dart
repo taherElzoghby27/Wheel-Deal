@@ -114,28 +114,31 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
           bottom: size.height * .07.h,
           child: Align(
             alignment: Alignment.center,
-            child: SizedBox(
-              height: size.height * .055.h,
-              width: size.width * .9.w,
-              child: CustomButton(
-                text: currentPage == 2 ? StringsEn.getStarted : StringsEn.next,
-                onTap: () {
-                  if (currentPage == 0) {
-                    pageController.animateToPage(
-                      1,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeIn,
-                    );
-                  } else if (currentPage == 1) {
-                    pageController.animateToPage(
-                      2,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeIn,
-                    );
-                  } else {
-                    GoRouter.of(context).pushReplacement(authPath);
-                  }
-                },
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: AspectRatio(
+                aspectRatio: AppConsts.aspectRatioButton,
+                child: CustomButton(
+                  text:
+                      currentPage == 2 ? StringsEn.getStarted : StringsEn.next,
+                  onTap: () {
+                    if (currentPage == 0) {
+                      pageController.animateToPage(
+                        1,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    } else if (currentPage == 1) {
+                      pageController.animateToPage(
+                        2,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    } else {
+                      GoRouter.of(context).pushReplacement(authPath);
+                    }
+                  },
+                ),
               ),
             ),
           ),

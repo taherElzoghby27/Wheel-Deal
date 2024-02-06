@@ -207,9 +207,8 @@ class _AuthBodyState extends State<AuthBody> with TickerProviderStateMixin {
               SizedBox(height: size.height * .01.h),
 
               ///Create account or login or reset pass
-              SizedBox(
-                height: size.height * .055.h,
-                width: size.width * .9.w,
+              AspectRatio(
+                aspectRatio:AppConsts.aspectRatioButton,
                 child: Visibility(
                   visible: !isLoading,
                   replacement: const LoadingWidget(),
