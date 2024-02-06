@@ -16,20 +16,18 @@ class TabWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(8.0.sp),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(15),
         child: Container(
-          height: size.height * .04.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: active ? AppConsts.primary500 : AppConsts.neutral100,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0.sp),
             child: Center(
               child: Text(
                 label,

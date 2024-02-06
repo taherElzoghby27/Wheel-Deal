@@ -34,14 +34,12 @@ class CustomAppBar extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: leadingOnTap,
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: color,
-                      ),
+                      icon: Icon(Icons.arrow_back, color: color),
                     ),
                     SizedBox(width: size.width * .25.w),
                   ],
                 ),
+
           ///set filter
           image == null
               ? Text(
@@ -59,7 +57,7 @@ class CustomAppBar extends StatelessWidget {
                         height: size.height * .075.h,
                       ),
                     ),
-                    SizedBox(width: size.width * .2.w),
+                    SizedBox(width: size.width * .225.w),
                     Text(
                       title,
                       style: AppConsts.style20.copyWith(
