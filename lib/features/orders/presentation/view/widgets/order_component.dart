@@ -15,7 +15,7 @@ class OrderComponent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(5.sp),
       child: AspectRatio(
-        aspectRatio: AppConsts.aspectRatioComponentOrder,
+        aspectRatio: AppConsts.aspectRatioComponentOrder.sp,
         child: Container(
           decoration: AppConsts.decorationShadow15White,
           child: Padding(
@@ -27,7 +27,7 @@ class OrderComponent extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: AspectRatio(
-                      aspectRatio: 16 / 13.sp,
+                      aspectRatio: AppConsts.aspectRatioImage.sp,
                       child: handleImage(image: Assets.car1),
                     ),
                   ),
@@ -58,7 +58,7 @@ class OrderComponent extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(left: 30.w, right: 10.w),
                         child: AspectRatio(
-                          aspectRatio: AppConsts.aspectRatioButtonComponent,
+                          aspectRatio: AppConsts.aspectRatioButtonComponent.sp,
                           child: CustomButton(
                             text: StringsEn.trackOrder,
                             onTap: () {},

@@ -181,7 +181,7 @@ class DetailsCarComponent extends StatelessWidget {
             children: [
               Expanded(
                 child: AspectRatio(
-                  aspectRatio: AppConsts.aspectRatioButtonDetailsCar,
+                  aspectRatio: AppConsts.aspectRatioButtonDetailsCar.sp,
                   child: CustomButtonIcon(
                     label: StringsEn.chat,
                     icon: Icons.chat,
@@ -191,7 +191,7 @@ class DetailsCarComponent extends StatelessWidget {
               ),
               Expanded(
                 child: AspectRatio(
-                  aspectRatio: AppConsts.aspectRatioButtonDetailsCar,
+                  aspectRatio: AppConsts.aspectRatioButtonDetailsCar.sp,
                   child: CustomButtonIcon(
                     label: StringsEn.call,
                     icon: Icons.call,
