@@ -1,7 +1,6 @@
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomCircleButton extends StatelessWidget {
   const CustomCircleButton({
@@ -12,7 +11,7 @@ class CustomCircleButton extends StatelessWidget {
     this.colorIcon,
   });
 
-  final String icon;
+  final IconData icon;
   final void Function()? onTap;
   final Color? color;
   final Color? colorIcon;
@@ -22,19 +21,20 @@ class CustomCircleButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(25.sp),
-      child: Container(
-        height: size.height * .055.h,
-        width: size.width * .12.w,
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(25.sp),
-          border: Border.all(color: color ?? AppConsts.neutral300),
-        ),
-        child: Center(
-          child: SvgPicture.asset(
-            icon,
-            color: colorIcon,
+      borderRadius: AppConsts.mainRadiusImage,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius:AppConsts.mainRadiusImage,
+            border: Border.all(color: color ?? AppConsts.neutral300),
+          ),
+          child: Center(
+            child: IconButton(
+              onPressed: onTap,
+              icon: Icon(icon),
+            ),
           ),
         ),
       ),

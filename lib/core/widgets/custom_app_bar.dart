@@ -26,6 +26,7 @@ class CustomAppBar extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(4.sp),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ///arrow back
           leadingOnTap == null
@@ -47,8 +48,10 @@ class CustomAppBar extends StatelessWidget {
                   style: AppConsts.style20.copyWith(
                     color: color,
                   ),
+                  textAlign: TextAlign.center,
                 )
               : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(20),
@@ -63,6 +66,7 @@ class CustomAppBar extends StatelessWidget {
                       style: AppConsts.style20.copyWith(
                         color: color,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),

@@ -76,9 +76,12 @@ abstract class AppConsts {
   static const double aspectRatioImage = 16 / 13;
   static const double aspectRatioNavBar = 16 / 2.8;
   static const double aspectRatioComponentCategory = 2.4 / 3;
+  static const double aspectRatioTopSpace = 16/1;
+  static const double aspectRatioTileWidget =16/1.5;
 
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
+  static BorderRadius mainRadiusImage = BorderRadius.circular(25);
 
   //padding
   static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 8.w);

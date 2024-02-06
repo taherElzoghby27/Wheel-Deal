@@ -1,40 +1,33 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/handle_image.dart';
+import 'package:cars/features/chats/data/models/chat_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import 'custom_photo.dart';
 
 class LogoTitleIconWidget extends StatelessWidget {
-  const LogoTitleIconWidget({
-    super.key,
-    required this.logo,
-    required this.jopTitle,
-    required this.company,
-    required this.country,
-    required this.trailing,
-    this.onTap,
-  });
+  const LogoTitleIconWidget({super.key, required this.chat});
 
-  final String logo;
-  final String jopTitle;
-  final String company;
-  final String country;
-
-  final Widget trailing;
-  final void Function()? onTap;
+  final Chat chat;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: onTap,
+      onTap: () => GoRouter.of(context).push(chatPath),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ///logo
-          CustomPhoto(
-            image: logo,
-            height: size.height * .055.h,
+          ClipRRect(
+            borderRadius: AppConsts.mainRadiusImage,
+            child: handleImage(
+              image: chat.logo,
+              height: size.height * .055.h,
+            ),
           ),
           SizedBox(width: size.width * .02.w),
 
@@ -46,7 +39,7 @@ class LogoTitleIconWidget extends StatelessWidget {
                 child: SizedBox(
                   width: size.width * .45.w,
                   child: Text(
-                    jopTitle,
+                    chat.name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppConsts.style32.copyWith(
@@ -60,7 +53,7 @@ class LogoTitleIconWidget extends StatelessWidget {
               SizedBox(
                 width: size.width * .4.w,
                 child: Text(
-                  '$company.$country',
+                  chat.lastMessage,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppConsts.styleHint14.copyWith(
@@ -74,7 +67,17 @@ class LogoTitleIconWidget extends StatelessWidget {
           SizedBox(width: size.width * .02.w),
 
           ///trailing
-          SizedBox(width: size.width * .2.w, child: Center(child: trailing)),
+          SizedBox(
+            width: size.width * .2.w,
+            child: Center(
+              child: Text(
+                chat.time,
+                style: AppConsts.style12.copyWith(
+                  color: AppConsts.primary500,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

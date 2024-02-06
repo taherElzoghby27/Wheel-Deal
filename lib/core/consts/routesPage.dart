@@ -1,6 +1,7 @@
 import 'package:cars/features/auth/presentation/view/auth_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
+import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
 import 'package:cars/features/home/presentation/view/home_view.dart';
 import 'package:cars/features/location/presentation/view/search_location_view.dart';
@@ -24,6 +25,7 @@ const String favouritesPath = '/favouritesPath';
 const String searchPath = '/searchPath';
 const String locationPath='/locationPath';
 const String carDetailsPath='/carDetailsPath';
+const String chatPath='/chatPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -72,6 +74,14 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const HomeView(),
+      ),
+    ),
+    GoRoute(
+      path: chatPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const ChatView(),
       ),
     ),
     GoRoute(
