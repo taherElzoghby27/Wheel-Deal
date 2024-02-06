@@ -31,10 +31,10 @@ class HomeBody extends StatelessWidget {
 
         //search section
         const SearchLocationSection(),
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         //special offer section
         const SpecialOfferSection(),
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         //categories section
         const CategoriesSection(),
       ],

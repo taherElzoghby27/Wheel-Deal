@@ -15,7 +15,7 @@ class SearchBody extends StatelessWidget {
 
     return ListView(
       children: [
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
 
         ///section search field
         SectionSearch(

@@ -30,47 +30,31 @@ class CustomAppBar extends StatelessWidget {
         children: [
           ///arrow back
           leadingOnTap == null
-              ? Container()
+              ? ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    image!,
+                    height: size.height * .075.h,
+                  ),
+                )
               : Row(
                   children: [
                     IconButton(
                       onPressed: leadingOnTap,
                       icon: Icon(Icons.arrow_back, color: color),
                     ),
-                    SizedBox(width: size.width * .25.w),
+                    // SizedBox(width: size.width * .25.w),
                   ],
                 ),
 
-          ///set filter
-          image == null
-              ? Text(
-                  title,
-                  style: AppConsts.style20.copyWith(
-                    color: color,
-                  ),
-                  textAlign: TextAlign.center,
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        image!,
-                        height: size.height * .075.h,
-                      ),
-                    ),
-                    SizedBox(width: size.width * .225.w),
-                    Text(
-                      title,
-                      style: AppConsts.style20.copyWith(
-                        color: color,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-          const Spacer(),
+          Text(
+            title,
+            style: AppConsts.style20.copyWith(
+              color: color,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          //const Spacer(),
 
           ///reset
           trailingWidget == null

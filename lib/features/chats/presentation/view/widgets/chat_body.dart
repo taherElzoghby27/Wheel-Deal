@@ -16,7 +16,7 @@ class ChatBody extends StatelessWidget {
 
     return Column(
       children: [
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         //back   title   settings
         CustomAppBar(
           leadingOnTap: () => GoRouter.of(context).pop(),

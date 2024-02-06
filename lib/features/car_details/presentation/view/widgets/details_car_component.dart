@@ -18,7 +18,7 @@ class DetailsCarComponent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: size.height * .02.h),
+          const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
           //price name
           BoxDecorationWidget(
             widget: Column(

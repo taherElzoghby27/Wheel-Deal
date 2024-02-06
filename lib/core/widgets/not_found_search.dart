@@ -16,9 +16,9 @@ class NotFoundSearch extends StatelessWidget {
       children: [
         SizedBox(height: size.height * .2.h),
         SvgPicture.asset(Assets.imagesNotFoundSearch),
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         Text(StringsEn.searchNotFound, style: AppConsts.style24),
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 40.w),
           child: Text(

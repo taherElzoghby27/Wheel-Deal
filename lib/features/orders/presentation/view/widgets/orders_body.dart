@@ -18,13 +18,13 @@ class OrdersBody extends StatelessWidget {
       child: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
-          SizedBox(height: size.height * .02.h),
+          const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
           CustomAppBar(
             leadingOnTap: () => GoRouter.of(context).pushReplacement(navPath),
             title: StringsEn.orders,
             trailingWidget: Container(),
           ),
-          SizedBox(height: size.height * .02.h),
+          const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
           //favourites car
 
           const Orders(),

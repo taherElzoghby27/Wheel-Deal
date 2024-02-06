@@ -13,7 +13,7 @@ class Categories extends StatelessWidget {
       children: [
         //tabs
         const TabsWidget(),
-        SizedBox(height: size.height * .02.h),
+        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         //category details
         //if empty
         // const EmptyWidget(
