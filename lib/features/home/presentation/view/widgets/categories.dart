@@ -1,19 +1,18 @@
+import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/home/presentation/view/widgets/category_detail.dart';
 import 'package:cars/features/home/presentation/view/widgets/tabs_widget.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Column(
+    return const Column(
       children: [
         //tabs
-        const TabsWidget(),
-        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
+         TabsWidget(),
+         AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
         //category details
         //if empty
         // const EmptyWidget(
@@ -21,7 +20,7 @@ class Categories extends StatelessWidget {
         //   title: StringsEn.emptyFavourite,
         //   subTitle: StringsEn.subTitleEmptyFavourite,
         // ),
-        const CategoryDetails(),
+         CategoryDetails(),
       ],
     );
   }

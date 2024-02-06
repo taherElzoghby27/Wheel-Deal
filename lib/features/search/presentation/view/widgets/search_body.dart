@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/search/presentation/view/widgets/recent_searchs.dart';
 import 'package:cars/features/search/presentation/view/widgets/result_section.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class SearchBody extends StatelessWidget {
 
     return ListView(
       children: [
-        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
 
         ///section search field
         SectionSearch(
