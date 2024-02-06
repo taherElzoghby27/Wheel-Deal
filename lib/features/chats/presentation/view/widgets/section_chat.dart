@@ -49,7 +49,7 @@ class SectionChat extends StatelessWidget {
                     icon: Icons.mic_rounded,
                     onTap: () {},
                   ),
-                  SizedBox(width: size.width * .05.w),
+                  SizedBox(width: size.width * .02.w),
                   //write a message
                   Expanded(
                     child: CustomTextField(
@@ -57,7 +57,7 @@ class SectionChat extends StatelessWidget {
                       controller: TextEditingController(),
                     ),
                   ),
-                  SizedBox(width: size.width * .05.w),
+                  SizedBox(width: size.width * .02.w),
                   //microphone
                   CustomCircleButton(
                     icon: Icons.send,
