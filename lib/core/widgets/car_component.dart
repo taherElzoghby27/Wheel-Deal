@@ -19,27 +19,22 @@ class CarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () => GoRouter.of(context).push(carDetailsPath),
       child: Padding(
         padding: EdgeInsets.all(8.0.sp),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: AppConsts.white,
-            boxShadow: AppConsts.boxShadows,
-          ),
+          decoration:AppConsts.decorationShadow15White,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               //image
               Stack(
                 children: [
-                  SizedBox(
-                    height: size.height * .2.h,
+                  AspectRatio(
+                    aspectRatio: AppConsts.aspectRatioImage.sp,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: AppConsts.mainRadius,
                       child: handleImage(image: Assets.car3),
                     ),
                   ),
