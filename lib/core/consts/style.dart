@@ -68,7 +68,9 @@ abstract class AppConsts {
   static const Color danger200 = Color.fromRGBO(255, 201, 170, 1);
   static const Color danger100 = Color.fromRGBO(255, 231, 212, 1);
   static const double aspectRatioButtonAuth = 3 / .4;
-  static const double aspectRatioButtonDetailsCar =2/.65;
+  static const double aspectRatioButtonDetailsCar = 2 / .65;
+  static const double aspectRatioButtonComponent = 4 / .8;
+  static const double aspectRatioComponentOrder = 4 / 1.9;
 
   //padding
   static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 8.w);
@@ -239,4 +241,9 @@ abstract class AppConsts {
       spreadRadius: 7,
     ),
   ];
+  static BoxDecoration decorationShadow15White = BoxDecoration(
+    color: AppConsts.white,
+    borderRadius: BorderRadius.circular(15.sp),
+    boxShadow: AppConsts.boxShadowsDark,
+  );
 }

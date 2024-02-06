@@ -39,10 +39,9 @@ class CustomAppBar extends StatelessWidget {
                         color: color,
                       ),
                     ),
-                    SizedBox(width: size.width * .2.w),
+                    SizedBox(width: size.width * .25.w),
                   ],
                 ),
-
           ///set filter
           image == null
               ? Text(

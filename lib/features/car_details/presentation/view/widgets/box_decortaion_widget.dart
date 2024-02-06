@@ -13,11 +13,7 @@ class BoxDecorationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: AppConsts.white,
-        borderRadius: BorderRadius.circular(25.sp),
-        boxShadow: AppConsts.boxShadowsDark,
-      ),
+      decoration:AppConsts.decorationShadow15White,
       child: Padding(
         padding: EdgeInsets.all(15.sp),
         child: widget,
