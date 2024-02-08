@@ -45,9 +45,12 @@ class SectionChat extends StatelessWidget {
                 children: [
                   SizedBox(width: size.width * .01.w),
                   //asset
-                  CustomCircleButton(
-                    icon: Icons.mic_rounded,
-                    onTap: () {},
+                  Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: CustomCircleButton(
+                      icon: Icons.mic_rounded,
+                      onTap: () {},
+                    ),
                   ),
                   SizedBox(width: size.width * .02.w),
                   //write a message
@@ -59,9 +62,12 @@ class SectionChat extends StatelessWidget {
                   ),
                   SizedBox(width: size.width * .02.w),
                   //microphone
-                  CustomCircleButton(
-                    icon: Icons.send,
-                    onTap: () {},
+                  Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: CustomCircleButton(
+                      icon: Icons.send,
+                      onTap: () {},
+                    ),
                   ),
                   SizedBox(width: size.width * .01.w),
                 ],

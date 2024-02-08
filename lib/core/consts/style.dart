@@ -82,6 +82,7 @@ abstract class AppConsts {
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
   static BorderRadius mainRadiusImage = BorderRadius.circular(25);
+  static BorderRadius mainRadiusIcon = BorderRadius.circular(50);
 
   //padding
   static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 8.w);
