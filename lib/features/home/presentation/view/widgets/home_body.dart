@@ -21,10 +21,9 @@ class HomeBody extends StatelessWidget {
         CustomAppBar(
           image: Assets.imagesLogo,
           title: StringsEn.logo,
-          trailingOnTap: () => GoRouter.of(context).push(favouritesPath),
           trailingWidget: CustomCircleButton(
             icon: Icons.favorite,
-            onTap: () {},
+            onTap: () => GoRouter.of(context).push(favouritesPath),
           ),
         ),
 
