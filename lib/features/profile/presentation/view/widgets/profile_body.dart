@@ -1,7 +1,9 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
+import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/profile/presentation/view/widgets/section_info_user.dart';
+import 'package:cars/features/profile/presentation/view/widgets/section_setting.dart';
 import 'package:flutter/material.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -9,7 +11,7 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
         //   title
@@ -20,7 +22,9 @@ class ProfileBody extends StatelessWidget {
         ),
         //User info
         const SectionInfoUser(),
-        //rest of information
+        const CustomDivider(),
+        //settings
+        const SectionSetting(),
       ],
     );
   }
