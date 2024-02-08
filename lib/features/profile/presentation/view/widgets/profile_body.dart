@@ -16,7 +16,6 @@ class ProfileBody extends StatelessWidget {
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
         //   title
         CustomAppBar(
-          leadingOnTap: () {},
           title: StringsEn.profile,
           trailingOnTap: () {},
         ),

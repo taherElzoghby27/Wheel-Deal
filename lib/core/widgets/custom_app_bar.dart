@@ -29,18 +29,20 @@ class CustomAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ///arrow back
-          leadingOnTap == null
-              ? ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    image!,
-                    height: size.height * .075.h,
-                  ),
-                )
-              : IconButton(
-                  onPressed: leadingOnTap,
-                  icon: Icon(Icons.arrow_back, color: color),
-                ),
+          leadingOnTap == null && image == null
+              ? Container(width: size.width * .1.w)
+              : leadingOnTap == null
+                  ? ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        image!,
+                        height: size.height * .075.h,
+                      ),
+                    )
+                  : IconButton(
+                      onPressed: leadingOnTap,
+                      icon: Icon(Icons.arrow_back, color: color),
+                    ),
 
           Text(
             title,

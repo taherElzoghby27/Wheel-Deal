@@ -21,7 +21,6 @@ class MessagesBody extends StatelessWidget {
 
         //custom appBar
         CustomAppBar(
-          leadingOnTap: () => GoRouter.of(context).pushReplacement(homePath),
           title: StringsEn.messages,
           trailingWidget: Container(),
         ),
