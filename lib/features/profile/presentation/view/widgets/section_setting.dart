@@ -29,7 +29,7 @@ class SectionSetting extends StatelessWidget {
           leading: const Icon(FontAwesomeIcons.gear),
           title: StringsEn.setting,
           trailing: Icons.arrow_forward_ios,
-          onTap: () => GoRouter.of(context).push(''),
+          onTap: () => GoRouter.of(context).push(settingsPath),
         ),
         CustomButtonThreeWidget(
           leading: const Icon(FontAwesomeIcons.info),
