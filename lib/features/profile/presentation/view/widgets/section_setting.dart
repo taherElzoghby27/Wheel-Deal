@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_button_three_widget.dart';
@@ -16,7 +17,7 @@ class SectionSetting extends StatelessWidget {
           leading: const Icon(FontAwesomeIcons.user),
           title: StringsEn.editProfile,
           trailing: Icons.arrow_forward_ios,
-          onTap: () => GoRouter.of(context).push(''),
+          onTap: () => GoRouter.of(context).push(editProfilePath),
         ),
         CustomButtonThreeWidget(
           leading: const Icon(FontAwesomeIcons.locationDot),

@@ -2,6 +2,7 @@ import 'package:cars/features/auth/presentation/view/auth_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
+import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
 import 'package:cars/features/home/presentation/view/home_view.dart';
 import 'package:cars/features/location/presentation/view/search_location_view.dart';
@@ -23,9 +24,10 @@ const String homePath = '/home';
 const String createPassPath = '/resetPassPath';
 const String favouritesPath = '/favouritesPath';
 const String searchPath = '/searchPath';
-const String locationPath='/locationPath';
-const String carDetailsPath='/carDetailsPath';
-const String chatPath='/chatPath';
+const String locationPath = '/locationPath';
+const String carDetailsPath = '/carDetailsPath';
+const String chatPath = '/chatPath';
+const String editProfilePath = '/editProfilePath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -114,6 +116,14 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const CarDetailsView(),
+      ),
+    ),
+    GoRoute(
+      path: editProfilePath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const EditProfileView(),
       ),
     ),
   ],
