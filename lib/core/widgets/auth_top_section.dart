@@ -1,8 +1,6 @@
-import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthTopSection extends StatelessWidget {
   const AuthTopSection({
@@ -18,46 +16,19 @@ class AuthTopSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
-
-        ///logo
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              widget,
-              SizedBox(
-                height: size.height * .1,
-                child: Image.asset(Assets.imagesLogo),
-              ),
-            ],
+        Text(
+          title,
+          style: AppConsts.style28.copyWith(
+            fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(height: size.height * .01.h),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
 
-        ///create account title
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: AppConsts.style28.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            SizedBox(height: size.height * .01.h),
-
-            ///create account sub title
-            Text(subTitle, style: AppConsts.style16),
-          ],
-        ),
-
-        SizedBox(height: size.height * .055.h),
+        ///create account sub title
+        Text(subTitle, style: AppConsts.style16),
       ],
     );
   }

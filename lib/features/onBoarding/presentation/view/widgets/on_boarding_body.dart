@@ -91,7 +91,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
 
               ///skip
               TextButton(
-                onPressed: () => GoRouter.of(context).pushReplacement(authPath),
+                onPressed: () => GoRouter.of(context).pushReplacement(loginPath),
                 child: const Text(StringsEn.skip, style: AppConsts.style16),
               ),
             ],
@@ -101,7 +101,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
         ///indicator
         Positioned(
           width: size.width,
-          bottom: size.height * .15.h,
+          bottom: size.height * .125.h,
           child: Align(
             alignment: Alignment.center,
             child: IndicatorWidget(currentPage: currentPage),
@@ -111,7 +111,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
         ///next or get started
         Positioned(
           width: size.width,
-          bottom: size.height * .07.h,
+          bottom: size.height * .05.h,
           child: Align(
             alignment: Alignment.center,
             child: Padding(
@@ -135,7 +135,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                         curve: Curves.easeIn,
                       );
                     } else {
-                      GoRouter.of(context).pushReplacement(authPath);
+                      GoRouter.of(context).pushReplacement(loginPath);
                     }
                   },
                 ),

@@ -17,31 +17,15 @@ String checkPhotoType(String image) =>
 //handle image
 Widget handleImage({
   required String image,
-  double? height,
-  double? width,
-  BoxFit? fit,
 }) {
   String type = checkPhotoType(image);
   switch (type) {
     case 'jpg' || 'png':
-      return Image.asset(
-        image,
-        height: height,
-        width: width,
-        fit: fit ?? BoxFit.fill,
-      );
+      return Image.asset(image);
     case 'svg':
-      return SvgPicture.asset(
-        image,
-        height: height,
-        width: width,
-        fit: fit ?? BoxFit.fill,
-      );
+      return SvgPicture.asset(image);
     case 'network':
       return CachedNetworkImage(
-        height: height,
-        width: width,
-        fit: fit ?? BoxFit.fill,
         imageUrl: image,
         placeholder: (context, url) => const LoadingWidget(),
         errorWidget: (context, url, error) => const Icon(Icons.error),

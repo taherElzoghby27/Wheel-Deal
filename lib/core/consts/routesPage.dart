@@ -1,5 +1,8 @@
-import 'package:cars/features/auth/presentation/view/auth_view.dart';
+
+import 'package:cars/features/auth/presentation/view/create_account_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
+import 'package:cars/features/auth/presentation/view/login_view.dart';
+import 'package:cars/features/auth/presentation/view/reset_pass_view.dart';
 import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
@@ -19,10 +22,13 @@ import '../helper/custom_animation.dart';
 
 const String splashPath = '/';
 const String boardPath = '/board';
-const String authPath = '/auth';
+const String loginPath = '/loginPath';
+const String createAccountPath = '/createAccountPath';
+const String resetPassPath = '/ResetPassPath';
+const String createNewPass = '/CreateNewPassPath';
 const String navPath = '/navPath';
 const String homePath = '/home';
-const String createPassPath = '/resetPassPath';
+const String createPassPath = '/CreatePassPath';
 const String favouritesPath = '/favouritesPath';
 const String searchPath = '/searchPath';
 const String locationPath = '/locationPath';
@@ -38,11 +44,27 @@ final router = GoRouter(
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-      path: authPath,
+      path: loginPath,
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const AuthView(),
+        child: const LoginView(),
+      ),
+    ),
+    GoRoute(
+      path: resetPassPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const ResetPassView(),
+      ),
+    ),
+    GoRoute(
+      path: createAccountPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const CreateAccountView(),
       ),
     ),
     GoRoute(

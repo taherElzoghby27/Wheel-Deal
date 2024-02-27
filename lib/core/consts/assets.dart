@@ -80,6 +80,8 @@ class Assets {
   /// Assets for imagesProfile
   /// assets/images/profile.png
   static const String imagesProfilePng = "assets/images/profile.png";
+  static const String imagesPhonePng = "assets/images/phone.png";
+  static const String imagesLocationPng = "assets/images/location.png";
 
   /// Assets for imagesSms
   /// assets/images/sms.png

@@ -75,6 +75,7 @@ class CustomTextFormField extends StatelessWidget {
         focusedBorder: border ??
             AppConsts.normalBorderField.copyWith(
               borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(color: AppConsts.primary500)
             ),
         focusedErrorBorder: border ??
             AppConsts.normalBorderField.copyWith(

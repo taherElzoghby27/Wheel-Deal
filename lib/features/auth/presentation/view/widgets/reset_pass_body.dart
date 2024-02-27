@@ -1,20 +1,23 @@
 import 'package:cars/core/consts/routesPage.dart';
+import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/widgets/auth_top_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
-import '../../../../../core/widgets/auth_top_section.dart';
 import '../../../../../core/widgets/customButton.dart';
-import 'create_pass_component.dart';
+import '../../../../../core/widgets/small_loading_widget.dart';
+import 'replacement_auth_widget.dart';
+import 'reset_pass_component.dart';
 
-class CreatePassBody extends StatefulWidget {
-  const CreatePassBody({super.key});
+class ResetPassBody extends StatefulWidget {
+  const ResetPassBody({super.key});
 
   @override
-  State<CreatePassBody> createState() => _CreatePassBodyState();
+  State<ResetPassBody> createState() => _ResetPassBodyState();
 }
 
-class _CreatePassBodyState extends State<CreatePassBody>
+class _ResetPassBodyState extends State<ResetPassBody>
     with SingleTickerProviderStateMixin {
   final GlobalKey<FormState> _formKey = GlobalKey();
   late AnimationController controller;
@@ -81,15 +84,12 @@ class _CreatePassBodyState extends State<CreatePassBody>
 
             ///top section
             AuthTopSection(
-              title: StringsEn.createNewPassword,
-              subTitle: StringsEn.setYourNewPass,
-              widget: IconButton(
-                onPressed: () =>
-                    GoRouter.of(context).pushReplacement(loginPath),
-                icon: const Icon(Icons.arrow_back_ios),
-              ),
+              title: StringsEn.resetPass,
+              subTitle: StringsEn.enterEmailAddressYouUsed,
+              widget: Container(),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
+
             //fields
             AspectRatio(
               aspectRatio: AppConsts.aspect16on14,
@@ -99,36 +99,50 @@ class _CreatePassBodyState extends State<CreatePassBody>
                   return AnimatedSlide(
                     offset: offsetAnimation.value,
                     duration: const Duration(milliseconds: 200),
-                    child: const CreatePassComponent(),
+                    child: const ResetPasswordComponent(),
                   );
                 },
               ),
             ),
-
-            const AspectRatio(aspectRatio: AppConsts.aspectRatio16on7),
-
-            ///Create account or login or reset pass
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth,
-              child: CustomButton(
-                text: StringsEn.resetPass,
-                onTap: createPassButton,
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio16on3),
+            //You remember your password
+            ReplacementAuthWidget(
+              label: StringsEn.youRemeberYourPassword,
+              trailing: StringsEn.login,
+              onTap: () => GoRouter.of(context).pushReplacement(
+                loginPath,
               ),
             ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+
+            //login
+            AspectRatio(
+              aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
+              child: Visibility(
+                visible: !isLoading,
+                replacement: const LoadingWidget(),
+                child: CustomButton(
+                  text: StringsEn.resetPass,
+                  onTap: resetButton,
+                ),
+              ),
+            ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
           ],
         ),
       ),
     );
   }
 
-  createPassButton() async {
+  resetButton() async {
+    ///create account
     if (_formKey.currentState!.validate()) {
       //login
       if (controller.isAnimating) {
         controller.stop();
         controller.reset();
       }
-      GoRouter.of(context).pushReplacement(homePath);
+      GoRouter.of(context).pushReplacement(createPassPath);
     } else {
       if (!controller.isAnimating) {
         controller

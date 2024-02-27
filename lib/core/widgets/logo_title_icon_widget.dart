@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import 'custom_photo.dart';
-
 class LogoTitleIconWidget extends StatelessWidget {
   const LogoTitleIconWidget({super.key, required this.chat});
 
@@ -24,10 +22,7 @@ class LogoTitleIconWidget extends StatelessWidget {
           ///logo
           ClipRRect(
             borderRadius: AppConsts.mainRadiusImage,
-            child: handleImage(
-              image: chat.logo,
-              height: size.height * .055.h,
-            ),
+            child: handleImage(image: chat.logo),
           ),
           SizedBox(width: size.width * .02.w),
 

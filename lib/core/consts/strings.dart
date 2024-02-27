@@ -9,7 +9,19 @@ abstract class StringsEn {
       'Please create an account to find your dream job';
   static const String userName = 'Username';
   static const String email = 'Email';
+  static const String firstName = 'first name';
+  static const String lastName = 'last name';
+  static const String last3digitPhone = 'Last 3 Digit of Phone Number';
+  static const String age = 'age';
+  static const String gender = 'gender';
   static const String password = 'Password';
+  static const String warningFields = """
+Password must contain : 
+Minimum of 8 characters  
+At least one uppercase letter 
+At least one lowercase letter 
+At least one special character
+                            """;
   static const String passwordLeast8Cha =
       'Password must be at least 8 characters';
   static const String alreadyHaveAccount = 'Already have an account?';
@@ -25,6 +37,7 @@ abstract class StringsEn {
   static const String remeberMe = 'Remember me';
   static const String forgotPass = 'Forgot Password?';
   static const String dontHaveAccount = 'Dont’t have an account?';
+  static const String youRemeberYourPassword ='You remember your password';
   static const String register = 'Register';
   static const String orLoginWithAccount = 'Or Login With Account';
   static const String resetPass = 'Reset Password';
@@ -32,7 +45,6 @@ abstract class StringsEn {
   static const String enterEmailAddressYouUsed =
       'Enter the email address you used when you joined and we’ll send you instructions to reset your password.';
   static const String enterYouEmail = 'Enter your email....';
-  static const String youRemeberYourPassword = 'You remember your password';
   static const String requestPass = 'Request password reset';
   static const String checkYourEmail = 'Check your Email';
   static String weHaveSentAresetPassword =
@@ -47,7 +59,7 @@ abstract class StringsEn {
   static const String yourPassChanged =
       'Your password has been changed successfully, we will let you know if there are more problems with your account';
   static const String search = "Search";
-  static const String searchArea ='Search area, city or country';
+  static const String searchArea = 'Search area, city or country';
   static const String specialOffers = "Special Offers";
   static const String categories = "Categories";
   static const String all = "All";
@@ -127,8 +139,6 @@ abstract class StringsEn {
   static const String help = "Help";
   static const String logout = "Logout";
   static const String user = "User";
-  static const String firstName = "First Name";
-  static const String lastName = 'Last Name';
   static const String phoneNumber = 'Phone Number ';
   static const String done = 'Done';
   static const String notificationSetting = 'Notification Setting';

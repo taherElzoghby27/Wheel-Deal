@@ -74,10 +74,17 @@ abstract class AppConsts {
   static const double aspectRatioButtonComponent = 4 / .8;
   static const double aspectRatioComponentOrder = 4 / 1.9;
   static const double aspectRatioImage = 16 / 13;
+  static const double aspect16on14 = 16 / 14;
   static const double aspectRatioNavBar = 16 / 2.8;
   static const double aspectRatioComponentCategory = 2.4 / 3;
-  static const double aspectRatioTopSpace = 16/1;
-  static const double aspectRatioTileWidget =16/1.5;
+  static const double aspectRatioTopSpace = 16 / 1;
+  static const double aspectRatio20on1 = 20 / 1;
+  static const double aspectRatio16on2 = 16 / 2;
+  static const double aspectRatio16on3 = 16 / 3;
+  static const double aspectRatio16on4 = 16 / 4;
+  static const double aspectRatio16on7 = 16 / 7;
+  static const double aspectRatio40on1 =40 / 1;
+  static const double aspectRatioTileWidget = 16 / 1.5;
 
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
@@ -85,7 +92,11 @@ abstract class AppConsts {
   static BorderRadius mainRadiusIcon = BorderRadius.circular(50);
 
   //padding
-  static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 8.w);
+  static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 12.w);
+  static EdgeInsets padding15H10V = EdgeInsets.symmetric(
+    horizontal: 15.w,
+    vertical: 10.h,
+  );
   static const TextStyle style30 = TextStyle(
     fontWeight: FontWeight.w900,
     fontSize: 30,

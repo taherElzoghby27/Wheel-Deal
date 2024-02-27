@@ -1,21 +1,29 @@
+import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/routesPage.dart';
+import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/handle_image.dart';
+import 'package:cars/core/widgets/auth_top_section.dart';
+import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/auth/presentation/view/widgets/login_fields_component.dart';
+import 'package:cars/features/auth/presentation/view/widgets/remeber_me.dart';
+import 'package:cars/features/auth/presentation/view/widgets/replacement_auth_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
-import '../../../../../core/widgets/auth_top_section.dart';
-import '../../../../../core/widgets/customButton.dart';
-import 'create_pass_component.dart';
 
-class CreatePassBody extends StatefulWidget {
-  const CreatePassBody({super.key});
+import '../../../../../core/consts/style.dart';
+import '../../../../../core/widgets/customButton.dart';
+import '../../../../../core/widgets/small_loading_widget.dart';
+
+class LoginBody extends StatefulWidget {
+  const LoginBody({super.key});
 
   @override
-  State<CreatePassBody> createState() => _CreatePassBodyState();
+  State<LoginBody> createState() => _LoginBodyState();
 }
 
-class _CreatePassBodyState extends State<CreatePassBody>
-    with SingleTickerProviderStateMixin {
+class _LoginBodyState extends State<LoginBody> with TickerProviderStateMixin {
   final GlobalKey<FormState> _formKey = GlobalKey();
   late AnimationController controller;
   late Animation<Offset> offsetAnimation;
@@ -62,34 +70,21 @@ class _CreatePassBodyState extends State<CreatePassBody>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppConsts.mainPadding,
+      padding: AppConsts.padding15H10V,
       child: Form(
         key: _formKey,
         child: ListView(
           children: [
-            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: IconButton(
-                onPressed: () => GoRouter.of(context).pushReplacement(
-                  loginPath,
-                ),
-                icon: const Icon(Icons.arrow_back_ios),
-              ),
-            ),
-            const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio16on3),
 
             ///top section
             AuthTopSection(
-              title: StringsEn.createNewPassword,
-              subTitle: StringsEn.setYourNewPass,
-              widget: IconButton(
-                onPressed: () =>
-                    GoRouter.of(context).pushReplacement(loginPath),
-                icon: const Icon(Icons.arrow_back_ios),
-              ),
+              title: StringsEn.login,
+              subTitle: StringsEn.pleaseLoginToFindJop,
+              widget: Container(),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
+
             //fields
             AspectRatio(
               aspectRatio: AppConsts.aspect16on14,
@@ -99,29 +94,43 @@ class _CreatePassBodyState extends State<CreatePassBody>
                   return AnimatedSlide(
                     offset: offsetAnimation.value,
                     duration: const Duration(milliseconds: 200),
-                    child: const CreatePassComponent(),
+                    child: const LoginFieldComponent(),
                   );
                 },
               ),
             ),
-
             const AspectRatio(aspectRatio: AppConsts.aspectRatio16on7),
-
-            ///Create account or login or reset pass
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth,
-              child: CustomButton(
-                text: StringsEn.resetPass,
-                onTap: createPassButton,
+            //don't have an account
+            ReplacementAuthWidget(
+              label: StringsEn.dontHaveAccount,
+              trailing: StringsEn.register,
+              onTap: () => GoRouter.of(context).pushReplacement(
+                createAccountPath,
               ),
             ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+
+            //login
+            AspectRatio(
+              aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
+              child: Visibility(
+                visible: !isLoading,
+                replacement: const LoadingWidget(),
+                child: CustomButton(
+                  text: StringsEn.login,
+                  onTap: loginButton,
+                ),
+              ),
+            ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
           ],
         ),
       ),
     );
   }
 
-  createPassButton() async {
+  loginButton() async {
+    ///create account
     if (_formKey.currentState!.validate()) {
       //login
       if (controller.isAnimating) {
