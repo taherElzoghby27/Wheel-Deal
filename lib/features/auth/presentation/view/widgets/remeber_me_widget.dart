@@ -13,9 +13,12 @@ class RemeberMeWidget extends StatelessWidget {
         Checkbox(
           value: true,
           onChanged: (value) {},
-          activeColor: AppConsts.primary500,
+          activeColor: AppConsts.mainColor,
         ),
-        const Text(StringsEn.remeberMe, style: AppConsts.style14),
+         Text(
+          StringsEn.remeberMe,
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
       ],
     );
   }

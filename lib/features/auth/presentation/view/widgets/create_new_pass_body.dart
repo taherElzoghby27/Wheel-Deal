@@ -83,11 +83,6 @@ class _CreatePassBodyState extends State<CreatePassBody>
             AuthTopSection(
               title: StringsEn.createNewPassword,
               subTitle: StringsEn.setYourNewPass,
-              widget: IconButton(
-                onPressed: () =>
-                    GoRouter.of(context).pushReplacement(loginPath),
-                icon: const Icon(Icons.arrow_back_ios),
-              ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
             //fields

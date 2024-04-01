@@ -13,6 +13,6 @@ class CustomImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return handleImage(image: image);
+    return HandleImageWidget(image: image);
   }
 }

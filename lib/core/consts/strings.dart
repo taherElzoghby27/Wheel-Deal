@@ -1,6 +1,6 @@
 ///strings by english
 abstract class StringsEn {
-  static const String logo = "Car Trade";
+  static const String logo = "WHEEL DEAL";
   static const String next = "Next";
   static const String skip = "skip";
   static const String getStarted = "Get Started";
@@ -26,6 +26,8 @@ At least one special character
       'Password must be at least 8 characters';
   static const String alreadyHaveAccount = 'Already have an account?';
   static const String login = 'Login';
+  static const String welcome = 'Welcome!';
+  static const String enterYourDetailsBelow = 'Enter Your Details Below';
   static const String orSignUp = 'Or Sign up With Account';
   static const String facebook = 'Facebook';
   static const String google = 'Google';
@@ -35,7 +37,7 @@ At least one special character
   static const String pleaseLoginToFindJop =
       'Please login to find your dream car';
   static const String remeberMe = 'Remember me';
-  static const String forgotPass = 'Forgot Password?';
+  static const String forgotPass = 'Forgot your Password?';
   static const String dontHaveAccount = 'Dont’t have an account?';
   static const String youRemeberYourPassword ='You remember your password';
   static const String register = 'Register';

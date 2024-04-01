@@ -24,7 +24,7 @@ class _LoginFieldComponentState extends State<LoginFieldComponent> {
     return Column(
       children: [
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesSms),
+          perfixIcon: const HandleImageWidget(image: Assets.imagesSms),
           hint: StringsEn.email,
           controller: email,
         ),
@@ -34,7 +34,7 @@ class _LoginFieldComponentState extends State<LoginFieldComponent> {
 
         ///Password
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesLockPng),
+          perfixIcon: const HandleImageWidget(image: Assets.imagesLockPng),
           hint: StringsEn.password,
           obscureText: false,
           controller: password,

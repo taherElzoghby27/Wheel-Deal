@@ -86,7 +86,6 @@ class _ResetPassBodyState extends State<ResetPassBody>
             AuthTopSection(
               title: StringsEn.resetPass,
               subTitle: StringsEn.enterEmailAddressYouUsed,
-              widget: Container(),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
 

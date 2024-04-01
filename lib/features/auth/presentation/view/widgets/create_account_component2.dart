@@ -33,7 +33,7 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
           children: [
             Expanded(
               child: CustomTextFormField(
-                perfixIcon: handleImage(image: Assets.imagesProfilePng),
+                perfixIcon: const HandleImageWidget(image: Assets.imagesProfilePng),
                 hint: StringsEn.firstName,
                 controller: firstName,
               ),
@@ -41,7 +41,7 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
             const SizedBox(width: 20),
             Expanded(
               child: CustomTextFormField(
-                perfixIcon: handleImage(image: Assets.imagesProfilePng),
+                perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
                 hint: StringsEn.lastName,
                 controller: lastName,
               ),
@@ -50,25 +50,25 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesProfilePng),
+          perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
           hint: StringsEn.userName,
           controller: userName,
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesPhonePng),
+          perfixIcon: HandleImageWidget(image: Assets.imagesPhonePng),
           hint: StringsEn.phoneNumber,
           controller: phoneNumber,
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesProfilePng),
+          perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
           hint: StringsEn.age,
           controller: age,
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesLocationPng),
+          perfixIcon: HandleImageWidget(image: Assets.imagesLocationPng),
           hint: StringsEn.address,
           controller: address,
         ),

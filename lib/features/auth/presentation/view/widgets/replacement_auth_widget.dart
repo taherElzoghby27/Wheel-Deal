@@ -1,5 +1,5 @@
-
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/consts/theme.dart';
 import 'package:flutter/material.dart';
 
 class ReplacementAuthWidget extends StatelessWidget {
@@ -23,15 +23,15 @@ class ReplacementAuthWidget extends StatelessWidget {
         children: [
           Text(
             label,
-            style: AppConsts.style14,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           TextButton(
             onPressed: onTap,
             child: Text(
               trailing,
-              style: AppConsts.style14.copyWith(
-                color: AppConsts.primary500,
-              ),
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).canvasColor,
+                  ),
             ),
           ),
         ],

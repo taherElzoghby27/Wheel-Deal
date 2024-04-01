@@ -89,7 +89,6 @@ class _CreateAccountBodyState extends State<CreateAccountBody>
             AuthTopSection(
               title: StringsEn.createAccount,
               subTitle: StringsEn.pleaseCreateAccount,
-              widget: Container(),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
 

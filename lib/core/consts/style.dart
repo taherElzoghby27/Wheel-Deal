@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppConsts {
   static const String mainFont = 'Raleway';
-  static const Color mainColor = Color.fromRGBO(0, 87, 255, 1);
+  static const Color mainColor = Color.fromRGBO(255, 80, 42, 1);
+  static const Color whiteSplash = Color.fromRGBO(255, 251, 245, 1);
   static const Color black = Color.fromRGBO(0, 0, 0, 1);
   static const Color white = Colors.white;
   static const Color greyLight = Color.fromRGBO(232, 232, 232, 1);
@@ -67,6 +68,8 @@ abstract class AppConsts {
   static const Color danger300 = Color.fromRGBO(255, 164, 127, 1);
   static const Color danger200 = Color.fromRGBO(255, 201, 170, 1);
   static const Color danger100 = Color.fromRGBO(255, 231, 212, 1);
+  static const Color lightBlack = Color.fromRGBO(17, 17, 17, 1);
+  static const Color lightBlackDarkMode = Color.fromRGBO(252, 231, 204, 1);
 
   //aspect ratio
   static const double aspectRatioButtonAuth = 3 / .4;
@@ -83,13 +86,17 @@ abstract class AppConsts {
   static const double aspectRatio16on3 = 16 / 3;
   static const double aspectRatio16on4 = 16 / 4;
   static const double aspectRatio16on7 = 16 / 7;
-  static const double aspectRatio40on1 =40 / 1;
+  static const double aspectRatio40on1 = 40 / 1;
   static const double aspectRatioTileWidget = 16 / 1.5;
 
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
   static BorderRadius mainRadiusImage = BorderRadius.circular(25);
   static BorderRadius mainRadiusIcon = BorderRadius.circular(50);
+  static BorderRadius radiusTop15 = const BorderRadius.only(
+    topLeft: Radius.circular(30),
+    topRight: Radius.circular(30),
+  );
 
   //padding
   static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 12.w);
@@ -174,9 +181,19 @@ abstract class AppConsts {
     fontFamily: mainFont,
     fontStyle: FontStyle.normal,
   );
+  static const TextStyle style40 = TextStyle(
+    color: AppConsts.neutral900,
+    fontSize: 40,
+    fontWeight: FontWeight.w800,
+    fontFamily: mainFont,
+    fontStyle: FontStyle.normal,
+  );
   static OutlineInputBorder normalBorderField = OutlineInputBorder(
     borderRadius: BorderRadius.circular(13.sp),
-    borderSide: const BorderSide(color: neutral300, width: 1),
+    borderSide: BorderSide(
+      color: neutral700.withOpacity(.3),
+      width: 1,
+    ),
   );
   static OutlineInputBorder focusedBorderField = OutlineInputBorder(
     borderRadius: BorderRadius.circular(13.sp),

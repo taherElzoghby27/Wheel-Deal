@@ -8,6 +8,24 @@ import '../../features/chats/data/models/message_model.dart';
 import '../../features/home/presentation/view/home_view.dart';
 import 'assets.dart';
 
+List<TweenSequenceItem<Offset>> itemsSequences = <TweenSequenceItem<Offset>>[
+  TweenSequenceItem(
+    tween: Tween(begin: const Offset(0, 0), end: const Offset(-.04, 0)),
+    weight: 25,
+  ),
+  TweenSequenceItem(
+    tween: Tween(begin: const Offset(-.04, 0), end: const Offset(0, 0)),
+    weight: 25,
+  ),
+  TweenSequenceItem(
+    tween: Tween(begin: const Offset(0, 0), end: const Offset(.04, 0)),
+    weight: 25,
+  ),
+  TweenSequenceItem(
+    tween: Tween(begin: const Offset(.04, 0), end: const Offset(0, 0)),
+    weight: 25,
+  ),
+];
 //screens
 List<Widget> screens = const [
   HomeView(),
@@ -20,12 +38,12 @@ List<Message> messages_lists = [
   Message(
       id: 1,
       message:
-      """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
+          """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
       time: '10:21'),
   Message(
       id: 2,
       message:
-      """Hi Melan, thank you for considering me, this is good news for me.""",
+          """Hi Melan, thank you for considering me, this is good news for me.""",
       time: '10:21'),
   Message(
       id: 1,
@@ -35,12 +53,12 @@ List<Message> messages_lists = [
   Message(
       id: 1,
       message:
-      """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
+          """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
       time: '10:21'),
   Message(
       id: 2,
       message:
-      """Hi Melan, thank you for considering me, this is good news for me.""",
+          """Hi Melan, thank you for considering me, this is good news for me.""",
       time: '10:21'),
   Message(
       id: 1,
@@ -50,12 +68,12 @@ List<Message> messages_lists = [
   Message(
       id: 1,
       message:
-      """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
+          """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
       time: '10:21'),
   Message(
       id: 2,
       message:
-      """Hi Melan, thank you for considering me, this is good news for me.""",
+          """Hi Melan, thank you for considering me, this is good news for me.""",
       time: '10:21'),
   Message(
       id: 1,
@@ -65,12 +83,12 @@ List<Message> messages_lists = [
   Message(
       id: 1,
       message:
-      """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
+          """Hi Rafif!, I'm Melan the selection team from Twitter. Thank you for applying for a job at our company. We have announced that you are eligible for the interview stage.""",
       time: '10:21'),
   Message(
       id: 2,
       message:
-      """Hi Melan, thank you for considering me, this is good news for me.""",
+          """Hi Melan, thank you for considering me, this is good news for me.""",
       time: '10:21'),
   Message(
       id: 1,
@@ -82,105 +100,105 @@ List<Message> messages_lists = [
 List<Chat> chats_list = [
   Chat(
     logo:
-    'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
+        'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
     name: 'Twitter',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '10:32',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
+        'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
     name: 'Facebook',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '09:02',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
     name: 'Instagram',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '07:02',
   ),
   Chat(
     logo:
-    'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
+        'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
     name: 'Twitter',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '10:32',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
+        'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
     name: 'Facebook',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '09:02',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
     name: 'Instagram',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '07:02',
   ),
   Chat(
     logo:
-    'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
+        'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
     name: 'Twitter',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '10:32',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
+        'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
     name: 'Facebook',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '09:02',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
     name: 'Instagram',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '07:02',
   ),
   Chat(
     logo:
-    'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
+        'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
     name: 'Twitter',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '10:32',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
+        'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
     name: 'Facebook',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '09:02',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
     name: 'Instagram',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '07:02',
   ),
   Chat(
     logo:
-    'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
+        'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
     name: 'Twitter',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '10:32',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
+        'https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png',
     name: 'Facebook',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '09:02',
   ),
   Chat(
     logo:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png',
     name: 'Instagram',
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '07:02',

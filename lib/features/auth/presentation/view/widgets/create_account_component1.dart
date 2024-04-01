@@ -26,7 +26,7 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
           ///Email
 
           CustomTextFormField(
-            perfixIcon: handleImage(image: Assets.imagesSms),
+            perfixIcon: const HandleImageWidget(image: Assets.imagesSms),
             hint: StringsEn.email,
             onChanged: (String? value) => email = value,
           ),
@@ -36,7 +36,7 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
 
           ///Password
           CustomTextFormField(
-            perfixIcon: handleImage(image: Assets.imagesLockPng),
+            perfixIcon: const HandleImageWidget(image: Assets.imagesLockPng),
             hint: StringsEn.password,
             obscureText: false,
             onChanged: (String? value) => password = value,

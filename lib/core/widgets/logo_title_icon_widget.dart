@@ -22,7 +22,7 @@ class LogoTitleIconWidget extends StatelessWidget {
           ///logo
           ClipRRect(
             borderRadius: AppConsts.mainRadiusImage,
-            child: handleImage(image: chat.logo),
+            child: HandleImageWidget(image: chat.logo),
           ),
           SizedBox(width: size.width * .02.w),
 

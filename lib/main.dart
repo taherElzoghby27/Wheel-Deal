@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/consts/routesPage.dart';
+import 'core/consts/theme.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(), // Wrap your app
-    ),
+    const MyApp()
+    // DevicePreview(
+    //   enabled: true,
+    //   builder: (context) => const MyApp(), // Wrap your app
+    // ),
   );
 }
 
@@ -28,10 +30,9 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           routerConfig: router,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: AppConsts.mainColor),
-            fontFamily: AppConsts.mainFont,
-          ),
+          theme: MyAppThemes.lightTheme,
+          darkTheme: MyAppThemes.darkTheme,
+          themeMode: ThemeMode.light,
         );
       },
     );

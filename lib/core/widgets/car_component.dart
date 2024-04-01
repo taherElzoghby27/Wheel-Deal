@@ -35,7 +35,7 @@ class CarComponent extends StatelessWidget {
                     aspectRatio: AppConsts.aspectRatioImage.sp,
                     child: ClipRRect(
                       borderRadius: AppConsts.mainRadius,
-                      child: handleImage(image: Assets.car3),
+                      child: HandleImageWidget(image: Assets.car3),
                     ),
                   ),
                   const Align(

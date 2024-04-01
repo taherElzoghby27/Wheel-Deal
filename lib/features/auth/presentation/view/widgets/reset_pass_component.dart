@@ -23,7 +23,7 @@ class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
     return Column(
       children: [
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesSms),
+          perfixIcon: HandleImageWidget(image: Assets.imagesSms),
           hint: StringsEn.email,
           controller: email,
         ),
@@ -31,7 +31,7 @@ class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
           aspectRatio: AppConsts.aspectRatio20on1,
         ),
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesProfilePng),
+          perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
           hint: StringsEn.age,
           controller: age,
         ),
@@ -39,7 +39,7 @@ class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
           aspectRatio: AppConsts.aspectRatio20on1,
         ),
         CustomTextFormField(
-          perfixIcon: handleImage(image: Assets.imagesPhonePng),
+          perfixIcon: HandleImageWidget(image: Assets.imagesPhonePng),
           hint: StringsEn.last3digitPhone,
           controller: last3digitPhone,
         ),

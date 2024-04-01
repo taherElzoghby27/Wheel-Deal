@@ -1,8 +1,5 @@
-
 import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/strings.dart';
@@ -13,19 +10,18 @@ class RemeberMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const RemeberMeWidget(),
-        SizedBox(width: size.width * .2.w),
+        const Spacer(),
         TextButton(
-          onPressed: () =>GoRouter.of(context).push(resetPassPath),
+          onPressed: () => GoRouter.of(context).push(resetPassPath),
           child: Text(
             StringsEn.forgotPass,
-            style: AppConsts.style14.copyWith(
-              color: AppConsts.primary500,
-            ),
+            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Theme.of(context).canvasColor,
+                ),
           ),
         ),
       ],

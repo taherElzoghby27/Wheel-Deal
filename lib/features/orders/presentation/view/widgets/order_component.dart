@@ -28,7 +28,7 @@ class OrderComponent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     child: AspectRatio(
                       aspectRatio: AppConsts.aspectRatioImage.sp,
-                      child: handleImage(image: Assets.car1),
+                      child: const HandleImageWidget(image: Assets.car1),
                     ),
                   ),
                 ),

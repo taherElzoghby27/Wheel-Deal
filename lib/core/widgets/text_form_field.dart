@@ -46,7 +46,7 @@ class CustomTextFormField extends StatelessWidget {
       readOnly: readOnly,
       obscureText: obscureText,
       autofocus: autoFocus,
-      cursorColor: AppConsts.primary500,
+      cursorColor: AppConsts.mainColor,
       controller: controller,
       focusNode: focusNode,
       validator: validator ??
@@ -64,22 +64,26 @@ class CustomTextFormField extends StatelessWidget {
       onFieldSubmitted: onSaved,
       onChanged: onChanged,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: AppConsts.neutral500.withOpacity(.1),
         hintText: hint,
         hintStyle: AppConsts.styleHint14,
         prefixIcon: perfixIcon,
         suffixIcon: suffixIcon,
         enabledBorder: border ??
             AppConsts.normalBorderField.copyWith(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(19),
             ),
         focusedBorder: border ??
             AppConsts.normalBorderField.copyWith(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: AppConsts.primary500)
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: AppConsts.mainColor.withOpacity(.4),
+              ),
             ),
         focusedErrorBorder: border ??
             AppConsts.normalBorderField.copyWith(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
             ),
         errorBorder: AppConsts.errorBorderField,
       ),

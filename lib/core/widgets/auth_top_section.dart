@@ -7,23 +7,19 @@ class AuthTopSection extends StatelessWidget {
     super.key,
     required this.title,
     required this.subTitle,
-    required this.widget,
   });
 
   final String title;
   final String subTitle;
-  final Widget widget;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           title,
-          style: AppConsts.style28.copyWith(
-            fontWeight: FontWeight.w500,
-          ),
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
 
