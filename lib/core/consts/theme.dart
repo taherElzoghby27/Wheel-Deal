@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyAppThemes {
   static final lightTheme = ThemeData(
-    scaffoldBackgroundColor:AppConsts.lightBlackDarkMode ,
+    scaffoldBackgroundColor: AppConsts.lightBlackDarkMode,
     primaryColor: AppConsts.lightBlackDarkMode,
     primaryColorDark: AppConsts.mainColor,
     brightness: Brightness.dark,
@@ -41,25 +41,34 @@ class MyAppThemes {
         ),
       ),
     ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.teal,
-      titleTextStyle: TextStyle(color: Colors.white, fontSize: 20.0),
+    appBarTheme: AppBarTheme(
+      backgroundColor:AppConsts.lightBlackDarkMode ,
+      titleTextStyle: AppConsts.style32.copyWith(
+        fontWeight: FontWeight.w700,
+        color: AppConsts.black,
+        fontSize: 20,
+      ),
     ),
   );
 
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor:AppConsts.lightBlack,
+    scaffoldBackgroundColor: AppConsts.lightBlack,
     primaryColor: AppConsts.lightBlack,
     primaryColorDark: AppConsts.mainColor,
     brightness: Brightness.dark,
     fontFamily: AppConsts.mainFont,
-    canvasColor: Colors.white,
+    canvasColor: AppConsts.white,
     splashColor: AppConsts.black,
     colorScheme: const ColorScheme.dark(),
     textTheme: TextTheme(
       headlineSmall: AppConsts.style16,
       headlineLarge: AppConsts.style40.copyWith(
         color: AppConsts.white,
+      ),
+      bodySmall: AppConsts.style16.copyWith(
+        color: AppConsts.grey,
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
       ),
       bodyMedium: AppConsts.style16.copyWith(
         color: AppConsts.black,
@@ -85,9 +94,12 @@ class MyAppThemes {
         ),
       ),
     ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.teal,
-      titleTextStyle: TextStyle(color: Colors.white, fontSize: 20.0),
+    appBarTheme: AppBarTheme(
+      titleTextStyle: AppConsts.style32.copyWith(
+        fontWeight: FontWeight.w700,
+        color: AppConsts.white,
+        fontSize: 20,
+      ),
     ),
   );
 }

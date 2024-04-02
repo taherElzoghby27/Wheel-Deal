@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'section_terms_and_conditions.dart';
+
 class CreateAccountComponent2 extends StatefulWidget {
   const CreateAccountComponent2({super.key});
 
@@ -17,8 +19,8 @@ class CreateAccountComponent2 extends StatefulWidget {
 }
 
 class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
-  TextEditingController firstName = TextEditingController();
-  TextEditingController lastName = TextEditingController();
+  TextEditingController state = TextEditingController();
+  TextEditingController city = TextEditingController();
   TextEditingController userName = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
   TextEditingController age = TextEditingController();
@@ -29,51 +31,52 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        CustomTextFormField(
+          perfixIcon: const HandleImageWidget(image: Assets.imagesPhonePng),
+          hint: StringsEn.phoneNumber,
+          controller: state,
+        ),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+        CustomTextFormField(
+          perfixIcon: const HandleImageWidget(image: Assets.imagesProfilePng),
+          hint: StringsEn.age,
+          controller: userName,
+        ),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Expanded(
+              flex: 7,
               child: CustomTextFormField(
-                perfixIcon: const HandleImageWidget(image: Assets.imagesProfilePng),
-                hint: StringsEn.firstName,
-                controller: firstName,
+                perfixIcon:
+                    const HandleImageWidget(image: Assets.imagesLocationPng),
+                hint: StringsEn.city,
+                controller: city,
               ),
             ),
-            const SizedBox(width: 20),
+            const Spacer(flex: 1),
             Expanded(
+              flex: 7,
               child: CustomTextFormField(
-                perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
-                hint: StringsEn.lastName,
-                controller: lastName,
+                perfixIcon:
+                    const HandleImageWidget(image: Assets.imagesLocationPng),
+                hint: StringsEn.state,
+                controller: state,
               ),
             ),
           ],
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
-          hint: StringsEn.userName,
-          controller: userName,
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        CustomTextFormField(
-          perfixIcon: HandleImageWidget(image: Assets.imagesPhonePng),
-          hint: StringsEn.phoneNumber,
-          controller: phoneNumber,
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        CustomTextFormField(
-          perfixIcon: HandleImageWidget(image: Assets.imagesProfilePng),
-          hint: StringsEn.age,
-          controller: age,
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        CustomTextFormField(
-          perfixIcon: HandleImageWidget(image: Assets.imagesLocationPng),
+          perfixIcon: const HandleImageWidget(image: Assets.imagesLocationPng),
           hint: StringsEn.address,
           controller: address,
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         const GenderSection(),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+        const SectionTermsAndConditions()
       ],
     );
   }

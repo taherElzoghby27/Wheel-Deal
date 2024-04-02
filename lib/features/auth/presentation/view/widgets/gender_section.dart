@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/enums.dart';
+import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 
 class GenderSection extends StatefulWidget {
@@ -13,12 +14,15 @@ class _GenderSectionState extends State<GenderSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        buildRadioButton(Gender.Male),
-        buildRadioButton(Gender.Female),
-      ],
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          buildRadioButton(Gender.Male),
+          buildRadioButton(Gender.Female),
+        ],
+      ),
     );
   }
 
@@ -27,10 +31,16 @@ class _GenderSectionState extends State<GenderSection> {
       children: [
         Radio<Gender>(
           value: gender,
+          activeColor: AppConsts.mainColor,
           groupValue: selectedGender,
           onChanged: (value) => setState(() => selectedGender = value!),
         ),
-        Text(gender.name),
+        Text(
+          gender.name,
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Theme.of(context).canvasColor,
+              ),
+        ),
       ],
     );
   }

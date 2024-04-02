@@ -1,8 +1,8 @@
-
 import 'package:cars/features/auth/presentation/view/create_account_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/auth/presentation/view/login_view.dart';
 import 'package:cars/features/auth/presentation/view/reset_pass_view.dart';
+import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
@@ -18,6 +18,7 @@ import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
 import '../helper/custom_animation.dart';
 
 const String splashPath = '/';
@@ -35,7 +36,7 @@ const String locationPath = '/locationPath';
 const String carDetailsPath = '/carDetailsPath';
 const String chatPath = '/chatPath';
 const String editProfilePath = '/editProfilePath';
-const String settingsPath='/settingsPath';
+const String settingsPath = '/settingsPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -64,7 +65,17 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const CreateAccountView(),
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (_) => ChangeSignUpCurrentPageCubit(),
+            ),
+            BlocProvider(
+              create: (_) => SignUpCubit(),
+            ),
+          ],
+          child: const CreateAccountView(),
+        ),
       ),
     ),
     GoRoute(

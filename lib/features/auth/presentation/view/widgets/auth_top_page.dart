@@ -1,8 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:flutter/material.dart';
 
-class AuthTopSection extends StatelessWidget {
-  const AuthTopSection({super.key});
+class AuthTopPage extends StatelessWidget {
+  const AuthTopPage({super.key});
 
   @override
   Widget build(BuildContext context) {

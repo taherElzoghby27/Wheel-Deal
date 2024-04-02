@@ -63,6 +63,9 @@ class CustomTextFormField extends StatelessWidget {
           },
       onFieldSubmitted: onSaved,
       onChanged: onChanged,
+      style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+            color: Theme.of(context).canvasColor,
+          ),
       decoration: InputDecoration(
         filled: true,
         fillColor: AppConsts.neutral500.withOpacity(.1),

@@ -11,10 +11,14 @@ abstract class StringsEn {
   static const String email = 'Email';
   static const String firstName = 'first name';
   static const String lastName = 'last name';
+  static const String city = 'city';
+  static const String state = 'state';
   static const String last3digitPhone = 'Last 3 Digit of Phone Number';
   static const String age = 'age';
   static const String gender = 'gender';
   static const String password = 'Password';
+  static const String iHaveReadAndAgreed = 'I have read and agreed to the';
+  static const String termsAndConditions = 'Terms & Conditions *';
   static const String warningFields = """
 Password must contain : 
 Minimum of 8 characters  
@@ -26,6 +30,7 @@ At least one special character
       'Password must be at least 8 characters';
   static const String alreadyHaveAccount = 'Already have an account?';
   static const String login = 'Login';
+  static const String signUp = 'Sign Up';
   static const String welcome = 'Welcome!';
   static const String enterYourDetailsBelow = 'Enter Your Details Below';
   static const String orSignUp = 'Or Sign up With Account';

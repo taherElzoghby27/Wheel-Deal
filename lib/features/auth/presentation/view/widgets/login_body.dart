@@ -1,4 +1,4 @@
-import 'package:cars/features/auth/presentation/view/widgets/auth_top_section.dart';
+import 'package:cars/features/auth/presentation/view/widgets/auth_top_page.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/consts/style.dart';
 import 'login_body_info.dart';
@@ -12,7 +12,7 @@ class LoginBody extends StatelessWidget {
       children: [
         const Expanded(
           flex: 2,
-          child: AuthTopSection(),
+          child: AuthTopPage(),
         ),
         Expanded(
           flex: 4,
