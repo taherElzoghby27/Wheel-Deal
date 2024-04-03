@@ -43,6 +43,7 @@ At least one special character
       'Please login to find your dream car';
   static const String remeberMe = 'Remember me';
   static const String forgotPass = 'Forgot your Password?';
+  static const String forgotPasswordLabel = 'Forgot Password';
   static const String dontHaveAccount = 'Dont’t have an account?';
   static const String youRemeberYourPassword ='You remember your password';
   static const String register = 'Register';

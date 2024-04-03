@@ -1,5 +1,8 @@
+import 'package:cars/core/consts/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import 'widgets/leading_button_icon_app_bar.dart';
 import 'widgets/reset_pass_body.dart';
 
 class ResetPassView extends StatelessWidget {
@@ -7,8 +10,15 @@ class ResetPassView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      appBar: AppBar(
+        leading: LeadingIconButtonAppBar(
+          onTap: () => GoRouter.of(context).pop(),
+        ),
+        centerTitle: true,
+        title: const Text(StringsEn.forgotPasswordLabel),
+      ),
+      body: const SafeArea(
         child: ResetPassBody(),
       ),
     );
