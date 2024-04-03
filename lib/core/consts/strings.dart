@@ -20,11 +20,8 @@ abstract class StringsEn {
   static const String iHaveReadAndAgreed = 'I have read and agreed to the';
   static const String termsAndConditions = 'Terms & Conditions *';
   static const String warningFields = """
-Password must contain : 
-Minimum of 8 characters  
-At least one uppercase letter 
-At least one lowercase letter 
-At least one special character
+Must be 8 or more characters and contain 
+at least 1 number and 1 special character.
                             """;
   static const String passwordLeast8Cha =
       'Password must be at least 8 characters';

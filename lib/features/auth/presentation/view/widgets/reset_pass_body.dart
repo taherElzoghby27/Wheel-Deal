@@ -25,6 +25,5 @@ class ResetPassBody extends StatelessWidget {
         ),
       ],
     );
-    ;
   }
 }

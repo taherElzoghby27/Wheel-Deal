@@ -113,23 +113,30 @@ class _LoginBodyInfoState extends State<LoginBodyInfo>
     if (_formKey.currentState!.validate()) {
       //login
       if (controller.isAnimating) {
-        controller.stop();
-        controller.reset();
+        stopAnimation();
       }
       GoRouter.of(context).pushReplacement(homePath);
     } else {
       if (!controller.isAnimating) {
-        controller
-          ..forward()
-          ..repeat();
+        startAnimation();
       }
+      Future.delayed(
+        const Duration(seconds: 1),
+        () {
+          stopAnimation();
+        },
+      );
     }
-    Future.delayed(
-      const Duration(seconds: 1),
-      () {
-        controller.stop();
-        controller.reset();
-      },
-    );
+  }
+
+  void stopAnimation() {
+    controller.reset();
+    controller.stop();
+  }
+
+  void startAnimation() {
+    controller
+      ..forward()
+      ..repeat();
   }
 }
