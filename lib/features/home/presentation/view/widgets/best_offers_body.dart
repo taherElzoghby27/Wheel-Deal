@@ -1,13 +1,13 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/strings.dart';
-import 'brands_detail.dart';
+import '../../../../../core/consts/style.dart';
+import '../../../../favourites/presentation/view/widgets/brands_detail.dart';
 
-class FavouritesBody extends StatelessWidget {
-  const FavouritesBody({super.key});
+class BestOffersBody extends StatelessWidget {
+  const BestOffersBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,7 @@ class FavouritesBody extends StatelessWidget {
           const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
           CustomAppBar(
             leadingOnTap: () => GoRouter.of(context).pop(),
-            title: StringsEn.favourites,
-
+            title: StringsEn.bestOffers,
             trailingWidget: Container(),
           ),
           const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),

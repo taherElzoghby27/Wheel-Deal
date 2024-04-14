@@ -7,7 +7,9 @@ import 'package:cars/features/car_details/presentation/view/car_details_view.dar
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
+import 'package:cars/features/home/presentation/view/best_offers_view.dart';
 import 'package:cars/features/home/presentation/view/home_view.dart';
+import 'package:cars/features/home/presentation/view/recommended_for_you.dart';
 import 'package:cars/features/location/presentation/view/search_location_view.dart';
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
@@ -29,6 +31,8 @@ const String resetPassPath = '/ResetPassPath';
 const String createNewPass = '/CreateNewPassPath';
 const String navPath = '/navPath';
 const String homePath = '/home';
+const String bestOffersPath = '/bestOffersPath';
+const String recommendedForYouPath = '/recommendedForYou';
 const String createPassPath = '/CreatePassPath';
 const String favouritesPath = '/favouritesPath';
 const String searchPath = '/searchPath';
@@ -111,6 +115,22 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const HomeView(),
+      ),
+    ),
+    GoRoute(
+      path: bestOffersPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const BestOffersView(),
+      ),
+    ),
+    GoRoute(
+      path: recommendedForYouPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const RecommendedForyouView(),
       ),
     ),
     GoRoute(

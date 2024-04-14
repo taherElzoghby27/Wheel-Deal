@@ -2,7 +2,7 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../home/presentation/view/widgets/category_detail.dart';
+import '../../../../favourites/presentation/view/widgets/brands_detail.dart';
 
 class SectionResult extends StatelessWidget {
   const SectionResult({super.key});
@@ -21,7 +21,7 @@ class SectionResult extends StatelessWidget {
         ),
 
         ///searching cars
-        const CategoryDetails(),
+        const BrandsDetails(),
       ],
     );
   }

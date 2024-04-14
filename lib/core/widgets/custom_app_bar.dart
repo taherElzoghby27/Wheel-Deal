@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget {
     this.trailingOnTap,
     this.trailingWidget,
     this.image,
-    this.color = AppConsts.neutral900,
+    this.color = AppConsts.mainColor,
   });
 
   final void Function()? leadingOnTap;
@@ -41,7 +41,7 @@ class CustomAppBar extends StatelessWidget {
                     )
                   : IconButton(
                       onPressed: leadingOnTap,
-                      icon: Icon(Icons.arrow_back, color: color),
+                      icon: Icon(Icons.arrow_back_ios_new, color: color),
                     ),
 
           Text(

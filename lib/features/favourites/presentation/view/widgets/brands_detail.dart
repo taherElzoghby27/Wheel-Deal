@@ -5,8 +5,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../../../../core/widgets/car_component.dart';
 
-class CategoryDetails extends StatelessWidget {
-  const CategoryDetails({super.key});
+class BrandsDetails extends StatelessWidget {
+  const BrandsDetails({super.key});
 
   @override
   Widget build(BuildContext context) {

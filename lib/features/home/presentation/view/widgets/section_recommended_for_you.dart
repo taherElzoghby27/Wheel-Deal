@@ -1,5 +1,7 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/style.dart';
 import 'cars_list_view.dart';
@@ -20,7 +22,7 @@ class SectionRecommendedForYou extends StatelessWidget {
               flex: 4,
               child: TopLeadingTrailing(
                 leading: StringsEn.recommendedForYou,
-                trailingOnTap: () {},
+                trailingOnTap: ()=>GoRouter.of(context).push(recommendedForYouPath),
               ),
             ),
             const Spacer(),
