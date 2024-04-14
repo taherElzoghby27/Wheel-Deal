@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.suffixIcon,
     this.border,
+    this.filled,
   }) : super(key: key);
   final String hint;
   final void Function(String)? onChanged;
@@ -28,6 +29,7 @@ class CustomTextField extends StatelessWidget {
   final void Function()? onTap;
   final TextEditingController? controller;
   final OutlineInputBorder? border;
+  final Color? filled;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,8 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hint,
+        filled: filled == null ? false : true,
+        fillColor: filled,
         hintStyle: AppConsts.style14.copyWith(fontWeight: FontWeight.w400),
         prefixIcon: perfixIcon,
         prefixText: perfixText,

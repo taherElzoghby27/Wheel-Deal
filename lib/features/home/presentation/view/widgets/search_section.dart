@@ -15,6 +15,7 @@ class SearchSection extends StatelessWidget {
     return Padding(
       padding: AppConsts.mainPadding,
       child: CustomTextField(
+        filled: AppConsts.neutral100.withOpacity(.05),
         perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
         suffixIcon: IconButton(
           onPressed: () {},

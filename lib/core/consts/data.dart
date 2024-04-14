@@ -30,6 +30,7 @@ List<TweenSequenceItem<Offset>> itemsSequences = <TweenSequenceItem<Offset>>[
 List<Widget> screens = const [
   HomeView(),
   OrdersView(),
+  OrdersView(),
   MessagesView(),
   ProfileView(),
 ];
@@ -203,4 +204,22 @@ List<Chat> chats_list = [
     lastMessage: 'Here is the link: http://zoom.com/abcdeefg',
     time: '07:02',
   ),
+];
+List<Map<String, dynamic>> brands = [
+  {
+    'brandName': 'Bmw',
+    'Logo': 'https://kioslambang.files.wordpress.com/2010/10/logobmw.png',
+  },
+  {
+    'brandName': 'Bmw',
+    'Logo': 'https://kioslambang.files.wordpress.com/2010/10/logobmw.png',
+  },
+  {
+    'brandName': 'Bmw',
+    'Logo': 'https://kioslambang.files.wordpress.com/2010/10/logobmw.png',
+  },
+  {
+    'brandName': 'Bmw',
+    'Logo': 'https://kioslambang.files.wordpress.com/2010/10/logobmw.png',
+  },
 ];

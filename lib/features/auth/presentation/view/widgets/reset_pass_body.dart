@@ -17,7 +17,7 @@ class ResetPassBody extends StatelessWidget {
           flex: 13,
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: AppConsts.radiusTop15,
+              borderRadius: AppConsts.radiusTop30,
               color: Theme.of(context).splashColor,
             ),
             child: const ResetPassBodyInfo(),

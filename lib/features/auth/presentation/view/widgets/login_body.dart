@@ -18,7 +18,7 @@ class LoginBody extends StatelessWidget {
           flex: 4,
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: AppConsts.radiusTop15,
+              borderRadius: AppConsts.radiusTop30,
               color: Theme.of(context).splashColor,
             ),
             child: const LoginBodyInfo(),

@@ -12,6 +12,7 @@ abstract class StringsEn {
   static const String firstName = 'first name';
   static const String lastName = 'last name';
   static const String city = 'city';
+
   static const String state = 'state';
   static const String last3digitPhone = 'Last 3 Digit of Phone Number';
   static const String age = 'age';
@@ -42,7 +43,7 @@ at least 1 number and 1 special character.
   static const String forgotPass = 'Forgot your Password?';
   static const String forgotPasswordLabel = 'Forgot Password';
   static const String dontHaveAccount = 'Dont’t have an account?';
-  static const String youRemeberYourPassword ='You remember your password';
+  static const String youRemeberYourPassword = 'You remember your password';
   static const String register = 'Register';
   static const String orLoginWithAccount = 'Or Login With Account';
   static const String resetPass = 'Reset Password';
@@ -219,21 +220,12 @@ at least 1 number and 1 special character.
   static String popularSearches = 'Popular searches';
   static String fullTime = 'Full Time';
   static String senior = 'Senior';
-  static String month = 'Month';
-  static String partTime = 'Part Time';
-  static String setFilter = 'Set Filter';
-  static String jobTitle = 'Job Title';
-  static String salary = 'Salary';
-  static String jobType = 'Job Type';
-  static String contract = 'Contract';
-  static String postDate = 'Post date';
-  static String onSite = 'Onsite';
-  static String internship = 'Internship';
+  static const String topBrands = 'Top Brands';
+  static const String bestOffers = 'Best Offers';
+  static const String recommendedForYou = 'Recommended For You';
   static String showResult = 'Show result';
-  static String on_site = 'On-Site';
-  static String hyprid = 'Hybird';
-  static String any = 'Any';
   static String viewAll = 'View all';
+  static String any = 'Any';
   static String searchNotFound = 'Search not found';
   static String trySearchingWithDifferent =
       'Try searching with different keywords so we can show you';
@@ -393,16 +385,6 @@ at least 1 number and 1 special character.
   static String active = 'Active';
   static String rejected = 'Rejected';
   static String jobs = 'Jobs';
-  static String savedJobsBox = 'saved Jobs box';
-  static String userApplyBox = 'user apply box';
-  static String noAppWereRejected = 'No applications were rejected';
-  static String ifThereIsAnApp =
-      'If there is an application that is rejected by the company it will appear here';
-  static String completeProfile = 'Complete Profile';
-  static String completed = 'Completed';
-  static String completeYourProfile =
-      'Complete your profile before applying for a job';
-  static String personalDetails = 'Personal Details';
   static String fullNameEmail =
       'Full name, email, phone number, and your address';
   static String education = 'Education';

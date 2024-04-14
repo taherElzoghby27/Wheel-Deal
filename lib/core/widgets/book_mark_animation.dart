@@ -50,18 +50,19 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
+    return InkWell(
+      splashColor: Colors.transparent,
+      onTap: () {
         isSaved ? controller.reverse() : controller.forward();
         setState(() => isSaved = !isSaved);
       },
-      icon: AnimatedBuilder(
+      child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) {
           return Icon(
             widget.icon,
             size: sizeAnimation.value,
-            color: isSaved ? AppConsts.danger600 : AppConsts.neutral500,
+            color: isSaved ? AppConsts.mainColor : AppConsts.neutral500,
           );
         },
       ),

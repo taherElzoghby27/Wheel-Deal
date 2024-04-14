@@ -86,14 +86,22 @@ abstract class AppConsts {
   static const double aspectRatio16on3 = 16 / 3;
   static const double aspectRatio16on4 = 16 / 4;
   static const double aspectRatio16on7 = 16 / 7;
+  static const double aspectRatio16on9 = 16 / 9;
+  static const double aspectRatio16on10 = 16 / 10;
+  static const double aspectRatio16on11 = 16 / 11;
+  static const double aspectRatio16on12 = 16 / 12;
   static const double aspectRatio40on1 = 40 / 1;
   static const double aspectRatioTileWidget = 16 / 1.5;
 
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
+  static const BorderRadius radiusTop15 = BorderRadius.only(
+    topRight: Radius.circular(15),
+    topLeft: Radius.circular(15),
+  );
   static BorderRadius mainRadiusImage = BorderRadius.circular(25);
   static BorderRadius mainRadiusIcon = BorderRadius.circular(50);
-  static BorderRadius radiusTop15 = const BorderRadius.only(
+  static BorderRadius radiusTop30 = const BorderRadius.only(
     topLeft: Radius.circular(30),
     topRight: Radius.circular(30),
   );
@@ -102,6 +110,7 @@ abstract class AppConsts {
   static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 12.w);
   static EdgeInsets padding8 = const EdgeInsets.all(8);
   static EdgeInsets padding2 = const EdgeInsets.all(2);
+  static EdgeInsets padding8h = EdgeInsets.symmetric(horizontal: 8.w);
   static EdgeInsets padding15H10V = EdgeInsets.symmetric(
     horizontal: 15.w,
     vertical: 10.h,
@@ -225,6 +234,14 @@ abstract class AppConsts {
     color: AppConsts.primary500,
     borderRadius: BorderRadius.circular(50.sp),
   );
+  static BoxDecoration mainDecoration = BoxDecoration(
+    color: neutral100.withOpacity(.05),
+    borderRadius: mainRadius,
+    border: Border.all(
+      color: neutral700.withOpacity(.3),
+      width: 1,
+    ),
+  );
   static BoxDecoration decorationRadius8 = BoxDecoration(
     borderRadius: BorderRadius.circular(8),
     border: Border.all(color: AppConsts.neutral300),
@@ -276,11 +293,12 @@ abstract class AppConsts {
       spreadRadius: 7,
     ),
   ];
-  static List<BoxShadow> boxShadowsDark = const [
+  static List<BoxShadow> boxShadowsDark = [
     BoxShadow(
-      color: AppConsts.neutral200,
-      blurRadius: 7,
-      spreadRadius: 7,
+      color: AppConsts.neutral100.withOpacity(.4),
+      blurRadius: 4,
+      spreadRadius: 1,
+      offset: const Offset(0, 3),
     ),
   ];
   static BoxDecoration decorationShadow15White = BoxDecoration(

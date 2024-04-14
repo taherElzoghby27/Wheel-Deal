@@ -14,10 +14,8 @@ class NavBody extends StatelessWidget {
     return AspectRatio(
       aspectRatio: AppConsts.aspectRatioNavBar,
       child: BottomAppBar(
-        color: AppConsts.primary300,
+        surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 7,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 5,
         child: BlocBuilder<NavBarCubit, NavBarState>(
           builder: (context, state) {
             return Row(
@@ -25,35 +23,43 @@ class NavBody extends StatelessWidget {
               children: [
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 0
-                      ? AppConsts.neutral100
-                      : AppConsts.neutral900,
+                      ? AppConsts.mainColor
+                      : Theme.of(context).canvasColor,
                   label: StringsEn.home,
                   icon: Icons.home,
                   onTap: () => blocNav.changeIndex(0),
                 ),
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 1
-                      ? AppConsts.neutral100
-                      : AppConsts.neutral900,
-                  icon: Icons.shopping_cart,
-                  label: StringsEn.orders,
+                      ? AppConsts.mainColor
+                      : Theme.of(context).canvasColor,
+                  icon: Icons.favorite_outlined,
+                  label: StringsEn.favourites,
                   onTap: () => blocNav.changeIndex(1),
                 ),
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 2
-                      ? AppConsts.neutral100
-                      : AppConsts.neutral900,
-                  icon: Icons.chat,
-                  label: StringsEn.chat,
+                      ? AppConsts.mainColor
+                      : Theme.of(context).canvasColor,
+                  icon: Icons.shopping_cart,
+                  label: StringsEn.orders,
                   onTap: () => blocNav.changeIndex(2),
                 ),
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 3
-                      ? AppConsts.neutral100
-                      : AppConsts.neutral900,
+                      ? AppConsts.mainColor
+                      : Theme.of(context).canvasColor,
+                  icon: Icons.chat,
+                  label: StringsEn.chat,
+                  onTap: () => blocNav.changeIndex(3),
+                ),
+                BottomNavBarWidget(
+                  color: blocNav.currentIndex == 4
+                      ? AppConsts.mainColor
+                      : Theme.of(context).canvasColor,
                   icon: Icons.person,
                   label: StringsEn.profile,
-                  onTap: () => blocNav.changeIndex(3),
+                  onTap: () => blocNav.changeIndex(4),
                 ),
               ],
             );

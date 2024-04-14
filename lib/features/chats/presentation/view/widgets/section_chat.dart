@@ -2,7 +2,7 @@ import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/widgets/custom_circle_button.dart';
+import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:cars/core/widgets/text_field.dart';
 import 'package:cars/features/chats/presentation/view/widgets/chat_bubble.dart';
 import 'package:cars/features/chats/presentation/view/widgets/chat_bubble_for_friends.dart';

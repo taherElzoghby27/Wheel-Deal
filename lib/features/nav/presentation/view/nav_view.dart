@@ -1,5 +1,4 @@
 import 'package:cars/core/consts/data.dart';
-import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/nav/presentation/view/widgets/nav_body.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
@@ -21,17 +20,6 @@ class NavView extends StatelessWidget {
         },
       ),
       bottomNavigationBar: const NavBody(),
-      floatingActionButton: FloatingActionButton(
-        elevation: 10,
-        backgroundColor: AppConsts.primary500,
-        onPressed: () {},
-        shape: AppConsts.circleFloatButtonBorder,
-        child: const Icon(
-          Icons.add,
-          color: AppConsts.neutral100,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
