@@ -47,7 +47,7 @@ class SectionChat extends StatelessWidget {
                   //asset
                   Padding(
                     padding: const EdgeInsets.all(5),
-                    child: CustomCircleButton(
+                    child: CustomSquareButton(
                       icon: Icons.mic_rounded,
                       onTap: () {},
                     ),
@@ -64,7 +64,7 @@ class SectionChat extends StatelessWidget {
                   //microphone
                   Padding(
                     padding: const EdgeInsets.all(5),
-                    child: CustomCircleButton(
+                    child: CustomSquareButton(
                       icon: Icons.send,
                       onTap: () {},
                     ),

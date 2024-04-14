@@ -19,10 +19,11 @@ class HomeBody extends StatelessWidget {
       children: [
         //custom appBar
         CustomAppBar(
-          image: Assets.imagesLogo,
-          title: StringsEn.logo,
-          trailingWidget: CustomCircleButton(
-            icon: Icons.favorite,
+          title: StringsEn.home,
+          color: AppConsts.mainColor,
+          trailingWidget: CustomSquareButton(
+            icon: Icons.notifications,
+            color: AppConsts.neutral100.withOpacity(.05),
             onTap: () => GoRouter.of(context).push(favouritesPath),
           ),
         ),

@@ -1,8 +1,8 @@
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 
-class CustomCircleButton extends StatelessWidget {
-  const CustomCircleButton({
+class CustomSquareButton extends StatelessWidget {
+  const CustomSquareButton({
     super.key,
     this.onTap,
     required this.icon,
@@ -23,15 +23,17 @@ class CustomCircleButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: color,
-          borderRadius:AppConsts.mainRadiusIcon,
-          border: Border.all(color: color ?? AppConsts.neutral300),
+          borderRadius: AppConsts.mainRadius,
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(5),
+            padding: AppConsts.padding2,
             child: IconButton(
               onPressed: onTap,
-              icon: Icon(icon),
+              icon: Icon(
+                icon,
+                color: AppConsts.mainColor,
+              ),
             ),
           ),
         ),

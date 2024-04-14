@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget {
         children: [
           ///arrow back
           leadingOnTap == null && image == null
-              ? Container(width: size.width * .1.w)
+              ? Container(width: size.width * .15.w)
               : leadingOnTap == null
                   ? ClipRRect(
                       borderRadius: BorderRadius.circular(20),
