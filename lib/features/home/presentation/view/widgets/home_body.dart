@@ -1,14 +1,14 @@
-import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
 import 'package:cars/core/widgets/custom_circle_button.dart';
 import 'package:cars/features/home/presentation/view/widgets/categories_section.dart';
-import 'package:cars/features/home/presentation/view/widgets/search_location_section.dart';
 import 'package:cars/features/home/presentation/view/widgets/special_offer_section.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import 'search_section.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -29,7 +29,7 @@ class HomeBody extends StatelessWidget {
         ),
 
         //search section
-        const SearchLocationSection(),
+        const SearchSection(),
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
         //special offer section
         const SpecialOfferSection(),

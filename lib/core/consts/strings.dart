@@ -63,7 +63,7 @@ at least 1 number and 1 special character.
   static const String passChangeSuccess = 'Password changed succesfully!';
   static const String yourPassChanged =
       'Your password has been changed successfully, we will let you know if there are more problems with your account';
-  static const String search = "Search";
+  static const String search = "Find any car.....";
   static const String searchArea = 'Search area, city or country';
   static const String specialOffers = "Special Offers";
   static const String categories = "Categories";

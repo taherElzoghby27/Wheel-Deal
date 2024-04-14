@@ -13,14 +13,18 @@ class SearchSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
+      padding: AppConsts.mainPadding,
       child: CustomTextField(
         perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
+        suffixIcon: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.tune),
+        ),
         hint: StringsEn.search,
         readOnly: true,
         onTap: () => GoRouter.of(context).push(searchPath),
         border: AppConsts.normalBorderField.copyWith(
-          borderRadius: BorderRadius.circular(35),
+          borderRadius: AppConsts.mainRadius,
         ),
       ),
     );
