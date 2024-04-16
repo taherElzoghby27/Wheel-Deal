@@ -279,6 +279,7 @@ at least 1 number and 1 special character.
   static String notification = 'Notification';
   static String yesterDay = 'Yesterday';
   static String noCvs = 'No Cv...';
+  static String installmentAvailable = 'Installment Available';
   static String noNewNotificationsYet = 'No new notifications yet';
   static String youWillReceiveNotification =
       'You will receive a notification if there is something on your account';

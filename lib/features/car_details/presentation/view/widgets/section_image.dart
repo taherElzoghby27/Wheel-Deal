@@ -13,19 +13,9 @@ class SectionImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        const AspectRatio(
-          aspectRatio: 16 / 11,
-          child: HandleImageWidget(image: Assets.car1),
-        ),
-        CustomAppBar(
-          leadingOnTap: () => GoRouter.of(context).pop(),
-          title: '',
-          trailingWidget: Container(),
-          color: AppConsts.neutral100,
-        ),
-      ],
+    return const AspectRatio(
+      aspectRatio: 16 / 11,
+      child: HandleImageWidget(image: Assets.car1),
     );
   }
 }

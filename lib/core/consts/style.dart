@@ -117,6 +117,10 @@ abstract class AppConsts {
     horizontal: 15.w,
     vertical: 10.h,
   );
+  static EdgeInsets padding8H3V = EdgeInsets.symmetric(
+    horizontal: 8.w,
+    vertical: 3.h,
+  );
   static const TextStyle style30 = TextStyle(
     fontWeight: FontWeight.w900,
     fontSize: 30,
