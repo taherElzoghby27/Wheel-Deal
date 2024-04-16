@@ -16,7 +16,7 @@ class CarDetailsBody extends StatelessWidget {
           trailing: 'EGP 2,500,000',
         ),
         //Section image
-        SectionImage(),
+        SectionImages(),
         //details
         DetailsCarComponent(),
       ],

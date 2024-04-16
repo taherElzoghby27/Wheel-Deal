@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../consts/style.dart';
@@ -12,14 +13,9 @@ class LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          SizedBox(height: height),
-          const CircularProgressIndicator(
-            color: AppConsts.primary500,
-          ),
-        ],
+    return const Center(
+      child: CupertinoActivityIndicator(
+        color: AppConsts.mainColor,
       ),
     );
   }

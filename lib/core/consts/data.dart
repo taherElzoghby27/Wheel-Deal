@@ -34,7 +34,11 @@ List<Widget> screens = const [
   MessagesView(),
   ProfileView(),
 ];
-List<String> cars = [Assets.car1, Assets.car2, Assets.car3];
+List<String> cars = [
+  'https://www.usnews.com/object/image/0000018d-3d71-df19-abbd-3d7771dd0000/p90509760-1.jpeg?update-time=1706132861051&size=responsiveGallery',
+  'https://www.motortrend.com/uploads/2023/01/2024-BMW-M3-CS-29.png',
+  'https://alicanteplaza.es/public/Image/2022/11/ElnuevoBMWX1llegaalmercadoespa%C3%B1ol_NoticiaAmpliada.jpg',
+];
 List<Message> messages_lists = [
   Message(
       id: 1,

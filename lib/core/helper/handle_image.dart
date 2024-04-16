@@ -23,6 +23,7 @@ class HandleImageWidget extends StatelessWidget {
         return Image.asset(
           image,
           color: color,
+          fit: BoxFit.contain,
         );
       case 'svg':
         return SvgPicture.asset(

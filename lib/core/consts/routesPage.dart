@@ -4,6 +4,7 @@ import 'package:cars/features/auth/presentation/view/login_view.dart';
 import 'package:cars/features/auth/presentation/view/reset_pass_view.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
+import 'package:cars/features/car_details/presentation/view_model/changed_carsoul_cubit/changed_carsoul_cubit.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
@@ -170,7 +171,10 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const CarDetailsView(),
+        child: BlocProvider(
+          create: (_) => ChangedCarsoulCubit(),
+          child: const CarDetailsView(),
+        ),
       ),
     ),
     GoRoute(
