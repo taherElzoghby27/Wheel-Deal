@@ -26,7 +26,7 @@ class _OrdersState extends State<Orders> {
   //add jobs
   addOrders() {
     orders.addAll([
-      OrderModel(image: Assets.car1, name: 'BMW 320i M Sport', price: 300000),
+      OrderModel(image:'https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/RYX545TZURAGPJAQRKHQBUVIJU.jpg', name: 'BMW 320i M Sport', price: 300000),
       OrderModel(image: Assets.car2, name: 'BMW 320i M Sport', price: 300400),
       OrderModel(image: Assets.car3, name: 'BMW 320i M Sport', price: 600000),
       OrderModel(image: Assets.car1, name: 'BMW 320i M Sport', price: 300000),
@@ -88,6 +88,6 @@ class _OrdersState extends State<Orders> {
 
 //build widget
   Widget _buildWidget(OrderModel order) {
-    return OrderComponent();
+    return const OrderComponent();
   }
 }

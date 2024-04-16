@@ -5,6 +5,7 @@ import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderComponent extends StatelessWidget {
@@ -13,13 +14,13 @@ class OrderComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(5.sp),
+      padding: AppConsts.padding4,
       child: AspectRatio(
         aspectRatio: AppConsts.aspectRatioComponentOrder.sp,
         child: Container(
-          decoration: AppConsts.decorationShadow15White,
+          decoration: AppConsts.mainDecoration,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            padding: AppConsts.padding8H3V,
             child: Row(
               children: [
                 Expanded(
@@ -28,44 +29,68 @@ class OrderComponent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     child: AspectRatio(
                       aspectRatio: AppConsts.aspectRatioImage.sp,
-                      child: const HandleImageWidget(image: Assets.car1),
+                      child: const HandleImageWidget(
+                        image:
+                            'https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/RYX545TZURAGPJAQRKHQBUVIJU.jpg',
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
                   flex: 3,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'BMW 320i M Sport',
-                            style: AppConsts.style16.copyWith(
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                          Text(
-                            'EGP 3,000,000',
-                            style: AppConsts.style14.copyWith(
-                              color: AppConsts.primary500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 30.w, right: 10.w),
-                        child: AspectRatio(
-                          aspectRatio: AppConsts.aspectRatioButtonComponent.sp,
-                          child: CustomButton(
-                            text: StringsEn.trackOrder,
-                            onTap: () {},
+                  child: Padding(
+                    padding: AppConsts.mainPadding,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'BMW 320i M Sport',
+                                style: AppConsts.style16White.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              Text(
+                                'EGP 3,000,000',
+                                style: AppConsts.style14.copyWith(
+                                  color: AppConsts.mainColor,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          flex: 2,
+                          child: Row(
+                            children: [
+                              const Spacer(),
+                              Expanded(
+                                flex: 21,
+                                child: CustomButton(
+                                  text: StringsEn.trackOrder,
+                                  onTap: () {},
+                                ),
+                              ),
+                              const Spacer(),
+                              Expanded(
+                                flex: 2,
+                                child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.delete),
+                                ),
+                              ),
+                              const Spacer(),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
