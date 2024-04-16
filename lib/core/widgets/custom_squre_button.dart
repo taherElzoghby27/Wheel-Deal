@@ -19,6 +19,7 @@ class CustomSquareButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
+      borderRadius: AppConsts.mainRadius,
       child: Container(
         decoration: BoxDecoration(
           color: color ?? AppConsts.neutral100.withOpacity(.05),
@@ -26,7 +27,7 @@ class CustomSquareButton extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: AppConsts.padding2,
+            padding: AppConsts.padding8,
             child: Icon(
               icon,
               color: AppConsts.mainColor,

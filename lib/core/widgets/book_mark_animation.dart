@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../consts/style.dart';
 
@@ -50,21 +48,29 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Colors.transparent,
-      onTap: () {
-        isSaved ? controller.reverse() : controller.forward();
-        setState(() => isSaved = !isSaved);
-      },
-      child: AnimatedBuilder(
-        animation: controller,
-        builder: (context, child) {
-          return Icon(
-            widget.icon,
-            size: sizeAnimation.value,
-            color: isSaved ? AppConsts.mainColor : AppConsts.neutral500,
-          );
-        },
+    return Container(
+      decoration: BoxDecoration(
+        color: AppConsts.neutral100.withOpacity(.05),
+        borderRadius: AppConsts.mainRadius,
+      ),
+      child: Center(
+        child: InkWell(
+          splashColor: Colors.transparent,
+          onTap: () {
+            isSaved ? controller.reverse() : controller.forward();
+            setState(() => isSaved = !isSaved);
+          },
+          child: AnimatedBuilder(
+            animation: controller,
+            builder: (context, child) {
+              return Icon(
+                widget.icon,
+                size: sizeAnimation.value,
+                color: isSaved ? AppConsts.mainColor : AppConsts.neutral500,
+              );
+            },
+          ),
+        ),
       ),
     );
   }

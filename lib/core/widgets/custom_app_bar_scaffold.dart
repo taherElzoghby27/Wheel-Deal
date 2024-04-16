@@ -20,13 +20,15 @@ class CustomAppBarScaffold extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Padding(padding: AppConsts.padding6, child: leading),
+      leading: Padding(padding: AppConsts.padding8, child: leading),
       title: Text(
         title ?? '',
         style: AppConsts.style20.copyWith(color: AppConsts.mainColor),
       ),
       centerTitle: true,
-      actions: [Padding(padding: AppConsts.padding6, child: trailing)],
+      actions: [
+        Padding(padding: AppConsts.padding8, child: trailing),
+      ],
     );
   }
 }

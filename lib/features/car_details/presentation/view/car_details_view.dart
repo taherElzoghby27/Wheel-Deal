@@ -1,8 +1,10 @@
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/car_details/presentation/view/widgets/car_details_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/widgets/book_mark_animation.dart';
 import '../../../../core/widgets/custom_app_bar_scaffold.dart';
 import '../../../../core/widgets/custom_squre_button.dart';
 
@@ -18,10 +20,7 @@ class CarDetailsView extends StatelessWidget {
           onTap: () => GoRouter.of(context).pop(),
         ),
         title: StringsEn.details,
-        trailing: CustomSquareButton(
-          icon: Icons.favorite_outline_rounded,
-          onTap: () {},
-        ),
+        trailing: const IconWidgetAnimation(icon: Icons.favorite),
       ),
       body: const CarDetailsBody(),
     );

@@ -20,14 +20,14 @@ class CarComponent extends StatelessWidget {
       child: Padding(
         padding: AppConsts.padding8,
         child: Container(
-          width: size.width * .35,
+          width: size.width * .375,
           decoration: AppConsts.mainDecoration,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               //image
               const Expanded(
-                flex: 7,
+                flex: 8,
                 child: ClipRRect(
                   borderRadius: AppConsts.radiusTop15,
                   child: HandleImageWidget(
@@ -38,13 +38,14 @@ class CarComponent extends StatelessWidget {
               const Spacer(),
               //name
               Expanded(
-                flex: 3,
+                flex: 4,
                 child: Padding(
                   padding: AppConsts.mainPadding,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Expanded(
+                        flex: 10,
                         child: Text(
                           'BMW 320i M Sport',
                           overflow: TextOverflow.ellipsis,
@@ -54,10 +55,11 @@ class CarComponent extends StatelessWidget {
                       const Spacer(),
                       //price
                       Expanded(
+                        flex: 10,
                         child: Row(
                           children: [
                             Expanded(
-                              flex: 6,
+                              flex: 10,
                               child: Text(
                                 'EGP 3,000,000',
                                 overflow: TextOverflow.ellipsis,
@@ -67,13 +69,10 @@ class CarComponent extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            const Spacer(),
                             const Expanded(
-                              flex: 2,
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child:
-                                    IconWidgetAnimation(icon: Icons.favorite),
-                              ),
+                              flex: 5,
+                              child: IconWidgetAnimation(icon: Icons.favorite),
                             ),
                           ],
                         ),
