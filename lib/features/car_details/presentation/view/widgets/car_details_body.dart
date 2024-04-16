@@ -1,6 +1,7 @@
 import 'package:cars/features/car_details/presentation/view/widgets/section_image.dart';
 import 'package:flutter/material.dart';
-import 'details_car_component.dart';
+import 'features_section.dart';
+import 'specifications_car_component.dart';
 import 'section_details.dart';
 
 class CarDetailsBody extends StatelessWidget {
@@ -17,8 +18,12 @@ class CarDetailsBody extends StatelessWidget {
         ),
         //Section image
         SectionImages(),
-        //details
-        DetailsCarComponent(),
+        //specifications
+        SpecificationsCarComponent(),
+        //features
+        FeaturesSection(),
+        //add to orders
+        SectionAddToOrders(),
       ],
     );
   }

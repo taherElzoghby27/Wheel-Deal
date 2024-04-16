@@ -1,9 +1,12 @@
+import 'package:cars/core/consts/strings.dart';
+import 'package:cars/features/car_details/data/models/car_feature_model.dart';
 import 'package:cars/features/chats/data/models/chat_model.dart';
 import 'package:cars/features/chats/presentation/view/messages_view.dart';
 import 'package:cars/features/orders/presentation/view/orders_view.dart';
 import 'package:cars/features/profile/presentation/view/profile_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/car_details/data/models/car_specification_model.dart';
 import '../../features/chats/data/models/message_model.dart';
 import '../../features/home/presentation/view/home_view.dart';
 import 'assets.dart';
@@ -39,7 +42,7 @@ List<String> cars = [
   'https://www.motortrend.com/uploads/2023/01/2024-BMW-M3-CS-29.png',
   'https://alicanteplaza.es/public/Image/2022/11/ElnuevoBMWX1llegaalmercadoespa%C3%B1ol_NoticiaAmpliada.jpg',
 ];
-List<Message> messages_lists = [
+List<Message> messagesLists = [
   Message(
       id: 1,
       message:
@@ -102,7 +105,7 @@ List<Message> messages_lists = [
   Message(id: 2, message: 'Of course, I can!', time: '10:21'),
 ];
 
-List<Chat> chats_list = [
+List<Chat> chatsList = [
   Chat(
     logo:
         'https://w7.pngwing.com/pngs/421/879/png-transparent-twitter-logo-social-media-iphone-organization-logo-twitter-computer-network-leaf-media.png',
@@ -226,4 +229,71 @@ List<Map<String, dynamic>> brands = [
     'brandName': 'Bmw',
     'Logo': 'https://kioslambang.files.wordpress.com/2010/10/logobmw.png',
   },
+];
+List<CarSpecificModel> specifications = [
+  CarSpecificModel(
+    key: StringsEn.bodyType,
+    value: 'sedan',
+    icon: Assets.bodyType,
+  ),
+  CarSpecificModel(
+    key: StringsEn.fuelType,
+    value: 'benzine',
+    icon: Assets.fuelType,
+  ),
+  CarSpecificModel(
+    key: StringsEn.transimmision,
+    value: 'Automatic',
+    icon: Assets.transimission,
+  ),
+  CarSpecificModel(
+    key: StringsEn.enginePower,
+    value: '3500 cc',
+    icon: Assets.enginePower,
+  ),
+  CarSpecificModel(
+    key: StringsEn.topSpeed,
+    value: '149 mph',
+    icon: Assets.topSpeed,
+  ),
+  CarSpecificModel(
+    key: StringsEn.topCapacity,
+    value: '60 Liters',
+    icon: Assets.topCapacity,
+  ),
+  CarSpecificModel(
+    key: StringsEn.releaseDate,
+    value: '2022',
+    icon: Assets.releaseDate,
+  ),
+];
+List<CarFeatureModel> features = [
+  CarFeatureModel(
+    key: StringsEn.airCondition,
+    value: true,
+  ),
+  CarFeatureModel(
+    key: StringsEn.airbag,
+    value: false,
+  ),
+  CarFeatureModel(
+    key: StringsEn.breakAssist,
+    value: true,
+  ),
+  CarFeatureModel(
+    key: StringsEn.navigationSystem,
+    value: true,
+  ),
+  CarFeatureModel(
+    key: StringsEn.touchScreen,
+    value: false,
+  ),
+  CarFeatureModel(
+    key: StringsEn.connectivity,
+    value: true,
+  ),
+  CarFeatureModel(
+    key: StringsEn.remoteEngine,
+    value: true,
+  ),
 ];

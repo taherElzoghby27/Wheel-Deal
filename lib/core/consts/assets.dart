@@ -95,4 +95,11 @@ class Assets {
   static const String car2 = "assets/images/car2.jpg";
   static const String car3 = "assets/images/car3.jpg";
   static const String emptyCart = "assets/images/emptyCart.svg";
+  static const String bodyType = "assets/images/bodyType.png";
+  static const String enginePower = "assets/images/enginePower.png";
+  static const String fuelType = "assets/images/fuelType.png";
+  static const String releaseDate = "assets/images/releaseDate.png";
+  static const String topCapacity = "assets/images/topCapacity.png";
+  static const String topSpeed = "assets/images/topSpeed.png";
+  static const String transimission = "assets/images/transimission.png";
 }

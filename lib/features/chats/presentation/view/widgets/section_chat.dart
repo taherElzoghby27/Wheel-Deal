@@ -27,11 +27,11 @@ class SectionChat extends StatelessWidget {
               child: ListView.builder(
                 reverse: true,
                 physics: const BouncingScrollPhysics(),
-                itemCount: messages_lists.length,
+                itemCount: messagesLists.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return 1 == messages_lists[index].id
-                      ? ChatBubble(message: messages_lists[index])
-                      : ChatBubbForFriend(message: messages_lists[index]);
+                  return 1 == messagesLists[index].id
+                      ? ChatBubble(message: messagesLists[index])
+                      : ChatBubbForFriend(message: messagesLists[index]);
                 },
               ),
             ),

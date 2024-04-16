@@ -41,11 +41,11 @@ class SectionMessages extends StatelessWidget {
                     millSeconds: 250,
                     child: Padding(
                       padding: EdgeInsets.all(8.0.sp),
-                      child: LogoTitleIconWidget(chat: chats_list[0]),
+                      child: LogoTitleIconWidget(chat: chatsList[0]),
                     ),
                   );
                 },
-                itemCount: chats_list.length,
+                itemCount: chatsList.length,
                 separatorBuilder: (BuildContext context, int index) =>
                     const CustomDivider(),
               ),

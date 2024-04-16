@@ -13,9 +13,9 @@ class BoxDecorationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:AppConsts.decorationShadow15White,
+      decoration:AppConsts.mainDecoration,
       child: Padding(
-        padding: EdgeInsets.all(15.sp),
+        padding: AppConsts.padding15H10V,
         child: widget,
       ),
     );

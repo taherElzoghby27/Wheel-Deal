@@ -89,7 +89,13 @@ at least 1 number and 1 special character.
   static const String useCurrentLocation = "Use Current Location";
   static const String chooseRegion = "Choose Region";
   static const String details = "Details";
-  static const String brand = 'Brand:';
+  static const String airCondition = 'Air Conditioner';
+  static const String breakAssist = 'Break Assist';
+  static const String airbag = 'Airbag';
+  static const String navigationSystem = 'Navigation System';
+  static const String touchScreen = 'Touch Screen';
+  static const String connectivity = 'Connectivity';
+  static const String remoteEngine = 'Remote Engine start/stop';
   static const String model = 'Model:';
   static const String adType = 'Ad Type:';
   static const String transmission = 'Transmission:';
@@ -122,7 +128,7 @@ at least 1 number and 1 special character.
   static const String cash = "Cash";
   static const String exchange = "Exchange";
   static const String installment = "Installment";
-  static const String fuelType = "Fuel Type  *";
+  static const String fuelType = "Fuel Type";
   static const String benzine = "Benzine";
   static const String diesel = "Diesel";
   static const String naturalGas = "Natural Gas";
@@ -222,6 +228,13 @@ at least 1 number and 1 special character.
   static String senior = 'Senior';
   static const String topBrands = 'Top Brands';
   static const String bestOffers = 'Best Offers';
+  static const String specifications = 'Specifications';
+  static const String bodyType = 'Body type';
+  static const String transimmision = 'Transmission';
+  static const String enginePower = 'Engine power';
+  static const String topSpeed = 'Top Speed';
+  static const String topCapacity = 'Tank Capacity';
+  static const String releaseDate = 'Release Data';
   static const String recommendedForYou = 'Recommended For You';
   static String showResult = 'Show result';
   static String viewAll = 'View all';
@@ -230,6 +243,7 @@ at least 1 number and 1 special character.
   static String trySearchingWithDifferent =
       'Try searching with different keywords so we can show you';
   static String featuring = 'Featuring';
+  static String features = 'Features';
   static String jobDetail = 'Job Detail';
   static String desicription = 'Desicription';
   static String company = 'Company';
