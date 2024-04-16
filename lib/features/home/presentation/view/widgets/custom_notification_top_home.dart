@@ -15,8 +15,8 @@ class CustomNotificationTopHome extends StatelessWidget {
       children: [
         CustomSquareButton(
           icon: Icons.notifications,
-          color: AppConsts.neutral100.withOpacity(.05),
           onTap: () => GoRouter.of(context).push(favouritesPath),
+          color: AppConsts.neutral100.withOpacity(.05),
         ),
         Positioned(
           top: size.height * .015,

@@ -45,11 +45,10 @@ class SectionChat extends StatelessWidget {
                 children: [
                   SizedBox(width: size.width * .01.w),
                   //asset
-                  Padding(
-                    padding: const EdgeInsets.all(5),
+                  const Padding(
+                    padding: EdgeInsets.all(5),
                     child: CustomSquareButton(
                       icon: Icons.mic_rounded,
-                      onTap: () {},
                     ),
                   ),
                   SizedBox(width: size.width * .02.w),
@@ -62,11 +61,10 @@ class SectionChat extends StatelessWidget {
                   ),
                   SizedBox(width: size.width * .02.w),
                   //microphone
-                  Padding(
-                    padding: const EdgeInsets.all(5),
+                  const Padding(
+                    padding: EdgeInsets.all(5),
                     child: CustomSquareButton(
                       icon: Icons.send,
-                      onTap: () {},
                     ),
                   ),
                   SizedBox(width: size.width * .01.w),

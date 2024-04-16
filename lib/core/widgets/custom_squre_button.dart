@@ -4,36 +4,32 @@ import 'package:flutter/material.dart';
 class CustomSquareButton extends StatelessWidget {
   const CustomSquareButton({
     super.key,
-    this.onTap,
     required this.icon,
     this.color,
     this.colorIcon,
+    this.onTap,
   });
 
   final IconData icon;
-  final void Function()? onTap;
   final Color? color;
   final Color? colorIcon;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: AppConsts.mainRadiusIcon,
       child: Container(
         decoration: BoxDecoration(
-          color: color,
+          color: color ?? AppConsts.neutral100.withOpacity(.05),
           borderRadius: AppConsts.mainRadius,
         ),
         child: Center(
           child: Padding(
             padding: AppConsts.padding2,
-            child: IconButton(
-              onPressed: onTap,
-              icon: Icon(
-                icon,
-                color: AppConsts.mainColor,
-              ),
+            child: Icon(
+              icon,
+              color: AppConsts.mainColor,
             ),
           ),
         ),
