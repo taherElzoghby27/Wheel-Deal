@@ -147,6 +147,7 @@ at least 1 number and 1 special character.
   static const String typeYouMessage = 'Type you message';
   static const String editProfile = 'Edit Profile';
   static const String address = "Address";
+  static const String addToOrders = "Add To Orders";
   static const String setting = "Setting";
   static const String help = "Help";
   static const String logout = "Logout";

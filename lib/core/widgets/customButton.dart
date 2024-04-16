@@ -8,14 +8,14 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.background = AppConsts.primary500,
     this.isBorder = false,
-    this.styleText = AppConsts.style16White,
+    this.styleText,
   });
 
   final String text;
   final Color background;
   final bool isBorder;
   final Function() onTap;
-  final TextStyle styleText;
+  final TextStyle? styleText;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         text,
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: styleText ?? Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }
