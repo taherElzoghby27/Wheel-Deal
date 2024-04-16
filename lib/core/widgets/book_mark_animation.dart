@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../consts/style.dart';
 
 class IconWidgetAnimation extends StatefulWidget {
-  const IconWidgetAnimation({super.key, required this.icon});
+  const IconWidgetAnimation({
+    super.key,
+    required this.icon,
+    this.paddingIcon,
+  });
 
   final IconData icon;
+  final EdgeInsetsGeometry? paddingIcon;
 
   @override
   State<IconWidgetAnimation> createState() => _IconWidgetAnimationState();
@@ -63,10 +68,13 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
           child: AnimatedBuilder(
             animation: controller,
             builder: (context, child) {
-              return Icon(
-                widget.icon,
-                size: sizeAnimation.value,
-                color: isSaved ? AppConsts.mainColor : AppConsts.neutral500,
+              return Padding(
+                padding: widget.paddingIcon ?? const EdgeInsets.all(0),
+                child: Icon(
+                  widget.icon,
+                  size: sizeAnimation.value,
+                  color: isSaved ? AppConsts.mainColor : AppConsts.neutral500,
+                ),
               );
             },
           ),

@@ -27,7 +27,10 @@ class CustomAppBarScaffold extends StatelessWidget
       ),
       centerTitle: true,
       actions: [
-        Padding(padding: AppConsts.padding8, child: trailing),
+        Padding(
+          padding: AppConsts.padding8,
+          child: trailing ?? Container(),
+        ),
       ],
     );
   }

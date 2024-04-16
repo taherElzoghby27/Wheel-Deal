@@ -20,7 +20,10 @@ class CarDetailsView extends StatelessWidget {
           onTap: () => GoRouter.of(context).pop(),
         ),
         title: StringsEn.details,
-        trailing: const IconWidgetAnimation(icon: Icons.favorite),
+        trailing: IconWidgetAnimation(
+          icon: Icons.favorite,
+          paddingIcon: AppConsts.padding8,
+        ),
       ),
       body: const CarDetailsBody(),
     );
