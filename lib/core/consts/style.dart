@@ -83,6 +83,7 @@ abstract class AppConsts {
   static const double aspectRatioComponentCategory = 2.4 / 3;
   static const double aspectRatioTopSpace = 16 / 1;
   static const double aspectRatio20on1 = 20 / 1;
+  static const double aspectRatio24on2 = 24 / 2;
   static const double aspectRatio16on2 = 16 / 2;
   static const double aspectRatio16on3 = 16 / 3;
   static const double aspectRatio16on4 = 16 / 4;
@@ -119,6 +120,7 @@ abstract class AppConsts {
     horizontal: 15.w,
     vertical: 10.h,
   );
+  static EdgeInsets padding15H =EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h);
   static EdgeInsets padding8H3V = EdgeInsets.symmetric(
     horizontal: 8.w,
     vertical: 3.h,

@@ -6,18 +6,18 @@ import '../../../../../core/consts/style.dart';
 class CustomRecentOrPopularWidget extends StatelessWidget {
   const CustomRecentOrPopularWidget({
     super.key,
-    required this.leading,
+    this.leading,
     required this.jop,
     required this.trailingOnTap,
     required this.trailing,
-    this.trailingColor = AppConsts.danger500,
+    this.trailingColor,
   });
 
-  final IconData leading;
+  final IconData? leading;
   final String jop;
   final void Function() trailingOnTap;
   final IconData trailing;
-  final Color trailingColor;
+  final Color? trailingColor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,11 @@ class CustomRecentOrPopularWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ///leading
-          Icon(leading),
-          Spacer(),
+          Icon(
+            leading,
+            color: Theme.of(context).canvasColor.withOpacity(.5),
+          ),
+          const Spacer(),
 
           ///jop title
           SizedBox(
@@ -37,21 +40,21 @@ class CustomRecentOrPopularWidget extends StatelessWidget {
             child: Text(
               jop,
               style: AppConsts.style14.copyWith(
-                color: AppConsts.neutral900,
                 fontWeight: FontWeight.w400,
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          Spacer(flex: 6),
+          const Spacer(flex: 6),
 
           ///trailing
           IconButton(
             onPressed: trailingOnTap,
             icon: Icon(
               trailing,
-              color: trailingColor,
+              color: trailingColor ??
+                  Theme.of(context).canvasColor.withOpacity(.5),
             ),
           ),
         ],

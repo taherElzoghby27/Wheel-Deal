@@ -18,38 +18,39 @@ class TileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      width: double.infinity,
-      height: size.height * .04.h,
-      decoration: BoxDecoration(
-        color: AppConsts.neutral200.withOpacity(.4),
-        border: const Border.symmetric(
-          vertical: BorderSide(
-            color: AppConsts.neutral300,
+    return AspectRatio(
+      aspectRatio: AppConsts.aspectRatio24on2,
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Theme.of(context).canvasColor.withOpacity(.2),
+          border: const Border.symmetric(
+            vertical: BorderSide(
+              color: AppConsts.neutral300,
+            ),
           ),
         ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              label,
-              style: AppConsts.style14,
-              textAlign: textAlign ?? TextAlign.left,
-            ),
-            TextButton(
-              onPressed: trailingOnTap,
-              child: Text(
-                trailingLabel ?? '',
-                style: AppConsts.style14.copyWith(
-                  color: AppConsts.primary500,
+        child: Padding(
+          padding: AppConsts.padding15H,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                label,
+                style: AppConsts.style14,
+                textAlign: textAlign ?? TextAlign.left,
+              ),
+              TextButton(
+                onPressed: trailingOnTap,
+                child: Text(
+                  trailingLabel ?? '',
+                  style: AppConsts.style14.copyWith(
+                    color: AppConsts.primary500,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

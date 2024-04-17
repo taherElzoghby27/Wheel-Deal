@@ -1,14 +1,11 @@
-import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 
-class SearchSection extends StatelessWidget {
-  const SearchSection({super.key});
+class SearchField extends StatelessWidget {
+  const SearchField({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +19,6 @@ class SearchSection extends StatelessWidget {
           icon: const Icon(Icons.tune),
         ),
         hint: StringsEn.findAnyCar,
-        readOnly: true,
-        onTap: () => GoRouter.of(context).push(searchPath),
         border: AppConsts.normalBorderField.copyWith(
           borderRadius: AppConsts.mainRadius,
         ),
