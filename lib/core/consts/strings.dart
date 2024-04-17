@@ -53,6 +53,7 @@ at least 1 number and 1 special character.
   static const String enterYouEmail = 'Enter your email....';
   static const String requestPass = 'Request password reset';
   static const String checkYourEmail = 'Check your Email';
+  static const String checkOut = 'CheckOut ';
   static String weHaveSentAresetPassword =
       'We have sent a reset password to your email address';
   static const String openEmailApp = 'Open email app';
