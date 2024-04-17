@@ -40,7 +40,7 @@ class CustomTextField extends StatelessWidget {
       readOnly: readOnly,
       obscureText: obscureText,
       style: AppConsts.style14.copyWith(color: AppConsts.neutral900),
-      cursorColor: AppConsts.primary500,
+      cursorColor: AppConsts.mainColor,
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hint,
