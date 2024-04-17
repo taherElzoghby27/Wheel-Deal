@@ -14,6 +14,7 @@ import 'package:cars/features/home/presentation/view/recommended_for_you.dart';
 import 'package:cars/features/location/presentation/view/search_location_view.dart';
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
+import 'package:cars/features/notifications/presentation/view/notifications_view.dart';
 import 'package:cars/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
@@ -42,6 +43,7 @@ const String carDetailsPath = '/carDetailsPath';
 const String chatPath = '/chatPath';
 const String editProfilePath = '/editProfilePath';
 const String settingsPath = '/settingsPath';
+const String notificationPath='/notificationPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -191,6 +193,14 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const SettingsView(),
+      ),
+    ),
+    GoRoute(
+      path: notificationPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const NotificationsView(),
       ),
     ),
   ],
