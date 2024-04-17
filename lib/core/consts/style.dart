@@ -77,7 +77,7 @@ abstract class AppConsts {
   static const double aspectRatioButtonComponent = 4 / .8;
   static const double aspectRatioComponentOrder = 4 / 1.9;
   static const double aspectRatioImage = 16 / 13;
-  static const double aspectRatio2point8on3 =2.9/3;
+  static const double aspectRatio2point8on3 = 2.9 / 3;
   static const double aspect16on14 = 16 / 14;
   static const double aspectRatioNavBar = 16 / 2.8;
   static const double aspectRatioComponentCategory = 2.4 / 3;
@@ -120,7 +120,8 @@ abstract class AppConsts {
     horizontal: 15.w,
     vertical: 10.h,
   );
-  static EdgeInsets padding15H =EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h);
+  static EdgeInsets padding15H =
+      EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h);
   static EdgeInsets padding8H3V = EdgeInsets.symmetric(
     horizontal: 8.w,
     vertical: 3.h,
@@ -257,7 +258,6 @@ abstract class AppConsts {
     border: Border.all(color: AppConsts.neutral300),
   );
   static BoxDecoration decorationChatBubble = const BoxDecoration(
-    color: AppConsts.neutral200,
     borderRadius: BorderRadius.only(
       bottomRight: Radius.circular(8),
       bottomLeft: Radius.circular(8),
@@ -265,7 +265,7 @@ abstract class AppConsts {
     ),
   );
   static BoxDecoration decorationChatBubbleForFriend = const BoxDecoration(
-    color: AppConsts.primary500,
+    color: mainColor,
     borderRadius: BorderRadius.only(
       bottomLeft: Radius.circular(8),
       topLeft: Radius.circular(8),

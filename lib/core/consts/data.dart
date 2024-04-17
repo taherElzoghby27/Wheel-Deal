@@ -104,7 +104,7 @@ List<Message> messagesLists = [
       id: 1,
       message: 'Can we have an interview via google meet call today at 3pm?',
       time: '10:21'),
-  Message(id: 2, message: 'Of course, I can!', time: '10:21'),
+  Message(id: 2, message: 'Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!', time: '10:21'),
 ];
 
 List<Chat> chatsList = [

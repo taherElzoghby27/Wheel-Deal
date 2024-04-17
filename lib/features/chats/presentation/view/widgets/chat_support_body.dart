@@ -1,28 +1,36 @@
-
+import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/widgets/custom_app_bar.dart';
-import 'package:cars/features/chats/presentation/view/widgets/section_chat.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class ChatBody extends StatelessWidget {
-  const ChatBody({super.key});
+import 'chat_bubble.dart';
+import 'chat_bubble_for_friends.dart';
+import 'section_send_message.dart';
+
+class ChatSupportBody extends StatelessWidget {
+  const ChatSupportBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
-        const AspectRatio(aspectRatio:  AppConsts.aspectRatioTopSpace),
-        //back   title   settings
-        CustomAppBar(
-          leadingOnTap: () => GoRouter.of(context).pop(),
-          title: 'Taher elzoghby',
-          trailingWidget: const Icon(Icons.call, color: AppConsts.neutral900),
-          trailingOnTap: () {},
+        //list of messages
+        Expanded(
+          child: Container(
+            padding: AppConsts.padding8h,
+            child: ListView.builder(
+              reverse: true,
+              physics: const BouncingScrollPhysics(),
+              itemCount: messagesLists.length,
+              itemBuilder: (BuildContext context, int index) {
+                return 1 == messagesLists[index].id
+                    ? ChatBubble(message: messagesLists[index])
+                    : ChatBubbForFriend(message: messagesLists[index]);
+              },
+            ),
+          ),
         ),
-        //chat
-        const SectionChat(),
+        //field ->write a messsage
+        const SectionSendMessage(),
       ],
     );
   }

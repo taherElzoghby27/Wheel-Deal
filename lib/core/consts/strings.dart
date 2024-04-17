@@ -84,6 +84,7 @@ at least 1 number and 1 special character.
   static const String chat = 'Chats';
   static const String profile = 'Profile';
   static const String favourites = 'Favourites';
+  static const String supportChat = 'Support Chat';
   static const String emptyFavourite = 'Oops your wishlist is empty!';
   static const String subTitleEmptyFavourite =
       'It seems nothing in here, Explore more and shortlist some item';

@@ -1,10 +1,12 @@
 import 'package:cars/core/consts/assets.dart';
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 import 'tile_chat.dart';
 
@@ -22,7 +24,7 @@ class ChatBody extends StatelessWidget {
             const HandleImageWidget(image: Assets.chatIcon),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
             const Text(
-              StringsEn.howCanWeHelpYou ,
+              StringsEn.howCanWeHelpYou,
               style: AppConsts.style20,
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
@@ -35,7 +37,7 @@ class ChatBody extends StatelessWidget {
             TileChat(
               image: Assets.chatIcon,
               label: StringsEn.contactLiveChat,
-              onTap: () {},
+              onTap: () => GoRouter.of(context).push(chatSupportPath),
             ),
           ],
         ),

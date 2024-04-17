@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/features/chats/data/models/message_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,18 +17,19 @@ class ChatBubbForFriend extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Align(
       alignment: Alignment.centerRight,
-      child: Padding(
-        padding: const EdgeInsets.all(6.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(
+            padding: AppConsts.padding6,
+            child: Padding(
+              padding: AppConsts.padding4,
               child: Container(
-                width: size.width * .75.w,
+                width: size.width * .65.w,
                 decoration: AppConsts.decorationChatBubbleForFriend,
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: AppConsts.padding8,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -50,8 +52,13 @@ class ChatBubbForFriend extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          CircleAvatar(
+            radius: 22,
+            backgroundImage: NetworkImage(
+                'https://media.proprofs.com/images/QM/user_images/2503852/-Type-Of-Person-.webp'),
+          ),
+        ],
       ),
     );
   }
