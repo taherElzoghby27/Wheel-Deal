@@ -1,5 +1,6 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/car_details/data/models/car_feature_model.dart';
+import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:cars/features/chats/data/models/chat_model.dart';
 import 'package:cars/features/chats/presentation/view/messages_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
@@ -296,5 +297,37 @@ List<CarFeatureModel> features = [
   CarFeatureModel(
     key: StringsEn.remoteEngine,
     value: true,
+  ),
+];
+List<InstallmentModel> installments = [
+  InstallmentModel(
+    months: 12,
+    deposit: 266266,
+    monthly: 266266,
+    total: 266266,
+  ),
+  InstallmentModel(
+    months: 24,
+    deposit: 266266,
+    monthly: 266266,
+    total: 266266,
+  ),
+  InstallmentModel(
+    months: 36,
+    deposit: 266266,
+    monthly: 266266,
+    total: 266266,
+  ),
+  InstallmentModel(
+    months: 48,
+    deposit: 266266,
+    monthly: 266266,
+    total: 266266,
+  ),
+  InstallmentModel(
+    months: 60,
+    deposit: 266266,
+    monthly: 266266,
+    total: 266266,
   ),
 ];

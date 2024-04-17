@@ -77,6 +77,7 @@ abstract class AppConsts {
   static const double aspectRatioButtonComponent = 4 / .8;
   static const double aspectRatioComponentOrder = 4 / 1.9;
   static const double aspectRatioImage = 16 / 13;
+  static const double aspectRatio2point8on3 =2.9/3;
   static const double aspect16on14 = 16 / 14;
   static const double aspectRatioNavBar = 16 / 2.8;
   static const double aspectRatioComponentCategory = 2.4 / 3;
@@ -95,6 +96,7 @@ abstract class AppConsts {
 
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
+  static BorderRadius radius10 = BorderRadius.circular(10);
   static const BorderRadius radiusTop15 = BorderRadius.only(
     topRight: Radius.circular(15),
     topLeft: Radius.circular(15),

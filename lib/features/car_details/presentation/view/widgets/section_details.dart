@@ -2,6 +2,8 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 
+import 'installment_available_component.dart';
+
 class SectionDetails extends StatelessWidget {
   const SectionDetails({
     super.key,
@@ -43,21 +45,7 @@ class SectionDetails extends StatelessWidget {
             ],
           ),
           SizedBox(height: size.height * .01),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              decoration: AppConsts.mainDecoration,
-              child: Padding(
-                padding: AppConsts.padding8H3V,
-                child: Text(
-                  StringsEn.installmentAvailable,
-                  style: AppConsts.style14.copyWith(
-                    color: Theme.of(context).canvasColor,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          const InstallmentAvailableComponent(),
         ],
       ),
     );
