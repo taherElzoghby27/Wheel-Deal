@@ -102,4 +102,6 @@ class Assets {
   static const String topCapacity = "assets/images/topCapacity.png";
   static const String topSpeed = "assets/images/topSpeed.png";
   static const String transimission = "assets/images/transimission.png";
+  static const String chatIcon = "assets/images/chatIcon.png";
+  static const String help = "assets/images/help.png";
 }

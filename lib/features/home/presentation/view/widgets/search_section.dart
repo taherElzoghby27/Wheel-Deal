@@ -17,10 +17,7 @@ class SearchSection extends StatelessWidget {
       child: CustomTextField(
         filled: AppConsts.neutral100.withOpacity(.05),
         perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
-        suffixIcon: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.tune),
-        ),
+        suffixIcon: const Icon(Icons.tune),
         hint: StringsEn.findAnyCar,
         readOnly: true,
         onTap: () => GoRouter.of(context).push(searchPath),

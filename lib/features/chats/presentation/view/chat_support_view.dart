@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/messages_body.dart';
+import 'widgets/chat_support_body.dart';
 
-class MessagesView extends StatelessWidget {
-  const MessagesView({super.key});
+class ChatView extends StatelessWidget {
+  const ChatView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: MessagesBody(),
+        child: ChatBody(),
       ),
     );
   }

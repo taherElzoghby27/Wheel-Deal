@@ -67,6 +67,9 @@ at least 1 number and 1 special character.
       'Your password has been changed successfully, we will let you know if there are more problems with your account';
   static const String findAnyCar = "Find any car.....";
   static const String searchLabel = "Search";
+  static const String faq = "FAQ";
+  static const String contactLiveChat = "Contact Live Chat";
+  static const String howCanWeHelpYou = 'How Can We Help You ?';
   static const String searchArea = 'Search area, city or country';
   static const String specialOffers = "Special Offers";
   static const String categories = "Categories";
