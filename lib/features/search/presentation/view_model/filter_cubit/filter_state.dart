@@ -8,3 +8,5 @@ class ConditionInitial extends FilterState {}
 class ValueChange extends FilterState {}
 
 class PriceRangeChanged extends FilterState {}
+
+class ValueFacilityChange extends FilterState {}

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/features/search/data/models/facilities_model.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'filter_state.dart';
 
@@ -39,4 +39,11 @@ class FilterCubit extends Cubit<FilterState> {
     currentRangeValues = values;
     emit(PriceRangeChanged());
   }
+
+  changeFacility(bool value, FacilityModel facilityModel) {
+    facilityModel.value = value;
+    emit(ValueFacilityChange());
+  }
+
+  resetMethod() {}
 }

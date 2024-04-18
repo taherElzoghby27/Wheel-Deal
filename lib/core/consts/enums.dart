@@ -1,3 +1,6 @@
+import 'package:cars/core/consts/strings.dart';
+import 'package:cars/features/search/data/models/facilities_model.dart';
+
 enum Gender {
   Male,
   Female,
@@ -5,9 +8,10 @@ enum Gender {
 
 //filters
 
-List<String> conditions = ['new', 'used'];
+List<String> conditions = [StringsEn.condition, 'new', 'used'];
 
 List<String> brands = [
+  StringsEn.brand,
   'sedan',
   'suv',
   'coupe',
@@ -16,6 +20,7 @@ List<String> brands = [
   'sportsCar',
 ];
 List<String> bodyTypes = [
+  StringsEn.bodyType,
   'sedan',
   'suv',
   'coupe',
@@ -24,7 +29,17 @@ List<String> bodyTypes = [
   'sportsCar',
 ];
 List<String> models = [
+  StringsEn.model,
   '2012',
   '2020',
   '2024',
+];
+List<FacilityModel> facilities = [
+  FacilityModel(label: StringsEn.airCondition),
+  FacilityModel(label: StringsEn.breakAssist),
+  FacilityModel(label: StringsEn.airbag),
+  FacilityModel(label: StringsEn.navigationSystem),
+  FacilityModel(label: StringsEn.touchScreen),
+  FacilityModel(label: StringsEn.connectivity),
+  FacilityModel(label: StringsEn.remoteEngine),
 ];

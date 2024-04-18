@@ -242,6 +242,7 @@ at least 1 number and 1 special character.
   static const String topBrands = 'Top Brands';
   static const String bestOffers = 'Best Offers';
   static const String filterBy = 'Filter by';
+  static const String facilities = 'Facilities';
   static const String specifications = 'Specifications';
   static const String transimmision = 'Transmission';
   static const String enginePower = 'Engine power';

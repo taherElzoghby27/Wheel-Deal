@@ -1,5 +1,6 @@
 import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/consts/style.dart';
@@ -13,6 +14,12 @@ class SectionFieldsFilter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        TopLeadingTrailing(
+          leading: StringsEn.filterBy,
+          trailing: StringsEn.reset,
+          trailingOnTap: () {},
+        ),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         //condition
         FilterField(
           label: StringsEn.condition,
