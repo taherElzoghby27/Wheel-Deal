@@ -14,6 +14,7 @@ abstract class StringsEn {
   static const String city = 'city';
 
   static const String state = 'state';
+  static const String showResult = 'Show Results';
   static const String last3digitPhone = 'Last 3 Digit of Phone Number';
   static const String age = 'age';
   static const String gender = 'gender';
@@ -250,7 +251,6 @@ at least 1 number and 1 special character.
   static const String topCapacity = 'Tank Capacity';
   static const String releaseDate = 'Release Data';
   static const String recommendedForYou = 'Recommended For You';
-  static String showResult = 'Show result';
   static String viewAll = 'View all';
   static String any = 'Any';
   static String searchNotFound = 'Search not found';
