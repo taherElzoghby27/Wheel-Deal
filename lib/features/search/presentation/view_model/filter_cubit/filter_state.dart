@@ -5,6 +5,6 @@ abstract class FilterState {}
 
 class ConditionInitial extends FilterState {}
 
-class ValueChanged extends FilterState {}
+class ValueChange extends FilterState {}
 
 class PriceRangeChanged extends FilterState {}

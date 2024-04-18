@@ -31,7 +31,8 @@ class FilterCubit extends Cubit<FilterState> {
     } else if (status == StringsEn.model) {
       model = value;
     }
-    emit(ValueChanged());
+    debugPrint(condition);
+    emit(ValueChange());
   }
 
   changePriceRange(RangeValues values) {

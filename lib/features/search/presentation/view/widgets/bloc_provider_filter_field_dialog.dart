@@ -18,38 +18,54 @@ class BlocProviderConditionFieldFilterDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FilterCubit(),
-      child: BlocBuilder<FilterCubit, FilterState>(
-        builder: (context, state) {
-          FilterCubit bloc = BlocProvider.of<FilterCubit>(context);
-          return Dialog(
-            surfaceTintColor: Theme.of(context).splashColor,
-            shape: AppConsts.dialogShape,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: list
-                  .map(
-                    (e) => CustomRadiusListTile<String>(
-                      label: e,
-                      value: e,
-                      groupValue: status == StringsEn.condition
-                          ? bloc.condition
-                          : status == StringsEn.brand
-                              ? bloc.brand
-                              : status == StringsEn.bodyType
-                                  ? bloc.bodyType
-                                  : bloc.model,
-                      onChanged: (value) => bloc.changeValue(
-                        value: value!,
-                        status: status,
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          );
-        },
-      ),
+      create:(ctx)=>FilterCubit(),
+      child: BlocBuilderDialog(list: list, status: status),
+    );
+  }
+}
+
+class BlocBuilderDialog extends StatelessWidget {
+  const BlocBuilderDialog({
+    super.key,
+    required this.list,
+    required this.status,
+  });
+
+  final List<String> list;
+  final String status;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FilterCubit, FilterState>(
+      builder: (context, state) {
+        FilterCubit bloc = BlocProvider.of<FilterCubit>(context);
+        return Dialog(
+          surfaceTintColor: Theme.of(context).splashColor,
+          shape: AppConsts.dialogShape,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: list
+                .map(
+                  (e) => CustomRadiusListTile<String>(
+                label: e,
+                value: e,
+                groupValue: status == StringsEn.condition
+                    ? bloc.condition
+                    : status == StringsEn.brand
+                    ? bloc.brand
+                    : status == StringsEn.bodyType
+                    ? bloc.bodyType
+                    : bloc.model,
+                onChanged: (value) => bloc.changeValue(
+                  value: value!,
+                  status: status,
+                ),
+              ),
+            )
+                .toList(),
+          ),
+        );
+      },
     );
   }
 }
