@@ -1,13 +1,12 @@
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButtonThreeWidget extends StatelessWidget {
   const CustomButtonThreeWidget({
     super.key,
     this.leading,
     required this.title,
-    required this.trailing,
+    this.trailing,
     required this.onTap,
     this.decoration,
     this.color = AppConsts.neutral900,
@@ -15,7 +14,7 @@ class CustomButtonThreeWidget extends StatelessWidget {
 
   final Widget? leading;
   final String title;
-  final IconData trailing;
+  final Widget? trailing;
   final void Function() onTap;
   final Decoration? decoration;
   final Color color;
@@ -24,18 +23,16 @@ class CustomButtonThreeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      highlightColor: AppConsts.primary100,
-      borderRadius: BorderRadius.circular(20),
+      highlightColor: AppConsts.mainColor,
+      borderRadius: AppConsts.mainRadius,
       child: Padding(
-        padding: EdgeInsets.all(10.sp),
+        padding: AppConsts.padding6,
         child: AspectRatio(
-          aspectRatio: AppConsts.aspectRatioButtonAuth,
+          aspectRatio: AppConsts.aspectRatio16on2,
           child: Container(
-            decoration: AppConsts.borderButton.copyWith(
-              borderRadius: BorderRadius.circular(20),
-            ),
+            decoration: AppConsts.mainDecoration,
             child: Padding(
-              padding: EdgeInsets.all(8.0.sp),
+              padding: AppConsts.padding8,
               child: Row(
                 children: [
                   leading ?? Container(),
@@ -44,11 +41,15 @@ class CustomButtonThreeWidget extends StatelessWidget {
                     title,
                     style: AppConsts.style32.copyWith(
                       fontSize: 16,
-                      color: color,
+                      color: Theme.of(context).canvasColor,
                     ),
                   ),
                   const Spacer(flex: 7),
-                  Icon(trailing,  color: color),
+                  trailing ??
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        color: AppConsts.mainColor,
+                      ),
                 ],
               ),
             ),

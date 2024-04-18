@@ -159,6 +159,8 @@ at least 1 number and 1 special character.
   static const String activeNow = 'Active Now';
   static const String typeYouMessage = 'Type you message';
   static const String editProfile = 'Edit Profile';
+  static const String accountVerifi = 'Account Verification';
+  static const String signInSecurity = 'Sign in & Security';
   static const String address = "Address";
   static const String addToOrders = "Add To Orders";
   static const String setting = "Setting";
@@ -174,6 +176,7 @@ at least 1 number and 1 special character.
   static String eenterCv = 'Please, Enter CV';
   static String token = 'token';
   static String userId = 'user id';
+  static String id = 'Id';
   static String jobId = 'job id';
   static String status = 'status';
   static String warningPass = 'Password must be at least 8 characters';
@@ -242,6 +245,7 @@ at least 1 number and 1 special character.
   static String senior = 'Senior';
   static const String topBrands = 'Top Brands';
   static const String bestOffers = 'Best Offers';
+  static const String utilities = 'Utilities';
   static const String filterBy = 'Filter by';
   static const String facilities = 'Facilities';
   static const String specifications = 'Specifications';
@@ -279,6 +283,7 @@ at least 1 number and 1 special character.
   static String phone = 'phone number';
   static String uplaodCv = 'Upload CV (pdf)';
   static String pdfExtension = 'pdf';
+  static String personalInfo = 'personal Information';
   static String someThingError = 'something error';
   static String signOutSuccess = 'Sign out Successful';
   static String unKnown = 'unknown';

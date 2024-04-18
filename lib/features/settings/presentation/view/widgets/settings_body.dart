@@ -23,19 +23,16 @@ class SettingsBody extends StatelessWidget {
         CustomButtonThreeWidget(
           leading: const Icon(FontAwesomeIcons.bell),
           title: StringsEn.notificationSetting,
-          trailing: Icons.arrow_forward_ios,
           onTap: () => GoRouter.of(context).push(''),
         ),
         CustomButtonThreeWidget(
           leading: const Icon(FontAwesomeIcons.key),
           title: StringsEn.passwordManager,
-          trailing: Icons.arrow_forward_ios,
           onTap: () => GoRouter.of(context).push(''),
         ),
         CustomButtonThreeWidget(
           leading: const Icon(FontAwesomeIcons.trash),
           title: StringsEn.deleteAccount,
-          trailing: Icons.arrow_forward_ios,
           onTap: () => GoRouter.of(context).push(''),
         ),
       ],

@@ -8,7 +8,7 @@ class SectionInfoUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size=MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
@@ -19,11 +19,11 @@ class SectionInfoUser extends StatelessWidget {
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
         SizedBox(
-          width: size.width*.5.w,
+          width: size.width * .5.w,
           child: Text(
             'Rock',
             style: AppConsts.style20.copyWith(
-              color: AppConsts.neutral900,
+              color: Theme.of(context).canvasColor,
             ),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
