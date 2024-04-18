@@ -23,6 +23,8 @@ import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
+import 'package:cars/features/verification/presentation/view/verification_view.dart';
+import 'package:cars/features/verification/presentation/view/verification_welcome_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,6 +53,8 @@ const String editProfilePath = '/editProfilePath';
 const String settingsPath = '/settingsPath';
 const String notificationPath = '/notificationPath';
 const String faqPath = '/faqPath';
+const String verificationWelcomePath = '/verificationWelcomePath';
+const String verificationPath = '/verificationPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -190,7 +194,7 @@ final router = GoRouter(
         state: state,
         child: BlocProvider(
           create: (_) => FilterCubit(),
-          child:  const FilterView(),
+          child: const FilterView(),
         ),
       ),
     ),
@@ -235,6 +239,22 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const NotificationsView(),
+      ),
+    ),
+    GoRoute(
+      path: verificationWelcomePath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const VerificationWelcomeView(),
+      ),
+    ),
+    GoRoute(
+      path: verificationPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const VerificationView(),
       ),
     ),
   ],

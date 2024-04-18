@@ -110,7 +110,7 @@ abstract class AppConsts {
   );
 
   //padding
-  static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 12.w);
+  static EdgeInsets mainPadding = EdgeInsets.symmetric(horizontal: 24.w);
   static EdgeInsets padding8 = const EdgeInsets.all(8);
   static EdgeInsets padding2 = const EdgeInsets.all(2);
   static EdgeInsets padding4 = const EdgeInsets.all(4);
@@ -150,6 +150,13 @@ abstract class AppConsts {
     color: AppConsts.neutral100,
     fontSize: 20,
     fontWeight: FontWeight.w500,
+    fontFamily: mainFont,
+    fontStyle: FontStyle.normal,
+  );
+  static const TextStyle style22 = TextStyle(
+    color: neutral100,
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
     fontFamily: mainFont,
     fontStyle: FontStyle.normal,
   );

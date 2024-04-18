@@ -411,8 +411,11 @@ at least 1 number and 1 special character.
       'Please confirm your account by entering the authorization code sent to';
   static String resendCode = 'Resend code';
   static String verify = 'Verify';
+  static String verification = 'Verification';
+  static String verifyYourAccount = 'Verify Your Identify!';
   static String whatCanWeHelp = 'What can we help?';
   static String lorem = 'Lorem ipsum dolor sit amet';
+  static String loremVerifi= 'Lorem ipsum dolor sit amet consectetur.\n Sollicitudin eget in amet vitae feugiat\n lobortis gravida sagittis. Placerat cursus ';
   static String loremIpsum =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies mi enim, quis vulputate nibh faucibus at. Maecenas est ante, suscipit vel sem non, blandit blandit erat. Praesent pulvinar ante et felis porta vulputate. Curabitur ornare velit nec fringilla finibus. Phasellus mollis pharetra ante, in ullamcorper massa ullamcorper et. Curabitur ac leo sit amet leo interdum mattis vel eu mauris.';
   static String loremDolor = 'Lorem ipsum dolor';

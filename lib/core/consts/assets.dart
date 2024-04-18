@@ -105,4 +105,5 @@ class Assets {
   static const String chatIcon = "assets/images/chatIcon.png";
   static const String help = "assets/images/help.png";
   static const String callCenter = "assets/images/callCenter.png";
+  static const String verificationAsset = "assets/images/verification.png";
 }

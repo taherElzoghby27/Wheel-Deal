@@ -25,7 +25,7 @@ class SectionUtilities extends StatelessWidget {
           CustomButtonThreeWidget(
             leading: const Icon(FontAwesomeIcons.userCheck),
             title: StringsEn.accountVerifi,
-            onTap: () => GoRouter.of(context).push(editProfilePath),
+            onTap: () => GoRouter.of(context).push(verificationWelcomePath),
           ),
           CustomButtonThreeWidget(
             leading: const Icon(FontAwesomeIcons.lock),
