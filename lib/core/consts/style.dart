@@ -294,6 +294,13 @@ abstract class AppConsts {
       color: AppConsts.primary500,
     ),
   );
+  static RoundedRectangleBorder dialogShape = RoundedRectangleBorder(
+    borderRadius: radius10,
+    side: BorderSide(
+      color: neutral700.withOpacity(.3),
+      width: 1,
+    ),
+  );
 
   //box shadows
   static List<BoxShadow> boxShadows = const [

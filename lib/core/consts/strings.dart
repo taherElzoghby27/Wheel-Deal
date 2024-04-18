@@ -67,6 +67,7 @@ at least 1 number and 1 special character.
       'Your password has been changed successfully, we will let you know if there are more problems with your account';
   static const String findAnyCar = "Find any car.....";
   static const String searchLabel = "Search";
+  static const String filter = "Filter";
   static const String faq = "FAQ";
   static const String contactLiveChat = "Contact Live Chat";
   static const String howCanWeHelpYou = 'How Can We Help You ?';
@@ -127,7 +128,7 @@ at least 1 number and 1 special character.
   static const String transmissionType = 'Transmission Type *';
   static const String automatic = 'Automatic';
   static const String manual = 'Manual';
-  static const String condition = 'Condition  *';
+  static const String condition = 'Condition';
   static const String neww = 'New';
   static const String used = "Used";
   static const String star = "*";
@@ -235,6 +236,7 @@ at least 1 number and 1 special character.
   static String senior = 'Senior';
   static const String topBrands = 'Top Brands';
   static const String bestOffers = 'Best Offers';
+  static const String filterBy = 'Filter by';
   static const String specifications = 'Specifications';
   static const String bodyType = 'Body type';
   static const String transimmision = 'Transmission';

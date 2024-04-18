@@ -7,10 +7,12 @@ class TopLeadingTrailing extends StatelessWidget {
     super.key,
     required this.leading,
     this.trailingOnTap,
+    this.trailing,
   });
 
   final String leading;
   final void Function()? trailingOnTap;
+  final String? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class TopLeadingTrailing extends StatelessWidget {
             : TextButton(
                 onPressed: trailingOnTap,
                 child: Text(
-                  StringsEn.viewAll,
+                  trailing ?? StringsEn.viewAll,
                   style: AppConsts.style14.copyWith(
                     color: AppConsts.mainColor,
                   ),
