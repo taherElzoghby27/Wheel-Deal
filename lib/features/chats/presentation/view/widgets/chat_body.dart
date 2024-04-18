@@ -31,7 +31,7 @@ class ChatBody extends StatelessWidget {
             TileChat(
               image: Assets.help,
               label: StringsEn.faq,
-              onTap: () {},
+              onTap: () => GoRouter.of(context).push(faqPath),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
             TileChat(

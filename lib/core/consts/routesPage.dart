@@ -7,6 +7,7 @@ import 'package:cars/features/car_details/presentation/view/car_details_view.dar
 import 'package:cars/features/car_details/presentation/view_model/changed_carsoul_cubit/changed_carsoul_cubit.dart';
 import 'package:cars/features/chats/presentation/view/chat_support_view.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
+import 'package:cars/features/chats/presentation/view/faq_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view.dart';
@@ -49,6 +50,7 @@ const String chatSupportPath = '/chatSupportPath';
 const String editProfilePath = '/editProfilePath';
 const String settingsPath = '/settingsPath';
 const String notificationPath = '/notificationPath';
+const String faqPath = '/faqPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -155,6 +157,14 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const ChatSupportView(),
+      ),
+    ),
+    GoRoute(
+      path: faqPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const FaqView(),
       ),
     ),
     GoRoute(
