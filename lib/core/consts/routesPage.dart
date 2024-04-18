@@ -19,7 +19,6 @@ import 'package:cars/features/notifications/presentation/view/notifications_view
 import 'package:cars/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
-import 'package:cars/features/search/presentation/view_model/condition_cubit/condition_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

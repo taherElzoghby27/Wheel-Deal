@@ -1,26 +1,26 @@
 import 'package:cars/core/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/consts/strings.dart';
-import 'bloc_provider_condition_field_dialog.dart';
+class FilterField extends StatelessWidget {
+  const FilterField({
+    super.key,
+    required this.label,
+    required this.widget,
+  });
 
-enum Condition { New, Used }
-
-class ConditionField extends StatelessWidget {
-  const ConditionField({super.key});
+  final String label;
+  final Widget widget;
 
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
-      hint: StringsEn.condition,
+      hint: label,
       readOnly: true,
       suffixIcon: IconButton(
         onPressed: () {
           showDialog(
             context: context,
-            builder: (context) {
-              return const BlocProviderConditionFieldDialog();
-            },
+            builder: (context) => widget,
           );
         },
         icon: Icon(

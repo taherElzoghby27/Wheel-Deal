@@ -1,11 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/widgets/text_field.dart';
 import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'condition_field.dart';
+import 'section_fields_filter.dart';
 
 class FilterBody extends StatelessWidget {
   const FilterBody({super.key});
@@ -23,8 +20,11 @@ class FilterBody extends StatelessWidget {
             trailingOnTap: () {},
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-          //condition
-          ConditionField(),
+          const SectionFieldsFilter(),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+          const TopLeadingTrailing(
+            leading: StringsEn.priceRange,
+          ),
         ],
       ),
     );

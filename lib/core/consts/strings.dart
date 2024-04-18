@@ -103,7 +103,7 @@ at least 1 number and 1 special character.
   static const String touchScreen = 'Touch Screen';
   static const String connectivity = 'Connectivity';
   static const String remoteEngine = 'Remote Engine start/stop';
-  static const String model = 'Model:';
+
   static const String adType = 'Ad Type:';
   static const String transmission = 'Transmission:';
   static const String km = 'Kilometers:';
@@ -122,13 +122,16 @@ at least 1 number and 1 special character.
   static const String vehicles = 'Vehicles;';
   static const String carsForSale = 'Cars for sale';
   static const String brandAndModel = 'Brand and Model *';
-  static const String price = 'Price *';
+  static const String priceRange = 'Price Range';
   static const String forSale = 'For Sale';
   static const String forRent = 'For Rent';
   static const String transmissionType = 'Transmission Type *';
   static const String automatic = 'Automatic';
   static const String manual = 'Manual';
   static const String condition = 'Condition';
+  static const String bodyType = 'body type';
+  static const String model = 'model';
+  static const String brand = 'brand';
   static const String neww = 'New';
   static const String used = "Used";
   static const String star = "*";
@@ -238,7 +241,6 @@ at least 1 number and 1 special character.
   static const String bestOffers = 'Best Offers';
   static const String filterBy = 'Filter by';
   static const String specifications = 'Specifications';
-  static const String bodyType = 'Body type';
   static const String transimmision = 'Transmission';
   static const String enginePower = 'Engine power';
   static const String topSpeed = 'Top Speed';
