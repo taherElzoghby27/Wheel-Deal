@@ -179,8 +179,8 @@ final router = GoRouter(
         context: context,
         state: state,
         child: BlocProvider(
-          create: (context) => FilterCubit(),
-          child: const FilterView(),
+          create: (_) => FilterCubit(),
+          child:  const FilterView(),
         ),
       ),
     ),

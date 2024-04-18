@@ -32,19 +32,32 @@ class FilterField extends StatelessWidget {
           }
           debugPrint('status $status');
         }
-        return CustomTextField(
-          hint: status.isEmpty ? label : status,
-          readOnly: true,
-          suffixIcon: IconButton(
-            onPressed: () => showDialog(
-              context: context,
-              builder: (context) => widget,
-            ),
-            icon: Icon(
-              Icons.keyboard_arrow_down,
-              color: Theme.of(context).canvasColor,
-            ),
-          ),
+        return Builder(
+          builder: (builderContext) {
+            return CustomTextField(
+              hint: status.isEmpty ? label : status,
+              readOnly: true,
+              suffixIcon: IconButton(
+                onPressed: () => _onTapSubmit(builderContext),
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Theme.of(context).canvasColor,
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _onTapSubmit(BuildContext builderContext) {
+    showDialog(
+      context: builderContext,
+      builder: (_) {
+        return BlocProvider.value(
+          value: builderContext.read<FilterCubit>(),
+          child: widget,
         );
       },
     );
