@@ -3,6 +3,7 @@ import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
 import 'package:flutter/material.dart';
 import 'section_fields_filter.dart';
+import 'section_price_range.dart';
 
 class FilterBody extends StatelessWidget {
   const FilterBody({super.key});
@@ -22,9 +23,7 @@ class FilterBody extends StatelessWidget {
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
           const SectionFieldsFilter(),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-          const TopLeadingTrailing(
-            leading: StringsEn.priceRange,
-          ),
+          const SectionPriceRange(),
         ],
       ),
     );

@@ -123,6 +123,8 @@ at least 1 number and 1 special character.
   static const String carsForSale = 'Cars for sale';
   static const String brandAndModel = 'Brand and Model *';
   static const String priceRange = 'Price Range';
+  static const String min = 'min';
+  static const String max = 'max';
   static const String forSale = 'For Sale';
   static const String forRent = 'For Rent';
   static const String transmissionType = 'Transmission Type *';
