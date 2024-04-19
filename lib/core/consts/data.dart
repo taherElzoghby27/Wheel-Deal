@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import '../../features/car_details/data/models/car_specification_model.dart';
 import '../../features/chats/data/models/message_model.dart';
 import '../../features/home/presentation/view/home_view.dart';
+import '../../features/verification/data/models/identity_type_model.dart';
 import 'assets.dart';
 
 List<TweenSequenceItem<Offset>> itemsSequences = <TweenSequenceItem<Offset>>[
@@ -104,7 +105,11 @@ List<Message> messagesLists = [
       id: 1,
       message: 'Can we have an interview via google meet call today at 3pm?',
       time: '10:21'),
-  Message(id: 2, message: 'Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!', time: '10:21'),
+  Message(
+      id: 2,
+      message:
+          'Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!Of course, I can!',
+      time: '10:21'),
 ];
 
 List<Chat> chatsList = [
@@ -330,4 +335,10 @@ List<InstallmentModel> installments = [
     monthly: 266266,
     total: 266266,
   ),
+];
+List<IdentityTypeModel> identities = [
+  IdentityTypeModel(type: StringsEn.idCard),
+  IdentityTypeModel(type: StringsEn.passport),
+  IdentityTypeModel(type: StringsEn.drivingLicense),
+
 ];

@@ -52,7 +52,7 @@ class MyAppThemes {
   );
 
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: AppConsts.lightBlack,
+    scaffoldBackgroundColor: AppConsts.black,
     primaryColor: AppConsts.lightBlack,
     primaryColorDark: AppConsts.mainColor,
     brightness: Brightness.dark,
@@ -95,6 +95,7 @@ class MyAppThemes {
       ),
     ),
     appBarTheme: AppBarTheme(
+      backgroundColor: AppConsts.black,
       titleTextStyle: AppConsts.style32.copyWith(
         fontWeight: FontWeight.w700,
         color: AppConsts.white,

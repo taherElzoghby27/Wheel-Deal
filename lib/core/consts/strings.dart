@@ -177,6 +177,9 @@ at least 1 number and 1 special character.
   static String token = 'token';
   static String userId = 'user id';
   static String id = 'Id';
+  static String idCard = 'ID card';
+  static String passport = 'Passport';
+  static String drivingLicense = 'Driving license';
   static String jobId = 'job id';
   static String status = 'status';
   static String warningPass = 'Password must be at least 8 characters';
@@ -413,9 +416,20 @@ at least 1 number and 1 special character.
   static String verify = 'Verify';
   static String verification = 'Verification';
   static String verifyYourAccount = 'Verify Your Identify!';
+  static String proofOfIdentify = 'Proof of Identify!';
+  static String chooseYourIdentityType = 'Chooce your identity type';
+  static String scanTheFront = 'scan the front';
+  static String scanTheBack = 'scan the back';
+  static String weAcceptOnly = 'We accept only';
+  static String subTitleSelfi = 'Please note screenshots,mobile phone bills, and insurance are not accepted for verifications';
+  static String takeSelfieWithIdentity = 'Take selfie with identity';
+  static String proofOfIdentifySubTitle =
+      'In order to completed your registration, Please upload a copy of your identity with,A clear selfie photo to proof the document holder.';
+  static String pleaseMakeSureSelfie ='Please, make sure that every detail of the ID card is clearly visible';
   static String whatCanWeHelp = 'What can we help?';
   static String lorem = 'Lorem ipsum dolor sit amet';
-  static String loremVerifi= 'Lorem ipsum dolor sit amet consectetur.\n Sollicitudin eget in amet vitae feugiat\n lobortis gravida sagittis. Placerat cursus ';
+  static String loremVerifi =
+      'Lorem ipsum dolor sit amet consectetur.\n Sollicitudin eget in amet vitae feugiat\n lobortis gravida sagittis. Placerat cursus ';
   static String loremIpsum =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies mi enim, quis vulputate nibh faucibus at. Maecenas est ante, suscipit vel sem non, blandit blandit erat. Praesent pulvinar ante et felis porta vulputate. Curabitur ornare velit nec fringilla finibus. Phasellus mollis pharetra ante, in ullamcorper massa ullamcorper et. Curabitur ac leo sit amet leo interdum mattis vel eu mauris.';
   static String loremDolor = 'Lorem ipsum dolor';

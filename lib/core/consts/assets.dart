@@ -106,4 +106,8 @@ class Assets {
   static const String help = "assets/images/help.png";
   static const String callCenter = "assets/images/callCenter.png";
   static const String verificationAsset = "assets/images/verification.png";
+  static const String idCard = "assets/images/idCard.png";
+  static const String selfie = "assets/images/selfi.png";
+  static const String passport = "assets/images/passport.png";
+  static const String drivingLicense = "assets/images/drivingLicense.png";
 }

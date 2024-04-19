@@ -25,6 +25,7 @@ import 'package:cars/features/settings/presentation/view/settings_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_welcome_view.dart';
+import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -254,7 +255,10 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const VerificationView(),
+        child: BlocProvider(
+          create: (_) => VerificationCubit(),
+          child: const VerificationView(),
+        ),
       ),
     ),
   ],
