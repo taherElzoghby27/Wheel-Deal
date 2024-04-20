@@ -427,6 +427,11 @@ at least 1 number and 1 special character.
       'In order to completed your registration, Please upload a copy of your identity with,A clear selfie photo to proof the document holder.';
   static String pleaseMakeSureSelfie ='Please, make sure that every detail of the ID card is clearly visible';
   static String whatCanWeHelp = 'What can we help?';
+  static String messageErrorPhoto='User canceled or failed to pick image';
+  static String camera='camera';
+  static String gallery='gallery';
+  static String takeAPhoto='Take photo';
+  static String chooseFromGallery='Choose photo';
   static String lorem = 'Lorem ipsum dolor sit amet';
   static String loremVerifi =
       'Lorem ipsum dolor sit amet consectetur.\n Sollicitudin eget in amet vitae feugiat\n lobortis gravida sagittis. Placerat cursus ';

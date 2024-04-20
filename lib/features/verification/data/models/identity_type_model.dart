@@ -1,8 +1,10 @@
+import 'dart:io';
+
 class IdentityTypeModel {
-  final String type;
-  final String? frontImage;
-  final String? backImage;
-  final String? selfieImage;
+  String type;
+  File? frontImage;
+  File? backImage;
+  File? selfieImage;
 
   IdentityTypeModel({
     required this.type,

@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/consts/style.dart';
 import 'Filter_field.dart';
-import 'bloc_provider_filter_field_dialog.dart';
+import 'bloc_builder_dialog.dart';
 
 class SectionFieldsFilter extends StatelessWidget {
   const SectionFieldsFilter({super.key});
@@ -23,7 +23,7 @@ class SectionFieldsFilter extends StatelessWidget {
         //condition
         FilterField(
           label: StringsEn.condition,
-          widget: BlocProviderConditionFieldFilterDialog(
+          widget: BlocBuilderDialog(
             list: conditions,
             status: StringsEn.condition,
           ),
@@ -32,7 +32,7 @@ class SectionFieldsFilter extends StatelessWidget {
         //brand
         FilterField(
           label: StringsEn.brand,
-          widget: BlocProviderConditionFieldFilterDialog(
+          widget: BlocBuilderDialog(
             list: brands,
             status: StringsEn.brand,
           ),
@@ -41,7 +41,7 @@ class SectionFieldsFilter extends StatelessWidget {
         //body type
         FilterField(
           label: StringsEn.bodyType,
-          widget: BlocProviderConditionFieldFilterDialog(
+          widget: BlocBuilderDialog(
             list: bodyTypes,
             status: StringsEn.bodyType,
           ),
@@ -50,7 +50,7 @@ class SectionFieldsFilter extends StatelessWidget {
         //model
         FilterField(
           label: StringsEn.model,
-          widget: BlocProviderConditionFieldFilterDialog(
+          widget: BlocBuilderDialog(
             list: models,
             status: StringsEn.model,
           ),

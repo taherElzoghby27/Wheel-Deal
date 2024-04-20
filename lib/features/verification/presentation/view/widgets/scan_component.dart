@@ -1,7 +1,8 @@
+
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'image_identity_bloc_builder.dart';
 
 class ScanComponent extends StatelessWidget {
   const ScanComponent({
@@ -66,7 +67,7 @@ class ScanComponent extends StatelessWidget {
                 const Spacer(),
                 Expanded(
                   flex: 3,
-                  child: HandleImageWidget(image: image),
+                  child: ImageIdentityBlocBuilder(title: title, image: image),
                 ),
               ],
             ),
