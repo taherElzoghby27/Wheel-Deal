@@ -4,7 +4,6 @@ import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/verification/data/models/identity_type_model.dart';
-import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 
 part 'verification_state.dart';
@@ -18,6 +17,7 @@ class VerificationCubit extends Cubit<VerificationState> {
 
   changeTypeIdentity(String value) {
     selectType = value;
+    reset();
     emit(IdentityChanged());
   }
 
@@ -68,5 +68,16 @@ class VerificationCubit extends Cubit<VerificationState> {
     } else {
       emit(state.copyWith(imageError: StringsEn.messageErrorPhoto));
     }
+  }
+
+  reset() {
+    state.copyWith(
+      frontImage: null,
+      frontImageState: RequestState.initial,
+      backImage: null,
+      backImageState: RequestState.initial,
+      selfieImage: null,
+      selfieImageState: RequestState.initial,
+    );
   }
 }
