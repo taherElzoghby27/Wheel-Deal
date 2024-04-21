@@ -1,8 +1,6 @@
-
 import 'package:cars/core/consts/style.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'image_identity_bloc_builder.dart';
 
 class ScanComponent extends StatelessWidget {
   const ScanComponent({
@@ -10,14 +8,14 @@ class ScanComponent extends StatelessWidget {
     required this.title,
     required this.subTitle2,
     this.onTap,
-    required this.image,
+    required this.trailing,
     this.subTitle1,
   });
 
   final String title;
   final String? subTitle1;
   final String subTitle2;
-  final String image;
+  final Widget trailing;
 
   final void Function()? onTap;
 
@@ -67,7 +65,7 @@ class ScanComponent extends StatelessWidget {
                 const Spacer(),
                 Expanded(
                   flex: 3,
-                  child: ImageIdentityBlocBuilder(title: title, image: image),
+                  child: trailing,
                 ),
               ],
             ),

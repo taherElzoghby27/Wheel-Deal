@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'content_bottom_sheet_photos.dart';
+import 'identity_bloc_builder_selfie.dart';
+import 'identity_type_bloc_builder_scan_the_back.dart';
+import 'image_identity_bloc_builder_scan_the_front.dart';
 import 'scan_component.dart';
 
 class IdentityTypeWidget extends StatelessWidget {
@@ -29,11 +32,13 @@ class IdentityTypeWidget extends StatelessWidget {
                       : bloc.selectType == StringsEn.passport
                           ? StringsEn.passport
                           : StringsEn.drivingLicense,
-                  image: bloc.selectType == StringsEn.idCard
-                      ? Assets.idCard
-                      : bloc.selectType == StringsEn.passport
-                          ? Assets.passport
-                          : Assets.drivingLicense,
+                  trailing: ImageIdentityBlocBuilderScanTheFront(
+                    image: bloc.selectType == StringsEn.idCard
+                        ? Assets.idCard
+                        : bloc.selectType == StringsEn.passport
+                            ? Assets.passport
+                            : Assets.drivingLicense,
+                  ),
                   onTap: () {
                     buildShowModalBottomSheet(
                       builderContext,
@@ -51,7 +56,9 @@ class IdentityTypeWidget extends StatelessWidget {
                         title: StringsEn.scanTheBack,
                         subTitle1: StringsEn.weAcceptOnly,
                         subTitle2: StringsEn.idCard,
-                        image: Assets.idCard,
+                        trailing: const ImageIdentityBlocBuilderScanTheBack(
+                          image: Assets.idCard,
+                        ),
                         onTap: () {
                           buildShowModalBottomSheet(
                             builderContext,
@@ -83,7 +90,9 @@ class IdentityTypeWidget extends StatelessWidget {
                 return ScanComponent(
                   title: StringsEn.takeSelfieWithIdentity,
                   subTitle2: StringsEn.subTitleSelfi,
-                  image: Assets.selfie,
+                  trailing: const ImageIdentityBlocBuilderSelfie(
+                    image: Assets.selfie,
+                  ),
                   onTap: () {
                     buildShowModalBottomSheet(
                       builderContext,

@@ -1,16 +1,16 @@
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:cars/core/consts/data.dart';
+import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/verification/data/models/identity_type_model.dart';
-import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:meta/meta.dart';
 
 part 'verification_state.dart';
 
 class VerificationCubit extends Cubit<VerificationState> {
-  VerificationCubit() : super(VerificationInitial());
+  VerificationCubit() : super(const VerificationState());
   String selectType = identities.first.type;
   IdentityTypeModel identityTypeModel = IdentityTypeModel(
     type: StringsEn.idCard,
@@ -26,11 +26,11 @@ class VerificationCubit extends Cubit<VerificationState> {
     required String cameraOrGallery,
   }) async {
     if (status == StringsEn.scanTheFront) {
-      emit(PickedImagedLoadingFront());
+      emit(state.copyWith(frontImageState: RequestState.loading));
     } else if (status == StringsEn.scanTheBack) {
-      emit(PickedImagedLoadingBack());
+      emit(state.copyWith(backImageState: RequestState.loading));
     } else {
-      emit(PickedImagedLoadingSelfie());
+      emit(state.copyWith(selfieImageState: RequestState.loading));
     }
 
     final picker = ImagePicker();
@@ -42,16 +42,31 @@ class VerificationCubit extends Cubit<VerificationState> {
     if (imagePickerResult != null) {
       if (status == StringsEn.scanTheFront) {
         identityTypeModel.frontImage = File(imagePickerResult.path);
-        emit(PickedImagedLoadedFront());
+        emit(
+          state.copyWith(
+            frontImage: File(imagePickerResult.path),
+            frontImageState: RequestState.loaded,
+          ),
+        );
       } else if (status == StringsEn.scanTheBack) {
         identityTypeModel.backImage = File(imagePickerResult.path);
-        emit(PickedImagedLoadedBack());
+        emit(
+          state.copyWith(
+            backImage: File(imagePickerResult.path),
+            backImageState: RequestState.loaded,
+          ),
+        );
       } else {
         identityTypeModel.selfieImage = File(imagePickerResult.path);
-        emit(PickedImagedLoadedSelfie());
+        emit(
+          state.copyWith(
+            selfieImage: File(imagePickerResult.path),
+            selfieImageState: RequestState.loaded,
+          ),
+        );
       }
     } else {
-      emit(PickedImagedFailure());
+      emit(state.copyWith(imageError: StringsEn.messageErrorPhoto));
     }
   }
 }

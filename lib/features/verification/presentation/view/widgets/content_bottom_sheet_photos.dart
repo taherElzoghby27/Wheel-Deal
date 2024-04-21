@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/custom_snack.dart';
@@ -22,14 +23,16 @@ class ContentBottomSheetPhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<VerificationCubit, VerificationState>(
       listener: (context, state) {
-        if (state is PickedImagedLoadedFront ||
-            state is PickedImagedLoadedBack ||
-            state is PickedImagedLoadedSelfie) {
+        if (state.frontImageState == RequestState.loaded ||
+            state.backImageState == RequestState.loaded ||
+            state.selfieImageState == RequestState.loaded) {
           GoRouter.of(context).pop();
-        } else if (state is PickedImagedFailure) {
+        } else if (state.frontImageState == RequestState.error ||
+            state.backImageState == RequestState.error ||
+            state.selfieImageState == RequestState.error) {
           showSnack(
             context,
-            message: StringsEn.messageErrorPhoto,
+            message: state.imageError,
             backGroundColor: AppConsts.danger500,
           );
         }

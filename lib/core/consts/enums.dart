@@ -1,10 +1,9 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/search/data/models/facilities_model.dart';
 
-enum Gender {
-  Male,
-  Female,
-}
+enum Gender { Male, Female }
+
+enum RequestState { initial, loading, loaded, error }
 
 //filters
 
