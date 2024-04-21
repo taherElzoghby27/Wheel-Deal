@@ -110,4 +110,7 @@ class Assets {
   static const String selfie = "assets/images/selfi.png";
   static const String passport = "assets/images/passport.png";
   static const String drivingLicense = "assets/images/drivingLicense.png";
+  static const String loadingVerify = "assets/images/loadingVerif.png";
+  static const String stillProcessing = "assets/images/stillProcessing.png";
+  static const String verified = "assets/images/verified.png";
 }

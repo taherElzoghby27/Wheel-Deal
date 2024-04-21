@@ -23,6 +23,7 @@ import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
+import 'package:cars/features/verification/presentation/view/verification_verify_loading_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_welcome_view.dart';
 import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
@@ -56,6 +57,7 @@ const String notificationPath = '/notificationPath';
 const String faqPath = '/faqPath';
 const String verificationWelcomePath = '/verificationWelcomePath';
 const String verificationPath = '/verificationPath';
+const String verificationVerifyLoadingPath = '/verificationVerifyLoadingPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -258,6 +260,17 @@ final router = GoRouter(
         child: BlocProvider(
           create: (_) => VerificationCubit(),
           child: const VerificationView(),
+        ),
+      ),
+    ),
+    GoRoute(
+      path: verificationVerifyLoadingPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: BlocProvider(
+          create: (_) => VerificationCubit(),
+          child: const VerificationVerifyLoadingView(),
         ),
       ),
     ),

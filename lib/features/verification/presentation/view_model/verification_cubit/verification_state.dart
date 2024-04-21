@@ -48,3 +48,9 @@ class VerificationState {
 }
 
 class IdentityChanged extends VerificationState {}
+
+class CurrentLoadingChanged extends VerificationState {
+  final int value;
+
+  CurrentLoadingChanged(this.value);
+}

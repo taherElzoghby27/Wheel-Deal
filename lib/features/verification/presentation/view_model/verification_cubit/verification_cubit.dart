@@ -80,4 +80,8 @@ class VerificationCubit extends Cubit<VerificationState> {
       selfieImageState: RequestState.initial,
     );
   }
+
+  changeLoadingCurrent(int value) {
+    emit(CurrentLoadingChanged(value));
+  }
 }

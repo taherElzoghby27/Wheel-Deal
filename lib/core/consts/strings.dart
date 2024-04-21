@@ -473,6 +473,11 @@ at least 1 number and 1 special character.
   static String svg = 'svg';
   static String https = 'https';
   static String network = 'network';
+  static String loadingVerify='Thanks for submitting your ID.We re reviewing it now.';
+  static String stillProcessing='Verification is still processing';
+  static String stillProcessingSubTitle='It s taking a few minutes for verification to complete. Check back in a bit!';
+  static String verified='Verified!';
+  static String verifiedSubTitle='You have succesfully verified the account.';
 }
 
 ///strings by arabic
