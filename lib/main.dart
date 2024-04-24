@@ -10,14 +10,13 @@ import 'observer_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer=Observe();
-  runApp(
-    const MyApp()
-    // DevicePreview(
-    //   enabled: true,
-    //   builder: (context) => const MyApp(), // Wrap your app
-    // ),
-  );
+  Bloc.observer = Observe();
+  runApp(const MyApp()
+      // DevicePreview(
+      //   enabled: true,
+      //   builder: (context) => const MyApp(), // Wrap your app
+      // ),
+      );
 }
 
 class MyApp extends StatelessWidget {
@@ -37,6 +36,10 @@ class MyApp extends StatelessWidget {
           theme: MyAppThemes.lightTheme,
           darkTheme: MyAppThemes.darkTheme,
           themeMode: ThemeMode.dark,
+          themeAnimationStyle: AnimationStyle(
+            duration: const Duration(milliseconds: 250),
+            curve: Curves.linear,
+          ),
         );
       },
     );
