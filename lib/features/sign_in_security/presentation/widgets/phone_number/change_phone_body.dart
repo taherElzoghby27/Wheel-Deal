@@ -5,8 +5,8 @@ import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ChangeEmailBody extends StatelessWidget {
-  const ChangeEmailBody({super.key});
+class ChangePhoneBody extends StatelessWidget {
+  const ChangePhoneBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +16,17 @@ class ChangeEmailBody extends StatelessWidget {
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
           const CustomTextFormField(
-            hint: StringsEn.newEmailAddress,
+            hint: StringsEn.changePhoneNumberLabel,
             perfixIcon: Icon(
-              Icons.email,
+              Icons.phone,
               color: AppConsts.neutral500,
             ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           const CustomTextFormField(
-            hint: StringsEn.confirmNewEmail,
+            hint: StringsEn.confirmNewPhone,
             perfixIcon: Icon(
-              Icons.email,
+              Icons.phone,
               color: AppConsts.neutral500,
             ),
           ),
@@ -61,7 +61,7 @@ class ChangeEmailBody extends StatelessWidget {
           AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth,
             child: CustomButton(
-              text: StringsEn.confirmNewEmail,
+              text: StringsEn.confirmNewPhone,
               styleText: AppConsts.style16White.copyWith(
                 fontWeight: FontWeight.w600,
               ),

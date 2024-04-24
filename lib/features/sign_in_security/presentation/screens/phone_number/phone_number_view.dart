@@ -3,8 +3,8 @@ import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/consts/strings.dart';
-import '../widgets/phone_number_body.dart';
+import '../../../../../core/consts/strings.dart';
+import '../../widgets/phone_number/phone_number_body.dart';
 
 class PhoneNumberView extends StatelessWidget {
   const PhoneNumberView({super.key});
@@ -17,7 +17,7 @@ class PhoneNumberView extends StatelessWidget {
           icon: Icons.arrow_back_ios_new_rounded,
           onTap: () => GoRouter.of(context).pop(),
         ),
-        title: StringsEn.changePhone,
+        title: StringsEn.phoneNumber,
       ),
       body: const SafeArea(
         child: PhoneNumberBody(),

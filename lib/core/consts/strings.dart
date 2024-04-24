@@ -52,8 +52,10 @@ at least 1 number and 1 special character.
   static const String enterEmailAddressYouUsed =
       'Enter the email address you used when you joined and we’ll send you instructions to reset your password.';
   static const String enterYouEmail = 'Enter your email....';
+  static const String enterYourPhone = 'Enter your phone number';
   static const String newEmailAddress = 'New email address ';
   static const String confirmNewEmail = 'Confirm new email';
+  static const String confirmNewPhone = 'Confirm new phone';
   static const String yourPassword = 'Your password';
   static const String requestPass = 'Request password reset';
   static const String checkYourEmail = 'Check your Email';
@@ -390,13 +392,16 @@ at least 1 number and 1 special character.
   static String emailAddress = 'Email address';
   static const changeEmailAddress='Add or remove email addresses on your account';
   static const changeEmailAddressLabel='Change email address';
-  static const pleaseEnterVerification='Please enter the verification code we sent to your email address';
+  static const changePhoneNumberLabel='Change Phone Number';
+  static const pleaseEnterVerificationEmail='Please enter the verification code we sent to your email address';
+  static const pleaseEnterVerificationPhoneNumber='Please enter the verification code we sent to your email address';
   static const addPhoneNumber='Add a phone number in case you have trouble signing in';
   static const chooseUniquePassword='Choose a unique password to protect  your account';
   static const activateThisFeatureForEnhancedAccount='Activate this feature for enhanced account security';
   static String changePassword = 'Change password';
   static const String changePhone = 'Change Phone';
   static const String yourEmail ='Your Email :';
+  static const String yourPhoneNumber ='Your Phone Number :';
   static String twoStepVerifi = 'Two-step verification';
   static String faceId = 'Face ID';
   static String nonActive = 'Non active';

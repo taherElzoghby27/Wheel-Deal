@@ -26,7 +26,7 @@ class SignInSecurityBody extends StatelessWidget {
           SignInSecurityTile(
             leading: StringsEn.phoneNumber,
             subLeading: StringsEn.addPhoneNumber,
-            onTap: () => GoRouter.of(context).push(changePhoneNumberPath),
+            onTap: () => GoRouter.of(context).push(phonePath),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           SignInSecurityTile(

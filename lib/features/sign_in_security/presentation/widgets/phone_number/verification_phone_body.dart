@@ -6,10 +6,10 @@ import 'package:cars/features/sign_in_security/presentation/widgets/email_addres
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'section_otp.dart';
+import '../email_address/section_otp.dart';
 
-class VerificationEmailBody extends StatelessWidget {
-  const VerificationEmailBody({super.key});
+class VerificationPhoneBody extends StatelessWidget {
+  const VerificationPhoneBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class VerificationEmailBody extends StatelessWidget {
           Padding(
             padding: AppConsts.padding50H,
             child: Text(
-              StringsEn.pleaseEnterVerificationEmail,
+              StringsEn.pleaseEnterVerificationPhoneNumber,
               textAlign: TextAlign.center,
               style: AppConsts.style14.copyWith(
                 fontWeight: FontWeight.w400,
@@ -41,7 +41,7 @@ class VerificationEmailBody extends StatelessWidget {
               styleText: AppConsts.style16White.copyWith(
                 fontWeight: FontWeight.w600,
               ),
-              onTap: () => GoRouter.of(context).push(changeEmailAddressPath),
+              onTap: () => GoRouter.of(context).push(changePhonePath),
             ),
           ),
         ],
