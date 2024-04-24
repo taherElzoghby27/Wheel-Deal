@@ -18,12 +18,15 @@ class VerificationEmailBody extends StatelessWidget {
       child: ListView(
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
-          Text(
-            StringsEn.pleaseEnterVerification,
-            textAlign: TextAlign.center,
-            style: AppConsts.style14.copyWith(
-              fontWeight: FontWeight.w400,
-              color: Theme.of(context).canvasColor,
+          Padding(
+            padding: AppConsts.padding50H,
+            child: Text(
+              StringsEn.pleaseEnterVerification,
+              textAlign: TextAlign.center,
+              style: AppConsts.style14.copyWith(
+                fontWeight: FontWeight.w400,
+                color: Theme.of(context).canvasColor,
+              ),
             ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),

@@ -127,6 +127,7 @@ abstract class AppConsts {
   );
   static EdgeInsets padding15H =
       EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h);
+  static const EdgeInsets padding50H = EdgeInsets.symmetric(horizontal: 50);
   static EdgeInsets padding8H3V = EdgeInsets.symmetric(
     horizontal: 8.w,
     vertical: 3.h,
@@ -336,7 +337,7 @@ abstract class AppConsts {
     boxShadow: AppConsts.boxShadowsDark,
   );
   static const TextStyle pastedTextStyle = TextStyle(
-    color:neutral100,
+    color: neutral100,
     fontWeight: FontWeight.bold,
   );
 }

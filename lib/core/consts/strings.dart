@@ -52,6 +52,9 @@ at least 1 number and 1 special character.
   static const String enterEmailAddressYouUsed =
       'Enter the email address you used when you joined and we’ll send you instructions to reset your password.';
   static const String enterYouEmail = 'Enter your email....';
+  static const String newEmailAddress = 'New email address ';
+  static const String confirmNewEmail = 'Confirm new email';
+  static const String yourPassword = 'Your password';
   static const String requestPass = 'Request password reset';
   static const String checkYourEmail = 'Check your Email';
   static const String checkOut = 'CheckOut ';
