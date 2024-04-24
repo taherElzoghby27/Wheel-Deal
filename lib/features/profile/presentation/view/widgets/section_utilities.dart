@@ -30,7 +30,7 @@ class SectionUtilities extends StatelessWidget {
           CustomButtonThreeWidget(
             leading: const Icon(FontAwesomeIcons.lock),
             title: StringsEn.signInSecurity,
-            onTap: () => GoRouter.of(context).push(''),
+            onTap: () => GoRouter.of(context).push(signInSecurityPath),
           ),
           CustomButtonThreeWidget(
             leading: const Icon(FontAwesomeIcons.gear),

@@ -17,11 +17,11 @@ import 'package:cars/features/location/presentation/view/search_location_view.da
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:cars/features/notifications/presentation/view/notifications_view.dart';
-import 'package:cars/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/sign_in_security_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_verify_loading_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_view.dart';
@@ -31,6 +31,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
+import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 import '../helper/custom_animation.dart';
 
 const String splashPath = '/';
@@ -58,6 +59,7 @@ const String faqPath = '/faqPath';
 const String verificationWelcomePath = '/verificationWelcomePath';
 const String verificationPath = '/verificationPath';
 const String verificationVerifyLoadingPath = '/verificationVerifyLoadingPath';
+const String signInSecurityPath = '/signInSecurityPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -272,6 +274,14 @@ final router = GoRouter(
           create: (_) => VerificationCubit(),
           child: const VerificationVerifyLoadingView(),
         ),
+      ),
+    ),
+    GoRoute(
+      path: signInSecurityPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const SignInSecurityView(),
       ),
     ),
   ],
