@@ -87,7 +87,7 @@ abstract class AppConsts {
   static const double aspectRatio16on2 = 16 / 2;
   static const double aspectRatio16on3 = 16 / 3;
   static const double aspectRatio16on4 = 16 / 4;
-  static const double aspectRatio16on5 = 17 /5;
+  static const double aspectRatio16on5 = 17 / 5;
   static const double aspectRatio16on7 = 16 / 7;
   static const double aspectRatio16on9 = 16 / 9;
   static const double aspectRatio16on10 = 16 / 10;
@@ -99,6 +99,7 @@ abstract class AppConsts {
 //radius
   static BorderRadius mainRadius = BorderRadius.circular(15);
   static BorderRadius radius10 = BorderRadius.circular(10);
+  static BorderRadius radius5 = BorderRadius.circular(5.sp);
   static const BorderRadius radiusTop15 = BorderRadius.only(
     topRight: Radius.circular(15),
     topLeft: Radius.circular(15),
@@ -120,6 +121,9 @@ abstract class AppConsts {
   static EdgeInsets padding15H10V = EdgeInsets.symmetric(
     horizontal: 15.w,
     vertical: 10.h,
+  );
+  static EdgeInsets padding25h = EdgeInsets.symmetric(
+    horizontal: 25.w,
   );
   static EdgeInsets padding15H =
       EdgeInsets.symmetric(horizontal: 15.w, vertical: 0.h);
@@ -330,5 +334,9 @@ abstract class AppConsts {
     color: AppConsts.white,
     borderRadius: BorderRadius.circular(15.sp),
     boxShadow: AppConsts.boxShadowsDark,
+  );
+  static const TextStyle pastedTextStyle = TextStyle(
+    color:neutral100,
+    fontWeight: FontWeight.bold,
   );
 }

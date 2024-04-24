@@ -1,8 +1,10 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class EmailAddressBody extends StatelessWidget {
   const EmailAddressBody({super.key});
@@ -35,7 +37,7 @@ class EmailAddressBody extends StatelessWidget {
               styleText: AppConsts.style16White.copyWith(
                 fontWeight: FontWeight.w600,
               ),
-              onTap: () {},
+              onTap: () => GoRouter.of(context).push(verificationEmailPath),
             ),
           ),
         ],

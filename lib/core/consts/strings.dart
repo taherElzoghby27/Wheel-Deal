@@ -387,6 +387,7 @@ at least 1 number and 1 special character.
   static String emailAddress = 'Email address';
   static const changeEmailAddress='Add or remove email addresses on your account';
   static const changeEmailAddressLabel='Change email address';
+  static const pleaseEnterVerification='Please enter the verification code we sent to your email address';
   static const addPhoneNumber='Add a phone number in case you have trouble signing in';
   static const chooseUniquePassword='Choose a unique password to protect  your account';
   static const activateThisFeatureForEnhancedAccount='Activate this feature for enhanced account security';
@@ -415,11 +416,12 @@ at least 1 number and 1 special character.
   static String addPhone = 'Add phone number';
   static String weWillSend = 'We will send a verification code to this number';
   static String enterYourPass = 'Enter your password';
-  static String sendCode = 'Send Code';
+  static String send = 'Send';
   static String enter6Digit = 'Enter the 6 digit code';
   static String pleaseConfirmCode =
       'Please confirm your account by entering the authorization code sent to';
   static String resendCode = 'Resend code';
+  static String codeNote ='If you didn’t receive a code,';
   static String verify = 'Verify';
   static String verification = 'Verification';
   static String verifyYourAccount = 'Verify Your Identify!';
