@@ -3,12 +3,12 @@ import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/indicator_widget.dart';
-import 'package:cars/features/onBoarding/presentation/view/widgets/board_structure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/style.dart';
+import 'board_structure.dart';
 
 class OnBoardingBody extends StatefulWidget {
   const OnBoardingBody({super.key});
