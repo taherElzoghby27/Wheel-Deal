@@ -390,6 +390,7 @@ at least 1 number and 1 special character.
   static const chooseUniquePassword='Choose a unique password to protect  your account';
   static const activateThisFeatureForEnhancedAccount='Activate this feature for enhanced account security';
   static String changePassword = 'Change password';
+  static const String changePhone = 'Change Phone';
   static String twoStepVerifi = 'Two-step verification';
   static String faceId = 'Face ID';
   static String nonActive = 'Non active';

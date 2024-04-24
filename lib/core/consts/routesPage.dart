@@ -21,7 +21,9 @@ import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/password_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/sign_in_security_view.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_verify_loading_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_view.dart';
@@ -32,6 +34,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
+import '../../features/sign_in_security/presentation/screens/email_address_view.dart';
+import '../../features/sign_in_security/presentation/screens/phone_number_view.dart';
 import '../helper/custom_animation.dart';
 
 const String splashPath = '/';
@@ -60,6 +64,10 @@ const String verificationWelcomePath = '/verificationWelcomePath';
 const String verificationPath = '/verificationPath';
 const String verificationVerifyLoadingPath = '/verificationVerifyLoadingPath';
 const String signInSecurityPath = '/signInSecurityPath';
+const String emailAddressPath = '/emailAddressPath';
+const String changePhoneNumberPath = '/changePhoneNumberPath';
+const String changePasswordPath = '/changePasswordPath';
+const String twoStepVerificationPath = '/twoStepVerificationPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -282,6 +290,38 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const SignInSecurityView(),
+      ),
+    ),
+    GoRoute(
+      path: emailAddressPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const EmailAddressView(),
+      ),
+    ),
+    GoRoute(
+      path: changePhoneNumberPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const PhoneNumberView(),
+      ),
+    ),
+    GoRoute(
+      path: changePasswordPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const PasswordView(),
+      ),
+    ),
+    GoRoute(
+      path: twoStepVerificationPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const TwoStepVerificationView(),
       ),
     ),
   ],
