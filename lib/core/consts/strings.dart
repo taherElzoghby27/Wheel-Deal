@@ -386,11 +386,13 @@ at least 1 number and 1 special character.
   static String accoutAccess = 'Accont access';
   static String emailAddress = 'Email address';
   static const changeEmailAddress='Add or remove email addresses on your account';
+  static const changeEmailAddressLabel='Change email address';
   static const addPhoneNumber='Add a phone number in case you have trouble signing in';
   static const chooseUniquePassword='Choose a unique password to protect  your account';
   static const activateThisFeatureForEnhancedAccount='Activate this feature for enhanced account security';
   static String changePassword = 'Change password';
   static const String changePhone = 'Change Phone';
+  static const String yourEmail ='Your Email :';
   static String twoStepVerifi = 'Two-step verification';
   static String faceId = 'Face ID';
   static String nonActive = 'Non active';

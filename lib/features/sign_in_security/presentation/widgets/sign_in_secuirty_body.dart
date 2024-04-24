@@ -1,7 +1,9 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'sign_in_security_tile.dart';
 
@@ -18,25 +20,25 @@ class SignInSecurityBody extends StatelessWidget {
           SignInSecurityTile(
             leading: StringsEn.emailAddress,
             subLeading: StringsEn.changeEmailAddress,
-            onTap: () {},
+            onTap: () => GoRouter.of(context).push(emailAddressPath),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           SignInSecurityTile(
             leading: StringsEn.phoneNumber,
             subLeading: StringsEn.addPhoneNumber,
-            onTap: () {},
+            onTap: () => GoRouter.of(context).push(changePhoneNumberPath),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           SignInSecurityTile(
             leading: StringsEn.changePassword,
             subLeading: StringsEn.chooseUniquePassword,
-            onTap: () {},
+            onTap: () => GoRouter.of(context).push(changePasswordPath),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           SignInSecurityTile(
             leading: StringsEn.twoStepVerifi,
             subLeading: StringsEn.activateThisFeatureForEnhancedAccount,
-            onTap: () {},
+            onTap: () => GoRouter.of(context).push(twoStepVerificationPath),
           ),
         ],
       ),
