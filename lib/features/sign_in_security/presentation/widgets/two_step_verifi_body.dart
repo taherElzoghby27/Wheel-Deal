@@ -1,8 +1,6 @@
-import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
-
-import 'sign_in_security_tile.dart';
+import 'two_step_method.dart';
 import 'two_step_verification_widget.dart';
 
 class TwoStepVerificationBody extends StatelessWidget {
@@ -17,6 +15,7 @@ class TwoStepVerificationBody extends StatelessWidget {
           AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
           TwoStepVerificationWidget(),
           AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
+          TwoStepMethod(),
         ],
       ),
     );

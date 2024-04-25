@@ -413,6 +413,7 @@ at least 1 number and 1 special character.
 access by requiring a second authentication
 metho in addition to your password
   """;
+  static String twoStepMethod='Two-step method';
   static String faceId = 'Face ID';
   static String nonActive = 'Non active';
   static String mainEmailAddress = 'Main e-mail address';
@@ -508,6 +509,7 @@ metho in addition to your password
   static String stillProcessingSubTitle =
       'It s taking a few minutes for verification to complete. Check back in a bit!';
   static String verified = 'Verified!';
+  static String verifiedAt = 'Verified at';
   static String verifiedSubTitle = 'You have succesfully verified the account.';
 }
 
