@@ -7,16 +7,18 @@ class SignInSecurityTile extends StatelessWidget {
     required this.leading,
     required this.subLeading,
     this.onTap,
+    this.trailing,
   });
 
   final String leading;
   final String subLeading;
   final void Function()? onTap;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: trailing == null ? null : onTap,
       borderRadius: AppConsts.mainRadius,
       child: Container(
         decoration: AppConsts.mainDecoration,
@@ -24,6 +26,7 @@ class SignInSecurityTile extends StatelessWidget {
           padding: AppConsts.padding15H10V,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -44,14 +47,15 @@ class SignInSecurityTile extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(
-                onPressed: onTap,
-                icon: const Icon(
-                  Icons.arrow_forward_ios_sharp,
-                  color: AppConsts.mainColor,
-                  size: 12,
-                ),
-              ),
+              trailing ??
+                  IconButton(
+                    onPressed: onTap,
+                    icon: const Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      color: AppConsts.mainColor,
+                      size: 12,
+                    ),
+                  ),
             ],
           ),
         ),

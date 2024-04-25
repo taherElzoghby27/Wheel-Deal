@@ -390,19 +390,29 @@ at least 1 number and 1 special character.
   static String messageNudges = 'Message Nudges';
   static String accoutAccess = 'Accont access';
   static String emailAddress = 'Email address';
-  static const changeEmailAddress='Add or remove email addresses on your account';
-  static const changeEmailAddressLabel='Change email address';
-  static const changePhoneNumberLabel='Change Phone Number';
-  static const pleaseEnterVerificationEmail='Please enter the verification code we sent to your email address';
-  static const pleaseEnterVerificationPhoneNumber='Please enter the verification code we sent to your email address';
-  static const addPhoneNumber='Add a phone number in case you have trouble signing in';
-  static const chooseUniquePassword='Choose a unique password to protect  your account';
-  static const activateThisFeatureForEnhancedAccount='Activate this feature for enhanced account security';
+  static const changeEmailAddress =
+      'Add or remove email addresses on your account';
+  static const changeEmailAddressLabel = 'Change email address';
+  static const changePhoneNumberLabel = 'Change Phone Number';
+  static const pleaseEnterVerificationEmail =
+      'Please enter the verification code we sent to your email address';
+  static const pleaseEnterVerificationPhoneNumber =
+      'Please enter the verification code we sent to your email address';
+  static const addPhoneNumber =
+      'Add a phone number in case you have trouble signing in';
+  static const chooseUniquePassword =
+      'Choose a unique password to protect  your account';
+  static const activateThisFeatureForEnhancedAccount =
+      'Activate this feature for enhanced account security';
   static String changePassword = 'Change password';
   static const String changePhone = 'Change Phone';
-  static const String yourEmail ='Your Email :';
-  static const String yourPhoneNumber ='Your Phone Number :';
+  static const String yourEmail = 'Your Email :';
+  static const String yourPhoneNumber = 'Your Phone Number :';
   static String twoStepVerifi = 'Two-step verification';
+  static String subTwoStepVerification = """Help protect your account from unauthorized
+access by requiring a second authentication
+metho in addition to your password
+  """;
   static String faceId = 'Face ID';
   static String nonActive = 'Non active';
   static String mainEmailAddress = 'Main e-mail address';
@@ -429,7 +439,7 @@ at least 1 number and 1 special character.
   static String pleaseConfirmCode =
       'Please confirm your account by entering the authorization code sent to';
   static String resendCode = 'Resend code';
-  static String codeNote ='If you didn’t receive a code,';
+  static String codeNote = 'If you didn’t receive a code,';
   static String verify = 'Verify';
   static String verification = 'Verification';
   static String verifyYourAccount = 'Verify Your Identify!';
@@ -438,17 +448,19 @@ at least 1 number and 1 special character.
   static String scanTheFront = 'scan the front';
   static String scanTheBack = 'scan the back';
   static String weAcceptOnly = 'We accept only';
-  static String subTitleSelfi = 'Please note screenshots,mobile phone bills, and insurance are not accepted for verifications';
+  static String subTitleSelfi =
+      'Please note screenshots,mobile phone bills, and insurance are not accepted for verifications';
   static String takeSelfieWithIdentity = 'Take selfie with identity';
   static String proofOfIdentifySubTitle =
       'In order to completed your registration, Please upload a copy of your identity with,A clear selfie photo to proof the document holder.';
-  static String pleaseMakeSureSelfie ='Please, make sure that every detail of the ID card is clearly visible';
+  static String pleaseMakeSureSelfie =
+      'Please, make sure that every detail of the ID card is clearly visible';
   static String whatCanWeHelp = 'What can we help?';
-  static String messageErrorPhoto='User canceled or failed to pick image';
-  static String camera='camera';
-  static String gallery='gallery';
-  static String takeAPhoto='Take photo';
-  static String chooseFromGallery='Choose photo';
+  static String messageErrorPhoto = 'User canceled or failed to pick image';
+  static String camera = 'camera';
+  static String gallery = 'gallery';
+  static String takeAPhoto = 'Take photo';
+  static String chooseFromGallery = 'Choose photo';
   static String lorem = 'Lorem ipsum dolor sit amet';
   static String loremVerifi =
       'Lorem ipsum dolor sit amet consectetur.\n Sollicitudin eget in amet vitae feugiat\n lobortis gravida sagittis. Placerat cursus ';
@@ -490,11 +502,13 @@ at least 1 number and 1 special character.
   static String svg = 'svg';
   static String https = 'https';
   static String network = 'network';
-  static String loadingVerify='Thanks for submitting your ID.We re reviewing it now.';
-  static String stillProcessing='Verification is still processing';
-  static String stillProcessingSubTitle='It s taking a few minutes for verification to complete. Check back in a bit!';
-  static String verified='Verified!';
-  static String verifiedSubTitle='You have succesfully verified the account.';
+  static String loadingVerify =
+      'Thanks for submitting your ID.We re reviewing it now.';
+  static String stillProcessing = 'Verification is still processing';
+  static String stillProcessingSubTitle =
+      'It s taking a few minutes for verification to complete. Check back in a bit!';
+  static String verified = 'Verified!';
+  static String verifiedSubTitle = 'You have succesfully verified the account.';
 }
 
 ///strings by arabic

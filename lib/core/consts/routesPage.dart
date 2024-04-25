@@ -21,6 +21,7 @@ import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/two_step_verification_cubit/two_step_verification_cubit.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/email_address/change_email_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/email_address/verification_email_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/password_view.dart';
@@ -329,7 +330,10 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const TwoStepVerificationView(),
+        child: BlocProvider(
+          create: (_) => TwoStepVerificationCubit(),
+          child: const TwoStepVerificationView(),
+        ),
       ),
     ),
     GoRoute(
