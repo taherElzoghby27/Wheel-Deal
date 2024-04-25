@@ -96,6 +96,7 @@ at least 1 number and 1 special character.
   static const String subTitleEmptyFavourite =
       'It seems nothing in here, Explore more and shortlist some item';
   static const String cancel = 'Cancel';
+  static const String remove = 'Remove';
   static const String clear = 'Clear';
   static const String popularCategories = "Popular Categories";
   static const String location = "Location";
@@ -177,6 +178,8 @@ at least 1 number and 1 special character.
   static const String notificationSetting = 'Notification Setting';
   static const String passwordManager = 'Password Manager';
   static const String deleteAccount = 'Delete Account';
+  static const String delete = 'Delete';
+  static const String areYouSureYouWantToRemove = 'Are you sure you want to remove method ?';
   static String unCompleted = 'unCompleted';
   static String eenterCv = 'Please, Enter CV';
   static String token = 'token';

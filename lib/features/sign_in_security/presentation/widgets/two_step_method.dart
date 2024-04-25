@@ -1,7 +1,7 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
-
+import 'dialog_content.dart';
 import 'two_step_method_tile.dart';
 
 class TwoStepMethod extends StatelessWidget {
@@ -26,7 +26,7 @@ class TwoStepMethod extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => _showDialog(context),
                   icon: const Icon(
                     Icons.delete,
                     color: AppConsts.mainColor,
@@ -47,6 +47,13 @@ class TwoStepMethod extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => const DialogContent(),
     );
   }
 }
