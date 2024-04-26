@@ -1,7 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
-import 'dialog_content.dart';
+
+import '../dialog_content.dart';
 import 'two_step_method_tile.dart';
 
 class TwoStepMethod extends StatelessWidget {

@@ -3,8 +3,8 @@ import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/consts/strings.dart';
-import '../widgets/two_step_verifi_body.dart';
+import '../../../../../core/consts/strings.dart';
+import '../../widgets/two_step_verifi/two_step_verifi_body.dart';
 
 class TwoStepVerificationView extends StatelessWidget {
   const TwoStepVerificationView({super.key});

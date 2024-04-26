@@ -438,6 +438,9 @@ metho in addition to your password
   static String addPhone = 'Add phone number';
   static String weWillSend = 'We will send a verification code to this number';
   static String enterYourPass = 'Enter your password';
+  static String enterYourCode= 'Enter your Code';
+  static String weSentCodeTo='We sent a code to ';
+  static String methodHasBeenRemovedSuccess="Method has been removed successfully";
   static String send = 'Send';
   static String enter6Digit = 'Enter the 6 digit code';
   static String pleaseConfirmCode =

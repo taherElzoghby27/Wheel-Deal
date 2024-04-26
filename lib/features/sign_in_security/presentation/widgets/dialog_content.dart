@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/customButton.dart';
@@ -55,7 +56,9 @@ class DialogContent extends StatelessWidget {
                 child: CustomButton(
                   text: StringsEn.remove,
                   styleText: AppConsts.style16White,
-                  onTap: () {},
+                  onTap: () => GoRouter.of(context).push(
+                    twoStepVerificationCodePath,
+                  ),
                 ),
               ),
               const Spacer(flex: 1),

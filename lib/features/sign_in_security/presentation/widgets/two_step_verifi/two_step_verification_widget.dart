@@ -4,7 +4,7 @@ import 'package:cars/features/sign_in_security/presentation/controllers/two_step
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'sign_in_security_tile.dart';
+import '../sign_in_security_tile.dart';
 
 class TwoStepVerificationWidget extends StatelessWidget {
   const TwoStepVerificationWidget({super.key});
