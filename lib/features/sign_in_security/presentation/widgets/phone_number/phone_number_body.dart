@@ -40,6 +40,7 @@ class PhoneNumberBody extends StatelessWidget {
               onTap: () => GoRouter.of(context).push(verificationPhonePath),
             ),
           ),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],
       ),
     );

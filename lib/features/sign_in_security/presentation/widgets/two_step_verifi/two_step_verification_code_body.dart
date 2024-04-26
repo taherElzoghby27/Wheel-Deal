@@ -63,6 +63,7 @@ class TwoStepVerificationCodeBody extends StatelessWidget {
               ),
             ),
           ),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],
       ),
     );

@@ -44,6 +44,7 @@ class VerificationPhoneBody extends StatelessWidget {
               onTap: () => GoRouter.of(context).push(changePhonePath),
             ),
           ),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],
       ),
     );

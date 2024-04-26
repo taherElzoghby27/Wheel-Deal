@@ -10,3 +10,15 @@ class Switched extends TwoStepVerificationState {
 
   Switched({required this.value});
 }
+
+class SmsOrEmailState extends TwoStepVerificationState {
+  final String value;
+
+  SmsOrEmailState({required this.value});
+}
+
+class ChangePageStatus extends TwoStepVerificationState {
+  final String value;
+
+  ChangePageStatus({required this.value});
+}

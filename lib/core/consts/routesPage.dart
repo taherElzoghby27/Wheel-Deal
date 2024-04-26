@@ -30,6 +30,7 @@ import 'package:cars/features/sign_in_security/presentation/screens/phone_number
 import 'package:cars/features/sign_in_security/presentation/screens/sign_in_security_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verifi_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verification_code.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verification_security_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_verify_loading_view.dart';
 import 'package:cars/features/verification/presentation/view/verification_view.dart';
@@ -78,7 +79,9 @@ const String verificationEmailPath = '/verificationEmailPath';
 const String phonePath = '/phonePath';
 const String verificationPhonePath = '/verificationPhonePath';
 const String changePhonePath = '/changePhonePath';
-const String twoStepVerificationCodePath='/twoStepVerificationCodePath';
+const String twoStepVerificationCodePath = '/twoStepVerificationCodePath';
+const String twoStepVerificationSecurityPath =
+    '/twoStepVerificationSecurityPath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -376,6 +379,17 @@ final router = GoRouter(
         context: context,
         state: state,
         child: const TwoStepVerificationCodeView(),
+      ),
+    ),
+    GoRoute(
+      path: twoStepVerificationSecurityPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: BlocProvider(
+          create: (_) => TwoStepVerificationCubit(),
+          child: const TwoStepVerificationSecurityView(),
+        ),
       ),
     ),
   ],

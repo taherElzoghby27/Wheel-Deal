@@ -9,6 +9,7 @@ abstract class StringsEn {
       'Please create an account to find your dream job';
   static const String userName = 'Username';
   static const String email = 'Email';
+  static const String sms = 'Sms';
   static const String firstName = 'first name';
   static const String lastName = 'last name';
   static const String city = 'city';
@@ -51,7 +52,7 @@ at least 1 number and 1 special character.
   static const String reset = 'Reset';
   static const String enterEmailAddressYouUsed =
       'Enter the email address you used when you joined and we’ll send you instructions to reset your password.';
-  static const String enterYouEmail = 'Enter your email....';
+  static const String enterYouEmail = 'Enter your email';
   static const String enterYourPhone = 'Enter your phone number';
   static const String newEmailAddress = 'New email address ';
   static const String confirmNewEmail = 'Confirm new email';
@@ -179,7 +180,8 @@ at least 1 number and 1 special character.
   static const String passwordManager = 'Password Manager';
   static const String deleteAccount = 'Delete Account';
   static const String delete = 'Delete';
-  static const String areYouSureYouWantToRemove = 'Are you sure you want to remove method ?';
+  static const String areYouSureYouWantToRemove =
+      'Are you sure you want to remove method ?';
   static String unCompleted = 'unCompleted';
   static String eenterCv = 'Please, Enter CV';
   static String token = 'token';
@@ -412,11 +414,12 @@ at least 1 number and 1 special character.
   static const String yourEmail = 'Your Email :';
   static const String yourPhoneNumber = 'Your Phone Number :';
   static String twoStepVerifi = 'Two-step verification';
-  static String subTwoStepVerification = """Help protect your account from unauthorized
+  static String subTwoStepVerification =
+      """Help protect your account from unauthorized
 access by requiring a second authentication
 metho in addition to your password
   """;
-  static String twoStepMethod='Two-step method';
+  static String twoStepMethod = 'Two-step method';
   static String faceId = 'Face ID';
   static String nonActive = 'Non active';
   static String mainEmailAddress = 'Main e-mail address';
@@ -438,9 +441,16 @@ metho in addition to your password
   static String addPhone = 'Add phone number';
   static String weWillSend = 'We will send a verification code to this number';
   static String enterYourPass = 'Enter your password';
-  static String enterYourCode= 'Enter your Code';
-  static String weSentCodeTo='We sent a code to ';
-  static String methodHasBeenRemovedSuccess="Method has been removed successfully";
+  static String enterYourCode = 'Enter your Code';
+  static String howDoYouWantToGetYourSecurityCode =
+      'How do you want to get your security codes ?';
+  static String weRecommendedSendingSecurityCodesToYourPhone =
+      'We recommended sending security codes to your phone';
+  static String mustBeUsBasedNumber ='Must be a us-based number. data rates may apply';
+  static String mustBeUsBasedEmail ='Must be a us-based email. data rates may apply';
+  static String weSentCodeTo = 'We sent a code to ';
+  static String methodHasBeenRemovedSuccess =
+      "Method has been removed successfully";
   static String send = 'Send';
   static String enter6Digit = 'Enter the 6 digit code';
   static String pleaseConfirmCode =

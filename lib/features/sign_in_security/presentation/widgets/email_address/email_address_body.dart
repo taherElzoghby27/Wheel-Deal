@@ -39,7 +39,7 @@ class EmailAddressBody extends StatelessWidget {
               ),
               onTap: () => GoRouter.of(context).push(verificationEmailPath),
             ),
-          ),
+          ),const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],
       ),
     );

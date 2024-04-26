@@ -68,6 +68,7 @@ class ChangeEmailBody extends StatelessWidget {
               onTap: () => GoRouter.of(context).push(''),
             ),
           ),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],
       ),
     );
