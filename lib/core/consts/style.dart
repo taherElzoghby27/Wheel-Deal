@@ -266,6 +266,14 @@ abstract class AppConsts {
       width: 1,
     ),
   );
+  static BoxDecoration mainDecorationWithoutBorder = BoxDecoration(
+    color: neutral100.withOpacity(.05),
+    borderRadius: mainRadius,
+    border: Border.all(
+      color: neutral700.withOpacity(.3),
+      width: 0,
+    ),
+  );
   static BoxDecoration secondaryMainDecoration = BoxDecoration(
     color: neutral900.withOpacity(.05),
     borderRadius: BorderRadius.circular(6),

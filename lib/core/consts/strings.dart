@@ -171,6 +171,8 @@ at least 1 number and 1 special character.
   static const String address = "Address";
   static const String addToOrders = "Add To Orders";
   static const String setting = "Setting";
+  static const String darkMode = "Dark mode";
+  static const String receiveMarketing = "Recieve marketing emails";
   static const String help = "Help";
   static const String logout = "Logout";
   static const String user = "User";
@@ -372,7 +374,7 @@ at least 1 number and 1 special character.
   static String portfolio = 'Portfolio';
   static String language = 'Langauge';
   static String arabic = 'Arabic';
-  static String England = 'England';
+  static String english = 'English';
   static String loginAndSeurity = 'Login and security';
   static String others = 'Others';
   static String accesibility = 'Accesibility';
