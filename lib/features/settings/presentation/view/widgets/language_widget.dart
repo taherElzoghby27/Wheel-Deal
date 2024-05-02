@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/strings.dart';
-import '../../view_model/setting_cubit.dart';
+import '../../view_model/settings_cubit/setting_cubit.dart';
 import 'content_language_bottom_sheet.dart';
 import 'tile_settings.dart';
 

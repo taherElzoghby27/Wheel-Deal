@@ -1,5 +1,7 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/features/settings/presentation/view_model/mode_cubit/mode_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/strings.dart';
 import 'tile_settings.dart';
@@ -11,15 +13,19 @@ class DarkModeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TileSetting(
       leading: StringsEn.darkMode,
-      trailing: TextButton(
-        onPressed: () {},
-        child: Text(
-          'English',
-          style: AppConsts.style12.copyWith(
-            color: Theme.of(context).canvasColor,
-            fontSize: 10,
-          ),
-        ),
+      trailing: BlocBuilder<ModeCubit, ModeState>(
+        builder: (context, state) {
+          final themeState = BlocProvider.of<ModeCubit>(context).state;
+          return Switch.adaptive(
+            value: themeState.themeMode == ThemeMod.dark,
+            activeTrackColor: AppConsts.mainColor,
+            thumbColor: MaterialStateProperty.all(
+              Theme.of(context).splashColor,
+            ),
+            onChanged: (value) =>
+                BlocProvider.of<ModeCubit>(context).toggleTheme(),
+          );
+        },
       ),
     );
   }

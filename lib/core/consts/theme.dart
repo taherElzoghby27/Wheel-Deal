@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyAppThemes {
   static final lightTheme = ThemeData(
-    scaffoldBackgroundColor: AppConsts.lightBlackDarkMode,
+    scaffoldBackgroundColor: AppConsts.white,
     primaryColor: AppConsts.lightBlackDarkMode,
     primaryColorDark: AppConsts.mainColor,
     brightness: Brightness.dark,
@@ -42,7 +42,7 @@ class MyAppThemes {
       ),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor:AppConsts.lightBlackDarkMode ,
+      backgroundColor:AppConsts.white ,
       titleTextStyle: AppConsts.style32.copyWith(
         fontWeight: FontWeight.w700,
         color: AppConsts.black,

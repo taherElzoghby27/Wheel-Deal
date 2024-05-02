@@ -11,15 +11,14 @@ class ReceiveMarketingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TileSetting(
       leading: StringsEn.receiveMarketing,
-      trailing: TextButton(
-        onPressed: () {},
-        child: Text(
-          'English',
-          style: AppConsts.style12.copyWith(
-            color: Theme.of(context).canvasColor,
-            fontSize: 10,
-          ),
+      trailing:  Switch.adaptive(
+        value: false,
+        activeTrackColor: AppConsts.mainColor,
+        inactiveTrackColor: Theme.of(context).canvasColor,
+        thumbColor: MaterialStateProperty.all(
+          Theme.of(context).splashColor,
         ),
+        onChanged: (value) {},
       ),
     );
   }
