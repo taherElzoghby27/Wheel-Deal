@@ -19,12 +19,22 @@ class LanguageWidget extends StatelessWidget {
           onPressed: () {
             buildShowModalBottomSheet(builderContext);
           },
-          child: Text(
-            StringsEn.english,
-            style: AppConsts.style12.copyWith(
-              color: Theme.of(context).canvasColor,
-              fontSize: 10,
-            ),
+          child: Row(
+            children: [
+              Text(
+                StringsEn.english,
+                style: AppConsts.style12.copyWith(
+                  color: Theme.of(context).canvasColor,
+                  fontSize: 10,
+                ),
+              ),
+              const SizedBox(width: 5),
+              const Icon(
+                Icons.arrow_forward_ios_rounded,
+                color: AppConsts.mainColor,
+                size: 12,
+              ),
+            ],
           ),
         ),
       );
