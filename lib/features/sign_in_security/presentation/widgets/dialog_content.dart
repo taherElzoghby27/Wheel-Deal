@@ -58,6 +58,7 @@ class DialogContent extends StatelessWidget {
                   styleText: AppConsts.style16White,
                   onTap: () => GoRouter.of(context).push(
                     twoStepVerificationCodePath,
+                    extra: StringsEn.deleteAccount,
                   ),
                 ),
               ),

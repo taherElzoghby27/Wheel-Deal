@@ -8,6 +8,10 @@ import 'package:cars/features/car_details/presentation/view_model/changed_carsou
 import 'package:cars/features/chats/presentation/view/chat_support_view.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/chats/presentation/view/faq_view.dart';
+import 'package:cars/features/delete_account/presentation/screens/are_you_sure_delete_view.dart';
+import 'package:cars/features/delete_account/presentation/screens/delete_account_code_view.dart';
+import 'package:cars/features/delete_account/presentation/screens/delete_account_verifi.dart';
+import 'package:cars/features/delete_account/presentation/screens/delete_account_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view.dart';
@@ -83,6 +87,10 @@ const String changePhonePath = '/changePhonePath';
 const String twoStepVerificationCodePath = '/twoStepVerificationCodePath';
 const String twoStepVerificationSecurityPath =
     '/twoStepVerificationSecurityPath';
+const String deleteAccountPath = '/deleteAccount';
+const String deleteAccountVerifiPath = '/deleteAccountVerifi';
+const String deleteAccountCodePath = '/deleteAccountCode';
+const String areYouSureDeletePath = '/areYouSureDeletePath';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
@@ -379,11 +387,14 @@ final router = GoRouter(
     ),
     GoRoute(
       path: twoStepVerificationCodePath,
-      pageBuilder: (context, state) => buildPageWithDefaultTransition(
-        context: context,
-        state: state,
-        child: const TwoStepVerificationCodeView(),
-      ),
+      pageBuilder: (context, state) {
+        String title = state.extra as String;
+        return buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: TwoStepVerificationCodeView(title: title),
+        );
+      },
     ),
     GoRoute(
       path: twoStepVerificationSecurityPath,
@@ -394,6 +405,46 @@ final router = GoRouter(
           create: (_) => TwoStepVerificationCubit(),
           child: const TwoStepVerificationSecurityView(),
         ),
+      ),
+    ),
+    GoRoute(
+      path: deleteAccountPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const DeleteAccountView(),
+      ),
+    ),
+    GoRoute(
+      path: deleteAccountPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const DeleteAccountView(),
+      ),
+    ),
+    GoRoute(
+      path: deleteAccountCodePath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const DeleteAccountCodeView(),
+      ),
+    ),
+    GoRoute(
+      path: deleteAccountVerifiPath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const DeleteAccountVerifiyView(),
+      ),
+    ),
+    GoRoute(
+      path: areYouSureDeletePath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const AreYouSureDeleteAccountView(),
       ),
     ),
   ],

@@ -113,4 +113,5 @@ class Assets {
   static const String loadingVerify = "assets/images/loadingVerif.png";
   static const String stillProcessing = "assets/images/stillProcessing.png";
   static const String verified = "assets/images/verified.png";
+  static const String delete = "assets/images/delete.png";
 }

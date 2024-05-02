@@ -30,6 +30,8 @@ at least 1 number and 1 special character.
       'Password must be at least 8 characters';
   static const String alreadyHaveAccount = 'Already have an account?';
   static const String login = 'Login';
+  static const String loginInToConfirm = 'Login in to confirm';
+  static const String enterLoginInformation = 'Enter the login information for your account to confirm deletion';
   static const String signUp = 'Sign Up';
   static const String welcome = 'Welcome!';
   static const String enterYourDetailsBelow = 'Enter Your Details Below';
@@ -171,6 +173,8 @@ at least 1 number and 1 special character.
   static const String address = "Address";
   static const String addToOrders = "Add To Orders";
   static const String setting = "Setting";
+  static const String deleteAccountHint ="""Dealeting your account will permanently remove all public and private information associated with your profile. you must cancel your subscription before you can delete your account.
+  """;
   static const String darkMode = "Dark mode";
   static const String receiveMarketing = "Recieve marketing emails";
   static const String help = "Help";
@@ -181,9 +185,15 @@ at least 1 number and 1 special character.
   static const String notificationSetting = 'Notification Setting';
   static const String passwordManager = 'Password Manager';
   static const String deleteAccount = 'Delete Account';
+  static const String deleteMyAccount = 'Delete My Account';
   static const String delete = 'Delete';
+
+
   static const String areYouSureYouWantToRemove =
       'Are you sure you want to remove method ?';
+  static const String areYouSureYouWantToDeleteYourAccount =
+      'Are you sure you want to delete your account?';
+  static const String keepAccount ='Keep Account';
   static String unCompleted = 'unCompleted';
   static String eenterCv = 'Please, Enter CV';
   static String token = 'token';

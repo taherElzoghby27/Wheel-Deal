@@ -45,7 +45,7 @@ class SectionUtilities extends StatelessWidget {
           CustomButtonThreeWidget(
             leading: const Icon(FontAwesomeIcons.trash),
             title: StringsEn.deleteAccount,
-            onTap: () => GoRouter.of(context).push(''),
+            onTap: () => GoRouter.of(context).push(deleteAccountPath),
           ),
           CustomButtonThreeWidget(
             leading: const Icon(
