@@ -29,7 +29,7 @@ class _SplashBodyState extends State<SplashBody> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: HandleImageWidget(image: Assets.splash),
+      child: HandleImageWidget(image: Assets.logo),
     );
   }
 }

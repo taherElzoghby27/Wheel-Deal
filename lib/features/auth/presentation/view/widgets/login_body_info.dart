@@ -115,7 +115,7 @@ class _LoginBodyInfoState extends State<LoginBodyInfo>
       if (controller.isAnimating) {
         stopAnimation();
       }
-      GoRouter.of(context).pushReplacement(homePath);
+      GoRouter.of(context).pushReplacement(navPath);
     } else {
       if (!controller.isAnimating) {
         startAnimation();

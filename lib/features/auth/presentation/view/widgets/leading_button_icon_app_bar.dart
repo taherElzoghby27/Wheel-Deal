@@ -1,4 +1,3 @@
-
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +20,10 @@ class LeadingIconButtonAppBar extends StatelessWidget {
         child: Center(
           child: IconButton(
             onPressed: onTap,
-            icon: const Icon(Icons.arrow_back_ios),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Theme.of(context).canvasColor,
+            ),
           ),
         ),
       ),

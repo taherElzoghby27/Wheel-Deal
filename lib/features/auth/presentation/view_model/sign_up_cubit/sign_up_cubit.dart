@@ -42,6 +42,6 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   register(context) {
-    GoRouter.of(context).pushReplacement(homePath);
+    GoRouter.of(context).pushReplacement(navPath);
   }
 }

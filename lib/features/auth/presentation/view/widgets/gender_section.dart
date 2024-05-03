@@ -31,7 +31,9 @@ class _GenderSectionState extends State<GenderSection> {
       children: [
         Radio<Gender>(
           value: gender,
-          activeColor: AppConsts.mainColor,
+          fillColor: MaterialStateProperty.all(
+            Theme.of(context).canvasColor,
+          ),
           groupValue: selectedGender,
           onChanged: (value) => setState(() => selectedGender = value!),
         ),

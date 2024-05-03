@@ -69,7 +69,7 @@ abstract class AppConsts {
   static const Color danger200 = Color.fromRGBO(255, 201, 170, 1);
   static const Color danger100 = Color.fromRGBO(255, 231, 212, 1);
   static const Color lightBlack = Color.fromRGBO(17, 17, 17, 1);
-  static const Color lightBlackDarkMode = Color.fromRGBO(252, 231, 204, 1);
+  static const Color lightBlackDarkMode = Color.fromRGBO(241,241,241, 1);
 
   //aspect ratio
   static const double aspectRatioButtonAuth = 3 / .4;
@@ -224,18 +224,18 @@ abstract class AppConsts {
     fontStyle: FontStyle.normal,
   );
   static OutlineInputBorder normalBorderField = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(13.sp),
+    borderRadius: BorderRadius.circular(16.sp),
     borderSide: BorderSide(
       color: neutral700.withOpacity(.3),
       width: 1,
     ),
   );
   static OutlineInputBorder focusedBorderField = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(13.sp),
+    borderRadius: BorderRadius.circular(16.sp),
     borderSide: const BorderSide(color: primary500, width: 1),
   );
   static OutlineInputBorder errorBorderField = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(13.sp),
+    borderRadius: BorderRadius.circular(16.sp),
     borderSide: const BorderSide(color: danger500, width: 1),
   );
   static BoxDecoration borderButton = BoxDecoration(
@@ -259,10 +259,10 @@ abstract class AppConsts {
     borderRadius: BorderRadius.circular(50.sp),
   );
   static BoxDecoration mainDecoration = BoxDecoration(
-    color: neutral100.withOpacity(.05),
+    color: neutral400.withOpacity(.05),
     borderRadius: mainRadius,
     border: Border.all(
-      color: neutral700.withOpacity(.3),
+      color: neutral600.withOpacity(.3),
       width: 1,
     ),
   );

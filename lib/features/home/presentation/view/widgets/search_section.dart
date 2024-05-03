@@ -15,9 +15,15 @@ class SearchSection extends StatelessWidget {
     return Padding(
       padding: AppConsts.mainPadding,
       child: CustomTextField(
-        filled: AppConsts.neutral100.withOpacity(.05),
-        perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
-        suffixIcon: const Icon(Icons.tune),
+        filled: AppConsts.neutral400.withOpacity(.05),
+        perfixIcon: Icon(
+          FontAwesomeIcons.magnifyingGlass,
+          color: Theme.of(context).canvasColor.withOpacity(.5),
+        ),
+        suffixIcon: Icon(
+          Icons.tune,
+          color: Theme.of(context).canvasColor.withOpacity(.5),
+        ),
         hint: StringsEn.findAnyCar,
         readOnly: true,
         onTap: () => GoRouter.of(context).push(searchPath),

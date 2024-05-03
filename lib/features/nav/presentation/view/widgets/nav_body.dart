@@ -14,8 +14,11 @@ class NavBody extends StatelessWidget {
     return AspectRatio(
       aspectRatio: AppConsts.aspectRatioNavBar,
       child: BottomAppBar(
+
         surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 7,
+        color:Theme.of(context).scaffoldBackgroundColor,
+        elevation: 12,
+        shadowColor:Theme.of(context).canvasColor,
         child: BlocBuilder<NavBarCubit, NavBarState>(
           builder: (context, state) {
             return Row(
@@ -24,7 +27,7 @@ class NavBody extends StatelessWidget {
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 0
                       ? AppConsts.mainColor
-                      : Theme.of(context).canvasColor,
+                      : Theme.of(context).canvasColor.withOpacity(.3),
                   label: StringsEn.home,
                   icon: Icons.home,
                   onTap: () => blocNav.changeIndex(0),
@@ -32,7 +35,7 @@ class NavBody extends StatelessWidget {
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 1
                       ? AppConsts.mainColor
-                      : Theme.of(context).canvasColor,
+                      : Theme.of(context).canvasColor.withOpacity(.3),
                   icon: Icons.favorite_outlined,
                   label: StringsEn.favourites,
                   onTap: () => blocNav.changeIndex(1),
@@ -40,7 +43,7 @@ class NavBody extends StatelessWidget {
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 2
                       ? AppConsts.mainColor
-                      : Theme.of(context).canvasColor,
+                      : Theme.of(context).canvasColor.withOpacity(.3),
                   icon: Icons.shopping_cart,
                   label: StringsEn.orders,
                   onTap: () => blocNav.changeIndex(2),
@@ -48,7 +51,7 @@ class NavBody extends StatelessWidget {
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 3
                       ? AppConsts.mainColor
-                      : Theme.of(context).canvasColor,
+                      : Theme.of(context).canvasColor.withOpacity(.3),
                   icon: Icons.chat,
                   label: StringsEn.chat,
                   onTap: () => blocNav.changeIndex(3),
@@ -56,7 +59,7 @@ class NavBody extends StatelessWidget {
                 BottomNavBarWidget(
                   color: blocNav.currentIndex == 4
                       ? AppConsts.mainColor
-                      : Theme.of(context).canvasColor,
+                      : Theme.of(context).canvasColor.withOpacity(.3),
                   icon: Icons.person,
                   label: StringsEn.profile,
                   onTap: () => blocNav.changeIndex(4),

@@ -7,8 +7,9 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: const SafeArea(
         child: LoginBody(),
       ),
     );

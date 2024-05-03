@@ -29,8 +29,10 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
             Expanded(
               flex: 7,
               child: CustomTextFormField(
-                perfixIcon:
-                    const HandleImageWidget(image: Assets.imagesProfilePng),
+                perfixIcon: const Icon(
+                  Icons.person,
+                  color: AppConsts.neutral500,
+                ),
                 hint: StringsEn.firstName,
                 onChanged: (String? value) => email = value,
               ),
@@ -39,8 +41,10 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
             Expanded(
               flex: 7,
               child: CustomTextFormField(
-                perfixIcon:
-                    const HandleImageWidget(image: Assets.imagesProfilePng),
+                perfixIcon: const Icon(
+                  Icons.person,
+                  color: AppConsts.neutral500,
+                ),
                 hint: StringsEn.lastName,
                 onChanged: (String? value) => email = value,
               ),
@@ -54,7 +58,10 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
         ///Email
 
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesSms),
+          perfixIcon: const Icon(
+            Icons.email_outlined,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.email,
           onChanged: (String? value) => email = value,
         ),
@@ -64,9 +71,12 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
 
         ///Password
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesLockPng),
+          perfixIcon: const Icon(
+            Icons.lock,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.password,
-          obscureText: false,
+          obscureText: true,
           onChanged: (String? value) => password = value,
         ),
         const AspectRatio(
@@ -75,9 +85,12 @@ class _CreateAccountComponent1State extends State<CreateAccountComponent1> {
 
         ///confirm Password
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesLockPng),
+          perfixIcon: const Icon(
+            Icons.lock,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.confirmNewPass,
-          obscureText: false,
+          obscureText: true,
           onChanged: (String? value) => password = value,
         ),
         const AspectRatio(

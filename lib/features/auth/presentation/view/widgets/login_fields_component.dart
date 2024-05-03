@@ -1,4 +1,3 @@
-
 import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/helper/handle_image.dart';
@@ -24,7 +23,10 @@ class _LoginFieldComponentState extends State<LoginFieldComponent> {
     return Column(
       children: [
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesSms),
+          perfixIcon: const Icon(
+            Icons.email_outlined,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.email,
           controller: email,
         ),
@@ -34,9 +36,12 @@ class _LoginFieldComponentState extends State<LoginFieldComponent> {
 
         ///Password
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesLockPng),
+          perfixIcon: const Icon(
+            Icons.lock,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.password,
-          obscureText: false,
+          obscureText: true,
           controller: password,
         ),
 

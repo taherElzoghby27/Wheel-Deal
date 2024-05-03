@@ -47,7 +47,7 @@ at least 1 number and 1 special character.
   static const String forgotPass = 'Forgot your Password?';
   static const String forgotPasswordLabel = 'Forgot Password';
   static const String dontHaveAccount = 'Dont’t have an account?';
-  static const String youRemeberYourPassword = 'You remember your password';
+  static const String youRemeberYourPassword = 'You remember your password ?';
   static const String register = 'Register';
   static const String orLoginWithAccount = 'Or Login With Account';
   static const String resetPass = 'Reset Password';

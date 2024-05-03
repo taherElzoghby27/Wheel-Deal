@@ -25,7 +25,9 @@ class BrandItem extends StatelessWidget {
               ),
               Text(
                 brand['brandName'],
-                style: AppConsts.style16White,
+                style: AppConsts.style16White.copyWith(
+                  color: Theme.of(context).canvasColor,
+                ),
               ),
             ],
           ),

@@ -75,11 +75,11 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
         enabledBorder: border ??
             AppConsts.normalBorderField.copyWith(
-              borderRadius: BorderRadius.circular(19),
+              //borderRadius: BorderRadius.circular(19),
             ),
         focusedBorder: border ??
             AppConsts.normalBorderField.copyWith(
-              borderRadius: BorderRadius.circular(10),
+              //borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
                 color: AppConsts.mainColor.withOpacity(.4),
               ),

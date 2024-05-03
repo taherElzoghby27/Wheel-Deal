@@ -32,13 +32,19 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
     return Column(
       children: [
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesPhonePng),
+          perfixIcon: const Icon(
+            Icons.phone,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.phoneNumber,
           controller: state,
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesProfilePng),
+          perfixIcon: const Icon(
+            Icons.person,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.age,
           controller: userName,
         ),
@@ -49,8 +55,10 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
             Expanded(
               flex: 7,
               child: CustomTextFormField(
-                perfixIcon:
-                    const HandleImageWidget(image: Assets.imagesLocationPng),
+                perfixIcon: const Icon(
+                  Icons.location_on_outlined,
+                  color: AppConsts.neutral500,
+                ),
                 hint: StringsEn.city,
                 controller: city,
               ),
@@ -59,8 +67,10 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
             Expanded(
               flex: 7,
               child: CustomTextFormField(
-                perfixIcon:
-                    const HandleImageWidget(image: Assets.imagesLocationPng),
+                perfixIcon: const Icon(
+                  Icons.location_on_outlined,
+                  color: AppConsts.neutral500,
+                ),
                 hint: StringsEn.state,
                 controller: state,
               ),
@@ -69,7 +79,10 @@ class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         CustomTextFormField(
-          perfixIcon: const HandleImageWidget(image: Assets.imagesLocationPng),
+          perfixIcon: const Icon(
+            Icons.location_on_outlined,
+            color: AppConsts.neutral500,
+          ),
           hint: StringsEn.address,
           controller: address,
         ),
