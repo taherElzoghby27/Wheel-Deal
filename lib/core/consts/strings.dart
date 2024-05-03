@@ -191,6 +191,8 @@ at least 1 number and 1 special character.
 
   static const String areYouSureYouWantToRemove =
       'Are you sure you want to remove method ?';
+  static const String areYouSureYouWantToLogout =
+      'Are you sure you want to log out ?';
   static const String areYouSureYouWantToDeleteYourAccount =
       'Are you sure you want to delete your account?';
   static const String keepAccount ='Keep Account';

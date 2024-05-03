@@ -5,8 +5,8 @@ import 'package:cars/core/widgets/custom_button_three_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../home/presentation/view/widgets/top_leading_trailing.dart';
+import 'content_bottom_sheet_logout.dart';
 
 class SectionUtilities extends StatelessWidget {
   const SectionUtilities({super.key});
@@ -53,7 +53,13 @@ class SectionUtilities extends StatelessWidget {
               color: AppConsts.danger500,
             ),
             title: StringsEn.logout,
-            onTap: () => GoRouter.of(context).push(''),
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: Theme.of(context).splashColor,
+                builder: (context) => const ContentBottomSheetLogout(),
+              );
+            },
             color: AppConsts.danger500,
           ),
         ],
