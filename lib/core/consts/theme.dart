@@ -41,8 +41,15 @@ class MyAppThemes {
         ),
       ),
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(
+          AppConsts.mainColor,
+        ),
+      ),
+    ),
     appBarTheme: AppBarTheme(
-      backgroundColor:AppConsts.white ,
+      backgroundColor: AppConsts.white,
       titleTextStyle: AppConsts.style32.copyWith(
         fontWeight: FontWeight.w700,
         color: AppConsts.black,
@@ -83,6 +90,13 @@ class MyAppThemes {
     buttonTheme: const ButtonThemeData(
       buttonColor: AppConsts.mainColor,
       textTheme: ButtonTextTheme.primary,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(
+          AppConsts.mainColor,
+        ),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(

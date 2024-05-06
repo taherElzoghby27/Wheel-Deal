@@ -22,7 +22,8 @@ class BlocBuilderDialog extends StatelessWidget {
       builder: (context, state) {
         FilterCubit bloc = BlocProvider.of<FilterCubit>(context);
         return Dialog(
-          surfaceTintColor: Theme.of(context).splashColor,
+          surfaceTintColor: Theme.of(context).splashColor.withOpacity(.3),
+          backgroundColor: Theme.of(context).splashColor,
           shape: AppConsts.dialogShape,
           child: Column(
             mainAxisSize: MainAxisSize.min,

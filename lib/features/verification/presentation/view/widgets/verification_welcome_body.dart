@@ -23,7 +23,9 @@ class VerificationWelcomeBody extends StatelessWidget {
             const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
             Text(
               StringsEn.verifyYourAccount,
-              style: AppConsts.style22,
+              style: AppConsts.style22.copyWith(
+                color: Theme.of(context).canvasColor,
+              ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
             Text(
@@ -33,14 +35,17 @@ class VerificationWelcomeBody extends StatelessWidget {
               ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio16on4),
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth,
-              child: CustomButton(
-                text: StringsEn.next,
-                styleText: AppConsts.style16White.copyWith(
-                  fontWeight: FontWeight.w600,
+            Padding(
+              padding:AppConsts.padding15H,
+              child: AspectRatio(
+                aspectRatio: AppConsts.aspectRatioButtonAuth,
+                child: CustomButton(
+                  text: StringsEn.next,
+                  styleText: AppConsts.style16White.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                  onTap: () => GoRouter.of(context).push(verificationPath),
                 ),
-                onTap: () => GoRouter.of(context).push(verificationPath),
               ),
             ),
           ],

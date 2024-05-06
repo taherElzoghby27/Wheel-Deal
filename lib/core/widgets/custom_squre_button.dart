@@ -22,7 +22,7 @@ class CustomSquareButton extends StatelessWidget {
       borderRadius: AppConsts.mainRadius,
       child: Container(
         decoration: BoxDecoration(
-          color: color ?? AppConsts.neutral100.withOpacity(.05),
+          color: color ?? Theme.of(context).canvasColor.withOpacity(.05),
           borderRadius: AppConsts.mainRadius,
         ),
         child: Center(

@@ -44,6 +44,7 @@ class LanguageWidget extends StatelessWidget {
   buildShowModalBottomSheet(BuildContext builderContext) {
     return showModalBottomSheet(
       context: builderContext,
+      backgroundColor:Theme.of(builderContext).primaryColor,
       shape: AppConsts.dialogShape,
       builder: (_) {
         return BlocProvider.value(

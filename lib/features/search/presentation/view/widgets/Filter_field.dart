@@ -35,6 +35,7 @@ class FilterField extends StatelessWidget {
         return Builder(
           builder: (builderContext) {
             return CustomTextField(
+              filled: Theme.of(context).canvasColor.withOpacity(.05),
               hint: status.isEmpty ? label : status,
               readOnly: true,
               suffixIcon: IconButton(
@@ -54,6 +55,7 @@ class FilterField extends StatelessWidget {
   void _onTapSubmit(BuildContext builderContext) {
     showDialog(
       context: builderContext,
+      barrierColor: Theme.of(builderContext).canvasColor.withOpacity(.5),
       builder: (_) {
         return BlocProvider.value(
           value: builderContext.read<FilterCubit>(),

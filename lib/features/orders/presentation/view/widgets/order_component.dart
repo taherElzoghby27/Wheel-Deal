@@ -18,7 +18,11 @@ class OrderComponent extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: AppConsts.aspectRatioComponentOrder.sp,
         child: Container(
-          decoration: AppConsts.mainDecoration,
+          decoration: AppConsts.mainDecoration.copyWith(
+            border: Border.all(
+              color: Theme.of(context).canvasColor.withOpacity(.1),
+            ),
+          ),
           child: Padding(
             padding: AppConsts.padding8H3V,
             child: Row(
@@ -53,13 +57,15 @@ class OrderComponent extends StatelessWidget {
                               Text(
                                 'BMW 320i M Sport',
                                 style: AppConsts.style16White.copyWith(
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w400,
+                                  color: Theme.of(context).canvasColor,
                                 ),
                               ),
                               Text(
                                 'EGP 3,000,000',
                                 style: AppConsts.style14.copyWith(
                                   color: AppConsts.mainColor,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ],
@@ -82,7 +88,12 @@ class OrderComponent extends StatelessWidget {
                                 flex: 2,
                                 child: IconButton(
                                   onPressed: () {},
-                                  icon: const Icon(Icons.delete),
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: Theme.of(context)
+                                        .canvasColor
+                                        .withOpacity(.5),
+                                  ),
                                 ),
                               ),
                               const Spacer(),

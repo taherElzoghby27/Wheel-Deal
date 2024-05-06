@@ -41,6 +41,7 @@ class CustomRecentOrPopularWidget extends StatelessWidget {
               jop,
               style: AppConsts.style14.copyWith(
                 fontWeight: FontWeight.w400,
+                color: Theme.of(context).canvasColor.withOpacity(.5),
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

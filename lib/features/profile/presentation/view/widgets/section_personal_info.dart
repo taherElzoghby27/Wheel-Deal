@@ -23,31 +23,40 @@ class SectionPersonalInfo extends StatelessWidget {
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.user),
+            leading: Icon(
+             Icons.person_2_outlined,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             title: StringsEn.id,
             trailing: const Text(
               '35154642',
               style: AppConsts.style14,
             ),
-            onTap: () => GoRouter.of(context).push(editProfilePath),
+            onTap: (){},
           ),
           CustomButtonThreeWidget(
-            leading: const Icon(Icons.email),
+            leading: Icon(
+              Icons.email_outlined,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             trailing: const Text(
-              'tataamen@gmail.com',
+              'taherAmin@gmail.com',
               style: AppConsts.style14,
             ),
             title: StringsEn.email,
-            onTap: () => GoRouter.of(context).push(''),
+            onTap: (){},
           ),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.phone),
+            leading: Icon(
+              Icons.phone,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             trailing: const Text(
               '01023412234',
               style: AppConsts.style14,
             ),
             title: StringsEn.phone,
-            onTap: () => GoRouter.of(context).push(settingsPath),
+            onTap: (){},
           ),
         ],
       ),

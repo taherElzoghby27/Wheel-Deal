@@ -23,6 +23,7 @@ class DeleteAccountVerifiBody extends StatelessWidget {
             StringsEn.loginInToConfirm,
             style: AppConsts.style22.copyWith(
               fontSize: 18,
+              color: Theme.of(context).canvasColor,
             ),
             textAlign: TextAlign.center,
           ),
@@ -41,7 +42,7 @@ class DeleteAccountVerifiBody extends StatelessWidget {
           const CustomTextFormField(
             hint: StringsEn.email,
             perfixIcon: Icon(
-              Icons.email,
+              Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
           ),
@@ -49,13 +50,13 @@ class DeleteAccountVerifiBody extends StatelessWidget {
           CustomTextFormField(
             hint: StringsEn.password,
             perfixIcon: const Icon(
-              Icons.lock,
+              Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
             suffixIcon: IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.visibility,
+                Icons.visibility_outlined,
                 color: AppConsts.neutral500,
               ),
             ),
@@ -64,13 +65,13 @@ class DeleteAccountVerifiBody extends StatelessWidget {
           CustomTextFormField(
             hint: StringsEn.confirmNewPass,
             perfixIcon: const Icon(
-              Icons.lock,
+              Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
             suffixIcon: IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.visibility,
+                Icons.visibility_outlined,
                 color: AppConsts.neutral500,
               ),
             ),
@@ -83,6 +84,7 @@ class DeleteAccountVerifiBody extends StatelessWidget {
                 StringsEn.forgotPass,
                 style: AppConsts.style12.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: Theme.of(context).canvasColor.withOpacity(.5),
                 ),
               ),
             ),

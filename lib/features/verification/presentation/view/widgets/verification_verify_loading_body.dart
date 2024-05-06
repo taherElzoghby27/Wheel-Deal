@@ -81,17 +81,23 @@ class _VerificationVerifyLoadingBodyState
                   textAlign: TextAlign.center,
                   style: AppConsts.style20.copyWith(
                     fontWeight: FontWeight.w600,
+                    color: Theme.of(context).canvasColor,
                   ),
                 ),
                 const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-                Text(
-                  current == 1
-                      ? StringsEn.stillProcessingSubTitle
-                      : current == 2
-                          ? StringsEn.verifiedSubTitle
-                          : '',
-                  textAlign: TextAlign.center,
-                  style: AppConsts.styleHint14,
+                Padding(
+                  padding:AppConsts.padding50H,
+                  child: Text(
+                    current == 1
+                        ? StringsEn.stillProcessingSubTitle
+                        : current == 2
+                            ? StringsEn.verifiedSubTitle
+                            : '',
+                    textAlign: TextAlign.center,
+                    style: AppConsts.styleHint14.copyWith(
+                      color: Theme.of(context).canvasColor.withOpacity(.5),
+                    ),
+                  ),
                 ),
               ],
             ),

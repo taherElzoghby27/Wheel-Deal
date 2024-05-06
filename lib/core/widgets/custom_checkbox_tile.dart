@@ -21,12 +21,15 @@ class CustomCheckBoxTile extends StatelessWidget {
         Checkbox(
           value: value,
           activeColor: AppConsts.mainColor,
+          checkColor: AppConsts.white,
+          side: const BorderSide(color: AppConsts.mainColor),
           onChanged: onChanged,
         ),
         Text(
           label,
-          style: AppConsts.style16.copyWith(
+          style: AppConsts.style14.copyWith(
             color: Theme.of(context).canvasColor,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ],

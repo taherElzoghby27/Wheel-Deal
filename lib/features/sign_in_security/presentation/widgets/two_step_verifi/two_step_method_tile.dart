@@ -25,7 +25,9 @@ class TwoStepMethodTile extends StatelessWidget {
           ),
         ),
         Container(
-          decoration: AppConsts.secondaryMainDecoration,
+          decoration: AppConsts.secondaryMainDecoration.copyWith(
+            color: Theme.of(context).canvasColor.withOpacity(.025),
+          ),
           width: size.width * .5,
           child: Padding(
             padding: AppConsts.padding8H3V,

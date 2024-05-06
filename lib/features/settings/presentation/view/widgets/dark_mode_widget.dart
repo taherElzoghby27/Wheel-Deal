@@ -20,8 +20,9 @@ class DarkModeWidget extends StatelessWidget {
             value: themeState.themeMode == ThemeMod.dark,
             activeTrackColor: AppConsts.mainColor,
             thumbColor: MaterialStateProperty.all(
-              Theme.of(context).splashColor,
+              AppConsts.neutral100,
             ),
+            inactiveTrackColor: Theme.of(context).canvasColor.withOpacity(.1),
             onChanged: (value) =>
                 BlocProvider.of<ModeCubit>(context).toggleTheme(),
           );

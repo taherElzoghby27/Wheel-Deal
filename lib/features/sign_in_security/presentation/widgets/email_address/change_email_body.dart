@@ -18,7 +18,7 @@ class ChangeEmailBody extends StatelessWidget {
           const CustomTextFormField(
             hint: StringsEn.newEmailAddress,
             perfixIcon: Icon(
-              Icons.email,
+              Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
           ),
@@ -26,7 +26,7 @@ class ChangeEmailBody extends StatelessWidget {
           const CustomTextFormField(
             hint: StringsEn.confirmNewEmail,
             perfixIcon: Icon(
-              Icons.email,
+              Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
           ),
@@ -34,13 +34,13 @@ class ChangeEmailBody extends StatelessWidget {
           CustomTextFormField(
             hint: StringsEn.yourPassword,
             perfixIcon: const Icon(
-              Icons.lock,
+              Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
             suffixIcon: IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.visibility,
+                Icons.visibility_outlined,
                 color: AppConsts.neutral500,
               ),
             ),
@@ -53,6 +53,7 @@ class ChangeEmailBody extends StatelessWidget {
                 StringsEn.forgotPass,
                 style: AppConsts.style12.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: Theme.of(context).canvasColor.withOpacity(.5),
                 ),
               ),
             ),

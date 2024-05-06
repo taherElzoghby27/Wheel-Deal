@@ -17,6 +17,7 @@ class ContentDialogVerified extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).primaryColor,
       child: Padding(
         padding: AppConsts.mainPadding,
         child: Column(
@@ -33,6 +34,7 @@ class ContentDialogVerified extends StatelessWidget {
               StringsEn.verified,
               style: AppConsts.style20.copyWith(
                 fontWeight: FontWeight.w600,
+                color: Theme.of(context).canvasColor,
               ),
               textAlign: TextAlign.center,
             ),

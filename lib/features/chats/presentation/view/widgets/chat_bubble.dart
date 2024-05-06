@@ -30,7 +30,7 @@ class ChatBubble extends StatelessWidget {
             child: Container(
               width: size.width * .65.w,
               decoration: AppConsts.decorationChatBubble.copyWith(
-                color: Theme.of(context).splashColor.withOpacity(.5),
+                color: Theme.of(context).canvasColor.withOpacity(.05),
               ),
               child: Padding(
                 padding: AppConsts.padding8,

@@ -23,7 +23,7 @@ class TileWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Theme.of(context).canvasColor.withOpacity(.2),
+          color: Theme.of(context).canvasColor.withOpacity(.1),
           border: const Border.symmetric(
             vertical: BorderSide(
               color: AppConsts.neutral300,

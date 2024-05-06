@@ -30,8 +30,8 @@ class ItemSpecification extends StatelessWidget {
             SizedBox(height: size.height * .01),
             Text(
               ky,
-              style: AppConsts.style14.copyWith(
-                fontWeight: FontWeight.w700,
+              style: AppConsts.style22.copyWith(
+                fontSize: 10,
                 color: Theme.of(context).canvasColor,
               ),
               overflow: TextOverflow.ellipsis,
@@ -39,8 +39,8 @@ class ItemSpecification extends StatelessWidget {
             SizedBox(height: size.height * .01),
             Text(
               value,
-              style: AppConsts.style14.copyWith(
-                fontWeight: FontWeight.w400,
+              style: AppConsts.style12.copyWith(
+                fontSize: 10,
                 color: Theme.of(context).canvasColor,
               ),
             ),

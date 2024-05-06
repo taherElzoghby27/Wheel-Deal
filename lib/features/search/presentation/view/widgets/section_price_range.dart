@@ -27,7 +27,7 @@ class SectionPriceRange extends StatelessWidget {
               min: 200000,
               max: 5000000,
               divisions: 500,
-              inactiveColor: Theme.of(context).canvasColor,
+              inactiveColor: Theme.of(context).canvasColor.withOpacity(.1),
               onChanged: (RangeValues values) => bloc.changePriceRange(values),
               activeColor: AppConsts.mainColor,
               values: bloc.currentRangeValues,

@@ -24,7 +24,7 @@ class TileFeaturePropertyWidget extends StatelessWidget {
             children: [
               Text(
                 ke,
-                style: AppConsts.style16.copyWith(
+                style: AppConsts.style12.copyWith(
                   fontWeight: FontWeight.w600,
                   color: Theme.of(context).canvasColor,
                 ),
@@ -36,7 +36,9 @@ class TileFeaturePropertyWidget extends StatelessWidget {
             ],
           ),
         ),
-        const CustomDivider(),
+        CustomDivider(
+          color: Theme.of(context).canvasColor.withOpacity(.075),
+        ),
       ],
     );
   }

@@ -12,14 +12,17 @@ class InstallmentAvailableDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      surfaceTintColor: Theme.of(context).splashColor,
+      surfaceTintColor: Theme.of(context).splashColor.withOpacity(.5),
+      backgroundColor: Theme.of(context).splashColor,
       shape: AppConsts.dialogShape,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             decoration: BoxDecoration(
-              color: AppConsts.neutral700.withOpacity(.3),
+              color: Theme.of(context).canvasColor.withOpacity(
+                    .1,
+                  ),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
@@ -43,7 +46,9 @@ class InstallmentAvailableDialog extends StatelessWidget {
                 color: AppConsts.mainColor,
               );
             },
-            separatorBuilder: (context, index) => const CustomDivider(),
+            separatorBuilder: (context, index) => CustomDivider(
+              color: Theme.of(context).canvasColor.withOpacity(.1),
+            ),
             itemCount: installments.length,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),

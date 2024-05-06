@@ -38,10 +38,11 @@ class SignInSecurityTile extends StatelessWidget {
                       color: Theme.of(context).canvasColor,
                     ),
                   ),
+                  const SizedBox(height: 10),
                   Text(
                     subLeading,
                     style: AppConsts.style12.copyWith(
-                      color: AppConsts.neutral500,
+                      color: Theme.of(context).canvasColor.withOpacity(.5),
                       fontSize: 10,
                     ),
                   ),

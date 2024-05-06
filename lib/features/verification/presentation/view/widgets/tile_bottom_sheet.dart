@@ -26,6 +26,7 @@ class TileBottomSheet extends StatelessWidget {
               label,
               style: AppConsts.style14.copyWith(
                 fontWeight: FontWeight.w400,
+                color: Theme.of(context).canvasColor,
               ),
             ),
             Icon(iconData),

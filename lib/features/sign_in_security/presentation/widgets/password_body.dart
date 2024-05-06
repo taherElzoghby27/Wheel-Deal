@@ -18,15 +18,15 @@ class PasswordBody extends StatelessWidget {
           const CustomTextFormField(
             hint: StringsEn.yourPassword,
             perfixIcon: Icon(
-              Icons.lock,
+              Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
-           CustomTextFormField(
+          CustomTextFormField(
             hint: StringsEn.enterNewPass,
             perfixIcon: const Icon(
-              Icons.lock,
+              Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
           ),
@@ -34,13 +34,13 @@ class PasswordBody extends StatelessWidget {
           CustomTextFormField(
             hint: StringsEn.confirmNewPass,
             perfixIcon: const Icon(
-              Icons.lock,
+              Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
             suffixIcon: IconButton(
               onPressed: () {},
               icon: const Icon(
-                Icons.visibility,
+                Icons.visibility_outlined,
                 color: AppConsts.neutral500,
               ),
             ),
@@ -53,7 +53,7 @@ class PasswordBody extends StatelessWidget {
               styleText: AppConsts.style16White.copyWith(
                 fontWeight: FontWeight.w600,
               ),
-              onTap: () => GoRouter.of(context).push(''),
+              onTap: () {},
             ),
           ),
         ],

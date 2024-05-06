@@ -13,7 +13,11 @@ class BoxDecorationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:AppConsts.mainDecoration,
+      decoration: AppConsts.mainDecoration.copyWith(
+        border: Border.all(
+          color: Theme.of(context).canvasColor.withOpacity(.075),
+        ),
+      ),
       child: Padding(
         padding: AppConsts.padding15H10V,
         child: widget,

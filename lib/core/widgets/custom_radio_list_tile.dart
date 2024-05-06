@@ -20,7 +20,10 @@ class CustomRadiusListTile<T> extends StatelessWidget {
     return RadioListTile<T>(
       title: Text(
         label,
-        style: AppConsts.style14,
+        style: AppConsts.style14.copyWith(
+          fontWeight: FontWeight.w400,
+          color: Theme.of(context).canvasColor.withOpacity(.5),
+        ),
       ),
       value: value,
       groupValue: groupValue,

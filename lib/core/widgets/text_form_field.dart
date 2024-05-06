@@ -68,7 +68,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
       decoration: InputDecoration(
         filled: true,
-        fillColor: AppConsts.neutral500.withOpacity(.1),
+        fillColor: Theme.of(context).canvasColor.withOpacity(.05),
         hintText: hint,
         hintStyle: AppConsts.styleHint14,
         prefixIcon: perfixIcon,

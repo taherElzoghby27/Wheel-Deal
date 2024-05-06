@@ -21,6 +21,12 @@ class CustomButtonWithBorder extends StatelessWidget {
       onPressed: onTap,
       onLongPress: onLongTap,
       style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(
+          AppConsts.mainColor,
+        ),
+        surfaceTintColor: MaterialStateProperty.all(
+          Theme.of(context).splashColor,
+        ),
         backgroundColor: MaterialStateProperty.all(
           Theme.of(context).splashColor,
         ),

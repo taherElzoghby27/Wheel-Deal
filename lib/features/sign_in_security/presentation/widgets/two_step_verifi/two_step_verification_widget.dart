@@ -39,8 +39,9 @@ class _TwoStepVerificationWidgetState extends State<TwoStepVerificationWidget> {
             value: twoStepVerification,
             activeTrackColor: AppConsts.mainColor,
             thumbColor: MaterialStateProperty.all(
-              Theme.of(context).canvasColor,
+              AppConsts.neutral100,
             ),
+            inactiveTrackColor: Theme.of(context).canvasColor.withOpacity(.1),
             onChanged: (bool value) =>
                 context.read<TwoStepVerificationCubit>().changeSwitch(
                       value,

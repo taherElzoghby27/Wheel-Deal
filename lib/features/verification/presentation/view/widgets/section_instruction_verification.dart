@@ -12,12 +12,17 @@ class SectionInstructionVerification extends StatelessWidget {
       children: [
         Text(
           StringsEn.proofOfIdentify,
-          style: AppConsts.style16White,
+          style: AppConsts.style16.copyWith(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context).canvasColor,
+          ),
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         Text(
           StringsEn.proofOfIdentifySubTitle,
           style: AppConsts.style12.copyWith(
+            fontSize: 10,
             fontWeight: FontWeight.w400,
             color: Theme.of(context).canvasColor.withOpacity(.5),
           ),

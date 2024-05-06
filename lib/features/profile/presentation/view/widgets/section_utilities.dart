@@ -1,6 +1,8 @@
+import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/custom_button_three_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,34 +25,49 @@ class SectionUtilities extends StatelessWidget {
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.userCheck),
+            leading: Icon(
+              FontAwesomeIcons.userCheck,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             title: StringsEn.accountVerifi,
             onTap: () => GoRouter.of(context).push(verificationWelcomePath),
           ),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.lock),
+            leading: Icon(
+              Icons.lock,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             title: StringsEn.signInSecurity,
             onTap: () => GoRouter.of(context).push(signInSecurityPath),
           ),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.gear),
+            leading: Icon(
+              Icons.settings_outlined,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             title: StringsEn.setting,
             onTap: () => GoRouter.of(context).push(settingsPath),
           ),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.shield),
+            leading: Icon(
+              Icons.privacy_tip,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             title: StringsEn.privacyPolicy,
-            onTap: () => GoRouter.of(context).push(''),
+            onTap: () {},
           ),
           CustomButtonThreeWidget(
-            leading: const Icon(FontAwesomeIcons.trash),
+            leading: Icon(
+              FontAwesomeIcons.trash,
+              color: Theme.of(context).canvasColor.withOpacity(.8),
+            ),
             title: StringsEn.deleteAccount,
             onTap: () => GoRouter.of(context).push(deleteAccountPath),
           ),
           CustomButtonThreeWidget(
             leading: const Icon(
               FontAwesomeIcons.arrowRightFromBracket,
-              color: AppConsts.danger500,
+              color: AppConsts.mainColor,
             ),
             title: StringsEn.logout,
             onTap: () {

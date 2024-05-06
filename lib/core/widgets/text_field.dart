@@ -46,7 +46,10 @@ class CustomTextField extends StatelessWidget {
         hintText: hint,
         filled: filled == null ? false : true,
         fillColor: filled,
-        hintStyle: AppConsts.style14.copyWith(fontWeight: FontWeight.w400),
+        hintStyle: AppConsts.style14.copyWith(
+          fontWeight: FontWeight.w400,
+          color: Theme.of(context).canvasColor,
+        ),
         prefixIcon: perfixIcon,
         prefixText: perfixText,
         suffixIcon: suffixIcon,

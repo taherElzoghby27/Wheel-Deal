@@ -47,17 +47,27 @@ class ScanComponent extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: AppConsts.style16White,
+                        style: AppConsts.style16.copyWith(
+                          color: Theme.of(context).canvasColor,
+                        ),
                       ),
                       subTitle1 != null
                           ? Text(
                               subTitle1!,
-                              style: AppConsts.style12,
+                              style: AppConsts.style12.copyWith(
+                                fontSize: 10,
+                                color: Theme.of(context)
+                                    .canvasColor
+                                    .withOpacity(.5),
+                              ),
                             )
                           : Container(),
                       Text(
                         subTitle2,
-                        style: AppConsts.style12.copyWith(fontSize: 10),
+                        style: AppConsts.style12.copyWith(
+                          fontSize: 10,
+                          color: Theme.of(context).canvasColor.withOpacity(.5),
+                        ),
                       ),
                     ],
                   ),

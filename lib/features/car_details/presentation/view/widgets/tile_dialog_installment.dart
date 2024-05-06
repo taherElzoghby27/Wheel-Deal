@@ -27,7 +27,9 @@ class TileDialogInstallment extends StatelessWidget {
             flex: 4,
             child: Text(
               first,
-              style: AppConsts.style14,
+              style: AppConsts.style12.copyWith(
+                color: Theme.of(context).canvasColor,
+              ),
             ),
           ),
           const Spacer(),
@@ -35,8 +37,8 @@ class TileDialogInstallment extends StatelessWidget {
             flex: 3,
             child: Text(
               second,
-              style: AppConsts.style14.copyWith(
-                color: color,
+              style: AppConsts.style12.copyWith(
+                color: color ?? Theme.of(context).canvasColor,
                 fontWeight: color == null ? FontWeight.w500 : FontWeight.w700,
               ),
             ),
@@ -45,8 +47,8 @@ class TileDialogInstallment extends StatelessWidget {
             flex: 3,
             child: Text(
               third,
-              style: AppConsts.style14.copyWith(
-                color: color,
+              style: AppConsts.style12.copyWith(
+                color: color ?? Theme.of(context).canvasColor,
                 fontWeight: color == null ? FontWeight.w500 : FontWeight.w700,
               ),
             ),
@@ -55,8 +57,8 @@ class TileDialogInstallment extends StatelessWidget {
             flex: 3,
             child: Text(
               forth,
-              style: AppConsts.style14.copyWith(
-                color: color,
+              style: AppConsts.style12.copyWith(
+                color: color ?? Theme.of(context).canvasColor,
                 fontWeight: color == null ? FontWeight.w500 : FontWeight.w700,
               ),
             ),

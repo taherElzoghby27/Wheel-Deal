@@ -23,8 +23,9 @@ class TopLeadingTrailing extends StatelessWidget {
       children: [
         Text(
           leading,
-          style: AppConsts.style20.copyWith(
+          style: AppConsts.style22.copyWith(
             color: leadingColor ?? Theme.of(context).canvasColor,
+            fontSize: 16,
           ),
         ),
         trailingOnTap == null

@@ -24,7 +24,7 @@ class EnterPhoneOrEmail extends StatelessWidget {
         const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
         SizedBox(
           height: size.height * .125,
-          child: const HandleImageWidget(image: Assets.verified),
+          child: const HandleImageWidget(image: Assets.lockWithBackGround),
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
         Text(
@@ -33,6 +33,7 @@ class EnterPhoneOrEmail extends StatelessWidget {
               : StringsEn.enterYouEmail,
           style: AppConsts.style20.copyWith(
             fontWeight: FontWeight.w600,
+            color: Theme.of(context).canvasColor,
           ),
           textAlign: TextAlign.center,
         ),
@@ -47,7 +48,7 @@ class EnterPhoneOrEmail extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
+        const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         CustomTextFormField(
           hint:
               status == StringsEn.sms ? StringsEn.phoneNumber : StringsEn.email,

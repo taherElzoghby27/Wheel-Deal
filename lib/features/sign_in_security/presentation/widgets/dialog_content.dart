@@ -14,16 +14,19 @@ class DialogContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).primaryColor,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           const AspectRatio(
             aspectRatio: AppConsts.aspectRatio24on2,
           ),
-          const Center(
+           Center(
             child: Text(
               StringsEn.delete,
-              style: AppConsts.style16White,
+              style: AppConsts.style16White.copyWith(
+                color: Theme.of(context).canvasColor,
+              ),
             ),
           ),
           Padding(
@@ -66,7 +69,7 @@ class DialogContent extends StatelessWidget {
             ],
           ),
           const AspectRatio(
-            aspectRatio: AppConsts.aspectRatio40on1,
+            aspectRatio: AppConsts.aspectRatio24on2,
           ),
         ],
       ),

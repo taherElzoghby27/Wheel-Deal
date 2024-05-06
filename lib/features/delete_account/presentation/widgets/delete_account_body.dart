@@ -25,6 +25,7 @@ class DeleteAccountBody extends StatelessWidget {
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           TextButton(
+
             onPressed: () => GoRouter.of(context).push(deleteAccountVerifiPath),
             child: Text(
               StringsEn.deleteMyAccount,

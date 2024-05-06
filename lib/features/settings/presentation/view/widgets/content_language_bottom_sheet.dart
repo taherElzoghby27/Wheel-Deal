@@ -18,7 +18,9 @@ class ContentBottomSheetLanguage extends StatelessWidget {
             label: StringsEn.english,
             onTap: () {},
           ),
-          const CustomDivider(),
+          CustomDivider(
+            color: Theme.of(context).canvasColor.withOpacity(.1),
+          ),
           TileBottomSheet(
             label: StringsEn.arabic,
             onTap: () {},

@@ -114,4 +114,6 @@ class Assets {
   static const String stillProcessing = "assets/images/stillProcessing.png";
   static const String verified = "assets/images/verified.png";
   static const String delete = "assets/images/delete.png";
+  static const String lockWithBackGround = "assets/images/lock_with_back.png";
+  static const String signInSecurity = 'assets/images/sign_in_secuirty.png';
 }

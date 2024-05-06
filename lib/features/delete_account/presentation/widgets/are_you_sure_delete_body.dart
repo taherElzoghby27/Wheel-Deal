@@ -3,6 +3,7 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/customButton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,27 +22,32 @@ class AreYouSureDeleteAccountBody extends StatelessWidget {
             child: HandleImageWidget(image: Assets.delete),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on3),
-          const Text(
+          Text(
             StringsEn.areYouSureYouWantToDeleteYourAccount,
-            style: AppConsts.style22,
+            style: AppConsts.style22.copyWith(
+              color: Theme.of(context).canvasColor,
+            ),
             textAlign: TextAlign.center,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
-          Padding(
-            padding: AppConsts.mainPadding,
-            child: CustomButton(
-              text: StringsEn.delete,
-              styleText: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w600,
+          AspectRatio(
+            aspectRatio: AppConsts.aspectRatioButtonAuth,
+            child: Padding(
+              padding: AppConsts.mainPadding,
+              child: CustomButton(
+                text: StringsEn.delete,
+                styleText: AppConsts.style16White.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+                onTap: () {
+                  GoRouter.of(context)
+                    ..pop()
+                    ..pop()
+                    ..pop()
+                    ..pop()
+                    ..pop();
+                },
               ),
-              onTap: () {
-                GoRouter.of(context)
-                  ..pop()
-                  ..pop()
-                  ..pop()
-                  ..pop()
-                  ..pop();
-              },
             ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),

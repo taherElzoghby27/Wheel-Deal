@@ -24,7 +24,12 @@ class RadioButtonRow extends StatelessWidget {
           activeColor: AppConsts.mainColor,
           onChanged: onChanged,
         ),
-        Text(label, style: AppConsts.style14),
+        Text(
+          label,
+          style: AppConsts.style14.copyWith(
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ],
     );
   }

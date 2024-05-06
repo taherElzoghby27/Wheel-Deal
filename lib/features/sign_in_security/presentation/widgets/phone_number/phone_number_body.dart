@@ -17,9 +17,11 @@ class PhoneNumberBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on3),
-          const Text(
+          Text(
             StringsEn.yourPhoneNumber,
-            style: AppConsts.style16White,
+            style: AppConsts.style16White.copyWith(
+              color: Theme.of(context).canvasColor,
+            ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
           const CustomTextFormField(

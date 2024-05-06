@@ -18,34 +18,37 @@ class SmsOrEmail extends StatelessWidget {
         if (state is SmsOrEmailState) {
           status = state.value;
         }
-        return Column(
-          children: [
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth,
-              child: CustomButtonWithBorder(
-                text: StringsEn.sms,
-                isBorder: status == StringsEn.sms ? true : false,
-                onTap: () {
-                  bloc.changeSmsOrEmail(StringsEn.sms);
-                  bloc.changePage(StringsEn.sms);
-                },
-                onLongTap: () => bloc.changeSmsOrEmail(StringsEn.sms),
+        return Padding(
+          padding: AppConsts.padding25h,
+          child: Column(
+            children: [
+              AspectRatio(
+                aspectRatio: AppConsts.aspectRatioButtonAuth,
+                child: CustomButtonWithBorder(
+                  text: StringsEn.sms,
+                  isBorder: status == StringsEn.sms ? true : false,
+                  onTap: () {
+                    bloc.changeSmsOrEmail(StringsEn.sms);
+                    bloc.changePage(StringsEn.sms);
+                  },
+                  onLongTap: () => bloc.changeSmsOrEmail(StringsEn.sms),
+                ),
               ),
-            ),
-            const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth,
-              child: CustomButtonWithBorder(
-                text: StringsEn.email,
-                isBorder: status == StringsEn.email ? true : false,
-                onTap: () {
-                  bloc.changeSmsOrEmail(StringsEn.email);
-                  bloc.changePage(StringsEn.email);
-                },
-                onLongTap: () => bloc.changeSmsOrEmail(StringsEn.email),
+              const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
+              AspectRatio(
+                aspectRatio: AppConsts.aspectRatioButtonAuth,
+                child: CustomButtonWithBorder(
+                  text: StringsEn.email,
+                  isBorder: status == StringsEn.email ? true : false,
+                  onTap: () {
+                    bloc.changeSmsOrEmail(StringsEn.email);
+                    bloc.changePage(StringsEn.email);
+                  },
+                  onLongTap: () => bloc.changeSmsOrEmail(StringsEn.email),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

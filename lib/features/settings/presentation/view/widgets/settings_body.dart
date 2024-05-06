@@ -19,22 +19,22 @@ class SettingsBody extends StatelessWidget {
           const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
           Container(
             decoration: AppConsts.mainDecorationWithoutBorder,
-            child: const Column(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                LanguageWidget(),
+                const LanguageWidget(),
                 CustomDivider(
-                  color: AppConsts.neutral900,
+                  color: Theme.of(context).canvasColor.withOpacity(.05),
                 ),
-                DarkModeWidget(),
+                const DarkModeWidget(),
                 CustomDivider(
-                  color: AppConsts.neutral900,
+                  color: Theme.of(context).canvasColor.withOpacity(.05),
                 ),
-                NotificationsWidget(),
+                const NotificationsWidget(),
                 CustomDivider(
-                  color: AppConsts.neutral900,
+                  color: Theme.of(context).canvasColor.withOpacity(.05),
                 ),
-                ReceiveMarketingWidget(),
+                const ReceiveMarketingWidget(),
               ],
             ),
           ),

@@ -72,7 +72,7 @@ abstract class AppConsts {
   static const Color lightBlackDarkMode = Color.fromRGBO(241,241,241, 1);
 
   //aspect ratio
-  static const double aspectRatioButtonAuth = 3 / .4;
+  static const double aspectRatioButtonAuth = 3 / .5;
   static const double aspectRatioButtonDetailsCar = 2 / .65;
   static const double aspectRatioButtonComponent = 4 / .8;
   static const double aspectRatioComponentOrder = 4 / 1.9;
@@ -226,13 +226,13 @@ abstract class AppConsts {
   static OutlineInputBorder normalBorderField = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16.sp),
     borderSide: BorderSide(
-      color: neutral700.withOpacity(.3),
+      color: neutral500.withOpacity(.1),
       width: 1,
     ),
   );
   static OutlineInputBorder focusedBorderField = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16.sp),
-    borderSide: const BorderSide(color: primary500, width: 1),
+    borderSide: const BorderSide(color: mainColor, width: 1),
   );
   static OutlineInputBorder errorBorderField = OutlineInputBorder(
     borderRadius: BorderRadius.circular(16.sp),

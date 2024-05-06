@@ -14,7 +14,9 @@ class SectionChooseYourIdentityType extends StatelessWidget {
       children: [
         Text(
           StringsEn.chooseYourIdentityType,
-          style: AppConsts.style16White,
+          style: AppConsts.style16.copyWith(
+            color: Theme.of(context).canvasColor,
+          ),
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         //id card   - passport - Driving license

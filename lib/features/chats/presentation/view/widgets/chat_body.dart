@@ -23,9 +23,11 @@ class ChatBody extends StatelessWidget {
           children: [
             const HandleImageWidget(image: Assets.chatIcon),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-            const Text(
+            Text(
               StringsEn.howCanWeHelpYou,
-              style: AppConsts.style20,
+              style: AppConsts.style22.copyWith(
+                color: Theme.of(context).canvasColor,
+              ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
             TileChat(

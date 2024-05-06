@@ -1,6 +1,4 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NotificationItem extends StatelessWidget {
@@ -19,13 +17,12 @@ class NotificationItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ///logo
-              Expanded(
+              const Expanded(
                 flex: 2,
-                child: ClipRRect(
-                  borderRadius: AppConsts.mainRadius,
-                  child: HandleImageWidget(
-                    image:
-                        'https://engineering.unl.edu/images/staff/Kayla-Person.jpg',
+                child: CircleAvatar(
+                  radius: 50,
+                  foregroundImage: NetworkImage(
+                    'https://engineering.unl.edu/images/staff/Kayla-Person.jpg',
                   ),
                 ),
               ),
@@ -43,8 +40,9 @@ class NotificationItem extends StatelessWidget {
                         'Lorem ipsum dolor sit amet consectetur.',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: AppConsts.style20.copyWith(
-                          fontSize: 18,
+                        style: AppConsts.style12.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: Theme.of(context).canvasColor,
                         ),
                       ),
 
@@ -55,8 +53,10 @@ class NotificationItem extends StatelessWidget {
                             '4 April 2024',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: AppConsts.styleHint14.copyWith(
-                              color: AppConsts.neutral500,
+                            style: AppConsts.style12.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(context).canvasColor.withOpacity(.4),
                             ),
                           ),
                           const SizedBox(width: 15),
@@ -64,8 +64,10 @@ class NotificationItem extends StatelessWidget {
                             '09:30 PM',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: AppConsts.styleHint14.copyWith(
-                              color: AppConsts.neutral500,
+                            style: AppConsts.style12.copyWith(
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Theme.of(context).canvasColor.withOpacity(.4),
                             ),
                           ),
                         ],
@@ -78,7 +80,7 @@ class NotificationItem extends StatelessWidget {
               ///trailing
               const Expanded(
                 child: CircleAvatar(
-                  radius: 8,
+                  radius: 6,
                   backgroundColor: AppConsts.mainColor,
                 ),
               ),

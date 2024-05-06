@@ -14,10 +14,10 @@ class NotificationsWidget extends StatelessWidget {
       trailing: Switch.adaptive(
         value: false,
         activeTrackColor: AppConsts.mainColor,
-        inactiveTrackColor: Theme.of(context).canvasColor,
         thumbColor: MaterialStateProperty.all(
-          Theme.of(context).splashColor,
+          AppConsts.neutral100,
         ),
+        inactiveTrackColor: Theme.of(context).canvasColor.withOpacity(.1),
         onChanged: (value) {},
       ),
     );

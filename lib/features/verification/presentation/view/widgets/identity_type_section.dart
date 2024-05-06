@@ -72,15 +72,15 @@ class IdentityTypeWidget extends StatelessWidget {
             const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
             Text(
               StringsEn.takeSelfieWithIdentity,
-              style: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w400,
+              style: AppConsts.style16.copyWith(
+                color: Theme.of(context).canvasColor,
               ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
             Text(
               StringsEn.pleaseMakeSureSelfie,
               style: AppConsts.style12.copyWith(
-                fontWeight: FontWeight.w400,
+                fontSize: 10,
                 color: Theme.of(context).canvasColor.withOpacity(.5),
               ),
             ),

@@ -18,10 +18,12 @@ class ContentBottomSheetLogout extends StatelessWidget {
         const AspectRatio(
           aspectRatio: AppConsts.aspectRatio24on2,
         ),
-        const Center(
+        Center(
           child: Text(
             StringsEn.logout,
-            style: AppConsts.style16White,
+            style: AppConsts.style16White.copyWith(
+              color: Theme.of(context).canvasColor,
+            ),
           ),
         ),
         Padding(
@@ -61,7 +63,7 @@ class ContentBottomSheetLogout extends StatelessWidget {
           ],
         ),
         const AspectRatio(
-          aspectRatio: AppConsts.aspectRatio40on1,
+          aspectRatio: AppConsts.aspectRatio24on2,
         ),
       ],
     );

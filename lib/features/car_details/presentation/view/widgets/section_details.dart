@@ -28,7 +28,9 @@ class SectionDetails extends StatelessWidget {
                 flex: 3,
                 child: Text(
                   leading,
-                  style: AppConsts.style20,
+                  style: AppConsts.style20.copyWith(
+                    color: Theme.of(context).canvasColor,
+                  ),
                   textAlign: TextAlign.left,
                 ),
               ),

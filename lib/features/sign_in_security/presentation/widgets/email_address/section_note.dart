@@ -14,7 +14,7 @@ class SectionNote extends StatelessWidget {
         Text(
           StringsEn.codeNote,
           style: AppConsts.style12.copyWith(
-            color: AppConsts.neutral500,
+            color: Theme.of(context).canvasColor.withOpacity(.5),
           ),
         ),
         TextButton(

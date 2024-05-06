@@ -20,7 +20,7 @@ class FilterBody extends StatelessWidget {
           SectionPriceRange(),
           AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
           SectionFacilities(),
-          AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+          AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
           ShowResultFilterButton(),
         ],
       ),

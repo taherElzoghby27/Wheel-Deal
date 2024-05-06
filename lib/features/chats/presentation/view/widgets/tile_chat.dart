@@ -35,7 +35,10 @@ class TileChat extends StatelessWidget {
                 flex: 3,
                 child: Text(
                   label,
-                  style: AppConsts.style16White,
+                  style: AppConsts.style14.copyWith(
+                    color: Theme.of(context).canvasColor,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
               const Expanded(

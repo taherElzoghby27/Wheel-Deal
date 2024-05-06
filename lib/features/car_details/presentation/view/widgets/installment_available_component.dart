@@ -21,13 +21,17 @@ class InstallmentAvailableComponent extends StatelessWidget {
           );
         },
         child: Container(
-          decoration: AppConsts.mainDecoration,
+          decoration: AppConsts.mainDecoration.copyWith(
+            color: Theme.of(context).canvasColor.withOpacity(.05),
+            borderRadius: BorderRadius.circular(8),
+          ),
           child: Padding(
             padding: AppConsts.padding8H3V,
             child: Text(
               StringsEn.installmentAvailable,
-              style: AppConsts.style14.copyWith(
+              style: AppConsts.style22.copyWith(
                 color: Theme.of(context).canvasColor,
+                fontSize: 10,
               ),
             ),
           ),

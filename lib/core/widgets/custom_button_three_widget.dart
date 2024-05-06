@@ -30,7 +30,12 @@ class CustomButtonThreeWidget extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: AppConsts.aspectRatio16on2,
           child: Container(
-            decoration: AppConsts.mainDecoration,
+            decoration: AppConsts.mainDecoration.copyWith(
+              color: Theme.of(context).canvasColor.withOpacity(.01),
+              border: Border.all(
+                color: Theme.of(context).canvasColor.withOpacity(.1),
+              ),
+            ),
             child: Padding(
               padding: AppConsts.padding8,
               child: Row(

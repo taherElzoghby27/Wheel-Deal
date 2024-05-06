@@ -15,10 +15,16 @@ class SearchField extends StatelessWidget {
       padding: AppConsts.mainPadding,
       child: CustomTextField(
         filled: AppConsts.neutral100.withOpacity(.05),
-        perfixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
+        perfixIcon: Icon(
+          FontAwesomeIcons.magnifyingGlass,
+          color: Theme.of(context).canvasColor.withOpacity(.5),
+        ),
         suffixIcon: IconButton(
           onPressed: () => GoRouter.of(context).push(filterPath),
-          icon: const Icon(Icons.tune),
+          icon: Icon(
+            Icons.tune,
+            color: Theme.of(context).canvasColor.withOpacity(.5),
+          ),
         ),
         hint: StringsEn.findAnyCar,
         border: AppConsts.normalBorderField.copyWith(

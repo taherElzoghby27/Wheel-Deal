@@ -17,13 +17,14 @@ class TwoStepVerificationSecurityCodeSmsOrEmail extends StatelessWidget {
         const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
         SizedBox(
           height: size.height * .2,
-          child: const HandleImageWidget(image: Assets.verified),
+          child: const HandleImageWidget(image: Assets.lockWithBackGround),
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
         Text(
           StringsEn.howDoYouWantToGetYourSecurityCode,
           style: AppConsts.style20.copyWith(
             fontWeight: FontWeight.w600,
+            color: Theme.of(context).canvasColor,
           ),
           textAlign: TextAlign.center,
         ),
