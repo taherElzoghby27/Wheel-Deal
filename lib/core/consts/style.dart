@@ -79,7 +79,7 @@ abstract class AppConsts {
   static const double aspectRatioImage = 16 / 13;
   static const double aspectRatio2point8on3 = 2.9 / 3;
   static const double aspect16on14 = 16 / 14;
-  static const double aspectRatioNavBar = 16 / 2.8;
+  static const double aspectRatioNavBar = 16 / 3.9;
   static const double aspectRatioComponentCategory = 2.4 / 3;
   static const double aspectRatioTopSpace = 16 / 1;
   static const double aspectRatio20on1 = 20 / 1;

@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/settings/presentation/view_model/mode_cubit/mode_cubit.dart';
 import 'package:device_preview/device_preview.dart';
@@ -13,11 +12,12 @@ import 'observer_bloc.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = Observe();
-  runApp(const MyApp()
-      // DevicePreview(
-      //   enabled: true,
-      //   builder: (context) => const MyApp(), // Wrap your app
-      // ),
+  runApp(
+      //const MyApp()
+      DevicePreview(
+        enabled: true,
+        builder: (context) => const MyApp(), // Wrap your app
+      ),
       );
 }
 

@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/routesPage.dart';
+import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,9 +20,10 @@ class RemeberMe extends StatelessWidget {
           onPressed: () => GoRouter.of(context).push(resetPassPath),
           child: Text(
             StringsEn.forgotPass,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Theme.of(context).canvasColor,
-                ),
+            style: AppConsts.style12.copyWith(
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).canvasColor,
+            ),
           ),
         ),
       ],
