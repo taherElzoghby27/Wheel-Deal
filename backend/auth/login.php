@@ -1,7 +1,7 @@
 <?php
 
 require_once("../includes/connection.php");
-require __DIR__ . '/vendor/autoload.php';
+require  ('../includes/autoload.php');
 use Firebase\JWT\JWT;
 
 // Grab Data From Inputs

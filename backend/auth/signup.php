@@ -2,7 +2,7 @@
 
 require_once("../includes/connection.php"); // Include database connection
 require_once("../includes/function.php"); // Include validation functions
-require __DIR__ . '/vendor/autoload.php';
+require  ('../includes/autoload.php');
 use Firebase\JWT\JWT;
 
 // Fetch input data
