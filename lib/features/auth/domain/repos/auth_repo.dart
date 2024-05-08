@@ -6,4 +6,12 @@ abstract class AuthRepo {
   Future<Either<FailureServ, String>> signUp({required UserEntity userEntity});
 
   Future<Either<FailureServ, String>> login({required UserEntity userEntity});
+
+  Future<Either<FailureServ, String>> resetPassword({
+    required UserEntity userEntity,
+  });
+
+  Future<Either<FailureServ, String>> verifyEmail({
+    required UserEntity userEntity,
+  });
 }

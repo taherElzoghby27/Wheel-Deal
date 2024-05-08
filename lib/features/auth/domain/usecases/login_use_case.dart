@@ -4,13 +4,13 @@ import 'package:cars/features/auth/domain/entities/user_entity.dart';
 import 'package:cars/features/auth/domain/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class SignUpUseCase extends BaseUseCase<String, UserEntity> {
+class LoginUseCase extends BaseUseCase<String, UserEntity> {
   final AuthRepo _authRepo;
 
-  SignUpUseCase({required AuthRepo authRepo}) : _authRepo = authRepo;
+  LoginUseCase({required AuthRepo authRepo}) : _authRepo = authRepo;
 
   @override
   Future<Either<FailureServ, String>> call(UserEntity parameter) async {
-    return await _authRepo.signUp(userEntity: parameter);
+    return await _authRepo.login(userEntity: parameter);
   }
 }
