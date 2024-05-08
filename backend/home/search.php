@@ -1,6 +1,6 @@
 <?php
 require_once("../includes/connection.php");
-require_once("../auth/vendor/autoload.php");
+require __DIR__ . '/../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 
