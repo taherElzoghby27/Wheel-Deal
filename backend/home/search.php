@@ -18,7 +18,6 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
         $decoded = JWT::decode($token, $secretkey, $algorithm);
         $userId = $decoded->user_id;
 
-        // Proceed with the rest of your logic
         if (isset($_GET['q'])) {
             $searchQuery = '%' . htmlspecialchars($_GET['q']) . '%';
 
