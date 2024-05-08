@@ -33,7 +33,9 @@ dependencies:
   carousel_slider: ^4.2.1
   country_code_picker: ^3.0.0
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
   device_preview: ^1.1.0
+  dio: ^5.4.3+1
   dotted_border: ^2.1.0
   equatable: ^2.0.5
   flutter:
