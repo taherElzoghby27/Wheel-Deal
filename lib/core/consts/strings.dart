@@ -13,7 +13,7 @@ abstract class StringsEn {
   static const String firstName = 'first name';
   static const String lastName = 'last name';
   static const String city = 'city';
-
+  static const String errorMessage = 'There was an error,please try again';
   static const String state = 'state';
   static const String showResult = 'Show Results';
   static const String last3digitPhone = 'Last 3 Digit of Phone Number';
