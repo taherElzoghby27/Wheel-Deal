@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once("../includes/connection.php"); // Ensure this includes the database connection
 
@@ -10,6 +11,10 @@ $age = isset($_POST['age']) ? intval($_POST['age']) : 0; // Convert age to an in
 // Validate inputs
 if (empty($email) || empty($phone) || $age <= 0) {
     echo json_encode(array("Message" => "Please provide all required information."));
+    exit();
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(array("Message" => "Please Set Valid Email."));
     exit();
 }
 
@@ -40,6 +45,7 @@ try {
     }
 
     // If all checks pass, return success message
+    $_SESSION['resetEmail'] = $email;
     echo json_encode(array("Message" => "You can reset your password now."));
     exit();
 
