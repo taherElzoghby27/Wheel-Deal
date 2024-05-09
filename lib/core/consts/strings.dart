@@ -5,6 +5,7 @@ abstract class StringsEn {
   static const String skip = "skip";
   static const String getStarted = "Get Started";
   static const String createAccount = 'Create Account';
+  static const String enterValidEmail = 'Enter valid Email';
   static const String pleaseCreateAccount =
       'Please create an account to find your dream job';
   static const String userName = 'Username';
@@ -13,7 +14,7 @@ abstract class StringsEn {
   static const String firstName = 'first name';
   static const String lastName = 'last name';
   static const String city = 'city';
-
+  static const String errorMessage = 'There was an error,please try again';
   static const String state = 'state';
   static const String showResult = 'Show Results';
   static const String last3digitPhone = 'Last 3 Digit of Phone Number';
@@ -31,7 +32,8 @@ at least 1 number and 1 special character.
   static const String alreadyHaveAccount = 'Already have an account?';
   static const String login = 'Login';
   static const String loginInToConfirm = 'Login in to confirm';
-  static const String enterLoginInformation = 'Enter the login information for your account to confirm deletion';
+  static const String enterLoginInformation =
+      'Enter the login information for your account to confirm deletion';
   static const String signUp = 'Sign Up';
   static const String welcome = 'Welcome!';
   static const String enterYourDetailsBelow = 'Enter Your Details Below';
@@ -173,7 +175,8 @@ at least 1 number and 1 special character.
   static const String address = "Address";
   static const String addToOrders = "Add To Orders";
   static const String setting = "Setting";
-  static const String deleteAccountHint ="""Dealeting your account will permanently remove all public and private information associated with your profile. you must cancel your subscription before you can delete your account.
+  static const String deleteAccountHint =
+      """Dealeting your account will permanently remove all public and private information associated with your profile. you must cancel your subscription before you can delete your account.
   """;
   static const String darkMode = "Dark mode";
   static const String receiveMarketing = "Recieve marketing emails";
@@ -188,14 +191,13 @@ at least 1 number and 1 special character.
   static const String deleteMyAccount = 'Delete My Account';
   static const String delete = 'Delete';
 
-
   static const String areYouSureYouWantToRemove =
       'Are you sure you want to remove method ?';
   static const String areYouSureYouWantToLogout =
       'Are you sure you want to log out ?';
   static const String areYouSureYouWantToDeleteYourAccount =
       'Are you sure you want to delete your account?';
-  static const String keepAccount ='Keep Account';
+  static const String keepAccount = 'Keep Account';
   static String unCompleted = 'unCompleted';
   static String eenterCv = 'Please, Enter CV';
   static String token = 'token';
@@ -206,9 +208,13 @@ at least 1 number and 1 special character.
   static String drivingLicense = 'Driving license';
   static String jobId = 'job id';
   static String status = 'status';
-  static String warningPass = 'Password must be at least 8 characters';
+  static String warningPass =
+      'Password must be minimum eight characters, at least one uppercase letter, one lowercase letter and one number';
   static String enterValid = 'Enter valid ';
   static String fieldRequired = 'This Field Required.';
+  static String passwordNotMatch =
+      "New password and confirm password doesn't match";
+  static String phoneNumberMustBe = 'Phone Number Must Be At least 11 numbers';
   static String hi = 'Hi, ';
   static String titleBoard1 = 'Find a job, and ';
   static String titleBoard11 = 'start building';
@@ -460,8 +466,10 @@ metho in addition to your password
       'How do you want to get your security codes ?';
   static String weRecommendedSendingSecurityCodesToYourPhone =
       'We recommended sending security codes to your phone';
-  static String mustBeUsBasedNumber ='Must be a us-based number. data rates may apply';
-  static String mustBeUsBasedEmail ='Must be a us-based email. data rates may apply';
+  static String mustBeUsBasedNumber =
+      'Must be a us-based number. data rates may apply';
+  static String mustBeUsBasedEmail =
+      'Must be a us-based email. data rates may apply';
   static String weSentCodeTo = 'We sent a code to ';
   static String methodHasBeenRemovedSuccess =
       "Method has been removed successfully";

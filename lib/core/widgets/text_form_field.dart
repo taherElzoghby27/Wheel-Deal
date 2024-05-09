@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/consts/validate.dart';
 import 'package:flutter/material.dart';
 import 'package:cars/core/consts/style.dart';
 
@@ -51,13 +52,17 @@ class CustomTextFormField extends StatelessWidget {
       focusNode: focusNode,
       validator: validator ??
           (value) {
-            if (value!.isEmpty) {
+            if (hint == StringsEn.email && !isEmailValid(value)) {
+              return StringsEn.enterValidEmail;
+            } else if (hint == StringsEn.password && !isPasswordValid(value)) {
+              return StringsEn.warningPass;
+            } else if (hint == StringsEn.confirmNewPass &&
+                !isPasswordValid(value)) {
+              return StringsEn.passwordNotMatch;
+            } else if (hint == StringsEn.phoneNumber &&value!.length<11) {
+              return StringsEn.phoneNumberMustBe;
+            } else if (value!.isEmpty) {
               return StringsEn.fieldRequired;
-            }
-            if (hint == StringsEn.password) {
-              if (value.length < 7) {
-                return StringsEn.warningPass;
-              }
             }
             return null;
           },
@@ -75,8 +80,8 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
         enabledBorder: border ??
             AppConsts.normalBorderField.copyWith(
-              //borderRadius: BorderRadius.circular(19),
-            ),
+                //borderRadius: BorderRadius.circular(19),
+                ),
         focusedBorder: border ??
             AppConsts.normalBorderField.copyWith(
               //borderRadius: BorderRadius.circular(10),
