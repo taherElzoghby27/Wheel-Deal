@@ -97,6 +97,6 @@ function same_pass(string $password, string $confirm_pwd) {
 }
 
 function show_error(array $errors) {
-    echo json_encode($errors);
+    echo json_encode(array("Message" => $errors));
     exit; // Terminate script execution after displaying errors
 }
