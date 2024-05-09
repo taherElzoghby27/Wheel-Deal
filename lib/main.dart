@@ -17,11 +17,11 @@ void main() {
   setupServiceLocator();
   Bloc.observer = Observe();
   runApp(
-    //const MyApp()
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(), // Wrap your app
-    ),
+    const MyApp()
+    // DevicePreview(
+    //   enabled: true,
+    //   builder: (context) => const MyApp(), // Wrap your app
+    // ),
   );
 }
 

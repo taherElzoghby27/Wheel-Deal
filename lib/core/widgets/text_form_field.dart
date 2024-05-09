@@ -56,8 +56,11 @@ class CustomTextFormField extends StatelessWidget {
               return StringsEn.enterValidEmail;
             } else if (hint == StringsEn.password && !isPasswordValid(value)) {
               return StringsEn.warningPass;
-            } else if (hint == StringsEn.confirmNewPass) {
+            } else if (hint == StringsEn.confirmNewPass &&
+                !isPasswordValid(value)) {
               return StringsEn.passwordNotMatch;
+            } else if (hint == StringsEn.phoneNumber &&value!.length<11) {
+              return StringsEn.phoneNumberMustBe;
             } else if (value!.isEmpty) {
               return StringsEn.fieldRequired;
             }

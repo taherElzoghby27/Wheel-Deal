@@ -214,6 +214,7 @@ at least 1 number and 1 special character.
   static String fieldRequired = 'This Field Required.';
   static String passwordNotMatch =
       "New password and confirm password doesn't match";
+  static String phoneNumberMustBe = 'Phone Number Must Be At least 11 numbers';
   static String hi = 'Hi, ';
   static String titleBoard1 = 'Find a job, and ';
   static String titleBoard11 = 'start building';

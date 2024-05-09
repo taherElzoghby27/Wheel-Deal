@@ -38,9 +38,7 @@ class _SignUpBodyInfoBlocConsumerState
             }
           },
           builder: (context, state) {
-            return SignUpBodyInfo(
-              current: current,
-            );
+            return SignUpBodyInfo(current: current);
           },
         ),
       ),
