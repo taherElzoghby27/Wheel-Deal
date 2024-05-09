@@ -1,8 +1,7 @@
-import 'package:cars/features/auth/presentation/view/create_account_view.dart';
+import 'package:cars/features/auth/presentation/view/create_account_bloc_provider_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/auth/presentation/view/login_view.dart';
 import 'package:cars/features/auth/presentation/view/reset_pass_view.dart';
-import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
 import 'package:cars/features/car_details/presentation/view_model/changed_carsoul_cubit/changed_carsoul_cubit.dart';
 import 'package:cars/features/chats/presentation/view/chat_support_view.dart';
@@ -44,7 +43,6 @@ import 'package:cars/features/verification/presentation/view_model/verification_
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 import '../../features/sign_in_security/presentation/screens/email_address/email_address_view.dart';
 import '../../features/sign_in_security/presentation/screens/phone_number/phone_number_view.dart';
@@ -119,17 +117,7 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (_) => ChangeSignUpCurrentPageCubit(),
-            ),
-            BlocProvider(
-              create: (_) => SignUpCubit(),
-            ),
-          ],
-          child: const CreateAccountView(),
-        ),
+        child: const CreateAccountBlocProviderView(),
       ),
     ),
     GoRoute(

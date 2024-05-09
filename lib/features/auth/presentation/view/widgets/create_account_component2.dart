@@ -1,96 +1,84 @@
-import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/auth/presentation/view/widgets/gender_section.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'section_terms_and_conditions.dart';
 
-class CreateAccountComponent2 extends StatefulWidget {
+class CreateAccountComponent2 extends StatelessWidget {
   const CreateAccountComponent2({super.key});
 
   @override
-  State<CreateAccountComponent2> createState() =>
-      _CreateAccountComponent2State();
-}
-
-class _CreateAccountComponent2State extends State<CreateAccountComponent2> {
-  TextEditingController state = TextEditingController();
-  TextEditingController city = TextEditingController();
-  TextEditingController userName = TextEditingController();
-  TextEditingController phoneNumber = TextEditingController();
-  TextEditingController age = TextEditingController();
-  String? gender;
-  TextEditingController address = TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTextFormField(
-          perfixIcon: const Icon(
-            Icons.phone,
-            color: AppConsts.neutral500,
-          ),
-          hint: StringsEn.phoneNumber,
-          controller: state,
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        CustomTextFormField(
-          perfixIcon: const Icon(
-            Icons.person,
-            color: AppConsts.neutral500,
-          ),
-          hint: StringsEn.age,
-          controller: userName,
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return BlocBuilder<SignUpCubit, SignUpState>(
+      builder: (context, state) {
+        final signUpCubit = context.read<SignUpCubit>();
+        return Column(
           children: [
-            Expanded(
-              flex: 7,
-              child: CustomTextFormField(
-                perfixIcon: const Icon(
-                  Icons.location_on_outlined,
-                  color: AppConsts.neutral500,
-                ),
-                hint: StringsEn.city,
-                controller: city,
+            CustomTextFormField(
+              perfixIcon: const Icon(
+                Icons.phone,
+                color: AppConsts.neutral500,
               ),
+              hint: StringsEn.phoneNumber,
+              onChanged: (String? value)=> signUpCubit.phone=value,
             ),
-            const Spacer(flex: 1),
-            Expanded(
-              flex: 7,
-              child: CustomTextFormField(
-                perfixIcon: const Icon(
-                  Icons.location_on_outlined,
-                  color: AppConsts.neutral500,
-                ),
-                hint: StringsEn.state,
-                controller: state,
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+            CustomTextFormField(
+              perfixIcon: const Icon(
+                Icons.person,
+                color: AppConsts.neutral500,
               ),
+              hint: StringsEn.age,
+              onChanged: (String? value)=> signUpCubit.age=value,
             ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: CustomTextFormField(
+                    perfixIcon: const Icon(
+                      Icons.location_on_outlined,
+                      color: AppConsts.neutral500,
+                    ),
+                    hint: StringsEn.city,
+                    onChanged: (String? value)=> signUpCubit.city=value,
+                  ),
+                ),
+                const Spacer(flex: 1),
+                Expanded(
+                  flex: 7,
+                  child: CustomTextFormField(
+                    perfixIcon: const Icon(
+                      Icons.location_on_outlined,
+                      color: AppConsts.neutral500,
+                    ),
+                    hint: StringsEn.state,
+                    onChanged: (String? value)=> signUpCubit.stat=value,
+                  ),
+                ),
+              ],
+            ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+            CustomTextFormField(
+              perfixIcon: const Icon(
+                Icons.location_on_outlined,
+                color: AppConsts.neutral500,
+              ),
+              hint: StringsEn.address,
+              onChanged: (String? value)=> signUpCubit.address=value,
+            ),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+            const GenderSection(),
+            const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+            const SectionTermsAndConditions()
           ],
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        CustomTextFormField(
-          perfixIcon: const Icon(
-            Icons.location_on_outlined,
-            color: AppConsts.neutral500,
-          ),
-          hint: StringsEn.address,
-          controller: address,
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        const GenderSection(),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        const SectionTermsAndConditions()
-      ],
+        );
+      },
     );
   }
 }

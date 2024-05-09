@@ -40,8 +40,6 @@ class _SignUpBodyInfoBlocConsumerState
           builder: (context, state) {
             return SignUpBodyInfo(
               current: current,
-              registerButton: () => BlocProvider.of<SignUpCubit>(context)
-                  .registerButton(context, current),
             );
           },
         ),

@@ -1,4 +1,6 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/flutter_secure_storage.dart';
+import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/features/settings/presentation/view_model/mode_cubit/mode_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +13,16 @@ import 'observer_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  FlutterSecureStorageEncrypted().init();
+  setupServiceLocator();
   Bloc.observer = Observe();
   runApp(
-      //const MyApp()
-      DevicePreview(
-        enabled: true,
-        builder: (context) => const MyApp(), // Wrap your app
-      ),
-      );
+    //const MyApp()
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

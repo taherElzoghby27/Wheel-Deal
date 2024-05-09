@@ -1,16 +1,10 @@
 import 'package:cars/core/consts/enums.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GenderSection extends StatefulWidget {
+class GenderSection extends StatelessWidget {
   const GenderSection({super.key});
-
-  @override
-  _GenderSectionState createState() => _GenderSectionState();
-}
-
-class _GenderSectionState extends State<GenderSection> {
-  Gender selectedGender = Gender.Male;
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +21,28 @@ class _GenderSectionState extends State<GenderSection> {
   }
 
   Widget buildRadioButton(Gender gender) {
-    return Row(
-      children: [
-        Radio<Gender>(
-          value: gender,
-          fillColor: MaterialStateProperty.all(
-            Theme.of(context).canvasColor,
-          ),
-          groupValue: selectedGender,
-          onChanged: (value) => setState(() => selectedGender = value!),
-        ),
-        Text(
-          gender.name,
-          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                color: Theme.of(context).canvasColor,
+    return BlocBuilder<SignUpCubit, SignUpState>(
+      builder: (context, state) {
+        final cubit = context.read<SignUpCubit>();
+        return Row(
+          children: [
+            Radio<Gender>(
+              value: gender,
+              fillColor: MaterialStateProperty.all(
+                Theme.of(context).canvasColor,
               ),
-        ),
-      ],
+              groupValue: cubit.selectedGender,
+              onChanged: (value) => cubit.changeGender(value!),
+            ),
+            Text(
+              gender.name,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).canvasColor,
+                  ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
