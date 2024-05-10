@@ -57,11 +57,6 @@ if (same_pass($password, $confirm_pwd)) {
     $errors[] = "Passwords do not match.";
 }
 
-// If there are errors, display them and exit
-if (!empty($errors)) {
-    show_error($errors);
-    exit;
-}
 
 // Hash the password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);

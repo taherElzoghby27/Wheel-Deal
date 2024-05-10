@@ -3,10 +3,20 @@ session_start();
 
 require_once("../includes/connection.php"); // Ensure this includes the database connection
 
+// Retrieve and decode JSON data sent from Flutter
+$jsonData = file_get_contents('php://input');
+$data = json_decode($jsonData, true); // Decode JSON data into associative array
+
+// Check if JSON data was successfully parsed
+if ($data === null) {
+    echo json_encode(array("Message" => "Invalid JSON data received."));
+    exit();
+}
+
 // Sanitize and validate input values
-$email = isset($_POST['email']) ? trim($_POST['email']) : '';
-$phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
-$age = isset($_POST['age']) ? intval($_POST['age']) : 0; // Convert age to an integer
+$email = isset($data['email']) ? trim($data['email']) : '';
+$phone = isset($data['phone']) ? trim($data['phone']) : '';
+$age = isset($data['age']) ? intval($data['age']) : 0; // Convert age to an integer
 
 // Validate inputs
 if (empty($email) || empty($phone) || $age <= 0) {
@@ -14,7 +24,7 @@ if (empty($email) || empty($phone) || $age <= 0) {
     exit();
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(array("Message" => "Please Set Valid Email."));
+    echo json_encode(array("Message" => "Please provide a valid email."));
     exit();
 }
 
@@ -44,7 +54,7 @@ try {
         exit();
     }
 
-    // If all checks pass, return success message
+    // If all checks pass, return success message and store email in session
     $_SESSION['resetEmail'] = $email;
     echo json_encode(array("Message" => "You can reset your password now."));
     exit();
