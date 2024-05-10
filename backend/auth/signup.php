@@ -4,7 +4,7 @@ require_once("../includes/connection.php"); // Include database connection
 require_once("../includes/function.php"); // Include validation functions
 require __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWT;
-
+//Hello
 // Fetch input data
 $jsonData = file_get_contents('php://input');
 $data = json_decode($jsonData, true);
