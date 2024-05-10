@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cars/core/consts/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,7 +36,7 @@ class ApiService {
     Response response = await dio.get(
       '$baseUrl$endPoint',
     );
-    return response.data;
+    return jsonDecode(response.data);
   }
 
   Future<Map<String, dynamic>> post({
@@ -52,9 +54,7 @@ class ApiService {
       '$baseUrl$endPoint',
       data: data,
     );
-    debugPrint(
-        'response : ${response.statusCode}-${response.statusMessage}-${response.data}');
-    return response.data;
+    return jsonDecode(response.data);
   }
 
   Future<Map<String, dynamic>> put({
@@ -70,7 +70,7 @@ class ApiService {
     Response response = await dio.put(
       '$baseUrl$endPoint',
     );
-    return response.data;
+    return jsonDecode(response.data);
   }
 
   Future<Map<String, dynamic>> delete({
@@ -85,6 +85,6 @@ class ApiService {
     Response response = await dio.delete(
       '$baseUrl$endPoint',
     );
-    return response.data;
+    return jsonDecode(response.data);
   }
 }
