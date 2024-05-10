@@ -4,8 +4,19 @@ require_once("../includes/connection.php");
 
 // Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $password = htmlspecialchars($_POST['password']);
-    $confirmPassword = htmlspecialchars($_POST['confirm_password']);
+    // Retrieve and decode JSON data sent from Flutter
+    $jsonData = file_get_contents('php://input');
+    $data = json_decode($jsonData, true); // Decode JSON data into associative array
+
+    // Check if JSON data was successfully parsed
+    if ($data === null || !isset($data['password']) || !isset($data['confirm_password'])) {
+        echo json_encode(array("message" => "Invalid JSON data received"));
+        exit;
+    }
+
+    // Sanitize and validate input values
+    $password = htmlspecialchars($data['password']);
+    $confirmPassword = htmlspecialchars($data['confirm_password']);
 
     // Validate if new password matches confirm password
     if ($password !== $confirmPassword) {
@@ -31,4 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
     }
+} else {
+    echo json_encode(array("message" => "Invalid request method. Only POST requests are allowed"));
+    exit;
 }

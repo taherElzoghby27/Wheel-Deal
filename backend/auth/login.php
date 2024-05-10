@@ -4,9 +4,19 @@ require_once("../includes/connection.php");
 require __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWT;
 
-// Grab Data From Inputs
-$email = $_POST['email'] ?? '';
-$password = $_POST['password'] ?? '';
+// Retrieve and decode JSON data sent from Flutter
+$jsonData = file_get_contents('php://input');
+$data = json_decode($jsonData, true); // Decode JSON data into associative array
+
+// Check if JSON data was successfully parsed
+if ($data === null) {
+    echo json_encode(array("Message" => "Invalid JSON data received"));
+    exit;
+}
+
+// Grab email and password from the decoded JSON data
+$email = $data['email'] ?? '';
+$password = $data['password'] ?? '';
 
 // If Empty Fields
 if (empty($email) || empty($password)) {
@@ -24,8 +34,6 @@ if (empty($email) || empty($password)) {
         // Check The Password
         if (password_verify($password, $user['password'])) {
             // Password Is Correct
-           // echo json_encode(array("Message" => "Login Successful"));
-
             $secret_key = "your_secret_key";
             $issued_at = time();
             $expiration_time = $issued_at + 3600;  // token valid for 1 hour
@@ -36,8 +44,9 @@ if (empty($email) || empty($password)) {
 
             $token = JWT::encode($payload, $secret_key, 'HS256');
             setcookie("token", $token, $expiration_time, "/", "", true, true);
+            
             // Return success response with JWT
-        echo json_encode(array("Message" => "User submitted successfully", "jwt" => $token));
+            echo json_encode(array("Message" => "Login Successful", "jwt" => $token));
         } else {
             // Password is incorrect
             echo json_encode(array("Message" => "Password Is Incorrect"));
