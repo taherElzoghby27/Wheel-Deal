@@ -1,9 +1,11 @@
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 class UserModel extends Equatable {
   final String? firstName;
   final String? lastName;
-  final String? age;
+  final num? age;
   final String? email;
   final String? password;
   final String? confirmPassword;
@@ -36,28 +38,30 @@ class UserModel extends Equatable {
         token: data['jwt'],
       );
 
-  toMapLogin() {
+  Map<String, String?> toMapLogin() {
     return {
       'email': email,
       'password': password,
     };
   }
 
-  toMapSignUp() {
-    return {
-      'first_name': firstName,
-      'last_name': lastName,
-      'age': age,
-      'email': email,
-      'password': password,
-      'confirm_pwd': confirmPassword,
-      'city': city,
-      'state': state,
-      'phone': phone,
-      'gender': gender,
-      'address': address,
-    };
+  Map<String, dynamic> toMapSignUp() {
+    Map<String, dynamic> data = <String, dynamic>{};
+    data['first_name'] = firstName;
+    data['last_name'] = lastName;
+    data['age'] = age;
+    data['email'] = email;
+    data['password'] = password;
+    data['confirm_pwd'] = confirmPassword;
+    data['city'] = city;
+    data['state'] = state;
+    data['phone'] = phone;
+    data['gender'] = gender;
+    data['address'] = address;
+    return data;
   }
+
+  String toJsonSignUp() => jsonEncode(toMapSignUp());
 
   @override
   List<Object?> get props => [

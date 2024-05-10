@@ -23,7 +23,10 @@ class CreateAccountComponent2 extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
               hint: StringsEn.phoneNumber,
-              onChanged: (String? value)=> signUpCubit.phone=value,
+              onChanged: (String? value) => signUpCubit.onChangeValue(
+                StringsEn.phone,
+                value!,
+              ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
             CustomTextFormField(
@@ -32,7 +35,10 @@ class CreateAccountComponent2 extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
               hint: StringsEn.age,
-              onChanged: (String? value)=> signUpCubit.age=value,
+              onChanged: (String? value) => signUpCubit.onChangeValue(
+                StringsEn.age,
+                value!,
+              ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
             Row(
@@ -46,7 +52,10 @@ class CreateAccountComponent2 extends StatelessWidget {
                       color: AppConsts.neutral500,
                     ),
                     hint: StringsEn.city,
-                    onChanged: (String? value)=> signUpCubit.city=value,
+                    onChanged: (String? value) => signUpCubit.onChangeValue(
+                      StringsEn.city,
+                      value!,
+                    ),
                   ),
                 ),
                 const Spacer(flex: 1),
@@ -58,7 +67,10 @@ class CreateAccountComponent2 extends StatelessWidget {
                       color: AppConsts.neutral500,
                     ),
                     hint: StringsEn.state,
-                    onChanged: (String? value)=> signUpCubit.stat=value,
+                    onChanged: (String? value) => signUpCubit.onChangeValue(
+                      StringsEn.state,
+                      value!,
+                    ),
                   ),
                 ),
               ],
@@ -70,7 +82,10 @@ class CreateAccountComponent2 extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
               hint: StringsEn.address,
-              onChanged: (String? value)=> signUpCubit.address=value,
+              onChanged: (String? value) => signUpCubit.onChangeValue(
+                StringsEn.address,
+                value!,
+              ),
             ),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
             const GenderSection(),

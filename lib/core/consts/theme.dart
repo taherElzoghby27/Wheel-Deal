@@ -11,6 +11,11 @@ class MyAppThemes {
     fontFamily: AppConsts.mainFont,
     canvasColor: Colors.black,
     splashColor: AppConsts.white,
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppConsts.mainColor,
+      selectionColor: AppConsts.mainColor,
+      selectionHandleColor: AppConsts.mainColor,
+    ),
     colorScheme: const ColorScheme.dark(),
     textTheme: TextTheme(
       headlineSmall: AppConsts.style16,
@@ -66,6 +71,10 @@ class MyAppThemes {
     fontFamily: AppConsts.mainFont,
     canvasColor: AppConsts.white,
     splashColor: AppConsts.black,
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: AppConsts.mainColor,
+      selectionHandleColor: AppConsts.mainColor,
+    ),
     colorScheme: const ColorScheme.dark(),
     textTheme: TextTheme(
       headlineSmall: AppConsts.style16,

@@ -31,7 +31,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   @override
   Future<UserModel> signUp({required UserModel userEntity}) async {
     Map<String, dynamic> result = await _apiService.post(
-      endPoint: ApiConsts.loginEndpoint,
+      endPoint: ApiConsts.signUpEndpoint,
       data: userEntity.toMapSignUp(),
     );
     UserModel userModel = UserModel.fromMap(result);

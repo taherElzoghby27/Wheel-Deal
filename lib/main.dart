@@ -9,10 +9,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/consts/routesPage.dart';
 import 'core/consts/theme.dart';
+import 'core/services/api_service.dart';
 import 'observer_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  ApiService.initDio();
   FlutterSecureStorageEncrypted().init();
   setupServiceLocator();
   Bloc.observer = Observe();

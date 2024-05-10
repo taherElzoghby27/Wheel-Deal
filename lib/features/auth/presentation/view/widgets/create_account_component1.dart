@@ -30,7 +30,10 @@ class CreateAccountComponent1 extends StatelessWidget {
                       color: AppConsts.neutral500,
                     ),
                     hint: StringsEn.firstName,
-                    onChanged: (String? value) => signUpCubit.email = value,
+                    onChanged: (String? value) => signUpCubit.onChangeValue(
+                      StringsEn.firstName,
+                      value!,
+                    ),
                   ),
                 ),
                 const Spacer(flex: 1),
@@ -42,7 +45,10 @@ class CreateAccountComponent1 extends StatelessWidget {
                       color: AppConsts.neutral500,
                     ),
                     hint: StringsEn.lastName,
-                    onChanged: (String? value) => signUpCubit.email = value,
+                    onChanged: (String? value) => signUpCubit.onChangeValue(
+                      StringsEn.lastName,
+                      value!,
+                    ),
                   ),
                 ),
               ],
@@ -59,7 +65,10 @@ class CreateAccountComponent1 extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
               hint: StringsEn.email,
-              onChanged: (String? value) => signUpCubit.email = value,
+              onChanged: (String? value) => signUpCubit.onChangeValue(
+                StringsEn.email,
+                value!,
+              ),
             ),
             const AspectRatio(
               aspectRatio: AppConsts.aspectRatio20on1,

@@ -17,3 +17,5 @@ class SignUpFailure extends SignUpState {
 class GenderState extends SignUpState {}
 
 class VisibleState extends SignUpState {}
+
+class ChangeValueState extends SignUpState {}

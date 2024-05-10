@@ -28,7 +28,10 @@ class PasswordWidget extends StatelessWidget {
               color: AppConsts.neutral500,
             ),
           ),
-          onChanged: (String? value) => cubit.password = value,
+          onChanged: (String? value) => cubit.onChangeValue(
+            StringsEn.password,
+            value!,
+          ),
         );
       },
     );

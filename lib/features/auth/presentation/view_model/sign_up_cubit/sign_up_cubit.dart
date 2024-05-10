@@ -19,19 +19,65 @@ class SignUpCubit extends Cubit<SignUpState> {
   late Animation<Offset> offsetAnimation;
 
   //variables
-  String? firstName;
-  String? lastName;
-  String? phone;
-  String? age;
-  String? email;
-  String? address;
-  String? password;
-  String? confirmPassword;
-  String? city;
-  String? stat;
+  String? _firstName;
+  String? _lastName;
+  String? _phone;
+  String? _age;
+  String? _email;
+  String? _address;
+  String? _password;
+  String? _confirmPassword;
+  String? _city;
+  String? _stat;
+
+  String get firstName => _firstName!;
+
+  String get lastName => _lastName!;
+
+  String get phone => _phone!;
+
+  String get age => _age!;
+
+  String get email => _email!;
+
+  String get address => _address!;
+
+  String get password => _password!;
+
+  String get confirmPassword => _confirmPassword!;
+
+  String get city => _city!;
+
+  String get stat => _stat!;
+
+  void onChangeValue(String status, String value) {
+    if (status == StringsEn.firstName) {
+      _firstName = value;
+    } else if (status == StringsEn.lastName) {
+      _lastName = value;
+    } else if (status == StringsEn.email) {
+      _email = value;
+    } else if (status == StringsEn.password) {
+      _password = value;
+    } else if (status == StringsEn.confirmNewPass) {
+      _confirmPassword = value;
+    } else if (status == StringsEn.age) {
+      _age = value;
+    } else if (status == StringsEn.phone) {
+      _phone = value;
+    } else if (status == StringsEn.state) {
+      _stat = value;
+    } else if (status == StringsEn.city) {
+      _city = value;
+    } else if (status == StringsEn.address) {
+      _address = value;
+    }
+    emit(ChangeValueState());
+  }
+
   Gender selectedGender = Gender.Male;
-  bool visiblePass1 = false;
-  bool visiblePass2 = false;
+  bool visiblePass1 = true;
+  bool visiblePass2 = true;
 
   changeGender(Gender value) {
     selectedGender = value;
@@ -76,6 +122,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   signUp() async {
+    emit(SignUpLoading());
     await _signUpUseCase
         .call(
           UserModel(
@@ -84,11 +131,12 @@ class SignUpCubit extends Cubit<SignUpState> {
             email: email,
             password: password,
             confirmPassword: confirmPassword,
-            age: age,
+            age: int.parse(age),
             address: address,
             city: city,
             state: stat,
             gender: selectedGender.name,
+            phone: phone,
           ),
         )
         .then(

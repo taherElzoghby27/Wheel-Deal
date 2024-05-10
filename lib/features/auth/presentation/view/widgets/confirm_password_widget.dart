@@ -27,7 +27,10 @@ class ConfirmPasswordWidget extends StatelessWidget {
           ),
           hint: StringsEn.confirmNewPass,
           obscureText: cubit.visiblePass2,
-          onChanged: (String? value) => cubit.password = value,
+          onChanged: (String? value) => cubit.onChangeValue(
+            StringsEn.confirmNewPass,
+            value!,
+          ),
         );
       },
     );

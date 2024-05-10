@@ -48,6 +48,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       autofocus: autoFocus,
       cursorColor: AppConsts.mainColor,
+      cursorErrorColor: AppConsts.mainColor,
       controller: controller,
       focusNode: focusNode,
       validator: validator ??
@@ -59,7 +60,7 @@ class CustomTextFormField extends StatelessWidget {
             } else if (hint == StringsEn.confirmNewPass &&
                 !isPasswordValid(value)) {
               return StringsEn.passwordNotMatch;
-            } else if (hint == StringsEn.phoneNumber &&value!.length<11) {
+            } else if (hint == StringsEn.phoneNumber && value!.length < 11) {
               return StringsEn.phoneNumberMustBe;
             } else if (value!.isEmpty) {
               return StringsEn.fieldRequired;

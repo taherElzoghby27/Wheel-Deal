@@ -1,21 +1,26 @@
 import 'package:cars/core/consts/api.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class ApiService {
+  static late Dio dio;
   static const String baseUrl = ApiConsts.baseUrl;
-  Dio dio = Dio(
-    BaseOptions(
-      receiveDataWhenStatusError: true,
-      connectTimeout: const Duration(milliseconds: 30000),
-      receiveTimeout: const Duration(milliseconds: 30000),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      validateStatus: (int? status) {
-        return (status ?? 0) < 500;
-      },
-    ),
-  );
+
+  static initDio() {
+    dio = Dio(
+      BaseOptions(
+        receiveDataWhenStatusError: true,
+        connectTimeout: const Duration(milliseconds: 30000),
+        receiveTimeout: const Duration(milliseconds: 30000),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        validateStatus: (int? status) {
+          return (status ?? 0) < 500;
+        },
+      ),
+    );
+  }
 
   Future<Map<String, dynamic>> get({
     required String endPoint,
@@ -37,6 +42,7 @@ class ApiService {
     Object? data,
     String? token,
   }) async {
+    debugPrint('data:${data.toString()}');
     dio.options.headers = token == null
         ? {}
         : {
@@ -46,6 +52,8 @@ class ApiService {
       '$baseUrl$endPoint',
       data: data,
     );
+    debugPrint(
+        'response : ${response.statusCode}-${response.statusMessage}-${response.data}');
     return response.data;
   }
 
