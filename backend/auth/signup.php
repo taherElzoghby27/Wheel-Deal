@@ -6,7 +6,30 @@ require __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWT;
 
 // Fetch input data
-$first_name = $_POST['first_name'] ?? '';
+$jsonData = file_get_contents('php://input');
+$data = json_decode($jsonData, true);
+
+// Check if JSON data was successfully parsed
+if ($data === null) {
+    echo json_encode(["error" => "Invalid JSON data received."]);
+    exit;
+}
+
+$first_name = $data['first_name'] ?? '';
+$last_name = $data['last_name'] ?? '';
+$email = $data['email'] ?? '';
+$password = $data['password'] ?? '';
+$confirm_pwd = $data['confirm_pwd'] ?? '';
+$phone = $data['phone'] ?? '';
+$age = $data['age'] ?? '';
+$gender = $data['gender'] ?? '';
+$address = $data['user_address'] ?? '';
+$city = $data['city'] ?? '';
+$state = $data['states'] ?? '';
+
+
+
+/*$first_name = $_POST['first_name'] ?? '';
 $last_name = $_POST['last_name'] ?? '';
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
@@ -16,48 +39,53 @@ $age = $_POST['age'] ?? '';
 $gender = $_POST['gender'] ?? '';
 $address = $_POST['user_address'] ?? '';
 $city = $_POST['city'] ?? '';
-$state = $_POST['states'] ?? '';
+$state = $_POST['states'] ?? ''; */
 
 // Validate input data
 $errors = [];
 
 if (is_input_empty($first_name, $last_name, $email, $password, $phone, $age, $gender, $address, $city, $state)) {
-    $errors[] = "All fields are required.";
+    $errors[] = ["message" => "All fields are required."];
 }
 
 if (invalid_first_name($first_name)) {
-    $errors[] = "Invalid first name. Only alphabetic characters are allowed.";
+    $errors[] = ["message" => "Invalid first name. Only alphabetic characters are allowed."];
 }
 
 if (invalid_last_name($last_name)) {
-    $errors[] = "Invalid last name. Only alphabetic characters are allowed.";
+    $errors[] = ["message" => "Invalid last name. Only alphabetic characters are allowed."];
 }
 
 if (invalid_email($email)) {
-    $errors[] = "Invalid email address.";
+    $errors[] = ["message" => "Invalid email address."];
 }
 
 if (is_email_taken($email)) {
-    $errors[] = "Email address is already in use.";
+    $errors[] = ["message" => "Email address is already in use."];
 }
 
 if (invalid_password($password)) {
-    $errors[] = "Invalid password. Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.";
+    $errors[] = ["message" => "Invalid password. Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit."];
 }
 
 if (invalid_phone($phone)) {
-    $errors[] = "Invalid phone number. Phone number must be 11 digits and contain only numeric characters.";
+    $errors[] = ["message" => "Invalid phone number. Phone number must be 11 digits and contain only numeric characters."];
 }
 
 if (invalid_age($age)) {
-    $errors[] = "Invalid age. Please enter a valid numeric age.";
+    $errors[] = ["message" => "Invalid age. Please enter a valid numeric age."];
 }
 
 if (same_pass($password, $confirm_pwd)) {
-    $errors[] = "Passwords do not match.";
+    $errors[] = ["message" => "Passwords do not match."];
 }
-
-
+if (!empty($errors)) {
+    
+    echo json_encode($errors);
+    exit;
+    
+}
+if (empty($errors)) {
 // Hash the password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -105,4 +133,5 @@ try {
 } catch (PDOException $e) {
     // Database error
     echo json_encode(["error" => "Database error: " . $e->getMessage()]);
+}
 }
