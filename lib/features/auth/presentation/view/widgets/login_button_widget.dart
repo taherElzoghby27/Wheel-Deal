@@ -45,6 +45,10 @@ class LoginButtonWidget extends StatelessWidget {
             replacement: const LoadingWidget(),
             child: CustomButton(
               text: StringsEn.login,
+              styleText: AppConsts.style16.copyWith(
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).canvasColor,
+              ),
               onTap: context.read<LoginCubit>().loginButton,
             ),
           ),
