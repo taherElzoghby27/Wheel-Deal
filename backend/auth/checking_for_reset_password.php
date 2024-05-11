@@ -3,21 +3,10 @@ session_start();
 
 require_once("../includes/connection.php"); // Ensure this includes the database connection
 
-// Retrieve and decode JSON data sent from Flutter
-$jsonData = file_get_contents('php://input');
-$data = json_decode($jsonData, true); // Decode JSON data into associative array
-
-// Check if JSON data was successfully parsed
-if ($data === null) {
-    http_response_code(400); // Bad Request
-    echo json_encode(array("Message" => "Invalid JSON data received."));
-    exit();
-}
-
-// Sanitize and validate input values
-$email = isset($data['email']) ? trim($data['email']) : '';
-$phone = isset($data['phone']) ? trim($data['phone']) : '';
-$age = isset($data['age']) ? intval($data['age']) : 0; // Convert age to an integer
+// Retrieve input data from POST request
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+$age = isset($_POST['age']) ? intval($_POST['age']) : 0; // Convert age to an integer
 
 // Validate inputs
 if (empty($email) || empty($phone) || $age <= 0) {

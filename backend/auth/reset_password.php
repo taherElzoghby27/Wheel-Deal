@@ -4,20 +4,9 @@ require_once("../includes/connection.php");
 
 // Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve and decode JSON data sent from Flutter
-    $jsonData = file_get_contents('php://input');
-    $data = json_decode($jsonData, true); // Decode JSON data into associative array
-
-    // Check if JSON data was successfully parsed
-    if ($data === null || !isset($data['password']) || !isset($data['confirm_password'])) {
-        http_response_code(400); // Bad Request
-        echo json_encode(array("message" => "Invalid JSON data received"));
-        exit;
-    }
-
-    // Sanitize and validate input values
-    $password = htmlspecialchars($data['password']);
-    $confirmPassword = htmlspecialchars($data['confirm_password']);
+    // Retrieve input data from POST request
+    $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '';
+    $confirmPassword = isset($_POST['confirm_password']) ? htmlspecialchars($_POST['confirm_password']) : '';
 
     // Validate if new password matches confirm password
     if ($password !== $confirmPassword) {
