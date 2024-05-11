@@ -7,7 +7,9 @@ import 'package:dartz/dartz.dart';
 class LoginUseCase extends BaseUseCase<UserModel, UserModel> {
   final AuthRepo _authRepo;
 
-  LoginUseCase({required AuthRepo authRepo}) : _authRepo = authRepo;
+  LoginUseCase({
+    required AuthRepo authRepo,
+  }) : _authRepo = authRepo;
 
   @override
   Future<Either<FailureServ, UserModel>> call(UserModel parameter) async {

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 abstract class FailureServ {
@@ -39,9 +41,10 @@ class ServerFailure extends FailureServ {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure.fromJson(response);
     } else if (statusCode == 404) {
-      return ServerFailure(
-        message: 'Your request was not found, please try later',
-      );
+      // return ServerFailure(
+      //   message: 'Your request was not found, please try later',
+      // );
+      return ServerFailure.fromJson(response);
     } else if (statusCode == 500) {
       return ServerFailure(
         message: 'There is a problem with server,please try later',
@@ -50,8 +53,22 @@ class ServerFailure extends FailureServ {
     return ServerFailure(message: 'there was an error, please try again');
   }
 
-  factory ServerFailure.fromJson(Map<String, dynamic> response) =>
-      ServerFailure(message: response[0]['Message']);
+  factory ServerFailure.fromJson(String response) {
+    var jsonToMap = jsonDecode(response);
+    return jsonToMap is List
+        ? ServerFailure.fromListOfMap(
+            jsonDecode(response),
+          )
+        : ServerFailure.fromMap(
+            jsonDecode(response),
+          );
+  }
+
+  factory ServerFailure.fromMap(Map<String, dynamic> response) =>
+      ServerFailure(message: response['Message']);
+
+  factory ServerFailure.fromListOfMap(List<dynamic> response) =>
+      ServerFailure(message: response[0]['message'] as String);
 }
 
 class FailureMessage {
@@ -60,6 +77,6 @@ class FailureMessage {
   FailureMessage({required this.message});
 
   FailureMessage.fromJson(Map<String, dynamic> json) {
-    message = (json[0]['Message']) as String;
+    message = json['Message'] as String;
   }
 }

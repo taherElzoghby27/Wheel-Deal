@@ -1,24 +1,13 @@
 import 'package:cars/core/consts/api.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class ApiService {
   static late Dio dio;
   static const String baseUrl = ApiConsts.baseUrl;
 
   static initDio() {
-    dio = Dio(
-      BaseOptions(
-        receiveDataWhenStatusError: true,
-        connectTimeout: const Duration(milliseconds: 30000),
-        receiveTimeout: const Duration(milliseconds: 30000),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        validateStatus: (int? status) {
-          return (status ?? 0) < 500;
-        },
-      ),
-    );
+    dio = Dio();
   }
 
   Future<Response> get({
@@ -50,6 +39,7 @@ class ApiService {
       '$baseUrl$endPoint',
       data: data,
     );
+    debugPrint("${response.data}--${response.data.runtimeType}");
     return response;
   }
 

@@ -40,6 +40,10 @@ class UserModel extends Equatable {
         token: data['jwt'],
       );
 
+  factory UserModel.fromJson(String data) => UserModel.fromMap(
+        jsonDecode(data),
+      );
+
   Map<String, String?> toMapLogin() {
     return {
       'email': email,

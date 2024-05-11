@@ -3,6 +3,7 @@ import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 abstract class RemoteDataSource {
   Future<Response> signUp({required UserModel userEntity});
@@ -27,6 +28,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       endPoint: ApiConsts.loginEndpoint,
       data: data,
     );
+    debugPrint(result.toString());
     return result;
   }
 

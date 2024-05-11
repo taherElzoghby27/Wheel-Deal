@@ -209,7 +209,7 @@ at least 1 number and 1 special character.
   static String jobId = 'job id';
   static String status = 'status';
   static String warningPass =
-      'Password must be minimum eight characters, at least one uppercase letter, one lowercase letter and one number';
+      'password that must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit';
   static String enterValid = 'Enter valid ';
   static String fieldRequired = 'This Field Required.';
   static String passwordNotMatch =

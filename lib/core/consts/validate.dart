@@ -12,6 +12,6 @@ bool isPasswordValid(String? password) {
     return false;
   }
 
-  RegExp pattern = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$');
+  RegExp pattern = RegExp(r"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$");
   return pattern.hasMatch(password);
 }
