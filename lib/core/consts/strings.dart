@@ -216,20 +216,15 @@ at least 1 number and 1 special character.
       "New password and confirm password doesn't match";
   static String phoneNumberMustBe = 'Phone Number Must Be At least 11 numbers';
   static String hi = 'Hi, ';
-  static String titleBoard1 = 'Find a job, and ';
-  static String titleBoard11 = 'start building';
-  static String titleBoard111 = ' building your career from now on';
+  static String titleBoard1 = 'Rev up your car journey ! ';
   static String subTitleBoard1 =
-      'Explore over 25,924 available job roles and upgrade your operator now.';
-  static String titleBoard2 = 'Hundreds of jobs are waiting for you to';
-  static String titleBoard22 = ' join together';
+      'Sell or buy cars effortlessly, from new to used, at unbeatable prices.';
+  static String titleBoard2 = 'Search, buy, repeat !';
   static String subTitleBoard2 =
-      'Immediately join us and start applying for the job you are interested in.';
-  static String titleBoard3 = 'Get the best';
-  static String titleBoard33 = ' choice for the job';
-  static String titleBoard333 = ' you\'ve always dreamed of';
+      'Our app makes car trading a breeze. Reach cars nationwide with just a few taps.';
+  static String titleBoard3 = 'Join the ride !';
   static String subTitleBoard3 =
-      'The better the skills you have, the greater the good job opportunities for you.';
+      "Tap into a vibrant community of car lovers. Whether you're upgrading or downsizing, we've got your wheels covered.";
   static String whatTypeOfWorkInterested =
       'What type of work are you interested in?';
   static String whatTypeError = 'please, Enter work you are interested in.....';

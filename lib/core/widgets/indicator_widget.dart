@@ -18,17 +18,17 @@ class IndicatorWidget extends StatelessWidget {
       children: [
         indicator(
           height: currentPage == 0 ? size.height * .012 : size.height * .01,
-          color: currentPage == 0 ? AppConsts.primary500 : AppConsts.primary200,
+          color: currentPage == 0 ? AppConsts.mainColor : AppConsts.mainColor.withOpacity(.3),
           width: currentPage == 0 ? size.width * .023 : size.width * .02,
         ),
         indicator(
           height: currentPage == 1 ? size.height * .012 : size.height * .01,
-          color: currentPage == 1 ? AppConsts.primary500 : AppConsts.primary200,
+          color: currentPage == 1 ? AppConsts.mainColor : AppConsts.mainColor.withOpacity(.3),
           width: currentPage == 1 ? size.width * .023 : size.width * .02,
         ),
         indicator(
           height: currentPage == 2 ? size.height * .012 : size.height * .01,
-          color: currentPage == 2 ? AppConsts.primary500 : AppConsts.primary200,
+          color: currentPage == 2 ? AppConsts.mainColor : AppConsts.mainColor.withOpacity(.3),
           width: currentPage == 2 ? size.width * .023 : size.width * .02,
         ),
       ],

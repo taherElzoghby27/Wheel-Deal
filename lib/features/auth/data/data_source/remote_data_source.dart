@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/api.dart';
+import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
@@ -21,9 +22,10 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
   @override
   Future<UserModel> login({required UserModel userEntity}) async {
+    FormData data = convertMapToFormData(userEntity.toMapLogin());
     Map<String, dynamic> result = await _apiService.post(
       endPoint: ApiConsts.loginEndpoint,
-      data: userEntity.toMapLogin(),
+      data: data,
     );
     UserModel userModel = UserModel.fromMap(result);
     return userModel;
@@ -31,7 +33,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
   @override
   Future<UserModel> signUp({required UserModel userEntity}) async {
-    FormData data = FormData.fromMap(userEntity.toMapSignUp());
+    FormData data = convertMapToFormData(userEntity.toMapSignUp());
     Map<String, dynamic> result = await _apiService.post(
       endPoint: ApiConsts.signUpEndpoint,
       data: data,

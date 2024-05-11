@@ -73,6 +73,8 @@ class CustomTextFormField extends StatelessWidget {
             color: Theme.of(context).canvasColor,
           ),
       decoration: InputDecoration(
+        errorStyle: const TextStyle(fontSize: 10),
+        errorMaxLines: 2,
         filled: true,
         fillColor: Theme.of(context).canvasColor.withOpacity(.05),
         hintText: hint,

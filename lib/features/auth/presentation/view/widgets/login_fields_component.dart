@@ -1,22 +1,15 @@
-import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/auth/presentation/view/widgets/remeber_me.dart';
+import 'package:cars/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/style.dart';
+import 'custom_text_field_password.dart';
 
-class LoginFieldComponent extends StatefulWidget {
+class LoginFieldComponent extends StatelessWidget {
   const LoginFieldComponent({super.key});
-
-  @override
-  State<LoginFieldComponent> createState() => _LoginFieldComponentState();
-}
-
-class _LoginFieldComponentState extends State<LoginFieldComponent> {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +21,18 @@ class _LoginFieldComponentState extends State<LoginFieldComponent> {
             color: AppConsts.neutral500,
           ),
           hint: StringsEn.email,
-          controller: email,
+          onChanged: (String? value) =>
+              context.read<LoginCubit>().onChangeFields(
+                    StringsEn.email,
+                    value!,
+                  ),
         ),
         const AspectRatio(
           aspectRatio: AppConsts.aspectRatio20on1,
         ),
 
         ///Password
-        CustomTextFormField(
-          perfixIcon: const Icon(
-            Icons.lock,
-            color: AppConsts.neutral500,
-          ),
-          hint: StringsEn.password,
-          obscureText: true,
-          controller: password,
-        ),
+        const CustomTextFieldPassword(),
 
         ///remeber me
         const RemeberMe(),

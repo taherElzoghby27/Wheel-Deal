@@ -8,15 +8,15 @@ class Assets {
 
   /// Assets for imagesBoard1
   /// assets/images/board1.svg
-  static const String imagesBoard1 = "assets/images/board1.png";
+  static const String imagesBoard1 = "assets/images/1.png";
 
   /// Assets for imagesBoard2
   /// assets/images/board2.svg
-  static const String imagesBoard2 = "assets/images/board2.png";
+  static const String imagesBoard2 = "assets/images/2.png";
 
   /// Assets for imagesBoard3
   /// assets/images/board3.svg
-  static const String imagesBoard3 = "assets/images/board3.png";
+  static const String imagesBoard3 = "assets/images/3.png";
 
   /// Assets for imagesBookmark2
   /// assets/images/bookmark-2.svg

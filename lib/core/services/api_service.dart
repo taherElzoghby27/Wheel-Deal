@@ -44,7 +44,6 @@ class ApiService {
     Object? data,
     String? token,
   }) async {
-    debugPrint('data:${data.toString()}');
     dio.options.headers = token == null
         ? {}
         : {
@@ -54,6 +53,7 @@ class ApiService {
       '$baseUrl$endPoint',
       data: data,
     );
+    debugPrint('data:$response-${response.statusCode}');
     return jsonDecode(response.data);
   }
 

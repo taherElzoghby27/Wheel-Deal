@@ -17,8 +17,9 @@ class AuthRepoImpl extends AuthRepo {
     required UserModel userEntity,
   }) async {
     try {
-      UserModel result = await _remoteDataSource.login(userEntity: userEntity);
-
+      UserModel result = await _remoteDataSource.login(
+        userEntity: userEntity,
+      );
       return Right(result);
     } catch (error) {
       if (error is DioException) {

@@ -7,11 +7,11 @@ class BoardStructure extends StatelessWidget {
     super.key,
     required this.image,
     required this.subTitle,
-    required this.titles,
+    required this.title,
   });
 
   final String image;
-  final List<InlineSpan> titles;
+  final String title;
   final String subTitle;
 
   @override
@@ -28,20 +28,28 @@ class BoardStructure extends StatelessWidget {
           ),
           SizedBox(height: size.height * .025.h),
           Padding(
-            padding: EdgeInsets.all(12.sp),
+            padding: AppConsts.mainPadding,
             child: Column(
               children: [
                 ///title
-                Text.rich(
-                  TextSpan(children: titles),
-                  style: AppConsts.style32,
+                Text(
+                  title,
+                  style: AppConsts.style24.copyWith(
+                    color: AppConsts.mainColor,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
 
                 ///sub title
-                Text(
-                  subTitle,
-                  style: AppConsts.style16,
-                  textAlign: TextAlign.start,
+                Padding(
+                  padding: AppConsts.mainPadding,
+                  child: Text(
+                    subTitle,
+                    style: AppConsts.style14.copyWith(
+                      color: Theme.of(context).canvasColor,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),

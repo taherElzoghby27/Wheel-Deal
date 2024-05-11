@@ -11,9 +11,27 @@ import 'package:flutter/material.dart';
 import '../../features/car_details/data/models/car_specification_model.dart';
 import '../../features/chats/data/models/message_model.dart';
 import '../../features/home/presentation/view/home_view.dart';
+import '../../features/on_boarding/presentation/view/widgets/board_structure.dart';
 import '../../features/verification/data/models/identity_type_model.dart';
 import 'assets.dart';
 
+List<BoardStructure> boards = [
+  BoardStructure(
+    image: Assets.imagesBoard1,
+    subTitle: StringsEn.subTitleBoard1,
+    title: StringsEn.titleBoard1,
+  ),
+  BoardStructure(
+    image: Assets.imagesBoard2,
+    title: StringsEn.titleBoard2,
+    subTitle: StringsEn.subTitleBoard3,
+  ),
+  BoardStructure(
+    image: Assets.imagesBoard3,
+    title: StringsEn.titleBoard3,
+    subTitle: StringsEn.subTitleBoard3,
+  ),
+];
 List<TweenSequenceItem<Offset>> itemsSequences = <TweenSequenceItem<Offset>>[
   TweenSequenceItem(
     tween: Tween(begin: const Offset(0, 0), end: const Offset(-.04, 0)),
@@ -340,5 +358,4 @@ List<IdentityTypeModel> identities = [
   IdentityTypeModel(type: StringsEn.idCard),
   IdentityTypeModel(type: StringsEn.passport),
   IdentityTypeModel(type: StringsEn.drivingLicense),
-
 ];

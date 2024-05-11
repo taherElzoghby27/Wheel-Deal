@@ -3,12 +3,12 @@ import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/auth_top_section.dart';
-import 'package:cars/core/widgets/customButton.dart';
+import 'package:cars/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/widgets/small_loading_widget.dart';
+import 'login_button_widget.dart';
 import 'login_fields_component.dart';
 import 'replacement_auth_widget.dart';
 
@@ -21,28 +21,27 @@ class LoginBodyInfo extends StatefulWidget {
 
 class _LoginBodyInfoState extends State<LoginBodyInfo>
     with TickerProviderStateMixin {
-  final GlobalKey<FormState> _formKey = GlobalKey();
-  late AnimationController controller;
-  late Animation<Offset> offsetAnimation;
+  late LoginCubit loginCubit;
 
   @override
   void initState() {
+    loginCubit = context.read<LoginCubit>();
     //init controller
-    controller = AnimationController(
+    loginCubit.controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
     //offset animation
 
-    offsetAnimation = TweenSequence(itemsSequences).animate(controller);
+    loginCubit.offsetAnimation = TweenSequence(itemsSequences).animate(
+      loginCubit.controller,
+    );
     super.initState();
   }
 
-  bool isLoading = false;
-
   @override
   void dispose() {
-    controller.dispose();
+    loginCubit.controller.dispose();
     super.dispose();
   }
 
@@ -51,7 +50,7 @@ class _LoginBodyInfoState extends State<LoginBodyInfo>
     return Padding(
       padding: AppConsts.mainPadding,
       child: Form(
-        key: _formKey,
+        key: loginCubit.formKey,
         child: ListView(
           children: [
             const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
@@ -67,10 +66,10 @@ class _LoginBodyInfoState extends State<LoginBodyInfo>
 
             //fields
             AnimatedBuilder(
-              animation: controller,
+              animation: loginCubit.controller,
               builder: (context, child) {
                 return AnimatedSlide(
-                  offset: offsetAnimation.value,
+                  offset: loginCubit.offsetAnimation.value,
                   duration: const Duration(milliseconds: 200),
                   child: const LoginFieldComponent(),
                 );
@@ -80,17 +79,7 @@ class _LoginBodyInfoState extends State<LoginBodyInfo>
               aspectRatio: AppConsts.aspectRatio20on1,
             ),
             //login
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
-              child: Visibility(
-                visible: !isLoading,
-                replacement: const LoadingWidget(),
-                child: CustomButton(
-                  text: StringsEn.login,
-                  onTap: loginButton,
-                ),
-              ),
-            ),
+            const LoginButtonWidget(),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
             //don't have an account
             ReplacementAuthWidget(
@@ -106,37 +95,5 @@ class _LoginBodyInfoState extends State<LoginBodyInfo>
         ),
       ),
     );
-  }
-
-  loginButton() async {
-    ///create account
-    if (_formKey.currentState!.validate()) {
-      //login
-      if (controller.isAnimating) {
-        stopAnimation();
-      }
-      GoRouter.of(context).pushReplacement(navPath);
-    } else {
-      if (!controller.isAnimating) {
-        startAnimation();
-      }
-      Future.delayed(
-        const Duration(seconds: 1),
-        () {
-          stopAnimation();
-        },
-      );
-    }
-  }
-
-  void stopAnimation() {
-    controller.reset();
-    controller.stop();
-  }
-
-  void startAnimation() {
-    controller
-      ..forward()
-      ..repeat();
   }
 }
