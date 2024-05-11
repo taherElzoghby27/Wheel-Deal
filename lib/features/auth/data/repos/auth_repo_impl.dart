@@ -36,7 +36,7 @@ class AuthRepoImpl extends AuthRepo {
     required UserModel userEntity,
   }) async {
     try {
-      UserModel result = await _remoteDataSource.verifyEmail(
+      UserModel result = await _remoteDataSource.resetPassword(
         userEntity: userEntity,
       );
       return Right(result);

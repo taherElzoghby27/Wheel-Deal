@@ -2,12 +2,12 @@ import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/auth_top_section.dart';
+import 'package:cars/features/auth/presentation/view_model/check_for_reset_cubit/check_for_reset_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/consts/strings.dart';
-import '../../../../../core/widgets/customButton.dart';
-import '../../../../../core/widgets/small_loading_widget.dart';
+import 'checking_for_reset_password_button.dart';
 import 'replacement_auth_widget.dart';
 import 'reset_pass_component.dart';
 
@@ -20,27 +20,26 @@ class ResetPassBodyInfo extends StatefulWidget {
 
 class _ResetPassBodyInfoState extends State<ResetPassBodyInfo>
     with SingleTickerProviderStateMixin {
-  final GlobalKey<FormState> _formKey = GlobalKey();
-  late AnimationController controller;
-  late Animation<Offset> offsetAnimation;
+  late CheckForResetCubit checkForResetCubit;
 
   @override
   void initState() {
+    checkForResetCubit = context.read<CheckForResetCubit>();
     //init controller
-    controller = AnimationController(
+    checkForResetCubit.controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 200),
     );
     //offset animation
-    offsetAnimation = TweenSequence(itemsSequences).animate(controller);
+    checkForResetCubit.offsetAnimation = TweenSequence(itemsSequences).animate(
+      checkForResetCubit.controller,
+    );
     super.initState();
   }
 
-  bool isLoading = false;
-
   @override
   void dispose() {
-    controller.dispose();
+    checkForResetCubit.controller.dispose();
     super.dispose();
   }
 
@@ -49,7 +48,7 @@ class _ResetPassBodyInfoState extends State<ResetPassBodyInfo>
     return Padding(
       padding: AppConsts.mainPadding,
       child: Form(
-        key: _formKey,
+        key: checkForResetCubit.formKey,
         child: ListView(
           children: [
             const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
@@ -65,10 +64,10 @@ class _ResetPassBodyInfoState extends State<ResetPassBodyInfo>
             AspectRatio(
               aspectRatio: AppConsts.aspect16on14,
               child: AnimatedBuilder(
-                animation: controller,
+                animation: checkForResetCubit.controller,
                 builder: (context, child) {
                   return AnimatedSlide(
-                    offset: offsetAnimation.value,
+                    offset: checkForResetCubit.offsetAnimation.value,
                     duration: const Duration(milliseconds: 200),
                     child: const ResetPasswordComponent(),
                   );
@@ -87,51 +86,11 @@ class _ResetPassBodyInfoState extends State<ResetPassBodyInfo>
             const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
 
             //reset pass
-            AspectRatio(
-              aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
-              child: Visibility(
-                visible: !isLoading,
-                replacement: const LoadingWidget(),
-                child: CustomButton(
-                  text: StringsEn.resetPass,
-                  onTap: resetButton,
-                ),
-              ),
-            ),
+            const CheckingForRestButtonWidget(),
             const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
           ],
         ),
       ),
     );
-  }
-
-  resetButton() async {
-    ///create account
-    if (_formKey.currentState!.validate()) {
-      //login
-      if (controller.isAnimating) {
-        stopAnimation();
-      }
-      GoRouter.of(context).pushReplacement(createPassPath);
-    } else {
-      if (!controller.isAnimating) {
-        startAnimation();
-      }
-      Future.delayed(
-        const Duration(milliseconds: 500),
-        () => stopAnimation(),
-      );
-    }
-  }
-
-  void stopAnimation() {
-    controller.reset();
-    controller.stop();
-  }
-
-  void startAnimation() {
-    controller
-      ..forward()
-      ..repeat();
   }
 }

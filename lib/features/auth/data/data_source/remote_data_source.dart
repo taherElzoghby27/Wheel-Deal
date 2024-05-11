@@ -44,13 +44,27 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
   @override
   Future<UserModel> verifyEmail({required UserModel userEntity}) async {
-    // TODO: implement verifyEmail
-    throw UnimplementedError();
+    FormData data = convertMapToFormData(
+      userEntity.toMapCheckingForResetPassword(),
+    );
+    Map<String, dynamic> result = await _apiService.post(
+      endPoint: ApiConsts.checkingForResetPasswordEndpoint,
+      data: data,
+    );
+    UserModel userModel = UserModel.fromMap(result);
+    return userModel;
   }
 
   @override
   Future<UserModel> resetPassword({required UserModel userEntity}) async {
-    // TODO: implement verifyEmail
-    throw UnimplementedError();
+    FormData data = convertMapToFormData(
+      userEntity.toMapResetPass(),
+    );
+    Map<String, dynamic> result = await _apiService.post(
+      endPoint: ApiConsts.resetPassEndPoint,
+      data: data,
+    );
+    UserModel userModel = UserModel.fromMap(result);
+    return userModel;
   }
 }

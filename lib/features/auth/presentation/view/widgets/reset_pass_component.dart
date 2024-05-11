@@ -1,22 +1,13 @@
-import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/auth/presentation/view_model/check_for_reset_cubit/check_for_reset_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/strings.dart';
 
-class ResetPasswordComponent extends StatefulWidget {
+class ResetPasswordComponent extends StatelessWidget {
   const ResetPasswordComponent({super.key});
-
-  @override
-  State<ResetPasswordComponent> createState() => _ResetPasswordComponentState();
-}
-
-class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
-  TextEditingController email = TextEditingController();
-  TextEditingController last3digitPhone = TextEditingController();
-  TextEditingController age = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +19,11 @@ class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
             color: AppConsts.neutral500,
           ),
           hint: StringsEn.email,
-          controller: email,
+          onChanged: (String? value) =>
+              context.read<CheckForResetCubit>().changeFields(
+                    StringsEn.email,
+                    value!,
+                  ),
         ),
         const AspectRatio(
           aspectRatio: AppConsts.aspectRatio20on1,
@@ -39,7 +34,11 @@ class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
             color: AppConsts.neutral500,
           ),
           hint: StringsEn.age,
-          controller: age,
+          onChanged: (String? value) =>
+              context.read<CheckForResetCubit>().changeFields(
+                    StringsEn.age,
+                    value!,
+                  ),
         ),
         const AspectRatio(
           aspectRatio: AppConsts.aspectRatio20on1,
@@ -50,7 +49,11 @@ class _ResetPasswordComponentState extends State<ResetPasswordComponent> {
             color: AppConsts.neutral500,
           ),
           hint: StringsEn.last3digitPhone,
-          controller: last3digitPhone,
+          onChanged: (String? value) =>
+              context.read<CheckForResetCubit>().changeFields(
+                    StringsEn.phone,
+                    value!,
+                  ),
         ),
       ],
     );

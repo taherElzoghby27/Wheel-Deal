@@ -51,7 +51,7 @@ class ServerFailure extends FailureServ {
   }
 
   factory ServerFailure.fromJson(Map<String, dynamic> response) =>
-      ServerFailure(message: response['Message']);
+      ServerFailure(message: response[0]['Message']);
 }
 
 class FailureMessage {
@@ -60,6 +60,6 @@ class FailureMessage {
   FailureMessage({required this.message});
 
   FailureMessage.fromJson(Map<String, dynamic> json) {
-    message = (json['Message']) as String;
+    message = (json[0]['Message']) as String;
   }
 }

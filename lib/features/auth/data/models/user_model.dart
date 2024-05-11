@@ -12,6 +12,7 @@ class UserModel extends Equatable {
   final String? city;
   final String? state;
   final String? phone;
+  final String? last3DigitPhone;
   final String? gender;
   final String? address;
   final String? message;
@@ -27,6 +28,7 @@ class UserModel extends Equatable {
     this.city,
     this.state,
     this.phone,
+    this.last3DigitPhone,
     this.gender,
     this.address,
     this.message,
@@ -42,6 +44,21 @@ class UserModel extends Equatable {
     return {
       'email': email,
       'password': password,
+    };
+  }
+
+  Map<String, dynamic> toMapCheckingForResetPassword() {
+    return {
+      'email': email,
+      'phone': last3DigitPhone,
+      'age': age,
+    };
+  }
+
+  Map<String, dynamic> toMapResetPass() {
+    return {
+      'password': password,
+      'confirm_pwd': confirmPassword,
     };
   }
 
