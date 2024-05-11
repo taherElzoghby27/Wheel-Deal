@@ -9,6 +9,7 @@ $data = json_decode($jsonData, true); // Decode JSON data into associative array
 
 // Check if JSON data was successfully parsed
 if ($data === null) {
+    http_response_code(400); // Bad Request
     echo json_encode(array("Message" => "Invalid JSON data received."));
     exit();
 }
@@ -20,10 +21,12 @@ $age = isset($data['age']) ? intval($data['age']) : 0; // Convert age to an inte
 
 // Validate inputs
 if (empty($email) || empty($phone) || $age <= 0) {
+    http_response_code(400); // Bad Request
     echo json_encode(array("Message" => "Please provide all required information."));
     exit();
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400); // Bad Request
     echo json_encode(array("Message" => "Please provide a valid email."));
     exit();
 }
@@ -36,12 +39,14 @@ try {
     $user = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch user data
 
     if (!$user) {
+        http_response_code(404); // Not Found
         echo json_encode(array("Message" => "Email not found."));
         exit();
     }
 
     // Check the age
     if ((int)$age !== (int)$user['age']) {
+        http_response_code(400); // Bad Request
         echo json_encode(array("Message" => "Incorrect age."));
         exit();
     }
@@ -50,17 +55,20 @@ try {
     $expected_last_digits = substr($user['phone'], -3);
 
     if ($expected_last_digits !== $phone) {
+        http_response_code(400); // Bad Request
         echo json_encode(array("Message" => "Incorrect phone."));
         exit();
     }
 
     // If all checks pass, return success message and store email in session
     $_SESSION['resetEmail'] = $email;
+    http_response_code(200); // OK
     echo json_encode(array("Message" => "You can reset your password now."));
     exit();
 
 } catch (PDOException $e) {
     // Handle database errors
+    http_response_code(500); // Internal Server Error
     echo json_encode(array("Message" => "Database error: " . $e->getMessage()));
     exit();
 }

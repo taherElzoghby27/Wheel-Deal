@@ -4,13 +4,14 @@ require_once("../includes/connection.php"); // Include database connection
 require_once("../includes/function.php"); // Include validation functions
 require __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWT;
-//Hello
+
 // Fetch input data
 $jsonData = file_get_contents('php://input');
 $data = json_decode($jsonData, true);
 
 // Check if JSON data was successfully parsed
 if ($data === null) {
+    http_response_code(400);
     echo json_encode(["error" => "Invalid JSON data received."]);
     exit;
 }
@@ -28,18 +29,6 @@ $city = $data['city'] ?? '';
 $state = $data['states'] ?? '';
 
 
-
-/*$first_name = $_POST['first_name'] ?? '';
-$last_name = $_POST['last_name'] ?? '';
-$email = $_POST['email'] ?? '';
-$password = $_POST['password'] ?? '';
-$confirm_pwd = $_POST['confirm_pwd'] ?? '';
-$phone = $_POST['phone'] ?? '';
-$age = $_POST['age'] ?? '';
-$gender = $_POST['gender'] ?? '';
-$address = $_POST['user_address'] ?? '';
-$city = $_POST['city'] ?? '';
-$state = $_POST['states'] ?? ''; */
 
 // Validate input data
 $errors = [];
@@ -80,7 +69,7 @@ if (same_pass($password, $confirm_pwd)) {
     $errors[] = ["message" => "Passwords do not match."];
 }
 if (!empty($errors)) {
-    
+    http_response_code(400);
     echo json_encode($errors);
     exit;
     
@@ -125,13 +114,16 @@ try {
         setcookie("token", $token, $expiration_time, "/", "", true, true);
 
         // Return success response with JWT
+        http_response_code(200);
         echo json_encode(array("Message" => "User submitted successfully", "jwt" => $token));
     } else {
         // Failed to insert user
+        http_response_code(500);
         echo json_encode(["error" => "Failed to insert user."]);
     }
 } catch (PDOException $e) {
     // Database error
+    http_response_code(500);
     echo json_encode(["error" => "Database error: " . $e->getMessage()]);
 }
 }

@@ -10,6 +10,7 @@ $data = json_decode($jsonData, true); // Decode JSON data into associative array
 
 // Check if JSON data was successfully parsed
 if ($data === null) {
+    http_response_code(400);
     echo json_encode(array("Message" => "Invalid JSON data received"));
     exit;
 }
@@ -20,6 +21,7 @@ $password = $data['password'] ?? '';
 
 // If Empty Fields
 if (empty($email) || empty($password)) {
+    http_response_code(400);
     echo json_encode(array("Message" => "Email and Password are required"));
 } else {
     // Query if Inputs are not empty
@@ -46,13 +48,16 @@ if (empty($email) || empty($password)) {
             setcookie("token", $token, $expiration_time, "/", "", true, true);
             
             // Return success response with JWT
+            http_response_code(200);
             echo json_encode(array("Message" => "Login Successful", "jwt" => $token));
         } else {
             // Password is incorrect
+            http_response_code(401);
             echo json_encode(array("Message" => "Password Is Incorrect"));
         }
     } else {
         // User not found
+        http_response_code(404);
         echo json_encode(array("Message" => "User Not Found. Try Signing Up First"));
     }
 

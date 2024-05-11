@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check if JSON data was successfully parsed
     if ($data === null || !isset($data['password']) || !isset($data['confirm_password'])) {
+        http_response_code(400); // Bad Request
         echo json_encode(array("message" => "Invalid JSON data received"));
         exit;
     }
@@ -20,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate if new password matches confirm password
     if ($password !== $confirmPassword) {
+        http_response_code(400); // Bad Request
         echo json_encode(array("message" => "New password and confirm password do not match"));
         exit;
     } else {
@@ -34,15 +36,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->execute();
 
+            http_response_code(200); // OK
             echo json_encode(array("message" => "Password updated successfully"));
             exit;
         } catch (PDOException $e) {
             // Handle database error
+            http_response_code(500); // Internal Server Error
             echo json_encode(array("message" => "Failed to update password. " . $e->getMessage()));
             exit;
         }
     }
 } else {
+    http_response_code(405); // Method Not Allowed
     echo json_encode(array("message" => "Invalid request method. Only POST requests are allowed"));
     exit;
 }
