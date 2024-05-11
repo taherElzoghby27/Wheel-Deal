@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $params['max_price'] = $_GET['max_price'];
     }
 
-    // Prepare specific features filtering based on provided keys
+    /// Prepare specific features filtering based on provided keys
     $features = array(
         'airbag', 'touch_screen', 'air_conditioner',
         'brake_assist', 'navigation_system', 'connectivity',
