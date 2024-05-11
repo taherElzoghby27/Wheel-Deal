@@ -4,7 +4,7 @@ require __DIR__ . '/../vendor/autoload.php'; // Include JWT library
 
 use Firebase\JWT\JWT;
 
-// Get the secret key for JWT decoding (assuming it's defined elsewhere in your code)
+/// Get the secret key for JWT decoding (assuming it's defined elsewhere in your code)
 $secretKey = "your_secret_key_here"; // Update with your actual secret key
 $Algorithm = array('HS256');
 
