@@ -5,6 +5,7 @@ import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:cars/features/auth/domain/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final RemoteDataSource _remoteDataSource;
@@ -77,6 +78,7 @@ class AuthRepoImpl extends AuthRepo {
       );
       return Right(result);
     } catch (error) {
+      debugPrint('erorrrrrrrrrrrrrrrrrrrrrrrr');
       if (error is DioException) {
         return Left(ServerFailure.fromDioError(error));
       }

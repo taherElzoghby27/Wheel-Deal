@@ -44,14 +44,14 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
 //login button
-  loginButton() {
+  loginButton() async {
     ///create account
     if (formKey.currentState!.validate()) {
       //login
       if (controller.isAnimating) {
         _stopAnimation();
       }
-      _login();
+      await _login();
     } else {
       if (!controller.isAnimating) {
         _startAnimation();

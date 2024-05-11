@@ -5,13 +5,13 @@ import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
 
 abstract class RemoteDataSource {
-  Future<UserModel> signUp({required UserModel userEntity});
+  Future<Response> signUp({required UserModel userEntity});
 
-  Future<UserModel> login({required UserModel userEntity});
+  Future<Response> login({required UserModel userEntity});
 
-  Future<UserModel> resetPassword({required UserModel userEntity});
+  Future<Response> resetPassword({required UserModel userEntity});
 
-  Future<UserModel> verifyEmail({required UserModel userEntity});
+  Future<Response> verifyEmail({required UserModel userEntity});
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -21,50 +21,46 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       : _apiService = apiService;
 
   @override
-  Future<UserModel> login({required UserModel userEntity}) async {
+  Future<Response> login({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(userEntity.toMapLogin());
-    Map<String, dynamic> result = await _apiService.post(
+    Response result = await _apiService.post(
       endPoint: ApiConsts.loginEndpoint,
       data: data,
     );
-    UserModel userModel = UserModel.fromMap(result);
-    return userModel;
+    return result;
   }
 
   @override
-  Future<UserModel> signUp({required UserModel userEntity}) async {
+  Future<Response> signUp({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(userEntity.toMapSignUp());
-    Map<String, dynamic> result = await _apiService.post(
+    Response result = await _apiService.post(
       endPoint: ApiConsts.signUpEndpoint,
       data: data,
     );
-    UserModel userModel = UserModel.fromMap(result);
-    return userModel;
+    return result;
   }
 
   @override
-  Future<UserModel> verifyEmail({required UserModel userEntity}) async {
+  Future<Response> verifyEmail({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(
       userEntity.toMapCheckingForResetPassword(),
     );
-    Map<String, dynamic> result = await _apiService.post(
+    Response result = await _apiService.post(
       endPoint: ApiConsts.checkingForResetPasswordEndpoint,
       data: data,
     );
-    UserModel userModel = UserModel.fromMap(result);
-    return userModel;
+    return result;
   }
 
   @override
-  Future<UserModel> resetPassword({required UserModel userEntity}) async {
+  Future<Response> resetPassword({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(
       userEntity.toMapResetPass(),
     );
-    Map<String, dynamic> result = await _apiService.post(
+    Response result = await _apiService.post(
       endPoint: ApiConsts.resetPassEndPoint,
       data: data,
     );
-    UserModel userModel = UserModel.fromMap(result);
-    return userModel;
+    return result;
   }
 }
