@@ -1,34 +1,21 @@
 <?php
-
 require_once("../includes/connection.php"); // Include database connection
 require_once("../includes/function.php"); // Include validation functions
 require __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWT;
 
-// Fetch input data
-$jsonData = file_get_contents('php://input');
-$data = json_decode($jsonData, true);
-
-// Check if JSON data was successfully parsed
-if ($data === null) {
-    http_response_code(400);
-    echo json_encode(["error" => "Invalid JSON data received."]);
-    exit;
-}
-
-$first_name = $data['first_name'] ?? '';
-$last_name = $data['last_name'] ?? '';
-$email = $data['email'] ?? '';
-$password = $data['password'] ?? '';
-$confirm_pwd = $data['confirm_pwd'] ?? '';
-$phone = $data['phone'] ?? '';
-$age = $data['age'] ?? '';
-$gender = $data['gender'] ?? '';
-$address = $data['user_address'] ?? '';
-$city = $data['city'] ?? '';
-$state = $data['states'] ?? '';
-
-
+// Fetch input data from POST request
+$first_name = $_POST['first_name'] ?? '';
+$last_name = $_POST['last_name'] ?? '';
+$email = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
+$confirm_pwd = $_POST['confirm_pwd'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$age = $_POST['age'] ?? '';
+$gender = $_POST['gender'] ?? '';
+$address = $_POST['user_address'] ?? '';
+$city = $_POST['city'] ?? '';
+$state = $_POST['states'] ?? '';
 
 // Validate input data
 $errors = [];
@@ -68,13 +55,14 @@ if (invalid_age($age)) {
 if (same_pass($password, $confirm_pwd)) {
     $errors[] = ["message" => "Passwords do not match."];
 }
+
+// If there are validation errors, return error response
 if (!empty($errors)) {
     http_response_code(400);
     echo json_encode($errors);
     exit;
-    
 }
-if (empty($errors)) {
+
 // Hash the password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -125,5 +113,4 @@ try {
     // Database error
     http_response_code(500);
     echo json_encode(["error" => "Database error: " . $e->getMessage()]);
-}
 }
