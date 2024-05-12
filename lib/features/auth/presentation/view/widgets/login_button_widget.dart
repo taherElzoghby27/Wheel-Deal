@@ -32,16 +32,10 @@ class LoginButtonWidget extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        bool loading = false;
-        if (state is LoginLoading) {
-          loading = true;
-        } else if (state is LoginLoaded || state is LoginFailure) {
-          loading = false;
-        }
         return AspectRatio(
           aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
           child: Visibility(
-            visible: !loading,
+            visible: state is LoginLoading ? false : true,
             replacement: const LoadingWidget(),
             child: CustomButton(
               text: StringsEn.login,

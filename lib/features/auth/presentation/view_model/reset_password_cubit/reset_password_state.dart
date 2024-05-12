@@ -16,3 +16,5 @@ class ResetPasswordFailure extends ResetPasswordState {
 }
 
 class ResetPasswordChangeState extends ResetPasswordState {}
+
+class VisibleChangeState extends ResetPasswordState {}

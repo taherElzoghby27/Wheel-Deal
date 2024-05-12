@@ -1,7 +1,9 @@
 import 'package:cars/core/services/api_service.dart';
 import 'package:cars/features/auth/data/data_source/remote_data_source.dart';
 import 'package:cars/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:cars/features/auth/domain/usecases/checking_for_reset_password_use_case.dart';
 import 'package:cars/features/auth/domain/usecases/login_use_case.dart';
+import 'package:cars/features/auth/domain/usecases/reset_password_use_case.dart';
 import 'package:cars/features/auth/domain/usecases/sign_up_usecase.dart';
 import 'package:get_it/get_it.dart';
 
@@ -26,6 +28,16 @@ setupServiceLocator() {
   );
   getIt.registerSingleton<LoginUseCase>(
     LoginUseCase(
+      authRepo: getIt.get<AuthRepoImpl>(),
+    ),
+  );
+  getIt.registerSingleton<ResetPasswordUseCase>(
+    ResetPasswordUseCase(
+      authRepo: getIt.get<AuthRepoImpl>(),
+    ),
+  );
+  getIt.registerSingleton<VerifyEmailUseCase>(
+    VerifyEmailUseCase(
       authRepo: getIt.get<AuthRepoImpl>(),
     ),
   );

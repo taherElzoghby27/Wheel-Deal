@@ -208,7 +208,7 @@ at least 1 number and 1 special character.
   static String drivingLicense = 'Driving license';
   static String jobId = 'job id';
   static String status = 'status';
-  static String warningPass =
+  static const String warningPass =
       'password that must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit';
   static String enterValid = 'Enter valid ';
   static String fieldRequired = 'This Field Required.';
@@ -442,7 +442,7 @@ metho in addition to your password
   static String usePhoneNumber = 'Use the phone number to reset your password';
   static String enterYourOldPass = 'Enter your old password';
   static String enterNewPass = 'Enter your new password';
-  static String confirmNewPass = 'Confirm your new password';
+  static const String confirmNewPass = 'Confirm your new password';
   static String secureYourAccount =
       'Secure your account with two-step verification';
   static String twoStepProvides =

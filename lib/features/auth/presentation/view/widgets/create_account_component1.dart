@@ -4,8 +4,6 @@ import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'confirm_password_widget.dart';
 import 'password_widget.dart';
 
 class CreateAccountComponent1 extends StatelessWidget {
@@ -75,13 +73,13 @@ class CreateAccountComponent1 extends StatelessWidget {
             ),
 
             ///Password
-            const PasswordWidget(),
+            const PasswordWidget(hint: StringsEn.password),
             const AspectRatio(
               aspectRatio: AppConsts.aspectRatio20on1,
             ),
 
             ///confirm Password
-            const ConfirmPasswordWidget(),
+            const PasswordWidget(hint: StringsEn.confirmNewPass),
             const AspectRatio(
               aspectRatio: AppConsts.aspectRatio16on2,
             ),

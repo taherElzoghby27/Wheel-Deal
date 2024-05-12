@@ -31,15 +31,8 @@ class CheckingForRestButtonWidget extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          bool loading = false;
-          if (state is CheckingForResetLoading) {
-            loading = true;
-          } else if (state is CheckingForResetLoaded ||
-              state is CheckingForResetFailure) {
-            loading = false;
-          }
           return Visibility(
-            visible: !loading,
+            visible:  state is CheckingForResetLoading ? false : true,
             replacement: const LoadingWidget(),
             child: CustomButton(
               text: StringsEn.resetPass,

@@ -64,8 +64,9 @@ class ServerFailure extends FailureServ {
           );
   }
 
-  factory ServerFailure.fromMap(Map<String, dynamic> response) =>
-      ServerFailure(message: response['Message']);
+  factory ServerFailure.fromMap(Map<String, dynamic> response) => ServerFailure(
+        message: response['Message'] ?? response['message'],
+      );
 
   factory ServerFailure.fromListOfMap(List<dynamic> response) =>
       ServerFailure(message: response[0]['message'] as String);

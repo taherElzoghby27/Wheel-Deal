@@ -7,7 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../view_model/sign_up_cubit/sign_up_cubit.dart';
 
 class PasswordWidget extends StatelessWidget {
-  const PasswordWidget({super.key});
+  const PasswordWidget({super.key, required this.hint});
+
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,18 @@ class PasswordWidget extends StatelessWidget {
             Icons.lock,
             color: AppConsts.neutral500,
           ),
-          hint: StringsEn.password,
-          obscureText: cubit.visiblePass1,
+          hint: hint,
+          obscureText: hint == StringsEn.password
+              ? cubit.visiblePass1
+              : cubit.visiblePass2,
           suffixIcon: IconButton(
             onPressed: () => cubit.changeVisible(StringsEn.password),
             icon: Icon(
-              cubit.visiblePass1 ? Icons.visibility : Icons.visibility_off,
+              (hint == StringsEn.password
+                      ? cubit.visiblePass1
+                      : cubit.visiblePass2)
+                  ? Icons.visibility
+                  : Icons.visibility_off,
               color: AppConsts.neutral500,
             ),
           ),
