@@ -1,9 +1,12 @@
 import 'package:cars/core/consts/api.dart';
 import 'package:cars/core/consts/methods.dart';
+import 'package:cars/core/helper/flutter_secure_storage.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../../../../core/consts/strings.dart';
 
 abstract class RemoteDataSource {
   Future<Response> signUp({required UserModel userEntity});
@@ -59,10 +62,20 @@ class RemoteDataSourceImpl extends RemoteDataSource {
     FormData data = convertMapToFormData(
       userEntity.toMapResetPass(),
     );
+    String? tokenForResetPass = await readFromCache(
+      StringsEn.tokenForResetPass,
+    );
     Response result = await _apiService.post(
       endPoint: ApiConsts.resetPassEndPoint,
       data: data,
+      token: tokenForResetPass,
     );
     return result;
+  }
+
+  Future<String?> readFromCache(String token) async {
+    return await FlutterSecureStorageEncrypted.readData(
+      token,
+    );
   }
 }

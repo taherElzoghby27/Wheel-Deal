@@ -5,6 +5,8 @@ import 'package:cars/features/auth/domain/usecases/checking_for_reset_password_u
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../../core/helper/flutter_secure_storage.dart';
+
 part 'check_for_reset_state.dart';
 
 class CheckForResetCubit extends Cubit<CheckForResetState> {
@@ -94,9 +96,18 @@ class CheckForResetCubit extends Cubit<CheckForResetState> {
               emit(CheckingForResetFailure(message: failure.message));
             },
             (user) {
+              saveTokenToResetPass(user.token!);
               emit(CheckingForResetLoaded());
             },
           ),
         );
+  }
+
+//save token to send for reset password
+  saveTokenToResetPass(String token) async {
+    await FlutterSecureStorageEncrypted.writeData(
+      StringsEn.tokenForResetPass,
+      token,
+    );
   }
 }

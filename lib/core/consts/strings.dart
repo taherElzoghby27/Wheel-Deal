@@ -198,9 +198,8 @@ at least 1 number and 1 special character.
   static const String areYouSureYouWantToDeleteYourAccount =
       'Are you sure you want to delete your account?';
   static const String keepAccount = 'Keep Account';
-  static String unCompleted = 'unCompleted';
-  static String eenterCv = 'Please, Enter CV';
   static String token = 'token';
+  static String tokenForResetPass = 'tokenForResetPass';
   static String userId = 'user id';
   static String id = 'Id';
   static String idCard = 'ID card';

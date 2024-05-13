@@ -15,8 +15,9 @@ class FlutterSecureStorageEncrypted {
     await storage.write(key: key, value: value);
   }
 
-  static readData(String key) async {
+  static Future<String?>? readData(String key) async {
     String? value = await storage.read(key: key);
+    return value;
   }
 
   static delete(String key) async {
