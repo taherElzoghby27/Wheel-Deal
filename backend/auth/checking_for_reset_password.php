@@ -1,7 +1,9 @@
 <?php
-session_start();
 
 require_once("../includes/connection.php"); // Ensure this includes the database connection
+require __DIR__ . '/../vendor/autoload.php';
+use Firebase\JWT\JWT;
+
 
 // Retrieve input data from POST request
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
@@ -50,9 +52,21 @@ try {
     }
 
     // If all checks pass, return success message and store email in session
-    $_SESSION['resetEmail'] = $email;
-    http_response_code(200); // OK
-    echo json_encode(array("Message" => "You can reset your password now."));
+        $password_Secret_Key = "secret_key_for_update_password";
+        $issued_at = time();
+        $expiration_time = $issued_at + 3600;  // Token valid for 1 hour
+
+        // Prepare JWT payload
+        $payload = array(
+
+                'email' => $email
+        );
+
+        // Generate JWT
+        $token = JWT::encode($payload, $password_Secret_Key, 'HS256');
+        setcookie("token", $token, $expiration_time, "/", "", true, true);
+        http_response_code(200); // OK
+        echo json_encode(array("Message" => "You can reset your password now.", "jwt" => $token));
     exit();
 
 } catch (PDOException $e) {
