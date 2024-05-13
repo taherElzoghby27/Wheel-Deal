@@ -3,8 +3,8 @@ require_once("../includes/connection.php");
 require __DIR__ . '/../vendor/autoload.php';
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
-$algorithm = array('HS256');
 
 // Check if the Authorization header is present
 $headers = apache_request_headers();
@@ -15,7 +15,10 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
 
     try {
         // Verify and decode the JWT token using the secret key
-        $decoded = JWT::decode($token, $secretkey, $algorithm);
+        $algorithm = 'HS256';
+        $secret_key = 'your_secret_key';
+        $key1 = new Key($secret_key, $algorithm);
+        $decoded = JWT::decode($token, $key1, $algorithm);
         $userId = $decoded->user_id;
 
         if (isset($_GET['q'])) {
@@ -46,20 +49,20 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                 "results" => $results,
                 "recent_searches" => $recentSearches
             );
-
+            http_response_code(200);
             echo json_encode($response);
         } else {
             // Handle missing search query parameter
             http_response_code(400);
-            echo json_encode(array("error" => "Please provide a search query"));
+            echo json_encode(array("Message" => "Please provide a search query"));
         }
     } catch (Exception $e) {
         // Handle JWT decoding or other errors
         http_response_code(401);
-        echo json_encode(array("error" => "Unauthorized: " . $e->getMessage()));
+        echo json_encode(array("Message" => "Unauthorized: " . $e->getMessage()));
     }
 } else {
     // Handle missing or invalid Authorization header
     http_response_code(401);
-    echo json_encode(array("error" => "Unauthorized"));
+    echo json_encode(array("Message" => "Unauthorized"));
 }

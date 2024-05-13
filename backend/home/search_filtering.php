@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     // Return results as JSON response
     http_response_code(200); // OK
-    echo json_encode($results);
+    echo json_encode(array("status" => "success", "data" => $results));
 } else {
     // Handle non-GET requests with correct response codes
     http_response_code(405); // Method Not Allowed
-    echo json_encode(array("error" => "Only GET requests are supported"));
+    echo json_encode(array("Message" => "Only GET requests are supported"));
 }

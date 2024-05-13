@@ -20,7 +20,7 @@ try {
         http_response_code(200);
     } else {
         // No data found
-        $response = array("status" => "error", "message" => "No cars found.");
+        $response = array("status" => "failed", "Message" => "No cars found.");
         // Set HTTP response code to 404 (Not Found) or 204 (No Content) depending on your use case
         http_response_code(404);
         // For example, if you want to use 204 (No Content) when no cars are found:
@@ -29,7 +29,7 @@ try {
 }
 catch (PDOException $e) {
     // Database error
-    $response = array("status" => "error", "message" => "Database error: " . $e->getMessage());
+    $response = array("status" => "failed", "Message" => "Database error: " . $e->getMessage());
     // Set HTTP response code to 500 (Internal Server Error)
     http_response_code(500);
 }
