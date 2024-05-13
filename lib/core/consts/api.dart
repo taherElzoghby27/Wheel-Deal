@@ -8,4 +8,8 @@ class ApiConsts {
   static const resetPassEndPoint = 'auth/reset_password.php';
   static const checkingForResetPasswordEndpoint =
       'auth/checking_for_reset_password.php';
+  static const favouritesEndpoint = 'home/cars.php';
+  static const bestOffersEndpoint = 'home/cars.php';
+  static const recommendedForYouEndPoint = 'home/cars.php';
+  static const topBrandsEndpoint = 'home/top_brands.php';
 }
