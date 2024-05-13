@@ -1,13 +1,13 @@
 class CarEntity {
-  final int id;
+  final String id;
   final String image;
   final String title;
-  final num price;
+  final String priceCar;
 
   CarEntity({
     required this.id,
     required this.image,
     required this.title,
-    required this.price,
+    required this.priceCar,
   });
 }
