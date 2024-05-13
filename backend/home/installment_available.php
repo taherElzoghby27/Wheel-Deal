@@ -9,7 +9,7 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
-    // Fetch installment data
+    /// Fetch installment data
     $installment = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Check if data was found
