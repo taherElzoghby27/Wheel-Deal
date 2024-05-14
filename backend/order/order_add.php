@@ -31,22 +31,26 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Assuming car_id is sent as a POST parameter named 'car_id'
             $car_id = isset($_POST['car_id']) ? $_POST['car_id'] : null;
+            $order_status = isset($_POST['order_status']) ? $_POST['order_status'] : null;
+            $order_date = isset($_POST['order_date']) ? $_POST['order_date'] : null;
 
             if ($car_id) {
                 // Prepare SQL statement to insert into favorite cars table
-                $stmt = $pdo->prepare("INSERT INTO favourite_list_item (user_id, car_id) VALUES (:user_id, :car_id)");
+                $stmt = $pdo->prepare("INSERT INTO orders (user_id, car_id, order_status, order_date) VALUES (:user_id, :car_id, :order_status, :order_date)");
                 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
                 $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
+                $stmt->bindParam(':order_status', $order_status, PDO::PARAM_STR);
+                $stmt->bindParam(':order_date', $order_date, PDO::PARAM_STR);
 
                 // Execute the SQL statement
                 if ($stmt->execute()) {
                     // Success response
                     http_response_code(201); // Created
-                    echo json_encode(array("Message" => "Car added to favorites successfully"));
+                    echo json_encode(array("Message" => "Car added to orders successfully"));
                 } else {
                     // Error inserting into database
                     http_response_code(500); // Internal Server Error
-                    echo json_encode(array("Message" => "Failed to add car to favorites"));
+                    echo json_encode(array("Message" => "Failed to add car to orders"));
                 }
             } else {
                 // Missing car_id parameter
