@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+
     // Extract token from Authorization header
     $headers = apache_request_headers();
     if (isset($headers['Authorization']) && preg_match('/Bearer\s(\S+)/', $headers['Authorization'], $matches)) {
@@ -30,11 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Decode and verify JWT token
-        $Algorithm = 'HS256';
-        $password_Secret_Key = 'secret_key_for_update_password';
-        $key = new Key($reset_password_secret_key, $Algorithm);
-        $decoded = JWT::decode($token, $key, $Algorithm);
-        $email = $decoded->email;
+    $Algorithm = 'HS256';
+    $AlgorithmArray = [$Algorithm];
+    $password_Secret_Key = 'secret_key_for_update_password';
+    $object = (object) $AlgorithmArray;
+    $key = new Key($password_Secret_Key, $Algorithm);
+    $decoded = JWT::decode($token, $key, $object);
+    $email = $decoded->email;
 
         // Hash the new password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
