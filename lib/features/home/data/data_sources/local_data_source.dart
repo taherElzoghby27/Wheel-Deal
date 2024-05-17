@@ -1,3 +1,6 @@
+import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
+import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 
 import '../../domain/entities/brand_entity.dart';
@@ -13,28 +16,42 @@ abstract class HomeLocalDataSource {
 }
 
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
+  final HiveDbBrandsHome _hiveDbBrandsHome;
+  final HiveDbCarsHome _hiveDbCarsHome;
+
+  HomeLocalDataSourceImpl({
+    required HiveDbBrandsHome hiveDbBrandsHome,
+    required HiveDbCarsHome hiveDbCarsHome,
+  })  : _hiveDbBrandsHome = hiveDbBrandsHome,
+        _hiveDbCarsHome = hiveDbCarsHome;
 
   @override
   List<CarEntity> getBestOffers() {
-    // TODO: implement getBestOffers
-    throw UnimplementedError();
+    List<CarEntity> result = _hiveDbCarsHome.getCars(
+      StringsEn.kBestOffers,
+    );
+    return result;
   }
 
   @override
   List<CarEntity> getFavourites() {
-    // TODO: implement getFavourites
-    throw UnimplementedError();
+    List<CarEntity> result = _hiveDbCarsHome.getCars(
+      StringsEn.kFavourites,
+    );
+    return result;
   }
 
   @override
   List<CarEntity> getRecommendedForYou() {
-    // TODO: implement getRecommendedForYou
-    throw UnimplementedError();
+    List<CarEntity> result = _hiveDbCarsHome.getCars(
+      StringsEn.kRecommendedForYou,
+    );
+    return result;
   }
 
   @override
   List<BrandEntity> getTopBrands() {
-    // TODO: implement getTopBrands
-    throw UnimplementedError();
+    List<BrandEntity> result = _hiveDbBrandsHome.getBrands();
+    return result;
   }
 }

@@ -200,8 +200,9 @@ at least 1 number and 1 special character.
   static const String keepAccount = 'Keep Account';
   static String token = 'token';
   static String kBrands = 'KeyBrands';
-  static String kOffersForYou = 'KeyOffersForYou';
+  static String kBestOffers = 'KeyOffersForYou';
   static String kRecommendedForYou = 'KeyRecommendedForYou';
+  static String kFavourites = 'KeyFavourites';
   static String tokenForResetPass = 'tokenForResetPass';
   static String userId = 'user id';
   static String id = 'Id';

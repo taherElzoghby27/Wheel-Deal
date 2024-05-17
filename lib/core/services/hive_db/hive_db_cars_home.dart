@@ -9,12 +9,13 @@ class HiveDbCarsHome {
     // Register Adapter
     Hive.registerAdapter(CarEntityAdapter());
     //open boxes
-    await Hive.openBox<CarEntity>(StringsEn.kOffersForYou);
+    await Hive.openBox<CarEntity>(StringsEn.kBestOffers);
     await Hive.openBox<CarEntity>(StringsEn.kRecommendedForYou);
+    await Hive.openBox<CarEntity>(StringsEn.kFavourites);
   }
 
 //add brands
-  saveBrands({required String boxName, required List<CarEntity> cars}) {
+  saveCars({required String boxName, required List<CarEntity> cars}) {
     final box = Hive.box<CarEntity>(boxName);
     box.addAll(cars);
   }
