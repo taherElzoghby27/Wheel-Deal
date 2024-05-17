@@ -86,7 +86,14 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   //reset password
   resetPassword() async {
     emit(ResetPasswordLoading());
-    await _resetPasswordUseCase.call(UserModel()).then(
+    await _resetPasswordUseCase
+        .call(
+          UserModel(
+            password: password,
+            confirmPassword: confirmPassword,
+          ),
+        )
+        .then(
           (value) => value.fold(
             (failure) {
               emit(ResetPasswordFailure(message: failure.message));

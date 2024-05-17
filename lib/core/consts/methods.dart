@@ -14,8 +14,8 @@ saveTokenLocal(String token) async {
   );
 }
 
-Future<String?> readFromCache(String token) async {
+Future<String?> readFromCache(String key) async {
   return await FlutterSecureStorageEncrypted.readData(
-    token,
+    key,
   );
 }

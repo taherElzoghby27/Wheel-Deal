@@ -62,7 +62,7 @@ class UserModel extends Equatable {
   Map<String, dynamic> toMapResetPass() {
     return {
       'password': password,
-      'confirm_pwd': confirmPassword,
+      'confirm_password': confirmPassword,
     };
   }
 
