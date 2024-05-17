@@ -15,10 +15,12 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
 
     try {
         // Verify and decode the JWT token using the secret key
-        $algorithm = 'HS256';
-        $secret_key = 'your_secret_key';
-        $key1 = new Key($secret_key, $algorithm);
-        $decoded = JWT::decode($token, $key1, $algorithm);
+        $Algorithm = 'HS256';
+        $AlgorithmArray = [$Algorithm];
+        $search_Secret_Key = 'your_secret_key';
+        $object = (object) $AlgorithmArray;
+        $key = new Key($search_Secret_Key, $Algorithm);
+        $decoded = JWT::decode($token, $key, $object);
         $userId = $decoded->user_id;
 
         if (isset($_GET['q'])) {

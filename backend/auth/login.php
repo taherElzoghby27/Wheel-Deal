@@ -34,7 +34,9 @@ try {
             // Prepare JWT payload
             $payload = array(
                 'user_id' => $user['user_id'],
-                'email' => $user['email']
+                'email' => $user['email'],
+                'iat' => $issued_at,
+                'exp' => $expiration_time
             );
 
             // Generate JWT
