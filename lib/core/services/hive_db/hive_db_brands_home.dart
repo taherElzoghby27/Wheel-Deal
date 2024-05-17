@@ -1,5 +1,6 @@
+import 'package:cars/core/consts/strings.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../../utilies/appStrings.dart';
+
 import '../../../features/home/domain/entities/brand_entity.dart';
 
 class HiveDbBrandsHome {
@@ -8,23 +9,23 @@ class HiveDbBrandsHome {
     await Hive.initFlutter();
     // Register Adapter
     Hive.registerAdapter(BrandEntityAdapter());
-    //open boxs
-    await Hive.openBox<BrandEntity>(AppStrings.kBrands);
+    //open box
+    await Hive.openBox<BrandEntity>(StringsEn.kBrands);
   }
 
 //add brands
   saveBrands({required List<BrandEntity> brands}) {
-    final box = Hive.box<BrandEntity>(AppStrings.kBrands);
+    final box = Hive.box<BrandEntity>(StringsEn.kBrands);
     box.addAll(brands);
   }
 
 //get brands
   List<BrandEntity> getBrands() {
-    Box<BrandEntity> box = Hive.box<BrandEntity>(AppStrings.kBrands);
+    Box<BrandEntity> box = Hive.box<BrandEntity>(StringsEn.kBrands);
     return box.values.toList();
   }
 
   clearBrands() {
-    Hive.box<BrandEntity>(AppStrings.kBrands).clear();
+    Hive.box<BrandEntity>(StringsEn.kBrands).clear();
   }
 }

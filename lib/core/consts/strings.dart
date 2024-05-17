@@ -199,6 +199,9 @@ at least 1 number and 1 special character.
       'Are you sure you want to delete your account?';
   static const String keepAccount = 'Keep Account';
   static String token = 'token';
+  static String kBrands = 'KeyBrands';
+  static String kOffersForYou = 'KeyOffersForYou';
+  static String kRecommendedForYou = 'KeyRecommendedForYou';
   static String tokenForResetPass = 'tokenForResetPass';
   static String userId = 'user id';
   static String id = 'Id';
