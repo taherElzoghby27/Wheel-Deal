@@ -1,6 +1,6 @@
 import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/helper/handle_image.dart';
-import 'package:cars/core/models/car_model.dart';
+import 'package:cars/features/home/data/models/car_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
