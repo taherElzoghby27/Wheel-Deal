@@ -26,7 +26,11 @@ class PasswordWidget extends StatelessWidget {
               ? cubit.visiblePass1
               : cubit.visiblePass2,
           suffixIcon: IconButton(
-            onPressed: () => cubit.changeVisible(StringsEn.password),
+            onPressed: () => cubit.changeVisible(
+              hint == StringsEn.password
+                  ? StringsEn.password
+                  : StringsEn.confirmNewPass,
+            ),
             icon: Icon(
               (hint == StringsEn.password
                       ? cubit.visiblePass1
@@ -37,7 +41,9 @@ class PasswordWidget extends StatelessWidget {
             ),
           ),
           onChanged: (String? value) => cubit.onChangeValue(
-            StringsEn.password,
+            hint == StringsEn.password
+                ? StringsEn.password
+                : StringsEn.confirmNewPass,
             value!,
           ),
         );

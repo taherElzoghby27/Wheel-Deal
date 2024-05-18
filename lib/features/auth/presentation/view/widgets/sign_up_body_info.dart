@@ -6,6 +6,7 @@ import 'package:cars/core/helper/custom_snack.dart';
 import 'package:cars/core/widgets/auth_top_section.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
+import 'package:cars/features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -97,6 +98,8 @@ class _SignUpBodyInfoState extends State<SignUpBodyInfo>
                 GoRouter.of(context).pushReplacement(navPath);
               } else if (state is SignUpFailure) {
                 isLoading = false;
+                BlocProvider.of<ChangeSignUpCurrentPageCubit>(context)
+                    .change(1);
                 showSnack(
                   context,
                   message: state.message,
