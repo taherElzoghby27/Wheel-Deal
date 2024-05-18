@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/car_details/data/models/car_specification_model.dart';
 import '../../features/chats/data/models/message_model.dart';
-import '../../features/home/presentation/view/home_view.dart';
+import '../../features/home/presentation/view/home_view_bloc_provider.dart';
 import '../../features/on_boarding/presentation/view/widgets/board_structure.dart';
 import '../../features/verification/data/models/identity_type_model.dart';
 import 'assets.dart';
@@ -52,7 +52,7 @@ List<TweenSequenceItem<Offset>> itemsSequences = <TweenSequenceItem<Offset>>[
 ];
 //screens
 List<Widget> screens = const [
-  HomeView(),
+  HomeViewBlocProvider(),
   FavouritesView(),
   OrdersView(),
   ChatView(),
