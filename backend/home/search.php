@@ -23,13 +23,13 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
         $decoded = JWT::decode($token, $key, $object);
         $userId = $decoded->user_id;
 
-        if (isset($_GET['q'])) {
-            $searchQuery = '%' . htmlspecialchars($_GET['q']) . '%';
+        if (isset($_POST['search_word'])) {
+            $searchQuery = '%' . htmlspecialchars($_POST['search_word']) . '%';
 
             // Insert search history into the database
             $insertStmt = $pdo->prepare("INSERT INTO user_search_history (user_id, search_query) VALUES (:user_id, :searchQuery)");
             $insertStmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
-            $insertStmt->bindParam(':searchQuery', $_GET['q'], PDO::PARAM_STR);
+            $insertStmt->bindParam(':searchQuery', $_POST['search_word'], PDO::PARAM_STR);
             $insertStmt->execute();
 
             // Perform the search query
@@ -48,7 +48,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
 
             // Prepare the response
             $response = array(
-                "results" => $results,
+                "status" => "success", "data" => $results,
                 "recent_searches" => $recentSearches
             );
             http_response_code(200);
