@@ -4,11 +4,19 @@ import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class HomeRepo {
-  Future<Either<FailureServ, List<BrandEntity>>> getTopBrands();
+  Future<Either<FailureServ, List<BrandEntity>>> getTopBrands({
+    required int page,
+  });
 
-  Future<Either<FailureServ, List<CarEntity>>> getRecommendedForYou();
+  Future<Either<FailureServ, List<CarEntity>>> getRecommendedForYou({
+    required int page,
+  });
 
-  Future<Either<FailureServ, List<CarEntity>>> getBestOffers();
+  Future<Either<FailureServ, List<CarEntity>>> getBestOffers({
+    required int page,
+  });
 
-  Future<Either<FailureServ, List<CarEntity>>> getFavourites();
+  Future<Either<FailureServ, List<CarEntity>>> getFavourites({
+    required int page,
+  });
 }

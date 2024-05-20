@@ -26,20 +26,23 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>(
       (event, emit) async {
         if (event is AddTopBrandsEvent) {
-          await topBrandsEvent(emit);
+          await topBrandsEvent(emit, event);
         } else if (event is AddBestOfferEvent) {
-          await bestOffersEvent(emit);
+          await bestOffersEvent(emit, event);
         } else if (event is AddFavouritesEvent) {
-          await favouritesEvent(emit);
+          await favouritesEvent(emit, event);
         } else if (event is AddRecommendedForYouEvent) {
-          await recommendedForYouEvent(emit);
+          await recommendedForYouEvent(emit, event);
         }
       },
     );
   }
 
-  Future<void> recommendedForYouEvent(Emitter<HomeState> emit) async {
-    await _getRecommendedForYouUseCase.call().then(
+  Future<void> recommendedForYouEvent(
+    Emitter<HomeState> emit,
+    AddRecommendedForYouEvent event,
+  ) async {
+    await _getRecommendedForYouUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -61,8 +64,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
   }
 
-  Future<void> favouritesEvent(Emitter<HomeState> emit) async {
-    await _getFavouritesUseCase.call().then(
+  Future<void> favouritesEvent(
+    Emitter<HomeState> emit,
+    AddFavouritesEvent event,
+  ) async {
+    await _getFavouritesUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -84,8 +90,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
   }
 
-  Future<void> bestOffersEvent(Emitter<HomeState> emit) async {
-    await _getBestOffersUseCase.call().then(
+  Future<void> bestOffersEvent(
+    Emitter<HomeState> emit,
+    AddBestOfferEvent event,
+  ) async {
+    await _getBestOffersUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -107,8 +116,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
   }
 
-  Future<void> topBrandsEvent(Emitter<HomeState> emit) async {
-    await _getTopBrandsUseCase.call().then(
+  Future<void> topBrandsEvent(
+    Emitter<HomeState> emit,
+    AddTopBrandsEvent event,
+  ) async {
+    await _getTopBrandsUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
               emit(

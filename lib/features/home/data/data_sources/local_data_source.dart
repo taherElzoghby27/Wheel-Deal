@@ -6,13 +6,13 @@ import 'package:cars/features/home/domain/entities/car_entity.dart';
 import '../../domain/entities/brand_entity.dart';
 
 abstract class HomeLocalDataSource {
-  List<BrandEntity> getTopBrands();
+  List<BrandEntity> getTopBrands({required int page});
 
-  List<CarEntity> getRecommendedForYou();
+  List<CarEntity> getRecommendedForYou({required int page});
 
-  List<CarEntity> getBestOffers();
+  List<CarEntity> getBestOffers({required int page});
 
-  List<CarEntity> getFavourites();
+  List<CarEntity> getFavourites({required int page});
 }
 
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
@@ -26,32 +26,57 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
         _hiveDbCarsHome = hiveDbCarsHome;
 
   @override
-  List<CarEntity> getBestOffers() {
+  List<CarEntity> getBestOffers({required int page}) {
     List<CarEntity> result = _hiveDbCarsHome.getCars(
       StringsEn.kBestOffers,
     );
-    return result;
+    int bestOffersCarsLength = result.length;
+    int startPage = (page - 1) * 10; //0
+    int endPage = page * 10; //10
+    if (startPage >= bestOffersCarsLength || endPage > bestOffersCarsLength) {
+      return [];
+    }
+    return result.sublist(startPage, endPage);
   }
 
   @override
-  List<CarEntity> getFavourites() {
+  List<CarEntity> getFavourites({required int page}) {
     List<CarEntity> result = _hiveDbCarsHome.getCars(
       StringsEn.kFavourites,
     );
-    return result;
+    int favouritesCarsLength = result.length;
+    int startPage = (page - 1) * 10; //0
+    int endPage = page * 10; //10
+    if (startPage >= favouritesCarsLength || endPage > favouritesCarsLength) {
+      return [];
+    }
+    return result.sublist(startPage, endPage);
   }
 
   @override
-  List<CarEntity> getRecommendedForYou() {
+  List<CarEntity> getRecommendedForYou({required int page}) {
     List<CarEntity> result = _hiveDbCarsHome.getCars(
       StringsEn.kRecommendedForYou,
     );
-    return result;
+    int recommendationsCarsLength = result.length;
+    int startPage = (page - 1) * 10; //0
+    int endPage = page * 10; //10
+    if (startPage >= recommendationsCarsLength ||
+        endPage > recommendationsCarsLength) {
+      return [];
+    }
+    return result.sublist(startPage, endPage);
   }
 
   @override
-  List<BrandEntity> getTopBrands() {
+  List<BrandEntity> getTopBrands({required int page}) {
     List<BrandEntity> result = _hiveDbBrandsHome.getBrands();
-    return result;
+    int brandsLength = result.length;
+    int startPage = (page - 1) * 10; //0
+    int endPage = page * 10; //10
+    if (startPage >= brandsLength || endPage > brandsLength) {
+      return [];
+    }
+    return result.sublist(startPage, endPage);
   }
 }

@@ -5,13 +5,13 @@ import 'package:cars/core/services/api_service.dart';
 import 'package:dio/dio.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<Response> getTopBrands();
+  Future<Response> getTopBrands({required int page});
 
-  Future<Response> getRecommendedForYou();
+  Future<Response> getRecommendedForYou({required int page});
 
-  Future<Response> getBestOffers();
+  Future<Response> getBestOffers({required int page});
 
-  Future<Response> getFavourites();
+  Future<Response> getFavourites({required int page});
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -21,52 +21,53 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       : _apiService = apiService;
 
   @override
-  Future<Response> getTopBrands() async {
+  Future<Response> getTopBrands({required int page}) async {
     String? token = await readFromCache(
       StringsEn.token,
     );
 
     Response response = await _apiService.get(
-      endPoint: ApiConsts.topBrandsEndpoint,
+      endPoint: "${ApiConsts.topBrandsEndpoint}?page=$page",
+      token: token,
+    );
+
+    return response;
+  }
+
+  @override
+  Future<Response> getBestOffers({required int page}) async {
+    String? token = await readFromCache(
+      StringsEn.token,
+    );
+
+    Response response = await _apiService.get(
+      endPoint: "${ApiConsts.bestOffersEndpoint}?page=$page",
       token: token,
     );
     return response;
   }
 
   @override
-  Future<Response> getBestOffers() async {
+  Future<Response> getFavourites({required int page}) async {
     String? token = await readFromCache(
       StringsEn.token,
     );
 
     Response response = await _apiService.get(
-      endPoint: ApiConsts.bestOffersEndpoint,
+      endPoint: "${ApiConsts.favouritesEndpoint}?page=$page",
       token: token,
     );
     return response;
   }
 
   @override
-  Future<Response> getFavourites() async {
+  Future<Response> getRecommendedForYou({required int page}) async {
     String? token = await readFromCache(
       StringsEn.token,
     );
 
     Response response = await _apiService.get(
-      endPoint: ApiConsts.favouritesEndpoint,
-      token: token,
-    );
-    return response;
-  }
-
-  @override
-  Future<Response> getRecommendedForYou() async {
-    String? token = await readFromCache(
-      StringsEn.token,
-    );
-
-    Response response = await _apiService.get(
-      endPoint: ApiConsts.recommendedForYouEndPoint,
+      endPoint: "${ApiConsts.recommendedForYouEndPoint}?page=$page",
       token: token,
     );
     return response;

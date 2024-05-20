@@ -5,21 +5,37 @@ abstract class HomeEvent extends Equatable {
 }
 
 class AddTopBrandsEvent extends HomeEvent {
+  final int page;
+
+  const AddTopBrandsEvent({this.page = 1});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [page];
 }
 
 class AddBestOfferEvent extends HomeEvent {
+  final int page;
+
+  const AddBestOfferEvent({this.page = 1});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [page];
 }
 
 class AddRecommendedForYouEvent extends HomeEvent {
+  final int page;
+
+  const AddRecommendedForYouEvent({this.page = 1});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [page];
 }
 
 class AddFavouritesEvent extends HomeEvent {
+  final int page;
+
+  const AddFavouritesEvent({this.page = 1});
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [page];
 }
