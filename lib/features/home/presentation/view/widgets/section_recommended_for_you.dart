@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/style.dart';
-import 'cars_list_view.dart';
+import 'best_offers_bloc_consumer.dart';
 import 'top_leading_trailing.dart';
 
 class SectionRecommendedForYou extends StatelessWidget {
@@ -28,7 +28,7 @@ class SectionRecommendedForYou extends StatelessWidget {
             const Spacer(),
             const Expanded(
               flex: 25,
-              child: CarsListView(),
+              child: BestOffersBlocConsumer(),
             ),
           ],
         ),

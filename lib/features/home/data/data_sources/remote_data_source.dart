@@ -45,6 +45,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       endPoint: ApiConsts.bestOffersEndpoint,
       token: token,
     );
+    debugPrint(response.toString());
     return response;
   }
 

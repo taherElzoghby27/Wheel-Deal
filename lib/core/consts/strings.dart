@@ -1,5 +1,9 @@
 ///strings by english
 abstract class StringsEn {
+  static const String newImagesPath =
+      'taher/Applications/XAMPP/xamppfiles/htdocs/';
+  static const String oldImagesPath='C:\\xampp\\htdocs\\';
+
   static const String logo = "WHEEL DEAL";
   static const String next = "Next";
   static const String skip = "skip";
