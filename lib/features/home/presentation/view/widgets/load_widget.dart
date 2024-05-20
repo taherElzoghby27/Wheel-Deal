@@ -1,8 +1,10 @@
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 
-class LoadingWidgetTopBrand extends StatelessWidget {
-  const LoadingWidgetTopBrand({super.key});
+class LoadWidget extends StatelessWidget {
+  const LoadWidget({super.key, this.width});
+
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class LoadingWidgetTopBrand extends StatelessWidget {
     return Padding(
       padding: AppConsts.padding4,
       child: Container(
-        width: size.width * .3,
+        width: width ?? size.width * .35,
         decoration: BoxDecoration(
           color: AppConsts.neutral400,
           borderRadius: AppConsts.mainRadius,

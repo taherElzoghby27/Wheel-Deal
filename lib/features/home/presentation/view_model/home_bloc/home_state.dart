@@ -1,6 +1,12 @@
 part of 'home_bloc.dart';
 
-enum RequestState { loading, loaded, failure }
+enum RequestState {
+  loading,
+  loadingPagination,
+  loaded,
+  failure,
+  failurePagination,
+}
 
 class HomeState extends Equatable {
   //topBrands

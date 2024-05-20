@@ -30,10 +30,10 @@ class HomeViewBlocProvider extends StatelessWidget {
             homeRepo: getIt.get<HomeRepoImpl>(),
           ),
         )
-          ..add(AddTopBrandsEvent())
-          ..add(AddBestOfferEvent())
-          ..add(AddFavouritesEvent())
-          ..add(AddRecommendedForYouEvent()),
+          ..add(const AddTopBrandsEvent())
+          ..add(const AddBestOfferEvent())
+          ..add(const AddFavouritesEvent())
+          ..add(const AddRecommendedForYouEvent()),
         child: const SafeArea(
           child: HomeBody(),
         ),
