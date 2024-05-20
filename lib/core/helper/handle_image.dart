@@ -23,12 +23,13 @@ class HandleImageWidget extends StatelessWidget {
         return Image.asset(
           image,
           color: color,
-          fit: BoxFit.contain,
+          fit: BoxFit.cover,
         );
       case 'svg':
         return SvgPicture.asset(
           image,
           color: color,
+          fit: BoxFit.cover,
         );
       case 'network':
         return CachedNetworkImage(
@@ -47,11 +48,12 @@ class HandleImageWidget extends StatelessWidget {
 }
 
 //check photo type
-String checkPhotoType(String image) =>
-    image.endsWith(StringsEn.jpg) && !image.startsWith(StringsEn.https)
-        ? StringsEn.jpg
-        : image.endsWith(StringsEn.png) && !image.startsWith(StringsEn.https)
-            ? StringsEn.png
-            : image.endsWith(StringsEn.svg)
-                ? StringsEn.svg
-                : StringsEn.network;
+String checkPhotoType(String image) => image.endsWith(StringsEn.jpg) &&
+        !image.startsWith(StringsEn.https)
+    ? StringsEn.jpg
+    : (image.endsWith(StringsEn.png) && !image.startsWith(StringsEn.https)) ||
+            image.endsWith('PNG')
+        ? StringsEn.png
+        : image.endsWith(StringsEn.svg)
+            ? StringsEn.svg
+            : StringsEn.network;

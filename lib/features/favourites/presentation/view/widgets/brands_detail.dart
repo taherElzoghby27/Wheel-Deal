@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -26,9 +27,16 @@ class BrandsDetails extends StatelessWidget {
             position: index,
             duration: const Duration(milliseconds: 575),
             columnCount: 2,
-            child: const ScaleAnimation(
+            child: ScaleAnimation(
               child: FadeInAnimation(
-                child: CarComponent(),
+                child: CarComponent(
+                  car: CarEntity(
+                    id: 0,
+                    image: '',
+                    priceCar: 0,
+                    title: '',
+                  ),
+                ),
               ),
             ),
           );

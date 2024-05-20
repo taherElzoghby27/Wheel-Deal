@@ -1,11 +1,7 @@
-import 'package:cars/features/home/domain/entities/brand_entity.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
-
-import 'brand_item.dart';
-import 'loading_top_brands.dart';
+import 'shimmer_loading_widget_home.dart';
 
 class BrandsListView extends StatelessWidget {
   const BrandsListView({super.key});
@@ -27,7 +23,7 @@ class BrandsListView extends StatelessWidget {
         // } else if (state.topBrandsState == RequestState.failure) {
         //   return const Center(child: Text('no data'));
         // } else {
-          return const LoadingTopBrandsListView();
+        return const ShimmerLoadingHome();
         // }
       },
     );
