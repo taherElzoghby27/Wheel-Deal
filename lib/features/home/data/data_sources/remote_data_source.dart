@@ -3,6 +3,7 @@ import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 abstract class HomeRemoteDataSource {
   Future<Response> getTopBrands();
@@ -30,6 +31,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       endPoint: ApiConsts.topBrandsEndpoint,
       token: token,
     );
+    debugPrint(response.toString());
     return response;
   }
 

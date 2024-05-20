@@ -1,4 +1,3 @@
-import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/splash/presentation/view/widgets/splash_body.dart';
 import 'package:flutter/material.dart';
 
