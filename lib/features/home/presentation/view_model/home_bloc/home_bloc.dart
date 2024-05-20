@@ -95,7 +95,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 ),
               );
             },
-            (success) {
+            (List<CarEntity> success) {
               emit(
                 state.copyWith(
                   bestOffersState: RequestState.loaded,

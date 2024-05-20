@@ -4,11 +4,11 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 
 class CarModel extends CarEntity {
-  String? carId;
+  num? carId;
   String? brand;
   String? model;
   String? bodyType;
-  String? price;
+  num? price;
   String? imagePath;
 
   CarModel({
@@ -19,10 +19,10 @@ class CarModel extends CarEntity {
     this.price,
     this.imagePath,
   }) : super(
-          id: carId ?? '',
+          id: carId ?? 0,
           image: imagePath ?? '',
           title: model ?? '',
-          priceCar: price ?? '',
+          priceCar: price ?? 0,
         );
 
   factory CarModel.fromJson(String json) => CarModel.fromMap(
