@@ -35,7 +35,7 @@ try {
     // Check if data was found
     if ($brands) {
           // Prepare pagination links
-          $base_url = 'http://localhost/CarTrading/backend/home/top_brands.php'; // Change to your actual API endpoint
+          $base_url = 'http://localhost/car_trading_app/home/top_brands.php'; // Change to your actual API endpoint
           $prev_page = $page > 1 ? $base_url . '?page=' . ($page - 1) : null;
           $next_page = $page < $total_pages ? $base_url . '?page=' . ($page + 1) : null;
   
