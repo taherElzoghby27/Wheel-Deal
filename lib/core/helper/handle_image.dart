@@ -52,7 +52,8 @@ String checkPhotoType(String image) => image.endsWith(StringsEn.jpg) &&
         !image.startsWith(StringsEn.https)
     ? StringsEn.jpg
     : (image.endsWith(StringsEn.png) && !image.startsWith(StringsEn.https)) ||
-            image.endsWith('PNG')
+            image.endsWith('PNG') ||
+            image.endsWith('jpeg')
         ? StringsEn.png
         : image.endsWith(StringsEn.svg)
             ? StringsEn.svg
