@@ -25,13 +25,13 @@ class _BlocConsumerRecommendedForYouGridViewState
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
       builder: (context, state) {
-        if (state.bestOffersState == RequestState.loaded ||
-            state.bestOffersState == RequestState.loadingPagination ||
-            state.bestOffersState == RequestState.failurePagination) {
+        if (state.recommendedForYouState == RequestState.loaded ||
+            state.recommendedForYouState == RequestState.loadingPagination ||
+            state.recommendedForYouState == RequestState.failurePagination) {
           return RecommendedForYouGridView(
             recommendedForYou: recommendedForYou,
           );
-        } else if (state.bestOffersState == RequestState.failure) {
+        } else if (state.recommendedForYouState == RequestState.failure) {
           return SomeThingErrorWidget(
             message: state.failureMessageBestOffers,
           );
@@ -40,9 +40,10 @@ class _BlocConsumerRecommendedForYouGridViewState
         }
       },
       listener: (context, state) {
-        if (state.bestOffersState == RequestState.loaded) {
-          recommendedForYou.addAll(state.bestOffers);
-        } else if (state.bestOffersState == RequestState.failurePagination) {
+        if (state.recommendedForYouState == RequestState.loaded) {
+          recommendedForYou.addAll(state.recommendedForYou);
+        } else if (state.recommendedForYouState ==
+            RequestState.failurePagination) {
           showSnack(
             context,
             message: state.failureMessageBestOffers,
