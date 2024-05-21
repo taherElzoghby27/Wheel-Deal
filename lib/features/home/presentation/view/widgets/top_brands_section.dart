@@ -3,7 +3,7 @@ import 'package:cars/core/consts/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'brands_list_view.dart';
+import 'bloc_consumer_brands_list_view.dart';
 import 'top_leading_trailing.dart';
 
 class SectionTopBrands extends StatelessWidget {
