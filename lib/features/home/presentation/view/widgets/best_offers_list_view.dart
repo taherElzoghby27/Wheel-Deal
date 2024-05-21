@@ -34,6 +34,7 @@ class _BestOffersListViewState extends State<BestOffersListView> {
     super.dispose();
   }
 
+//handle scroll
   void handleScroll() {
     double maxScrolls = _scrollController.position.maxScrollExtent;
     double currentScroll = _scrollController.position.pixels;

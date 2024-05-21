@@ -69,7 +69,7 @@ abstract class AppConsts {
   static const Color danger200 = Color.fromRGBO(255, 201, 170, 1);
   static const Color danger100 = Color.fromRGBO(255, 231, 212, 1);
   static const Color lightBlack = Color.fromRGBO(17, 17, 17, 1);
-  static const Color lightBlackDarkMode = Color.fromRGBO(241,241,241, 1);
+  static const Color lightBlackDarkMode = Color.fromRGBO(241, 241, 241, 1);
 
   //aspect ratio
   static const double aspectRatioButtonAuth = 3 / .5;
@@ -355,5 +355,12 @@ abstract class AppConsts {
   static const TextStyle pastedTextStyle = TextStyle(
     color: neutral100,
     fontWeight: FontWeight.bold,
+  );
+  static SliverGridDelegateWithFixedCrossAxisCount gridDelegate =
+      SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2, // number of items in each row
+    mainAxisSpacing: 10, // spacing between rows
+    crossAxisSpacing: 10, // spacing between columns
+    childAspectRatio: aspectRatioComponentCategory.sp,
   );
 }

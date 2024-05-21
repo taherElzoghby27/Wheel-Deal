@@ -1,7 +1,7 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-import 'brands_detail.dart';
+import '../../../../home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
 
 class FavouritesBody extends StatelessWidget {
   const FavouritesBody({super.key});
@@ -14,9 +14,9 @@ class FavouritesBody extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: const [
           AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
-          //favourites car
+          //best offers
 
-          BrandsDetails(),
+          BestOffersBlocConsumer(),
         ],
       ),
     );

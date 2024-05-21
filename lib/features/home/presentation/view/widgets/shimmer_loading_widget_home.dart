@@ -8,9 +8,11 @@ class ShimmerLoadingHome extends StatelessWidget {
   const ShimmerLoadingHome({
     super.key,
     this.widthComponent,
+    this.direction,
   });
 
   final double? widthComponent;
+  final Axis? direction;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ShimmerLoadingHome extends StatelessWidget {
       baseColor: AppConsts.neutral800.withOpacity(.7),
       highlightColor: AppConsts.black,
       child: ListView(
-        scrollDirection: Axis.horizontal,
+        scrollDirection: direction ?? Axis.horizontal,
         children: List.generate(
           5,
           (c) => LoadWidget(width: widthComponent),

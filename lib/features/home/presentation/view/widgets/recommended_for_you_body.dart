@@ -1,5 +1,5 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/favourites/presentation/view/widgets/brands_detail.dart';
+import 'package:cars/features/home/presentation/view/widgets/best_offers_bloc_consumer.dart';
 import 'package:flutter/cupertino.dart';
 
 class RecommendedForyouBody extends StatelessWidget {
@@ -15,7 +15,7 @@ class RecommendedForyouBody extends StatelessWidget {
           AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
           //favourites car
 
-          BrandsDetails(),
+          BestOffersBlocConsumer(),
         ],
       ),
     );
