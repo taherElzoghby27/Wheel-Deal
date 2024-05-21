@@ -5,8 +5,8 @@ import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.d
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/widgets/car_component.dart';
 import '../../../domain/entities/car_entity.dart';
+import 'best_offers_list_view.dart';
 import 'shimmer_loading_widget_home.dart';
 
 class BestOffersBlocConsumer extends StatefulWidget {
@@ -26,14 +26,7 @@ class _BestOffersBlocConsumerState extends State<BestOffersBlocConsumer> {
         if (state.bestOffersState == RequestState.loaded ||
             state.bestOffersState == RequestState.loadingPagination ||
             state.bestOffersState == RequestState.failurePagination) {
-          return ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return CarComponent(car: bestOfferCars[index]);
-            },
-            itemCount: bestOfferCars.length,
-          );
+          return BestOffersListView(bestOfferCars: bestOfferCars);
         } else if (state.bestOffersState == RequestState.failure) {
           return SomeThingErrorWidget(
             message: state.failureMessageBestOffers,
