@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
+import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/models/brand_model.dart';
@@ -15,72 +17,68 @@ import '../../../../core/consts/strings.dart';
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource _homeRemoteDataSource;
   final HomeLocalDataSource _homeLocalDataSource;
+  final HiveDbCarsHome _hiveDbCarsHome;
+  final HiveDbBrandsHome _hiveDbBrandsHome;
 
   HomeRepoImpl({
     required HomeRemoteDataSource homeRemoteDataSource,
     required HomeLocalDataSource homeLocalDataSource,
+    required HiveDbCarsHome hiveDbCarsHome,
+    required HiveDbBrandsHome hiveDbBrandsHome,
   })  : _homeRemoteDataSource = homeRemoteDataSource,
-        _homeLocalDataSource = homeLocalDataSource;
+        _homeLocalDataSource = homeLocalDataSource,
+        _hiveDbCarsHome = hiveDbCarsHome,
+        _hiveDbBrandsHome = hiveDbBrandsHome;
 
   @override
-  Future<Either<FailureServ, List<BrandEntity>>> getTopBrands() async {
-    return fetchData(
-      () => _homeLocalDataSource.getTopBrands(),
-      () async => await _homeRemoteDataSource.getTopBrands(),
-      (_) => convertMapToBrandsModel as List<BrandEntity>,
-    );
-  }
-
-  @override
-  Future<Either<FailureServ, List<CarEntity>>> getBestOffers() async {
-    return fetchData(
-      () => _homeLocalDataSource.getBestOffers(),
-      () async => await _homeRemoteDataSource.getBestOffers(),
-      (_) => convertMapToCarsModel as List<CarEntity>,
+  Future<Either<FailureServ, List<BrandEntity>>> getTopBrands({
+    required int page,
+  }) {
+    return fetchBrands(
+      () => _homeLocalDataSource.getTopBrands(page: page),
+      () => _homeRemoteDataSource.getTopBrands(page: page),
     );
   }
 
   @override
-  Future<Either<FailureServ, List<CarEntity>>> getFavourites() async {
-    return fetchData(
-      () => _homeLocalDataSource.getFavourites(),
-      () async => await _homeRemoteDataSource.getFavourites(),
-      (_) => convertMapToCarsModel as List<CarEntity>,
+  Future<Either<FailureServ, List<CarEntity>>> getBestOffers({
+    required int page,
+  }) {
+    return fetchCars(
+      () => _homeLocalDataSource.getBestOffers(page: page),
+      () => _homeRemoteDataSource.getBestOffers(page: page),
+      boxName: StringsEn.kBestOffers,
     );
   }
 
   @override
-  Future<Either<FailureServ, List<CarEntity>>> getRecommendedForYou() async {
-    return fetchData(
-      () => _homeLocalDataSource.getRecommendedForYou(),
-      () async => await _homeRemoteDataSource.getRecommendedForYou(),
-      (_) => convertMapToCarsModel as List<CarEntity>,
+  Future<Either<FailureServ, List<CarEntity>>> getFavourites({
+    required int page,
+  }) {
+    return fetchCars(
+      () => _homeLocalDataSource.getFavourites(page: page),
+      () => _homeRemoteDataSource.getFavourites(page: page),
+      boxName: StringsEn.kFavourites,
     );
   }
 
-  //convert map to brand models
-  List<BrandEntity> convertMapToBrandsModel(List<Map<String, dynamic>> data) {
-    return List<BrandModel>.from(
-      (data).map(
-        (e) => BrandModel.fromMap(e),
-      ),
+  @override
+  Future<Either<FailureServ, List<CarEntity>>> getRecommendedForYou({
+    required int page,
+  }) {
+    return fetchCars(
+      () => _homeLocalDataSource.getRecommendedForYou(page: page),
+      () => _homeRemoteDataSource.getRecommendedForYou(page: page),
+      boxName: StringsEn.kRecommendedForYou,
     );
   }
 
-  //convert map to car models
-  List<CarEntity> convertMapToCarsModel(List<Map<String, dynamic>> data) {
-    return List<CarModel>.from(
-      (data).map(
-        (e) => CarModel.fromMap(e),
-      ),
-    );
-  }
-
-  Future<Either<FailureServ, List<T>>> fetchData<T>(
-    List<T> Function() localDataSourceCall,
-    Future<Response> Function() remoteDataSourceCall,
-    List<T> Function(List<Map<String, dynamic>>) convertData,
-  ) async {
+//fetch cars (best offers , recommended for you , favourites) from api
+  Future<Either<FailureServ, List<CarEntity>>> fetchCars(
+    List<CarEntity> Function() localDataSourceCall,
+    Future<Response> Function() remoteDataSourceCall, {
+    required String boxName,
+  }) async {
     try {
       final localData = localDataSourceCall();
       if (localData.isNotEmpty) {
@@ -89,9 +87,15 @@ class HomeRepoImpl extends HomeRepo {
 
       final response = await remoteDataSourceCall();
       if (response.statusCode == 200) {
-        Map<String, dynamic> data = jsonDecode(response.data);
-        List<T> convertedData = convertData(data['data']);
-        // Cache data if needed
+        Map<String, dynamic> data = response.data;
+        List<CarEntity> convertedData = convertMapToCarsModel(
+          data['data'],
+        );
+        //save cars in local
+        _hiveDbCarsHome.saveCars(
+          boxName: boxName,
+          cars: convertedData,
+        );
         return Right(convertedData);
       } else {
         return Left(
@@ -107,5 +111,58 @@ class HomeRepoImpl extends HomeRepo {
       }
       return Left(ServerFailure(message: StringsEn.errorMessage));
     }
+  }
+
+  Future<Either<FailureServ, List<BrandEntity>>> fetchBrands(
+    Function() localDataSourceCall,
+    Function() remoteDataSourceCall,
+  ) async {
+    try {
+      final localData = localDataSourceCall();
+      if (localData.isNotEmpty) {
+        return Right(localData);
+      }
+
+      final response = await remoteDataSourceCall();
+      if (response.statusCode == 200) {
+        Map<String, dynamic> data = response.data;
+        List<BrandEntity> convertedData = convertMapToBrandsModel(
+          data['data'],
+        );
+        //save brand in local
+        _hiveDbBrandsHome.saveBrands(brands: convertedData);
+        return Right(convertedData);
+      } else {
+        return Left(
+          ServerFailure.fromDioResponse(
+            response.statusCode!,
+            response.data,
+          ),
+        );
+      }
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
+
+  //convert map to brand models
+  List<BrandModel> convertMapToBrandsModel(List<dynamic> data) {
+    return List<BrandModel>.from(
+      (data).map(
+        (e) => BrandModel.fromMap(e),
+      ),
+    );
+  }
+
+  //convert map to car models
+  List<CarModel> convertMapToCarsModel(List<dynamic> data) {
+    return List<CarModel>.from(
+      data.map(
+        (car) => CarModel.fromMap(car),
+      ),
+    );
   }
 }

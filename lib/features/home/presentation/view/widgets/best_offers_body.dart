@@ -1,22 +1,34 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cars/features/home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/style.dart';
-import '../../../../favourites/presentation/view/widgets/brands_detail.dart';
+import '../../view_model/home_bloc/home_bloc.dart';
 
-class BestOffersBody extends StatelessWidget {
+class BestOffersBody extends StatefulWidget {
   const BestOffersBody({super.key});
+
+  @override
+  State<BestOffersBody> createState() => _BestOffersBodyState();
+}
+
+class _BestOffersBodyState extends State<BestOffersBody> {
+  @override
+  void initState() {
+    BlocProvider.of<HomeBloc>(context).add(const AddBestOfferEvent());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: AppConsts.mainPadding,
-      child: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: const [
+      child: const Column(
+        children: [
           AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
-          //favourites car
-
-          BrandsDetails(),
+          Expanded(
+            child: BestOffersBlocConsumer(),
+          ),
         ],
       ),
     );

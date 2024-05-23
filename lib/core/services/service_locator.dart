@@ -67,6 +67,8 @@ setupServiceLocator() {
     HomeRepoImpl(
       homeRemoteDataSource: getIt.get<HomeRemoteDataSourceImpl>(),
       homeLocalDataSource: getIt.get<HomeLocalDataSourceImpl>(),
+      hiveDbBrandsHome: getIt.get<HiveDbBrandsHome>(),
+      hiveDbCarsHome: getIt.get<HiveDbCarsHome>(),
     ),
   );
 }

@@ -26,28 +26,47 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>(
       (event, emit) async {
         if (event is AddTopBrandsEvent) {
-          await topBrandsEvent(emit);
+          await topBrandsEvent(emit, event);
         } else if (event is AddBestOfferEvent) {
-          await bestOffersEvent(emit);
+          await bestOffersEvent(emit, event);
         } else if (event is AddFavouritesEvent) {
-          await favouritesEvent(emit);
+          await favouritesEvent(emit, event);
         } else if (event is AddRecommendedForYouEvent) {
-          await recommendedForYouEvent(emit);
+          await recommendedForYouEvent(emit, event);
         }
       },
     );
   }
 
-  Future<void> recommendedForYouEvent(Emitter<HomeState> emit) async {
-    await _getRecommendedForYouUseCase.call().then(
+  Future<void> recommendedForYouEvent(
+    Emitter<HomeState> emit,
+    AddRecommendedForYouEvent event,
+  ) async {
+    if (event.page != 1) {
+      emit(
+        state.copyWith(
+          recommendedForYouState: RequestState.loadingPagination,
+        ),
+      );
+    }
+    await _getRecommendedForYouUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
-              emit(
-                state.copyWith(
-                  recommendedForYouState: RequestState.failure,
-                  failureMessageRecommendedForYou: failure.message,
-                ),
-              );
+              if (event.page == 1) {
+                emit(
+                  state.copyWith(
+                    recommendedForYouState: RequestState.failure,
+                    failureMessageRecommendedForYou: failure.message,
+                  ),
+                );
+              } else {
+                emit(
+                  state.copyWith(
+                    recommendedForYouState: RequestState.failurePagination,
+                    failureMessageRecommendedForYou: failure.message,
+                  ),
+                );
+              }
             },
             (success) {
               emit(
@@ -61,16 +80,35 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
   }
 
-  Future<void> favouritesEvent(Emitter<HomeState> emit) async {
-    await _getFavouritesUseCase.call().then(
+  Future<void> favouritesEvent(
+    Emitter<HomeState> emit,
+    AddFavouritesEvent event,
+  ) async {
+    if (event.page != 1) {
+      emit(
+        state.copyWith(
+          favouritesState: RequestState.loadingPagination,
+        ),
+      );
+    }
+    await _getFavouritesUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
-              emit(
-                state.copyWith(
-                  favouritesState: RequestState.failure,
-                  failureMessageBestOffers: failure.message,
-                ),
-              );
+              if (event.page == 1) {
+                emit(
+                  state.copyWith(
+                    favouritesState: RequestState.failure,
+                    failureMessageBestOffers: failure.message,
+                  ),
+                );
+              } else {
+                emit(
+                  state.copyWith(
+                    favouritesState: RequestState.failurePagination,
+                    failureMessageBestOffers: failure.message,
+                  ),
+                );
+              }
             },
             (success) {
               emit(
@@ -84,18 +122,37 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
   }
 
-  Future<void> bestOffersEvent(Emitter<HomeState> emit) async {
-    await _getBestOffersUseCase.call().then(
+  Future<void> bestOffersEvent(
+    Emitter<HomeState> emit,
+    AddBestOfferEvent event,
+  ) async {
+    if (event.page != 1) {
+      emit(
+        state.copyWith(
+          bestOffersState: RequestState.loadingPagination,
+        ),
+      );
+    }
+    await _getBestOffersUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
-              emit(
-                state.copyWith(
-                  bestOffersState: RequestState.failure,
-                  failureMessageBestOffers: failure.message,
-                ),
-              );
+              if (event.page == 1) {
+                emit(
+                  state.copyWith(
+                    bestOffersState: RequestState.failure,
+                    failureMessageBestOffers: failure.message,
+                  ),
+                );
+              } else {
+                emit(
+                  state.copyWith(
+                    bestOffersState: RequestState.failurePagination,
+                    failureMessageBestOffers: failure.message,
+                  ),
+                );
+              }
             },
-            (success) {
+            (List<CarEntity> success) {
               emit(
                 state.copyWith(
                   bestOffersState: RequestState.loaded,
@@ -107,16 +164,35 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
   }
 
-  Future<void> topBrandsEvent(Emitter<HomeState> emit) async {
-    await _getTopBrandsUseCase.call().then(
+  Future<void> topBrandsEvent(
+    Emitter<HomeState> emit,
+    AddTopBrandsEvent event,
+  ) async {
+    if (event.page != 1) {
+      emit(
+        state.copyWith(
+          topBrandsState: RequestState.loadingPagination,
+        ),
+      );
+    }
+    await _getTopBrandsUseCase.call(event.page).then(
           (value) => value.fold(
             (failure) {
-              emit(
-                state.copyWith(
-                  topBrandsState: RequestState.failure,
-                  failureMessageTopBrands: failure.message,
-                ),
-              );
+              if (event.page == 1) {
+                emit(
+                  state.copyWith(
+                    topBrandsState: RequestState.failure,
+                    failureMessageTopBrands: failure.message,
+                  ),
+                );
+              } else {
+                emit(
+                  state.copyWith(
+                    topBrandsState: RequestState.failurePagination,
+                    failureMessageTopBrands: failure.message,
+                  ),
+                );
+              }
             },
             (success) {
               emit(

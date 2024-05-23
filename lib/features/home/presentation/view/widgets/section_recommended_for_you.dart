@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/style.dart';
-import 'cars_list_view.dart';
+import 'bloc_consumer_recommended_for_you.dart';
 import 'top_leading_trailing.dart';
 
 class SectionRecommendedForYou extends StatelessWidget {
@@ -22,13 +22,14 @@ class SectionRecommendedForYou extends StatelessWidget {
               flex: 4,
               child: TopLeadingTrailing(
                 leading: StringsEn.recommendedForYou,
-                trailingOnTap: ()=>GoRouter.of(context).push(recommendedForYouPath),
+                trailingOnTap: () =>
+                    GoRouter.of(context).push(recommendedForYouPath),
               ),
             ),
             const Spacer(),
             const Expanded(
               flex: 25,
-              child: CarsListView(),
+              child: BlocConsumerRecommendedForYou(),
             ),
           ],
         ),

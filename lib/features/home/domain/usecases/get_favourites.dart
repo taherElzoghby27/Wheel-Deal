@@ -4,13 +4,13 @@ import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class GetFavouritesUseCase extends NoParameterUseCase<List<CarEntity>> {
+class GetFavouritesUseCase extends BaseUseCase<List<CarEntity>, int> {
   final HomeRepo _homeRepo;
 
   GetFavouritesUseCase({required HomeRepo homeRepo}) : _homeRepo = homeRepo;
 
   @override
-  Future<Either<FailureServ, List<CarEntity>>> call() async {
-    return await _homeRepo.getFavourites();
+  Future<Either<FailureServ, List<CarEntity>>> call(int parameter) async {
+    return await _homeRepo.getFavourites(page: parameter);
   }
 }
