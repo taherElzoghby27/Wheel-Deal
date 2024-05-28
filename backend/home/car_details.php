@@ -2,11 +2,13 @@
 require_once("../includes/connection.php");
 
 try {
+
+    $car_id = isset($_POST['car_id']) ? $_POST['car_id'] : null;
     // Prepare SQL query to fetch car data including image URLs
-    $sql = "SELECT car_id, brand, model, body_type, fuel_type, transmission, color, release_date, engine_power, top_speed, fuel_tank_capacity, price, air_conditioner, brake_assist, navigation_system, touch_screen, connectivity, remote_engine_start_stop, new_used, installment_availability, image_path FROM cars";
-    
+    $sql = "SELECT brand, model, body_type, fuel_type, transmission, color, release_date, engine_power, top_speed, fuel_tank_capacity, price, air_conditioner, brake_assist, navigation_system, touch_screen, connectivity, remote_engine_start_stop, new_used, installment_availability, image_path FROM cars Where car_id = :car_id";
     // Prepare and execute the SQL query
     $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':car_id', $car_id, PDO::PARAM_STR);
     $stmt->execute();
 
     // Fetch car data
