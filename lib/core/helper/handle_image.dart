@@ -39,7 +39,9 @@ class HandleImageWidget extends StatelessWidget {
           progressIndicatorBuilder:
               (context, String data, DownloadProgress pr) =>
                   const LoadingWidget(),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(
+            Icons.error,
+          ),
         );
       default:
         return const Icon(Icons.error);
@@ -53,7 +55,8 @@ String checkPhotoType(String image) => image.endsWith(StringsEn.jpg) &&
     ? StringsEn.jpg
     : (image.endsWith(StringsEn.png) && !image.startsWith(StringsEn.https)) ||
             image.endsWith('PNG') ||
-            image.endsWith('jpeg')
+            image.endsWith('jpeg') ||
+            image.endsWith('webp')
         ? StringsEn.png
         : image.endsWith(StringsEn.svg)
             ? StringsEn.svg
