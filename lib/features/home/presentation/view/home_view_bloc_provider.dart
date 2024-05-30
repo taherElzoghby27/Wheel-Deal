@@ -1,7 +1,6 @@
 import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
-import 'package:cars/features/home/domain/usecases/get_favourites.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
 import 'package:cars/features/home/domain/usecases/get_top_brands.dart';
 import 'package:cars/features/home/presentation/view/widgets/home_body.dart';

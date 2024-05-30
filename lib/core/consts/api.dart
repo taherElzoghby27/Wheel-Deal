@@ -13,4 +13,7 @@ class ApiConsts {
   static const recommendedForYouEndPoint = 'home/cars.php';
   static const topBrandsEndpoint = 'home/top_brands.php';
   static const carDetailsEndPoint = 'home/car_details.php';
+  static const fetchFavEndPoint = 'favourite/fetch_favourite.php';
+  static const addFavEndPoint = 'favourite/favourite_add.php';
+  static const deleteFavEndPoint = 'favourite/favourite_delete.php';
 }

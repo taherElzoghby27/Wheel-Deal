@@ -2,6 +2,7 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
+import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
 import 'package:cars/features/home/domain/usecases/get_top_brands.dart';
@@ -12,7 +13,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../data/repos/home_repo_impl.dart';
-import '../../domain/usecases/get_favourites.dart';
 
 class BlocProviderBestOffersView extends StatelessWidget {
   const BlocProviderBestOffersView({super.key});
@@ -28,7 +28,8 @@ class BlocProviderBestOffersView extends StatelessWidget {
         title: StringsEn.bestOffers,
       ),
       body: BlocProvider(
-        create: (_) => HomeBloc(
+        create: (_) =>
+        HomeBloc(
           GetTopBrandsUseCase(
             homeRepo: getIt.get<HomeRepoImpl>(),
           ),
@@ -36,12 +37,13 @@ class BlocProviderBestOffersView extends StatelessWidget {
             homeRepo: getIt.get<HomeRepoImpl>(),
           ),
           GetFavouritesUseCase(
-            homeRepo: getIt.get<HomeRepoImpl>(),
+              favouritesRepo: getIt.get<>()
           ),
           GetRecommendedForYouUseCase(
             homeRepo: getIt.get<HomeRepoImpl>(),
           ),
-        )..add(const AddBestOfferEvent()),
+        )
+          ..add(const AddBestOfferEvent()),
         child: const SafeArea(
           child: BestOffersBody(),
         ),

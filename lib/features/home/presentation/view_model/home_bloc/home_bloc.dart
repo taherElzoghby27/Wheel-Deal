@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
 import 'package:cars/features/home/domain/entities/brand_entity.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
-import 'package:cars/features/home/domain/usecases/get_favourites.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
 import 'package:cars/features/home/domain/usecases/get_top_brands.dart';
 import 'package:equatable/equatable.dart';
