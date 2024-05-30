@@ -12,30 +12,28 @@ class CarDetailsBloc extends Bloc<CarDetailsEvent, CarDetailsState> {
 
   CarDetailsBloc(this._getCarDetailsUseCase) : super(CarDetailsInitial()) {
     on<CarDetailsEvent>(
-      (event, emit) {
+      (event, emit) async {
         if (event is CrDetailsEvent) {
-          crDetailsEventMethod(emit, event);
+          await crDetailsEventMethod(emit, event);
         }
       },
     );
   }
 
-  void crDetailsEventMethod(
+  crDetailsEventMethod(
     Emitter<CarDetailsState> emit,
     CrDetailsEvent event,
-  ) {
+  ) async {
     emit(CarDetailsLoading());
-    _getCarDetailsUseCase.call(event.carId).then(
-      (value) {
-        value.fold(
-          (failure) {
-            emit(CarDetailsFailure(message: failure.message));
-          },
-          (carModel) {
-            emit(CarDetailsLoaded(carModel: carModel));
-          },
+    await _getCarDetailsUseCase.call(event.carId).then(
+          (value) => value.fold(
+            (failure) {
+              emit(CarDetailsFailure(message: failure.message));
+            },
+            (carModel) {
+              emit(CarDetailsLoaded(carModel: carModel));
+            },
+          ),
         );
-      },
-    );
   }
 }

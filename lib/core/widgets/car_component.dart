@@ -16,7 +16,10 @@ class CarComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () => GoRouter.of(context).push(carDetailsPath),
+      onTap: () => GoRouter.of(context).push(
+        carDetailsPath,
+        extra: car.id,
+      ),
       child: Padding(
         padding: AppConsts.padding8,
         child: Container(

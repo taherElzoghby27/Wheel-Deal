@@ -18,7 +18,7 @@ class BottomNavBarWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(30),
-      splashColor: AppConsts.primary300,
+      splashColor: AppConsts.mainColor,
       child: Column(
         children: [
           Icon(icon, color: color),

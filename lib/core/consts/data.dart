@@ -13,6 +13,7 @@ import '../../features/chats/data/models/message_model.dart';
 import '../../features/home/presentation/view/home_view_bloc_provider.dart';
 import '../../features/on_boarding/presentation/view/widgets/board_structure.dart';
 import '../../features/verification/data/models/identity_type_model.dart';
+import '../models/car_model.dart';
 import 'assets.dart';
 
 List<BoardStructure> boards = [
@@ -58,11 +59,7 @@ List<Widget> screens = const [
   ChatView(),
   ProfileView(),
 ];
-List<String> cars = [
-  'https://www.usnews.com/object/image/0000018d-3d71-df19-abbd-3d7771dd0000/p90509760-1.jpeg?update-time=1706132861051&size=responsiveGallery',
-  'https://www.motortrend.com/uploads/2023/01/2024-BMW-M3-CS-29.png',
-  'https://alicanteplaza.es/public/Image/2022/11/ElnuevoBMWX1llegaalmercadoespa%C3%B1ol_NoticiaAmpliada.jpg',
-];
+
 List<Message> messagesLists = [
   Message(
       id: 1,
@@ -255,73 +252,77 @@ List<Map<String, dynamic>> brands = [
     'Logo': 'https://kioslambang.files.wordpress.com/2010/10/logobmw.png',
   },
 ];
-List<CarSpecificModel> specifications = [
-  CarSpecificModel(
-    key: StringsEn.bodyType,
-    value: 'sedan',
-    icon: Assets.bodyType,
-  ),
-  CarSpecificModel(
-    key: StringsEn.fuelType,
-    value: 'benzine',
-    icon: Assets.fuelType,
-  ),
-  CarSpecificModel(
-    key: StringsEn.transimmision,
-    value: 'Automatic',
-    icon: Assets.transimission,
-  ),
-  CarSpecificModel(
-    key: StringsEn.enginePower,
-    value: '3500 cc',
-    icon: Assets.enginePower,
-  ),
-  CarSpecificModel(
-    key: StringsEn.topSpeed,
-    value: '149 mph',
-    icon: Assets.topSpeed,
-  ),
-  CarSpecificModel(
-    key: StringsEn.topCapacity,
-    value: '60 Liters',
-    icon: Assets.topCapacity,
-  ),
-  CarSpecificModel(
-    key: StringsEn.releaseDate,
-    value: '2022',
-    icon: Assets.releaseDate,
-  ),
-];
-List<CarFeatureModel> features = [
-  CarFeatureModel(
-    key: StringsEn.airCondition,
-    value: true,
-  ),
-  CarFeatureModel(
-    key: StringsEn.airbag,
-    value: false,
-  ),
-  CarFeatureModel(
-    key: StringsEn.breakAssist,
-    value: true,
-  ),
-  CarFeatureModel(
-    key: StringsEn.navigationSystem,
-    value: true,
-  ),
-  CarFeatureModel(
-    key: StringsEn.touchScreen,
-    value: false,
-  ),
-  CarFeatureModel(
-    key: StringsEn.connectivity,
-    value: true,
-  ),
-  CarFeatureModel(
-    key: StringsEn.remoteEngine,
-    value: true,
-  ),
-];
+
+List<CarSpecificModel> listOfSpecification(CarModel carModel) {
+  return [
+    CarSpecificModel(
+      key: StringsEn.bodyType,
+      value: carModel.bodyType!,
+      icon: Assets.bodyType,
+    ),
+    CarSpecificModel(
+      key: StringsEn.fuelType,
+      value: carModel.fuelType!,
+      icon: Assets.fuelType,
+    ),
+    CarSpecificModel(
+      key: StringsEn.transimmision,
+      value: carModel.transmission!,
+      icon: Assets.transimission,
+    ),
+    CarSpecificModel(
+      key: StringsEn.enginePower,
+      value: '${carModel.enginePower!} cc',
+      icon: Assets.enginePower,
+    ),
+    CarSpecificModel(
+      key: StringsEn.topSpeed,
+      value: '${carModel.topSpeed} mph',
+      icon: Assets.topSpeed,
+    ),
+    CarSpecificModel(
+      key: StringsEn.topCapacity,
+      value: '${carModel.fuelTankCapacity} Liters',
+      icon: Assets.topCapacity,
+    ),
+    CarSpecificModel(
+      key: StringsEn.releaseDate,
+      value: carModel.releaseDate!.toString(),
+      icon: Assets.releaseDate,
+    ),
+  ];
+}
+
+List<CarFeatureModel> listOfFeatures(CarModel carModel) => [
+      CarFeatureModel(
+        key: StringsEn.airCondition,
+        value: carModel.airConditioner == 1 ? true : false,
+      ),
+      CarFeatureModel(
+        key: StringsEn.airbag,
+        value: carModel.brakeAssist == 1 ? true : false,
+      ),
+      CarFeatureModel(
+        key: StringsEn.breakAssist,
+        value: carModel.brakeAssist == 1 ? true : false,
+      ),
+      CarFeatureModel(
+        key: StringsEn.navigationSystem,
+        value: carModel.navigationSystem == 1 ? true : false,
+      ),
+      CarFeatureModel(
+        key: StringsEn.touchScreen,
+        value: carModel.touchScreen == 1 ? true : false,
+      ),
+      CarFeatureModel(
+        key: StringsEn.connectivity,
+        value: carModel.connectivity == 1 ? true : false,
+      ),
+      CarFeatureModel(
+        key: StringsEn.remoteEngine,
+        value: carModel.remoteEngineStartStop == 1 ? true : false,
+      ),
+    ];
 List<InstallmentModel> installments = [
   InstallmentModel(
     months: 12,

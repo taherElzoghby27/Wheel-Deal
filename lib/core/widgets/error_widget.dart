@@ -18,7 +18,9 @@ class SomeThingErrorWidget extends StatelessWidget {
         children: [
           Text(
             StringsEn.someThingError,
-            style: AppConsts.style24,
+            style: AppConsts.style24.copyWith(
+              color: Theme.of(context).canvasColor,
+            ),
           ),
         ],
       ),

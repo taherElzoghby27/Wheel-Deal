@@ -23,7 +23,7 @@ class CarModel extends CarEntity {
   num? touchScreen;
   num? connectivity;
   num? remoteEngineStartStop;
-  num? newUsed;
+  String? newUsed;
   String? installmentAvailability;
 
   CarModel({
@@ -55,9 +55,7 @@ class CarModel extends CarEntity {
           priceCar: price ?? 0,
         );
 
-  factory CarModel.fromJson(String json) => CarModel.fromMap(
-        jsonDecode(json),
-      );
+
 
   factory CarModel.fromMap(Map<String, dynamic> dataMap) {
     String imageAfterEdit = dataMap['image_path'] == null
@@ -67,11 +65,11 @@ class CarModel extends CarEntity {
             StringsEn.newImagesPath,
           );
     return CarModel(
-      carId: dataMap['car_id'] ?? '',
+      carId: dataMap['car_id'] ?? 0,
       brand: dataMap['brand'] ?? '',
       model: dataMap['model'] ?? '',
       bodyType: dataMap['body_type'] ?? '',
-      price: dataMap['price'] ?? '',
+      price: dataMap['price'] ?? 0,
       imagePath: imageAfterEdit,
       fuelType: dataMap['fuel_type'] ?? '',
       transmission: dataMap['transmission'] ?? '',
@@ -86,7 +84,7 @@ class CarModel extends CarEntity {
       touchScreen: dataMap['touch_screen'] ?? 0,
       connectivity: dataMap['connectivity'] ?? 0,
       remoteEngineStartStop: dataMap['remote_engine_start_stop'] ?? 0,
-      newUsed: dataMap['new_used'] ?? 0,
+      newUsed: dataMap['new_used'] ?? '',
       installmentAvailability: dataMap['installment_availability'] ?? '',
     );
   }

@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
+import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/car_details/presentation/view_model/changed_carsoul_cubit/changed_carsoul_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +12,9 @@ import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 import '../../../../../core/widgets/carsl_options.dart';
 
 class SectionImages extends StatefulWidget {
-  const SectionImages({super.key});
+  const SectionImages({super.key, required this.carModel});
+
+  final CarModel carModel;
 
   @override
   State<SectionImages> createState() => _SectionImagesState();
@@ -31,6 +34,11 @@ class _SectionImagesState extends State<SectionImages> {
       },
       builder: (context, state) {
         ChangedCarsoulCubit bloc = context.read<ChangedCarsoulCubit>();
+        List<String> cars = [
+          widget.carModel.image,
+          widget.carModel.image,
+          widget.carModel.image,
+        ];
         return Column(
           children: [
             SizedBox(height: size.height * .015),

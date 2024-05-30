@@ -14,11 +14,10 @@ class NavBody extends StatelessWidget {
     return AspectRatio(
       aspectRatio: AppConsts.aspectRatioNavBar,
       child: BottomAppBar(
-
         surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
-        color:Theme.of(context).scaffoldBackgroundColor,
+        color: Theme.of(context).scaffoldBackgroundColor,
         elevation: 12,
-        shadowColor:Theme.of(context).canvasColor,
+        shadowColor: Theme.of(context).canvasColor,
         child: BlocBuilder<NavBarCubit, NavBarState>(
           builder: (context, state) {
             return Row(

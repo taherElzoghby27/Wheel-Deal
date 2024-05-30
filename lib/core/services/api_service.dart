@@ -39,7 +39,7 @@ class ApiService {
       '$baseUrl$endPoint',
       data: data,
     );
-    debugPrint("${response.data}--${response.data.runtimeType}");
+    debugPrint("${response.data} -- ${response.data.runtimeType}");
     return response;
   }
 

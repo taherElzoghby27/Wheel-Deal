@@ -19,3 +19,17 @@ Future<String?> readFromCache(String key) async {
     key,
   );
 }
+
+// EGP 2847354 -> EGP 2,847,354
+String handlePrice(int number) {
+  String num = number.toString();
+  String newNum = '';
+  for (int i = num.length - 1; i >= 0; i--) {
+    newNum = num[i] + newNum;
+    if ((i + 1) % 3 == 0) {
+      newNum = ',$newNum';
+    }
+  }
+  newNum = 'EGP $newNum';
+  return newNum;
+}

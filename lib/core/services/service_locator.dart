@@ -7,6 +7,8 @@ import 'package:cars/features/auth/domain/usecases/checking_for_reset_password_u
 import 'package:cars/features/auth/domain/usecases/login_use_case.dart';
 import 'package:cars/features/auth/domain/usecases/reset_password_use_case.dart';
 import 'package:cars/features/auth/domain/usecases/sign_up_usecase.dart';
+import 'package:cars/features/car_details/data/data_source/remote_data_source.dart';
+import 'package:cars/features/car_details/data/repos/car_details_repo_impl.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
@@ -69,6 +71,16 @@ setupServiceLocator() {
       homeLocalDataSource: getIt.get<HomeLocalDataSourceImpl>(),
       hiveDbBrandsHome: getIt.get<HiveDbBrandsHome>(),
       hiveDbCarsHome: getIt.get<HiveDbCarsHome>(),
+    ),
+  );
+  getIt.registerSingleton<CarDetailsRemoteDataSourceImpl>(
+    CarDetailsRemoteDataSourceImpl(
+      apiService: getIt.get<ApiService>(),
+    ),
+  );
+  getIt.registerSingleton<CarDetailsRepoImpl>(
+    CarDetailsRepoImpl(
+      carDetailsRemoteDataSource: getIt.get<CarDetailsRemoteDataSourceImpl>(),
     ),
   );
 }

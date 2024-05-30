@@ -1,6 +1,7 @@
 import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/models/car_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +10,12 @@ import 'box_decortaion_widget.dart';
 import 'tile_feature_widget.dart';
 
 class FeaturesSection extends StatelessWidget {
-  const FeaturesSection({super.key});
+  const FeaturesSection({
+    super.key,
+    required this.carModel,
+  });
+
+  final CarModel carModel;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,7 @@ class FeaturesSection extends StatelessWidget {
           //details
           BoxDecorationWidget(
             widget: Column(
-              children: features
+              children: listOfFeatures(carModel)
                   .map(
                     (e) => TileFeaturePropertyWidget(
                       ke: e.key,

@@ -2,7 +2,7 @@ import 'package:cars/features/auth/presentation/view/create_account_bloc_provide
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/auth/presentation/view/login_view_bloc_provider.dart';
 import 'package:cars/features/auth/presentation/view/reset_pass_view_bloc_provider.dart';
-import 'package:cars/features/car_details/presentation/view/car_details_view.dart';
+import 'package:cars/features/car_details/presentation/view/car_details_bloc_provider_view.dart';
 import 'package:cars/features/car_details/presentation/view_model/changed_carsoul_cubit/changed_carsoul_cubit.dart';
 import 'package:cars/features/chats/presentation/view/chat_support_view.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
@@ -232,14 +232,19 @@ final router = GoRouter(
     ),
     GoRoute(
       path: carDetailsPath,
-      pageBuilder: (context, state) => buildPageWithDefaultTransition(
-        context: context,
-        state: state,
-        child: BlocProvider(
-          create: (_) => ChangedCarsoulCubit(),
-          child: const CarDetailsView(),
-        ),
-      ),
+      pageBuilder: (context, state) {
+        int carId = state.extra as int;
+        return buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: BlocProvider(
+            create: (_) => ChangedCarsoulCubit(),
+            child: CarDetailsBlocProviderView(
+              carId: carId,
+            ),
+          ),
+        );
+      },
     ),
     GoRoute(
       path: editProfilePath,
