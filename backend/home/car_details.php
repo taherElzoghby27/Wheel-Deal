@@ -14,7 +14,7 @@ try {
     // Fetch car data
     $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Check if data was found
+    /// Check if data was found
     if ($cars) {
         // Prepare JSON response
         $response = array("status" => "success", "data" => $cars);
