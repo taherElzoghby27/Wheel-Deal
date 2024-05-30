@@ -1,11 +1,11 @@
-import 'dart:convert';
+import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/models/car_model.dart';
 import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/models/brand_model.dart';
-import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/home/domain/entities/brand_entity.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/domain/repos/home_repo.dart';
@@ -157,7 +157,7 @@ class HomeRepoImpl extends HomeRepo {
     );
   }
 
-  //convert map to car models
+//convert map to car models
   List<CarModel> convertMapToCarsModel(List<dynamic> data) {
     return List<CarModel>.from(
       data.map(

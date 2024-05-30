@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/errors/failure_message.dart';
 import 'package:cars/core/models/car_model.dart';
@@ -22,9 +23,7 @@ class CarDetailsRepoImpl extends CarDetailsRepo {
       );
       if (response.statusCode == 200) {
         Map<String, dynamic> data = response.data;
-        List<CarModel> convertedData = convertMapToCarsModel(
-          data['data'],
-        );
+        CarModel convertedData = CarModel.fromMap(data['data']);
         return Right(convertedData);
       } else {
         return Left(
