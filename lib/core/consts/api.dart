@@ -12,4 +12,5 @@ class ApiConsts {
   static const bestOffersEndpoint = 'home/cars.php';
   static const recommendedForYouEndPoint = 'home/cars.php';
   static const topBrandsEndpoint = 'home/top_brands.php';
+  static const carDetailsEndPoint = 'home/car_details.php';
 }
