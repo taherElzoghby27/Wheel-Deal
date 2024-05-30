@@ -43,9 +43,6 @@ class MyApp extends StatelessWidget {
           child: BlocBuilder<ModeCubit, ModeState>(
             builder: (context, state) {
               final themeState = BlocProvider.of<ModeCubit>(context).state;
-              final themeData = themeState.themeMode == ThemeMod.light
-                  ? ThemeData.light()
-                  : ThemeData.dark();
               return MaterialApp.router(
                 title: 'Flutter Demo',
                 debugShowCheckedModeBanner: false,

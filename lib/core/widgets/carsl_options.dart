@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_options.dart';
-import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 
 carouselOption(

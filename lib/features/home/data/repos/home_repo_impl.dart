@@ -5,7 +5,7 @@ import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/models/brand_model.dart';
-import 'package:cars/features/home/data/models/car_model.dart';
+import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/home/domain/entities/brand_entity.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/domain/repos/home_repo.dart';
