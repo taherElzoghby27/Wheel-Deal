@@ -12,7 +12,7 @@ import 'package:cars/features/delete_account/presentation/screens/delete_account
 import 'package:cars/features/delete_account/presentation/screens/delete_account_verifi.dart';
 import 'package:cars/features/delete_account/presentation/screens/delete_account_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
-import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
+import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/home_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/recommended_for_you_bloc_provider.dart';
@@ -200,7 +200,7 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const FavouritesView(),
+        child: const FavouritesViewBlocProvider(),
       ),
     ),
     GoRoute(

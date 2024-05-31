@@ -3,7 +3,7 @@ import 'package:cars/features/car_details/data/models/car_feature_model.dart';
 import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:cars/features/chats/data/models/chat_model.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
-import 'package:cars/features/favourites/presentation/view/favourites_view.dart';
+import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
 import 'package:cars/features/orders/presentation/view/orders_view.dart';
 import 'package:cars/features/profile/presentation/view/profile_view.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +54,7 @@ List<TweenSequenceItem<Offset>> itemsSequences = <TweenSequenceItem<Offset>>[
 //screens
 List<Widget> screens = const [
   HomeViewBlocProvider(),
-  FavouritesView(),
+  FavouritesViewBlocProvider(),
   OrdersView(),
   ChatView(),
   ProfileView(),

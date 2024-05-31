@@ -1,6 +1,8 @@
 import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
+import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
+import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
@@ -35,7 +37,7 @@ class RecommendedForYouView extends StatelessWidget {
             homeRepo: getIt.get<HomeRepoImpl>(),
           ),
           GetFavouritesUseCase(
-            homeRepo: getIt.get<HomeRepoImpl>(),
+            favouritesRepo: getIt.get<FavouritesRepoImpl>(),
           ),
           GetRecommendedForYouUseCase(
             homeRepo: getIt.get<HomeRepoImpl>(),

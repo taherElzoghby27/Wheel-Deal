@@ -32,10 +32,8 @@ class AddRecommendedForYouEvent extends HomeEvent {
 }
 
 class AddFavouritesEvent extends HomeEvent {
-  final int page;
-
-  const AddFavouritesEvent({this.page = 1});
+  const AddFavouritesEvent();
 
   @override
-  List<Object?> get props => [page];
+  List<Object?> get props => [];
 }

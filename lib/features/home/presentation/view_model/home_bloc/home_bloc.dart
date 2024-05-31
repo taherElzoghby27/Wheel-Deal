@@ -84,31 +84,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
     AddFavouritesEvent event,
   ) async {
-    if (event.page != 1) {
-      emit(
-        state.copyWith(
-          favouritesState: RequestState.loadingPagination,
-        ),
-      );
-    }
-    await _getFavouritesUseCase.call(event.page).then(
+    await _getFavouritesUseCase.call().then(
           (value) => value.fold(
             (failure) {
-              if (event.page == 1) {
-                emit(
-                  state.copyWith(
-                    favouritesState: RequestState.failure,
-                    failureMessageBestOffers: failure.message,
-                  ),
-                );
-              } else {
-                emit(
-                  state.copyWith(
-                    favouritesState: RequestState.failurePagination,
-                    failureMessageBestOffers: failure.message,
-                  ),
-                );
-              }
+              emit(
+                state.copyWith(
+                  favouritesState: RequestState.failure,
+                  failureMessageBestOffers: failure.message,
+                ),
+              );
             },
             (success) {
               emit(
