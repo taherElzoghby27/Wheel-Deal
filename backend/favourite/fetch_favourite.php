@@ -39,7 +39,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                 "status" => "success", "data" => $favoriteCars));
         } else {
             http_response_code(404); // Not Found
-            echo json_encode(array("Message" => "No favorite cars found for the user"));
+            echo json_encode(array("status" => "success", "data" => $favoriteCars));
         }
     } else {
         // Invalid or expired token
