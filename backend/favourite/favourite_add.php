@@ -28,20 +28,36 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
             $car_id = isset($_POST['car_id']) ? $_POST['car_id'] : null;
 
             if ($car_id) {
-                // Prepare SQL statement to insert into favorite cars table
-                $stmt = $pdo->prepare("INSERT INTO favourite_list_item (user_id, car_id) VALUES (:user_id, :car_id)");
-                $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-                $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
 
-                // Execute the SQL statement
-                if ($stmt->execute()) {
-                    // Success response
-                    http_response_code(201); // Created
-                    echo json_encode(array("message" => "Car added to favorites successfully"));
+                // Check if the car_id already exists for the user_id
+                $checkSql = "SELECT * FROM favourite_list_item WHERE user_id = :user_id AND car_id = :car_id";
+                $checkStmt = $pdo->prepare($checkSql);
+                $checkStmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $checkStmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
+                $checkStmt->execute();
+                $existingFavourite = $checkStmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($existingFavourite) {
+                    // Car already ordered
+                    http_response_code(409); // Conflict
+                    echo json_encode(array("Message" => "Car already added to favourite"));
                 } else {
-                    // Error inserting into database
-                    http_response_code(500); // Internal Server Error
-                    echo json_encode(array("error" => "Failed to add car to favorites"));
+
+                    // Prepare SQL statement to insert into favorite cars table
+                    $stmt = $pdo->prepare("INSERT INTO favourite_list_item (user_id, car_id) VALUES (:user_id, :car_id)");
+                    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                    $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
+
+                    // Execute the SQL statement
+                    if ($stmt->execute()) {
+                        // Success response
+                        http_response_code(201); // Created
+                        echo json_encode(array("message" => "Car added to favorites successfully"));
+                    } else {
+                        // Error inserting into database
+                        http_response_code(500); // Internal Server Error
+                        echo json_encode(array("error" => "Failed to add car to favorites"));
+                    }
                 }
             } else {
                 // Missing car_id parameter
