@@ -2,6 +2,7 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/errors/failure_message.dart';
 import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/car_details/data/data_source/remote_data_source.dart';
+import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:cars/features/car_details/domain/repos/car_details_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -40,5 +41,14 @@ class CarDetailsRepoImpl extends CarDetailsRepo {
       }
       return Left(ServerFailure(message: StringsEn.errorMessage));
     }
+  }
+
+  @override
+  Future<Either<FailureServ, List<InstallmentAvailableModel>>>
+      getInstallmentAvailable({
+    required int carId,
+  }) {
+    // TODO: implement getInstallmentAvailable
+    throw UnimplementedError();
   }
 }
