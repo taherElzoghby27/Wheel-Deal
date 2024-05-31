@@ -323,33 +323,33 @@ List<CarFeatureModel> listOfFeatures(CarModel carModel) => [
         value: carModel.remoteEngineStartStop == 1 ? true : false,
       ),
     ];
-List<InstallmentModel> installments = [
-  InstallmentModel(
-    months: 12,
+List<InstallmentAvailableModel> installments = [
+  InstallmentAvailableModel(
+    installmentPlan: 12,
     deposit: 266266,
     monthly: 266266,
     total: 266266,
   ),
-  InstallmentModel(
-    months: 24,
+  InstallmentAvailableModel(
+    installmentPlan: 24,
     deposit: 266266,
     monthly: 266266,
     total: 266266,
   ),
-  InstallmentModel(
-    months: 36,
+  InstallmentAvailableModel(
+    installmentPlan: 36,
     deposit: 266266,
     monthly: 266266,
     total: 266266,
   ),
-  InstallmentModel(
-    months: 48,
+  InstallmentAvailableModel(
+    installmentPlan: 48,
     deposit: 266266,
     monthly: 266266,
     total: 266266,
   ),
-  InstallmentModel(
-    months: 60,
+  InstallmentAvailableModel(
+    installmentPlan: 60,
     deposit: 266266,
     monthly: 266266,
     total: 266266,

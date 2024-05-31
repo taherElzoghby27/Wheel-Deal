@@ -39,7 +39,7 @@ class InstallmentAvailableDialog extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return TileDialogInstallment(
-                first: '${installments[index].months} ${StringsEn.months}',
+                first: '${installments[index].installmentPlan} ${StringsEn.months}',
                 second: installments[index].deposit.toString(),
                 third: installments[index].monthly.toString(),
                 forth: installments[index].total.toString(),
