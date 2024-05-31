@@ -131,4 +131,8 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
         )
         .toList();
   }
+
+  bool checkIfFavOrNot(int carId) {
+    return favouritesList.any((e) => e.id == carId);
+  }
 }
