@@ -1,7 +1,6 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/features/home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
 
 class FavouritesBody extends StatelessWidget {
   const FavouritesBody({super.key});

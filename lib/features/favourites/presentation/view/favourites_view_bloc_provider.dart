@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/consts/strings.dart';
-import 'widgets/favourites_body.dart';
+import '../widgets/favourites_body.dart';
 
 class FavouritesViewBlocProvider extends StatelessWidget {
   const FavouritesViewBlocProvider({super.key});
@@ -28,9 +28,15 @@ class FavouritesViewBlocProvider extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => FavouritesBloc(
-          GetFavouritesUseCase(favouritesRepo: getIt.get<FavouritesRepoImpl>()),
-          AddFavUseCase(favouritesRepo: getIt.get<FavouritesRepoImpl>()),
-          DeleteFavUseCase(favouritesRepo: getIt.get<FavouritesRepoImpl>()),
+          GetFavouritesUseCase(
+            favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+          ),
+          AddFavUseCase(
+            favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+          ),
+          DeleteFavUseCase(
+            favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+          ),
         )..add(GetFavEvent()),
         child: const SafeArea(
           child: FavouritesBody(),
