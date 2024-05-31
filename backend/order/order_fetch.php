@@ -21,7 +21,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
     $user_id = $decoded->user_id;
 
     if ($user_id) {
-        // Token is valid, proceed to fetch user's favorite cars
+        /// Token is valid, proceed to fetch user's favorite cars
         $stmt = $pdo->prepare("SELECT c.car_id, c.brand, c.model, c.body_type, c.price, c.image_path
                                FROM orders uf
                                INNER JOIN cars c ON uf.car_id = c.car_id
@@ -40,7 +40,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
             echo json_encode(array("Message" => "No order cars found for the user"));
         }
     } else {
-        // Invalid or expired token
+        //// Invalid or expired token
         http_response_code(401); // Unauthorized
         echo json_encode(array("Message" => "Unauthorized"));
     }

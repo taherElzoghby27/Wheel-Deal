@@ -2,11 +2,14 @@
 require_once("../includes/connection.php");
 
 try {
+
+    $car_id = isset($_POST['car_id']) ? $_POST['car_id'] : null;
     // Prepare SQL query to fetch installment data
-    $sql = "SELECT installment_id, car_id, deposit, installment_plan, monthly, total FROM installment";
+    $sql = "SELECT car_id, deposit, installment_plan, monthly, total FROM installment WHERE car_id = :car_id";
     
     // Prepare and execute the SQL query
     $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':car_id', $car_id, PDO::PARAM_STR);
     $stmt->execute();
 
     /// Fetch installment data
@@ -20,7 +23,7 @@ try {
         http_response_code(200);
     } else {
         // No data found
-        $response = array("status" => "failed", "Message" => "No data found.");
+        $response = array("Message" => "No Installment For This Car.");
         // Set HTTP response code to 404 (Not Found) or 204 (No Content) depending on the context
         http_response_code(404); // or http_response_code(204);
     }
