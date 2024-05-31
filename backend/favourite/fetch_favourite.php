@@ -22,24 +22,30 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
 
 
     if ($user_id) {
-        // Token is valid, proceed to fetch user's favorite cars
-        $stmt = $pdo->prepare("SELECT c.car_id, c.brand, c.model, c.body_type, c.price, c.image_path
-                               FROM favourite_list_item uf
-                               INNER JOIN cars c ON uf.car_id = c.car_id
-                               WHERE uf.user_id = :user_id");
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->execute();
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            // Token is valid, proceed to fetch user's favorite cars
+            $stmt = $pdo->prepare("SELECT c.car_id, c.brand, c.model, c.body_type, c.price, c.image_path
+                                FROM favourite_list_item uf
+                                INNER JOIN cars c ON uf.car_id = c.car_id
+                                WHERE uf.user_id = :user_id");
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->execute();
 
-        $favoriteCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $favoriteCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        /// Prepare response
-        if ($favoriteCars) {
-            http_response_code(200); // OK
-            echo json_encode(array(
-                "status" => "success", "data" => $favoriteCars));
-        } else {
-            http_response_code(404); // Not Found
-            echo json_encode(array("status" => "success", "data" => $favoriteCars));
+            /// Prepare response
+            if ($favoriteCars) {
+                http_response_code(200); // OK
+                echo json_encode(array(
+                    "status" => "success", "data" => $favoriteCars));
+            } else {
+                http_response_code(404); // Not Found
+                echo json_encode(array("status" => "success", "data" => $favoriteCars));
+            }
+        } else{
+             // Invalid HTTP method
+             http_response_code(405); // Method Not Allowed
+             echo json_encode(array("error" => "Method not allowed"));
         }
     } else {
         // Invalid or expired token
