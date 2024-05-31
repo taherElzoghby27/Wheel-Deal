@@ -1,6 +1,9 @@
 import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
+import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case.dart';
+import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
+import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
@@ -16,25 +19,42 @@ class HomeViewBlocProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (_) => HomeBloc(
-          GetTopBrandsUseCase(
-            homeRepo: getIt.get<HomeRepoImpl>(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => HomeBloc(
+              GetTopBrandsUseCase(
+                homeRepo: getIt.get<HomeRepoImpl>(),
+              ),
+              GetBestOffersUseCase(
+                homeRepo: getIt.get<HomeRepoImpl>(),
+              ),
+              GetFavouritesUseCase(
+                favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+              ),
+              GetRecommendedForYouUseCase(
+                homeRepo: getIt.get<HomeRepoImpl>(),
+              ),
+            )
+              ..add(const AddTopBrandsEvent())
+              ..add(const AddBestOfferEvent())
+              ..add(const AddFavouritesEvent())
+              ..add(const AddRecommendedForYouEvent()),
           ),
-          GetBestOffersUseCase(
-            homeRepo: getIt.get<HomeRepoImpl>(),
+          BlocProvider(
+            create: (_) => FavouritesBloc(
+              GetFavouritesUseCase(
+                favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+              ),
+              AddFavUseCase(
+                favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+              ),
+              DeleteFavUseCase(
+                favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+              ),
+            )..add(GetFavEvent()),
           ),
-          GetFavouritesUseCase(
-            favouritesRepo: getIt.get<FavouritesRepoImpl>(),
-          ),
-          GetRecommendedForYouUseCase(
-            homeRepo: getIt.get<HomeRepoImpl>(),
-          ),
-        )
-          ..add(const AddTopBrandsEvent())
-          ..add(const AddBestOfferEvent())
-          ..add(const AddFavouritesEvent())
-          ..add(const AddRecommendedForYouEvent()),
+        ],
         child: const SafeArea(
           child: HomeBody(),
         ),
