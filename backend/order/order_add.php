@@ -21,30 +21,44 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
     $user_id = $decoded->user_id;
 
     if ($user_id) {
-        // Token is valid, proceed to add car to favorite list
+        // Token is valid, proceed to add car to orders list
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Assuming car_id is sent as a POST parameter named 'car_id'
             $car_id = isset($_POST['car_id']) ? $_POST['car_id'] : null;
             $order_status = isset($_POST['order_status']) ? $_POST['order_status'] : null;
-            $order_date = isset($_POST['order_date']) ? $_POST['order_date'] : null;
+            $order_date = date('Y-m-d');
 
             if ($car_id) {
-                // Prepare SQL statement to insert into favorite cars table
-                $stmt = $pdo->prepare("INSERT INTO orders (user_id, car_id, order_status, order_date) VALUES (:user_id, :car_id, :order_status, :order_date)");
-                $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-                $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
-                $stmt->bindParam(':order_status', $order_status, PDO::PARAM_STR);
-                $stmt->bindParam(':order_date', $order_date, PDO::PARAM_STR);
+                // Check if the car_id already exists for the user_id
+                $checkSql = "SELECT * FROM orders WHERE user_id = :user_id AND car_id = :car_id";
+                $checkStmt = $pdo->prepare($checkSql);
+                $checkStmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $checkStmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
+                $checkStmt->execute();
+                $existingOrder = $checkStmt->fetch(PDO::FETCH_ASSOC);
 
-                // Execute the SQL statement
-                if ($stmt->execute()) {
-                    // Success response
-                    http_response_code(201); // Created
-                    echo json_encode(array("Message" => "Car added to orders successfully"));
+                if ($existingOrder) {
+                    // Car already ordered
+                    http_response_code(409); // Conflict
+                    echo json_encode(array("Message" => "Car already ordered"));
                 } else {
-                    // Error inserting into database
-                    http_response_code(500); // Internal Server Error
-                    echo json_encode(array("Message" => "Failed to add car to orders"));
+                    // Prepare SQL statement to insert into orders table
+                    $stmt = $pdo->prepare("INSERT INTO orders (user_id, car_id, order_status, order_date) VALUES (:user_id, :car_id, :order_status, :order_date)");
+                    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                    $stmt->bindParam(':car_id', $car_id, PDO::PARAM_INT);
+                    $stmt->bindParam(':order_status', $order_status, PDO::PARAM_STR);
+                    $stmt->bindParam(':order_date', $order_date, PDO::PARAM_STR);
+
+                    // Execute the SQL statement
+                    if ($stmt->execute()) {
+                        // Success response
+                        http_response_code(201); // Created
+                        echo json_encode(array("Message" => "Car added to orders successfully"));
+                    } else {
+                        // Error inserting into database
+                        http_response_code(500); // Internal Server Error
+                        echo json_encode(array("Message" => "Failed to add car to orders"));
+                    }
                 }
             } else {
                 // Missing car_id parameter
@@ -66,3 +80,4 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
     http_response_code(401); // Unauthorized
     echo json_encode(array("Message" => "Unauthorized"));
 }
+?>
