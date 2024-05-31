@@ -4,6 +4,7 @@ import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case
 import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../domain/use_cases/get_favourites_use_case.dart';
 
@@ -50,6 +51,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
             },
             (List<CarEntity> favourites) {
               favouritesList = favourites;
+              debugPrint('list ${favouritesList.length.toString()}');
               emit(
                 state.copyWith(
                   getFavouritesState: RequestState.loaded,

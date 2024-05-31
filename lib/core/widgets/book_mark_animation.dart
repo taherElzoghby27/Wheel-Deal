@@ -48,15 +48,11 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
         ),
       ],
     ).animate(controller);
-    handleIsSaved();
-    handleAnimation();
-    super.initState();
-  }
-
-  void handleIsSaved() {
     favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
       widget.carEntity.id.toInt(),
     );
+    handleAnimation();
+    super.initState();
   }
 
   void handleAnimation() {
@@ -82,10 +78,10 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
             return InkWell(
               splashColor: Colors.transparent,
               onTap: () {
-                bool checkIfFavOrNot = favouritesBloc.checkIfFavOrNot(
+                favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
                   widget.carEntity.id.toInt(),
                 );
-                if (checkIfFavOrNot) {
+                if (favouritesBloc.isSaved) {
                   favouritesBloc.add(
                     DeleteFavEvent(carEntity: widget.carEntity),
                   );
@@ -99,20 +95,16 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
               },
               child: AnimatedBuilder(
                 animation: controller,
-                builder: (context, child) {
-                  return Padding(
-                    padding: widget.paddingIcon ?? const EdgeInsets.all(0),
-                    child: Icon(
-                      widget.icon,
-                      size: sizeAnimation.value,
-                      color: favouritesBloc.checkIfFavOrNot(
-                        widget.carEntity.id.toInt(),
-                      )
-                          ? AppConsts.mainColor
-                          : AppConsts.neutral500,
-                    ),
-                  );
-                },
+                builder: (context, child) => Padding(
+                  padding: widget.paddingIcon ?? const EdgeInsets.all(0),
+                  child: Icon(
+                    widget.icon,
+                    size: sizeAnimation.value,
+                    color: favouritesBloc.isSaved
+                        ? AppConsts.mainColor
+                        : AppConsts.neutral500,
+                  ),
+                ),
               ),
             );
           },
