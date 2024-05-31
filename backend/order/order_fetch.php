@@ -37,10 +37,10 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
             echo json_encode(array("status" => "success", "data" => $orderCars));
         } else {
             http_response_code(404); // Not Found
-            echo json_encode(array("Message" => "No order cars found for the user"));
+            echo json_encode(array("status" => "success", "data" => $orderCars));
         }
     } else {
-        //// Invalid or expired token
+        // Invalid or expired token
         http_response_code(401); // Unauthorized
         echo json_encode(array("Message" => "Unauthorized"));
     }
