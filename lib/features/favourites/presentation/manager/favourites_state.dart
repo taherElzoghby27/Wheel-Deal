@@ -53,3 +53,4 @@ class FavouritesState extends Equatable {
         favourites,
       ];
 }
+

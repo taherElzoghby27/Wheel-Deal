@@ -3,6 +3,7 @@ import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
 import 'package:cars/features/car_details/presentation/view/widgets/car_details_body_bloc_builder.dart';
 import 'package:cars/features/car_details/presentation/view_model/car_details_bloc/car_details_bloc.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -16,10 +17,10 @@ import '../../data/repos/car_details_repo_impl.dart';
 class CarDetailsBlocProviderView extends StatelessWidget {
   const CarDetailsBlocProviderView({
     super.key,
-    required this.carId,
+    required this.carEntity,
   });
 
-  final int carId;
+  final CarEntity carEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class CarDetailsBlocProviderView extends StatelessWidget {
         trailing: IconWidgetAnimation(
           icon: Icons.favorite,
           paddingIcon: AppConsts.padding8,
+          carEntity: carEntity,
         ),
       ),
       body: BlocProvider(
@@ -40,7 +42,9 @@ class CarDetailsBlocProviderView extends StatelessWidget {
           GetCarDetailsUseCase(
             carDetailsRepo: getIt.get<CarDetailsRepoImpl>(),
           ),
-        )..add(CrDetailsEvent(carId: carId)),
+        )..add(
+            CrDetailsEvent(carId: carEntity.id.toInt()),
+          ),
         child: const CarDetailsBodyBlocBuilder(),
       ),
     );

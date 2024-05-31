@@ -7,13 +7,13 @@ class EmptyWidget extends StatelessWidget {
   const EmptyWidget({
     super.key,
     required this.icon,
-    required this.title,
-    required this.subTitle,
+    this.title,
+    this.subTitle,
   });
 
   final String icon;
-  final String title;
-  final String subTitle;
+  final String? title;
+  final String? subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class EmptyWidget extends StatelessWidget {
           SizedBox(height: size.height * .04.h),
           //title
           Text(
-            title,
+            title ?? '',
             style: AppConsts.style24,
             textAlign: TextAlign.center,
           ),
@@ -40,7 +40,7 @@ class EmptyWidget extends StatelessWidget {
           SizedBox(
             width: size.width * .7.w,
             child: Text(
-              subTitle,
+              subTitle ?? '',
               style: AppConsts.style16,
               maxLines: 3,
               textAlign: TextAlign.center,

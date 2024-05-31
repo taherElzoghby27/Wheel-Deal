@@ -26,3 +26,4 @@ class GetFavEvent extends FavouritesEvent {
   @override
   List<Object?> get props => [];
 }
+

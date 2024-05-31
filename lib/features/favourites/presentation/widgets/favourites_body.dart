@@ -1,6 +1,7 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
 import 'package:flutter/material.dart';
+
+import 'favourites_bloc_builder.dart';
 
 class FavouritesBody extends StatelessWidget {
   const FavouritesBody({super.key});
@@ -15,7 +16,7 @@ class FavouritesBody extends StatelessWidget {
           AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
           //best offers
 
-          BestOffersBlocConsumer(),
+          FavouritesBlocBuilder(),
         ],
       ),
     );

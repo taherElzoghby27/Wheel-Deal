@@ -18,7 +18,7 @@ class CarComponent extends StatelessWidget {
     return InkWell(
       onTap: () => GoRouter.of(context).push(
         carDetailsPath,
-        extra: car.id,
+        extra: car,
       ),
       child: Padding(
         padding: AppConsts.padding8,
@@ -71,9 +71,12 @@ class CarComponent extends StatelessWidget {
                               ),
                             ),
                             const Spacer(),
-                            const Expanded(
+                            Expanded(
                               flex: 5,
-                              child: IconWidgetAnimation(icon: Icons.favorite),
+                              child: IconWidgetAnimation(
+                                icon: Icons.favorite,
+                                carEntity: car,
+                              ),
                             ),
                           ],
                         ),

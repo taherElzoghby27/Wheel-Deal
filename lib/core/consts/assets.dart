@@ -116,4 +116,5 @@ class Assets {
   static const String delete = "assets/images/delete.png";
   static const String lockWithBackGround = "assets/images/lock_with_back.png";
   static const String signInSecurity = 'assets/images/sign_in_secuirty.png';
+  static const String favAsset = 'assets/images/fav.png';
 }

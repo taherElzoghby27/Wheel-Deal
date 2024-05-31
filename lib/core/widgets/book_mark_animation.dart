@@ -1,4 +1,7 @@
+import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../consts/style.dart';
 
@@ -7,10 +10,12 @@ class IconWidgetAnimation extends StatefulWidget {
     super.key,
     required this.icon,
     this.paddingIcon,
+    required this.carEntity,
   });
 
   final IconData icon;
   final EdgeInsetsGeometry? paddingIcon;
+  final CarEntity carEntity;
 
   @override
   State<IconWidgetAnimation> createState() => _IconWidgetAnimationState();
@@ -20,10 +25,11 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> sizeAnimation;
-  bool isSaved = false;
+  late FavouritesBloc favouritesBloc;
 
   @override
   void initState() {
+    favouritesBloc = context.read<FavouritesBloc>();
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -42,7 +48,19 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
         ),
       ],
     ).animate(controller);
+    handleIsSaved();
+    handleAnimation();
     super.initState();
+  }
+
+  void handleIsSaved() {
+    favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
+      widget.carEntity.id.toInt(),
+    );
+  }
+
+  void handleAnimation() {
+    favouritesBloc.isSaved ? controller.forward() : controller.stop();
   }
 
   @override
@@ -59,25 +77,45 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
         borderRadius: AppConsts.mainRadius,
       ),
       child: Center(
-        child: InkWell(
-          splashColor: Colors.transparent,
-          onTap: () {
-            isSaved ? controller.reverse() : controller.forward();
-            setState(() => isSaved = !isSaved);
+        child: BlocBuilder<FavouritesBloc, FavouritesState>(
+          builder: (context, state) {
+            return InkWell(
+              splashColor: Colors.transparent,
+              onTap: () {
+                bool checkIfFavOrNot = favouritesBloc.checkIfFavOrNot(
+                  widget.carEntity.id.toInt(),
+                );
+                if (checkIfFavOrNot) {
+                  favouritesBloc.add(
+                    DeleteFavEvent(carEntity: widget.carEntity),
+                  );
+                  controller.reverse();
+                } else {
+                  favouritesBloc.add(
+                    AddFavEvent(carEntity: widget.carEntity),
+                  );
+                  controller.forward();
+                }
+              },
+              child: AnimatedBuilder(
+                animation: controller,
+                builder: (context, child) {
+                  return Padding(
+                    padding: widget.paddingIcon ?? const EdgeInsets.all(0),
+                    child: Icon(
+                      widget.icon,
+                      size: sizeAnimation.value,
+                      color: favouritesBloc.checkIfFavOrNot(
+                        widget.carEntity.id.toInt(),
+                      )
+                          ? AppConsts.mainColor
+                          : AppConsts.neutral500,
+                    ),
+                  );
+                },
+              ),
+            );
           },
-          child: AnimatedBuilder(
-            animation: controller,
-            builder: (context, child) {
-              return Padding(
-                padding: widget.paddingIcon ?? const EdgeInsets.all(0),
-                child: Icon(
-                  widget.icon,
-                  size: sizeAnimation.value,
-                  color: isSaved ? AppConsts.mainColor : AppConsts.neutral500,
-                ),
-              );
-            },
-          ),
         ),
       ),
     );

@@ -13,6 +13,7 @@ import 'package:cars/features/delete_account/presentation/screens/delete_account
 import 'package:cars/features/delete_account/presentation/screens/delete_account_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/home_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/recommended_for_you_bloc_provider.dart';
@@ -233,14 +234,14 @@ final router = GoRouter(
     GoRoute(
       path: carDetailsPath,
       pageBuilder: (context, state) {
-        int carId = state.extra as int;
+        CarEntity carEntity = state.extra as CarEntity;
         return buildPageWithDefaultTransition(
           context: context,
           state: state,
           child: BlocProvider(
             create: (_) => ChangedCarsoulCubit(),
             child: CarDetailsBlocProviderView(
-              carId: carId,
+              carEntity: carEntity,
             ),
           ),
         );

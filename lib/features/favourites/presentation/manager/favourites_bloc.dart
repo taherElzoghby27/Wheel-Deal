@@ -35,6 +35,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
   }
 
   List<CarEntity> favouritesList = [];
+  bool isSaved = false;
 
   Future<void> getFavEventMethod(Emitter<FavouritesState> emit) async {
     await _getFavouritesUseCase.call().then(
@@ -78,6 +79,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
               );
             },
             (success) async {
+              isSaved = false;
               //delete car from list
               deleteCarFromFavList(event.carEntity);
               emit(
@@ -108,6 +110,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
               );
             },
             (success) {
+              isSaved = true;
               //add car to list
               addCarToFavList(event.carEntity);
               emit(
