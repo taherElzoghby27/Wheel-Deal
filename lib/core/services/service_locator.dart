@@ -9,6 +9,8 @@ import 'package:cars/features/auth/domain/usecases/reset_password_use_case.dart'
 import 'package:cars/features/auth/domain/usecases/sign_up_usecase.dart';
 import 'package:cars/features/car_details/data/data_source/remote_data_source.dart';
 import 'package:cars/features/car_details/data/repos/car_details_repo_impl.dart';
+import 'package:cars/features/favourites/data/data_source/remote_data_source.dart';
+import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
@@ -81,6 +83,17 @@ setupServiceLocator() {
   getIt.registerSingleton<CarDetailsRepoImpl>(
     CarDetailsRepoImpl(
       carDetailsRemoteDataSource: getIt.get<CarDetailsRemoteDataSourceImpl>(),
+    ),
+  );
+  getIt.registerSingleton<FavouritesRemoteDataSourceImpl>(
+    FavouritesRemoteDataSourceImpl(
+      apiService: getIt.get<ApiService>(),
+    ),
+  );
+  getIt.registerSingleton<FavouritesRepoImpl>(
+    FavouritesRepoImpl(
+      favouritesRemoteDataSourceImpl:
+          getIt.get<FavouritesRemoteDataSourceImpl>(),
     ),
   );
 }
