@@ -47,8 +47,43 @@ class CarDetailsRepoImpl extends CarDetailsRepo {
   Future<Either<FailureServ, List<InstallmentAvailableModel>>>
       getInstallmentAvailable({
     required int carId,
-  }) {
-    // TODO: implement getInstallmentAvailable
-    throw UnimplementedError();
+  }) async {
+    try {
+      final response =
+          await _carDetailsRemoteDataSource.getInstallmentAvailable(
+        carId: carId,
+      );
+      if (response.statusCode == 200) {
+        Map<String, dynamic> data = response.data;
+
+        List<InstallmentAvailableModel> modelsInstallment =
+            convertListOfMapsToListOfModels(
+          data['data'],
+        );
+        return Right(modelsInstallment);
+      } else {
+        return Left(
+          ServerFailure.fromDioResponse(
+            response.statusCode!,
+            response.data,
+          ),
+        );
+      }
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
+
+  List<InstallmentAvailableModel> convertListOfMapsToListOfModels(
+    List<dynamic> data,
+  ) {
+    return List.from(
+      data.map(
+        (model) => InstallmentAvailableModel.fromMap(model),
+      ),
+    );
   }
 }
