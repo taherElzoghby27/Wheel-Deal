@@ -1,6 +1,6 @@
 class ApiConsts {
   //baseurl
-  static const baseUrl = 'http://192.168.1.4/car_trading_app/';
+  static const baseUrl = 'http://192.168.1.7/car_trading_app/';
 
   //endpoints
   static const signUpEndpoint = 'auth/signup.php';
@@ -8,7 +8,6 @@ class ApiConsts {
   static const resetPassEndPoint = 'auth/reset_password.php';
   static const checkingForResetPasswordEndpoint =
       'auth/checking_for_reset_password.php';
-  static const favouritesEndpoint = 'home/cars.php';
   static const bestOffersEndpoint = 'home/cars.php';
   static const recommendedForYouEndPoint = 'home/cars.php';
   static const topBrandsEndpoint = 'home/top_brands.php';

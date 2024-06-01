@@ -8,6 +8,7 @@ import 'package:cars/features/favourites/domain/repos/favourites_repo.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 import '../data_source/local_data_source.dart';
 
@@ -79,6 +80,7 @@ class FavouritesRepoImpl extends FavouritesRepo {
       final response = await _favouritesRemoteDataSourceImpl.getFav();
 
       if (response.statusCode == 200) {
+        debugPrint("data : ${response.data}");
         return _getFavSuccess(response, localFavourites);
       } else {
         return Left(

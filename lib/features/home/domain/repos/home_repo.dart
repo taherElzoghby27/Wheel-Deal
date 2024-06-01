@@ -15,8 +15,4 @@ abstract class HomeRepo {
   Future<Either<FailureServ, List<CarEntity>>> getBestOffers({
     required int page,
   });
-
-  Future<Either<FailureServ, List<CarEntity>>> getFavourites({
-    required int page,
-  });
 }

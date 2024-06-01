@@ -1,4 +1,3 @@
-import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/errors/failure_message.dart';
 import 'package:cars/core/models/car_model.dart';
 import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
@@ -48,17 +47,6 @@ class HomeRepoImpl extends HomeRepo {
       () => _homeLocalDataSource.getBestOffers(page: page),
       () => _homeRemoteDataSource.getBestOffers(page: page),
       boxName: StringsEn.kBestOffers,
-    );
-  }
-
-  @override
-  Future<Either<FailureServ, List<CarEntity>>> getFavourites({
-    required int page,
-  }) {
-    return fetchCars(
-      () => _homeLocalDataSource.getFavourites(page: page),
-      () => _homeRemoteDataSource.getFavourites(page: page),
-      boxName: StringsEn.kFavourites,
     );
   }
 

@@ -10,8 +10,6 @@ abstract class HomeRemoteDataSource {
   Future<Response> getRecommendedForYou({required int page});
 
   Future<Response> getBestOffers({required int page});
-
-  Future<Response> getFavourites({required int page});
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -42,19 +40,6 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
     Response response = await _apiService.get(
       endPoint: "${ApiConsts.bestOffersEndpoint}?page=$page",
-      token: token,
-    );
-    return response;
-  }
-
-  @override
-  Future<Response> getFavourites({required int page}) async {
-    String? token = await readFromCache(
-      StringsEn.token,
-    );
-
-    Response response = await _apiService.get(
-      endPoint: "${ApiConsts.favouritesEndpoint}?page=$page",
       token: token,
     );
     return response;

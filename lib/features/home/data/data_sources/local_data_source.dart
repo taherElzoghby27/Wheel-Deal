@@ -11,8 +11,6 @@ abstract class HomeLocalDataSource {
   List<CarEntity> getRecommendedForYou({required int page});
 
   List<CarEntity> getBestOffers({required int page});
-
-  List<CarEntity> getFavourites({required int page});
 }
 
 class HomeLocalDataSourceImpl extends HomeLocalDataSource {
@@ -34,20 +32,6 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
     int startPage = (page - 1) * 10; //0
     int endPage = page * 10; //10
     if (startPage >= bestOffersCarsLength || endPage > bestOffersCarsLength) {
-      return [];
-    }
-    return result.sublist(startPage, endPage);
-  }
-
-  @override
-  List<CarEntity> getFavourites({required int page}) {
-    List<CarEntity> result = _hiveDbCarsHome.getCars(
-      StringsEn.kFavourites,
-    );
-    int favouritesCarsLength = result.length;
-    int startPage = (page - 1) * 10; //0
-    int endPage = page * 10; //10
-    if (startPage >= favouritesCarsLength || endPage > favouritesCarsLength) {
       return [];
     }
     return result.sublist(startPage, endPage);

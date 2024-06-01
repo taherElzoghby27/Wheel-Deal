@@ -3,7 +3,6 @@ import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/widgets.dart';
 
 abstract class FavouritesRemoteDataSource {
   Future<Response> addFav({required int carId});
