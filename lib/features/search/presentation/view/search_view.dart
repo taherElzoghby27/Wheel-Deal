@@ -1,9 +1,10 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
-import 'package:cars/features/search/presentation/view/widgets/search_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widgets/search_body.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});

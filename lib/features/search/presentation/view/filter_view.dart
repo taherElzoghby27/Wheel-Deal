@@ -4,7 +4,7 @@ import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'widgets/filter_body.dart';
+import '../widgets/filter_body.dart';
 
 class FilterView extends StatelessWidget {
   const FilterView({super.key});

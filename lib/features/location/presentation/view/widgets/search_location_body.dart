@@ -1,6 +1,6 @@
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/features/search/presentation/view/widgets/recent_searchs.dart';
-import 'package:cars/features/search/presentation/view/widgets/search_section.dart';
+import 'package:cars/features/search/presentation/widgets/recent_searchs.dart';
+import 'package:cars/features/search/presentation/widgets/search_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

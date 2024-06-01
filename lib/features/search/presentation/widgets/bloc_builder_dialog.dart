@@ -1,11 +1,9 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_radio_list_tile.dart';
+import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../view_model/filter_cubit/filter_cubit.dart';
-
 class BlocBuilderDialog extends StatelessWidget {
   const BlocBuilderDialog({
     super.key,

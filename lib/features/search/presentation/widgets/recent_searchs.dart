@@ -1,10 +1,8 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/features/search/presentation/view/widgets/custom_popular_recent_search.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/widgets/tile_widget.dart';
+import 'custom_popular_recent_search.dart';
 
 class RecentSearch extends StatelessWidget {
   const RecentSearch({

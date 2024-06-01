@@ -3,7 +3,7 @@ import 'package:cars/core/widgets/tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
+import '../../../home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
 
 class SectionResult extends StatelessWidget {
   const SectionResult({super.key});
