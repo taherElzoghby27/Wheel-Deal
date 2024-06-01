@@ -33,6 +33,5 @@ String handlePrice(int number) {
       count = 0;
     }
   }
-  newNum = 'EGP $newNum';
   return newNum;
 }

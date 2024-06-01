@@ -34,7 +34,7 @@ class TileDialogInstallment extends StatelessWidget {
           ),
           const Spacer(),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Text(
               second,
               style: AppConsts.style12.copyWith(
@@ -43,8 +43,9 @@ class TileDialogInstallment extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 2),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Text(
               third,
               style: AppConsts.style12.copyWith(
@@ -53,8 +54,9 @@ class TileDialogInstallment extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 2),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Text(
               forth,
               style: AppConsts.style12.copyWith(
