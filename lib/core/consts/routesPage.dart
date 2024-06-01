@@ -21,9 +21,9 @@ import 'package:cars/features/location/presentation/view/search_location_view.da
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:cars/features/notifications/presentation/view/notifications_view.dart';
+import 'package:cars/features/search/presentation/manager/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
-import 'package:cars/features/search/presentation/view_model/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
 import 'package:cars/features/settings/presentation/view_model/settings_cubit/setting_cubit.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/two_step_verification_cubit/two_step_verification_cubit.dart';
