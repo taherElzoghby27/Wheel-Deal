@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/errors/failure_message.dart';
 import 'package:cars/core/models/car_model.dart';
@@ -120,13 +121,5 @@ class FavouritesRepoImpl extends FavouritesRepo {
     return Right(favourites);
   }
 
-  List<CarEntity> convertListOfObjectToListOfModels(
-    List<Map<String, dynamic>> data,
-  ) {
-    return List.from(
-      data.map(
-        (e) => CarModel.fromMap(e),
-      ),
-    );
-  }
+
 }

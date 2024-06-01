@@ -1,3 +1,5 @@
+import 'package:cars/core/models/car_model.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:dio/dio.dart';
 
 import '../helper/flutter_secure_storage.dart';
@@ -34,4 +36,14 @@ String handlePrice(int number) {
     }
   }
   return newNum;
+}
+
+List<CarEntity> convertListOfObjectToListOfModels(
+  List<Map<String, dynamic>> data,
+) {
+  return List.from(
+    data.map(
+      (e) => CarModel.fromMap(e),
+    ),
+  );
 }

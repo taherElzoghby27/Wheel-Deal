@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/errors/failure_message.dart';
 import 'package:cars/core/models/car_model.dart';
 import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
@@ -76,7 +77,7 @@ class HomeRepoImpl extends HomeRepo {
       final response = await remoteDataSourceCall();
       if (response.statusCode == 200) {
         Map<String, dynamic> data = response.data;
-        List<CarEntity> convertedData = convertMapToCarsModel(
+        List<CarEntity> convertedData = convertListOfObjectToListOfModels(
           data['data'],
         );
         //save cars in local
@@ -141,15 +142,6 @@ class HomeRepoImpl extends HomeRepo {
     return List<BrandModel>.from(
       (data).map(
         (e) => BrandModel.fromMap(e),
-      ),
-    );
-  }
-
-//convert map to car models
-  List<CarModel> convertMapToCarsModel(List<dynamic> data) {
-    return List<CarModel>.from(
-      data.map(
-        (car) => CarModel.fromMap(car),
       ),
     );
   }
