@@ -17,7 +17,7 @@ class ApiService {
     dio.options.headers = token == null
         ? {}
         : {
-            'Authorization': 'Bearer $token',
+            'authorization': 'Bearer $token',
           };
     Response response = await dio.get(
       '$baseUrl$endPoint',
