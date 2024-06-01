@@ -3,6 +3,11 @@ import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
 import 'package:cars/features/car_details/presentation/view/widgets/car_details_body_bloc_builder.dart';
 import 'package:cars/features/car_details/presentation/view_model/car_details_bloc/car_details_bloc.dart';
+import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
+import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case.dart';
+import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
+import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
+import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,28 +29,45 @@ class CarDetailsBlocProviderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBarScaffold(
-        leading: CustomSquareButton(
-          icon: Icons.arrow_back_ios_new_rounded,
-          onTap: () => GoRouter.of(context).pop(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => CarDetailsBloc(
+            GetCarDetailsUseCase(
+              carDetailsRepo: getIt.get<CarDetailsRepoImpl>(),
+            ),
+          )..add(
+              CrDetailsEvent(carId: carEntity.id.toInt()),
+            ),
         ),
-        title: StringsEn.details,
-        trailing: IconWidgetAnimation(
-          icon: Icons.favorite,
-          paddingIcon: AppConsts.padding8,
-          carEntity: carEntity,
+        BlocProvider(
+          create: (_) => FavouritesBloc(
+            GetFavouritesUseCase(
+              favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+            ),
+            AddFavUseCase(
+              favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+            ),
+            DeleteFavUseCase(
+              favouritesRepo: getIt.get<FavouritesRepoImpl>(),
+            ),
+          )..add(GetFavEvent()),
         ),
-      ),
-      body: BlocProvider(
-        create: (_) => CarDetailsBloc(
-          GetCarDetailsUseCase(
-            carDetailsRepo: getIt.get<CarDetailsRepoImpl>(),
+      ],
+      child: Scaffold(
+        appBar: CustomAppBarScaffold(
+          leading: CustomSquareButton(
+            icon: Icons.arrow_back_ios_new_rounded,
+            onTap: () => GoRouter.of(context).pop(),
           ),
-        )..add(
-            CrDetailsEvent(carId: carEntity.id.toInt()),
+          title: StringsEn.details,
+          trailing: IconWidgetAnimation(
+            icon: Icons.favorite,
+            paddingIcon: AppConsts.padding8,
+            carEntity: carEntity,
           ),
-        child: const CarDetailsBodyBlocBuilder(),
+        ),
+        body: const CarDetailsBodyBlocBuilder(),
       ),
     );
   }
