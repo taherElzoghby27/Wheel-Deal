@@ -1,4 +1,3 @@
-import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
 

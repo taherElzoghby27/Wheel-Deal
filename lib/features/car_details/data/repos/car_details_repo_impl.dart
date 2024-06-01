@@ -6,6 +6,7 @@ import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:cars/features/car_details/domain/repos/car_details_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class CarDetailsRepoImpl extends CarDetailsRepo {
   final CarDetailsRemoteDataSource _carDetailsRemoteDataSource;
@@ -55,7 +56,7 @@ class CarDetailsRepoImpl extends CarDetailsRepo {
       );
       if (response.statusCode == 200) {
         Map<String, dynamic> data = response.data;
-
+        debugPrint('type : ${data.runtimeType}');
         List<InstallmentAvailableModel> modelsInstallment =
             convertListOfMapsToListOfModels(
           data['data'],

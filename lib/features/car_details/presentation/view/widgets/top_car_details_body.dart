@@ -1,5 +1,6 @@
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/models/car_model.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 
 import 'features_section.dart';
@@ -23,7 +24,7 @@ class TopCarDetailsBody extends StatelessWidget {
         children: [
           SectionDetails(
             leading: carModel.title,
-            trailing: handlePrice(carModel.price as int),
+            trailing: handlePrice(carModel.priceCar as int),
           ),
           //Section image
           SectionImages(carModel: carModel),

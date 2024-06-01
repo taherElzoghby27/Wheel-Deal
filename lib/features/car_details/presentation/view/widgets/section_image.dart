@@ -1,9 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
-import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/car_details/presentation/view_model/changed_carsoul_cubit/changed_carsoul_cubit.dart';
+import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +13,7 @@ import '../../../../../core/widgets/carsl_options.dart';
 class SectionImages extends StatefulWidget {
   const SectionImages({super.key, required this.carModel});
 
-  final CarModel carModel;
+  final CarEntity carModel;
 
   @override
   State<SectionImages> createState() => _SectionImagesState();

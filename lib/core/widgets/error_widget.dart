@@ -17,8 +17,8 @@ class SomeThingErrorWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            StringsEn.someThingError,
-            style: AppConsts.style24.copyWith(
+            message,
+            style: AppConsts.style20.copyWith(
               color: Theme.of(context).canvasColor,
             ),
           ),

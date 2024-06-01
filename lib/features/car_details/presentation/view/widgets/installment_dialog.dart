@@ -1,9 +1,7 @@
-import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
-
+import 'bloc_provider_list_view_installment.dart';
 import 'tile_dialog_installment.dart';
 
 class InstallmentAvailableDialog extends StatelessWidget {
@@ -35,22 +33,7 @@ class InstallmentAvailableDialog extends StatelessWidget {
               forth: StringsEn.total,
             ),
           ),
-          ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return TileDialogInstallment(
-                first: '${installments[index].installmentPlan} ${StringsEn.months}',
-                second: installments[index].deposit.toString(),
-                third: installments[index].monthly.toString(),
-                forth: installments[index].total.toString(),
-                color: AppConsts.mainColor,
-              );
-            },
-            separatorBuilder: (context, index) => CustomDivider(
-              color: Theme.of(context).canvasColor.withOpacity(.1),
-            ),
-            itemCount: installments.length,
-          ),
+          const BlocProviderInstallmentListView(),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         ],
       ),

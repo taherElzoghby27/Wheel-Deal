@@ -1,6 +1,7 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
+import 'package:cars/features/car_details/domain/use_cases/get_installment_available_use_case.dart';
 import 'package:cars/features/car_details/presentation/view/widgets/car_details_body_bloc_builder.dart';
 import 'package:cars/features/car_details/presentation/view_model/car_details_bloc/car_details_bloc.dart';
 import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
@@ -34,6 +35,9 @@ class CarDetailsBlocProviderView extends StatelessWidget {
         BlocProvider(
           create: (_) => CarDetailsBloc(
             GetCarDetailsUseCase(
+              carDetailsRepo: getIt.get<CarDetailsRepoImpl>(),
+            ),
+            GetInstallmentAvailableUseCase(
               carDetailsRepo: getIt.get<CarDetailsRepoImpl>(),
             ),
           )..add(

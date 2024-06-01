@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 part 'car_entity.g.dart';
@@ -12,11 +13,19 @@ class CarEntity {
   final String title;
   @HiveField(3)
   final num priceCar;
+  static num? _carId;
 
   CarEntity({
     required this.id,
     required this.image,
     required this.title,
     required this.priceCar,
-  });
+  }) {
+    _carId = id;
+    debugPrint(_carId.toString());
+  }
+
+  static num? getCarId() {
+    return _carId;
+  }
 }

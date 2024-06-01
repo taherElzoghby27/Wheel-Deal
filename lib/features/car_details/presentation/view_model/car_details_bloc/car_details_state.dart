@@ -1,20 +1,49 @@
 part of 'car_details_bloc.dart';
 
 @immutable
-sealed class CarDetailsState {}
+class CarDetailsState extends Equatable {
+  final RequestState carDetailsState;
+  final CarModel? carModel;
+  final String carDetailsFailureMessage;
+  final RequestState installmentState;
+  final List<InstallmentAvailableModel> installments;
+  final String installmentFailureMessage;
 
-final class CarDetailsInitial extends CarDetailsState {}
+  const CarDetailsState({
+    this.carDetailsState = RequestState.loading,
+    this.carDetailsFailureMessage = 'No Data',
+    this.carModel,
+    this.installmentState = RequestState.loading,
+    this.installments = const [],
+    this.installmentFailureMessage = 'No Data',
+  });
 
-class CarDetailsLoading extends CarDetailsState {}
+  CarDetailsState copyWith({
+    RequestState? carDetailsState,
+    CarModel? carModel,
+    String? carDetailsFailureMessage,
+    RequestState? installmentState,
+    List<InstallmentAvailableModel>? installments,
+    String? installmentFailureMessage,
+  }) =>
+      CarDetailsState(
+        carDetailsState: carDetailsState ?? this.carDetailsState,
+        carModel: carModel ?? this.carModel,
+        carDetailsFailureMessage:
+            carDetailsFailureMessage ?? this.carDetailsFailureMessage,
+        installmentState: installmentState ?? this.installmentState,
+        installments: installments ?? this.installments,
+        installmentFailureMessage:
+            installmentFailureMessage ?? this.installmentFailureMessage,
+      );
 
-class CarDetailsLoaded extends CarDetailsState {
-  final CarModel carModel;
-
-  CarDetailsLoaded({required this.carModel});
-}
-
-class CarDetailsFailure extends CarDetailsState {
-  final String message;
-
-  CarDetailsFailure({required this.message});
+  @override
+  List<Object?> get props => [
+        carDetailsState,
+        carModel,
+        carDetailsFailureMessage,
+        installmentState,
+        installments,
+        installmentFailureMessage,
+      ];
 }

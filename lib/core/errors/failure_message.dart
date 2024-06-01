@@ -44,7 +44,9 @@ class ServerFailure extends FailureServ {
       // return ServerFailure(
       //   message: 'Your request was not found, please try later',
       // );
-      return ServerFailure.fromJson(response);
+      return response is Map<String, dynamic>
+          ? ServerFailure.fromMap(response)
+          : ServerFailure.fromJson(response);
     } else if (statusCode == 500) {
       return ServerFailure(
         message: 'There is a problem with server,please try later',
@@ -72,12 +74,12 @@ class ServerFailure extends FailureServ {
       ServerFailure(message: response[0]['message'] as String);
 }
 
-class FailureMessage {
-  String? message;
-
-  FailureMessage({required this.message});
-
-  FailureMessage.fromJson(Map<String, dynamic> json) {
-    message = json['Message'] as String;
-  }
-}
+// class FailureMessage {
+//   String? message;
+//
+//   FailureMessage({required this.message});
+//
+//   FailureMessage.fromJson(Map<String, dynamic> json) {
+//     message = json['Message'] as String;
+//   }
+// }

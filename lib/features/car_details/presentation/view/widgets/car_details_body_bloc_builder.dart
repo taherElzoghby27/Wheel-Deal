@@ -4,6 +4,7 @@ import 'package:cars/features/car_details/presentation/view_model/car_details_bl
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../core/consts/enums.dart';
 import 'car_details_body.dart';
 import 'loading_shimmer_car_details.dart';
 
@@ -14,11 +15,13 @@ class CarDetailsBodyBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CarDetailsBloc, CarDetailsState>(
       builder: (context, state) {
-        if (state is CarDetailsLoaded) {
-          CarModel car = state.carModel;
+        if (state.carDetailsState == RequestState.loaded) {
+          CarModel car = state.carModel!;
           return CarDetailsBody(carModel: car);
-        } else if (state is CarDetailsFailure) {
-          return SomeThingErrorWidget(message: state.message);
+        } else if (state.carDetailsState == RequestState.error) {
+          return SomeThingErrorWidget(
+            message: state.carDetailsFailureMessage,
+          );
         } else {
           return const LoadingCarDetails();
         }

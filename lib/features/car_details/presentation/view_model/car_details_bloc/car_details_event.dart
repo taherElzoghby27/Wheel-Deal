@@ -8,3 +8,9 @@ class CrDetailsEvent extends CarDetailsEvent {
 
   CrDetailsEvent({required this.carId});
 }
+
+class InstallmentAvailableEvent extends CarDetailsEvent {
+  final int carId;
+
+  InstallmentAvailableEvent({required this.carId});
+}
