@@ -11,6 +11,7 @@ import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../../../core/consts/strings.dart';
 
@@ -80,6 +81,7 @@ class HomeRepoImpl extends HomeRepo {
         List<CarEntity> convertedData = convertListOfObjectToListOfModels(
           data['data'],
         );
+        debugPrint("success  data$convertedData");
         //save cars in local
         _hiveDbCarsHome.saveCars(
           boxName: boxName,
@@ -116,7 +118,7 @@ class HomeRepoImpl extends HomeRepo {
       if (response.statusCode == 200) {
         Map<String, dynamic> data = response.data;
         List<BrandEntity> convertedData = convertMapToBrandsModel(
-          data['data'],
+          data['pagination']['data'],
         );
         //save brand in local
         _hiveDbBrandsHome.saveBrands(brands: convertedData);

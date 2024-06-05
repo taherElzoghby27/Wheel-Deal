@@ -15,6 +15,8 @@ import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
+import 'package:cars/features/search/data/data_source/search_remote_data_source.dart';
+import 'package:cars/features/search/data/repos/search_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -102,6 +104,16 @@ setupServiceLocator() {
           getIt.get<FavouritesRemoteDataSourceImpl>(),
       hiveDbCarsHome: getIt.get<HiveDbCarsHome>(),
       favouritesLocalDataSource: getIt.get<FavouritesLocalDataSourceImpl>(),
+    ),
+  );
+  getIt.registerSingleton<SearchRemoteDataSourceImpl>(
+    SearchRemoteDataSourceImpl(
+      apiService: getIt.get<ApiService>(),
+    ),
+  );
+  getIt.registerSingleton<SearchRepoImpl>(
+    SearchRepoImpl(
+      searchRemoteDataSource: getIt.get<SearchRemoteDataSourceImpl>(),
     ),
   );
 }

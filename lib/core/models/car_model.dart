@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/home/domain/entities/brand_entity.dart';
 
@@ -12,10 +10,6 @@ class BrandModel extends BrandEntity {
           name: sourceName ?? '',
           logo: sourceImage ?? '',
         );
-
-  factory BrandModel.fromJson(String json) => BrandModel.fromJson(
-        jsonDecode(json),
-      );
 
   factory BrandModel.fromMap(Map<String, dynamic> data) {
     String imageAfterEdit = data['source_image'] == null

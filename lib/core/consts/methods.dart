@@ -39,11 +39,11 @@ String handlePrice(int number) {
 }
 
 List<CarEntity> convertListOfObjectToListOfModels(
-  List<Map<String, dynamic>> data,
+  List<dynamic> data,
 ) {
-  return List.from(
+  return List<CarModel>.from(
     data.map(
-      (e) => CarModel.fromMap(e),
+      (item) => CarModel.fromMap(item),
     ),
   );
 }

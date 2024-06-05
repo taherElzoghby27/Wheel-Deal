@@ -22,7 +22,7 @@ class ApiService {
     Response response = await dio.get(
       '$baseUrl$endPoint',
     );
-    debugPrint('data : ${response.data}');
+    debugPrint('$endPoint ---- data : ${response.data}');
     return response;
   }
 

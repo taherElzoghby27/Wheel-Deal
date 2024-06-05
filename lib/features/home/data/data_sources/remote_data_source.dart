@@ -20,13 +20,13 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   @override
   Future<Response> getTopBrands({required int page}) async {
-    String? token = await readFromCache(
-      StringsEn.token,
-    );
+    // String? token = await readFromCache(
+    //   StringsEn.token,
+    // );
 
     Response response = await _apiService.get(
-      endPoint: "${ApiConsts.topBrandsEndpoint}?page=$page",
-      token: token,
+      endPoint: "${ApiConsts.topBrandsEndpoint}?page=${page + 1}",
+      //token: token,
     );
 
     return response;
@@ -34,26 +34,26 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   @override
   Future<Response> getBestOffers({required int page}) async {
-    String? token = await readFromCache(
-      StringsEn.token,
-    );
+    // String? token = await readFromCache(
+    //   StringsEn.token,
+    // );
 
     Response response = await _apiService.get(
       endPoint: "${ApiConsts.bestOffersEndpoint}?page=$page",
-      token: token,
+      //token: token,
     );
     return response;
   }
 
   @override
   Future<Response> getRecommendedForYou({required int page}) async {
-    String? token = await readFromCache(
-      StringsEn.token,
-    );
+    // String? token = await readFromCache(
+    //   StringsEn.token,
+    // );
 
     Response response = await _apiService.get(
       endPoint: "${ApiConsts.recommendedForYouEndPoint}?page=$page",
-      token: token,
+      //token: token,
     );
     return response;
   }
