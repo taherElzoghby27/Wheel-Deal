@@ -89,7 +89,7 @@ try {
 
         $secret_key = "your_secret_key";
         $issued_at = time();
-        $expiration_time = $issued_at + 3600;  // Token valid for 1 hour
+        $expiration_time = $issued_at + 60 * 60 * 24 * 7;  // Token valid for 1 week
 
         // Prepare JWT payload
         $payload = array(
