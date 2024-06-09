@@ -48,18 +48,17 @@ try {
                 "total_records" => $total_records,
                 "results_per_page" => $results_per_page,
                 "prev_page" => $prev_page,
-                "next_page" => $next_page,
+                "next_page" => $next_page
+            ),
             "data" => $brands
-            
-            )
         );
         // Set HTTP response code to 200 (OK)
         http_response_code(200);
     } else {
         // No data found
-        $response = array("status" => "failed", "message" => "No brands found.");
-        // Set HTTP response code to 404 (Not Found)
-        http_response_code(404);
+        $response = array("status" => "success", "data" => $brands);
+        // Status Success But No Data Found
+        http_response_code(200);
     }
 } catch (PDOException $e) {
     // Database error
