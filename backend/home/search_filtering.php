@@ -61,5 +61,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     // Handle non-POST requests with correct response codes
     http_response_code(405); // Method Not Allowed
-    echo json_encode(array("Message" => "Only POST requests are supported"));
+    echo json_encode(array("status" => "failed", "Message" => "Only POST Method is allowed"));
 }
