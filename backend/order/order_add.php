@@ -25,7 +25,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Assuming car_id is sent as a POST parameter named 'car_id'
             $car_id = isset($_POST['car_id']) ? $_POST['car_id'] : null;
-            $order_status = isset($_POST['order_status']) ? $_POST['order_status'] : null;
+            $order_status = "running";
             $order_date = date('Y-m-d');
 
             if ($car_id) {
@@ -40,7 +40,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                 if ($existingOrder) {
                     // Car already ordered
                     http_response_code(409); // Conflict
-                    echo json_encode(array("Message" => "Car already ordered"));
+                    echo json_encode(array("status" => "failed", "Message" => "Car already ordered"));
                 } else {
                     // Prepare SQL statement to insert into orders table
                     $stmt = $pdo->prepare("INSERT INTO orders (user_id, car_id, order_status, order_date) VALUES (:user_id, :car_id, :order_status, :order_date)");
@@ -52,32 +52,32 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                     // Execute the SQL statement
                     if ($stmt->execute()) {
                         // Success response
-                        http_response_code(201); // Created
-                        echo json_encode(array("Message" => "Car added to orders successfully"));
+                        http_response_code(200); // Created
+                        echo json_encode(array("status" => "success", "Message" => "Car added to orders successfully"));
                     } else {
                         // Error inserting into database
                         http_response_code(500); // Internal Server Error
-                        echo json_encode(array("Message" => "Failed to add car to orders"));
+                        echo json_encode(array("status" => "failed", "Message" => "Failed to add car to orders"));
                     }
                 }
             } else {
                 // Missing car_id parameter
                 http_response_code(400); // Bad Request
-                echo json_encode(array("Message" => "Missing 'car_id' parameter"));
+                echo json_encode(array("status" => "failed", "Message" => "Missing Car To Order"));
             }
         } else {
             // Invalid HTTP method
             http_response_code(405); // Method Not Allowed
-            echo json_encode(array("Message" => "Method not allowed"));
+            echo json_encode(array("status" => "failed", "Message" => "Only POST Method is allowed"));
         }
     } else {
         // Invalid or expired token
         http_response_code(401); // Unauthorized
-        echo json_encode(array("Message" => "Unauthorized"));
+        echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
     }
 } else {
     // Missing or invalid Authorization header
     http_response_code(401); // Unauthorized
-    echo json_encode(array("Message" => "Unauthorized"));
+    echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
 }
 ?>

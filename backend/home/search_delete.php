@@ -5,9 +5,7 @@ require __DIR__ . '/../vendor/autoload.php'; // Include JWT library
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-// Check if the request method is GET
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the Authorization header is present and contains a valid JWT token
     $headers = apache_request_headers();
     $authorizationHeader = isset($headers['Authorization']) ? $headers['Authorization'] : null;
@@ -24,38 +22,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $user_id = $decoded->user_id;
 
         if ($user_id) {
-                /// Token is valid, proceed to fetch user's favorite cars
-                $stmt = $pdo->prepare("SELECT user_id, c.car_id, c.brand, c.model, c.body_type, c.price, c.image_path
-                                    FROM orders uf
-                                    INNER JOIN cars c ON uf.car_id = c.car_id
-                                    WHERE uf.user_id = :user_id");
+
+            $search_query = isset($_POST['search_query']) ? $_POST['search_query'] : null;
+
+            if ($search_query) {
+                // Prepare SQL query to delete the order
+                $sql = "DELETE FROM user_search_history WHERE user_id = :user_id AND search_query = :search_query";
+                $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $stmt->bindParam(':search_query', $search_query, PDO::PARAM_STR);
                 $stmt->execute();
 
-                $orderCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                // Prepare response
-                if ($orderCars) {
+                // Check if any rows were affected
+                if ($stmt->rowCount() > 0) {
+                    // Order deleted successfully
+                    $response = array("status" => "success", "Message" => "Deleted Search Successfully.");
                     http_response_code(200); // OK
-                    echo json_encode(array("status" => "success", "data" => $orderCars));
                 } else {
+                    // No orders found to delete
+                    $response = array("status" => "success", "Message" => "No Recent Search found to delete.");
                     http_response_code(200); // Not Found
-                    echo json_encode(array("status" => "success", "data" => $orderCars));
                 }
+            } else {
+                // Missing search word parameter
+                $response = array("status" => "failed", "Message" => "Missing Search To Delete.");
+                http_response_code(400); // Bad Request
             }
-        else {
+
+            // Set content type to JSON
+            header('Content-Type: application/json');
+            // Output JSON response
+            echo json_encode($response);
+
+        } else {
             // Invalid or expired token
             http_response_code(401); // Unauthorized
-            echo json_encode(array("status" => "failed", "Message" => "Unauthorized User"));
+            echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
         }
     } else {
         // Missing or invalid Authorization header
         http_response_code(401); // Unauthorized
         echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
     }
-
 } else {
-    // Request method is not GET
+    // Invalid HTTP method
     http_response_code(405); // Method Not Allowed
-    echo json_encode(array("status" => "failed", "Message" => "Only GET Method is allowed."));
+    echo json_encode(array("status" => "failed", "Message" => "Only POST Method is allowed"));
 }

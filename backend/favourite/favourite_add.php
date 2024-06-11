@@ -40,7 +40,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                 if ($existingFavourite) {
                     // Car already ordered
                     http_response_code(409); // Conflict
-                    echo json_encode(array("Message" => "Car already added to favourite"));
+                    echo json_encode(array("status" => "failed", "Message" => "Car already added to favourite"));
                 } else {
 
                     // Prepare SQL statement to insert into favorite cars table
@@ -51,31 +51,31 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                     // Execute the SQL statement
                     if ($stmt->execute()) {
                         // Success response
-                        http_response_code(201); // Created
-                        echo json_encode(array("message" => "Car added to favorites successfully"));
+                        http_response_code(200); // Created
+                        echo json_encode(array("status" => "success", "Message" => "Car added to favorites successfully"));
                     } else {
                         // Error inserting into database
                         http_response_code(500); // Internal Server Error
-                        echo json_encode(array("error" => "Failed to add car to favorites"));
+                        echo json_encode(array("status" => "failed", "Message" => "Failed to add car to favorites"));
                     }
                 }
             } else {
                 // Missing car_id parameter
                 http_response_code(400); // Bad Request
-                echo json_encode(array("error" => "Missing 'car_id' parameter"));
+                echo json_encode(array("status" => "failed", "Message" => "Missing Car To Add To Favourite"));
             }
         } else {
             // Invalid HTTP method
             http_response_code(405); // Method Not Allowed
-            echo json_encode(array("error" => "Method not allowed"));
+            echo json_encode(array("status" => "failed", "Message" => "Only POST Method is allowed"));
         }
     } else {
         // Invalid or expired token
         http_response_code(401); // Unauthorized
-        echo json_encode(array("error" => "Unauthorized"));
+        echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
     }
 } else {
     // Missing or invalid Authorization header
     http_response_code(401); // Unauthorized
-    echo json_encode(array("error" => "Unauthorized"));
+    echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
 }
