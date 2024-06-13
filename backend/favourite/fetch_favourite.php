@@ -45,15 +45,15 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
         } else{
              // Invalid HTTP method
              http_response_code(405); // Method Not Allowed
-             echo json_encode(array("error" => "Method not allowed"));
+             echo json_encode(array("status" => "failed", "Message" => "Method POST Method is allowed"));
         }
     } else {
         // Invalid or expired token
         http_response_code(401); // Unauthorized
-        echo json_encode(array("Message" => "Unauthorized"));
+        echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
     }
 } else {
     // Missing or invalid Authorization header
     http_response_code(401); // Unauthorized
-    echo json_encode(array("Message" => "Unauthorized"));
+    echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
 }

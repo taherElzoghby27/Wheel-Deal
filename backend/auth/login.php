@@ -29,19 +29,17 @@ try {
             // Password is correct
             $secret_key = "your_secret_key";
             $issued_at = time();
-            $expiration_time = $issued_at + 60 * 60 * 24 * 7;  // Token valid for 1 week
 
             // Prepare JWT payload
             $payload = array(
                 'user_id' => $user['user_id'],
                 'email' => $user['email'],
-                'iat' => $issued_at,
-                'exp' => $expiration_time
+                'iat' => $issued_at
             );
 
             // Generate JWT
             $token = JWT::encode($payload, $secret_key, 'HS256');
-            setcookie("token", $token, $expiration_time, "/", "", true, true);
+            setcookie("token", $token, 0, "/", "", true, true);
 
             // Return success response with JWT
             http_response_code(200);
