@@ -14,49 +14,52 @@ $authorizationHeader = isset($headers['Authorization']) ? $headers['Authorizatio
 
 if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader, $matches)) {
     $token = $matches[1];
-    // Decode and verify JWT token
-    $Algorithm = 'HS256';
-    $AlgorithmArray = [$Algorithm];
-    $Secret_Key = 'your_secret_key';
-    $object = (object) $AlgorithmArray;
-    $favourite_fetch_key = new Key($Secret_Key, $Algorithm);
-    $decoded = JWT::decode($token, $favourite_fetch_key, $object);
-    $user_id = $decoded->user_id;
+    try {
+        // Decode and verify JWT token
+        $Algorithm = 'HS256';
+        $Secret_Key = 'your_secret_key';
+        $favourite_fetch_key = new Key($Secret_Key, $Algorithm);
+        $decoded = JWT::decode($token, $favourite_fetch_key);
+        $user_id = $decoded->user_id;
 
+        if ($user_id) {
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                // Token is valid, proceed to fetch user's favorite cars
+                $stmt = $pdo->prepare("SELECT c.car_id, c.brand, c.model, c.body_type, c.price, c.image_path
+                                        FROM favourite_list_item uf
+                                        INNER JOIN cars c ON uf.car_id = c.car_id
+                                        WHERE uf.user_id = :user_id");
+                $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+                $stmt->execute();
 
-    if ($user_id) {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            // Token is valid, proceed to fetch user's favorite cars
-            $stmt = $pdo->prepare("SELECT c.car_id, c.brand, c.model, c.body_type, c.price, c.image_path
-                                FROM favourite_list_item uf
-                                INNER JOIN cars c ON uf.car_id = c.car_id
-                                WHERE uf.user_id = :user_id");
-            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-            $stmt->execute();
+                $favoriteCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            $favoriteCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            // Prepare response
-            if ($favoriteCars) {
-                http_response_code(200); // OK
-                echo json_encode(array(
-                    "status" => "success", "data" => $favoriteCars));
+                // Prepare response
+                if ($favoriteCars) {
+                    http_response_code(200); // OK
+                    echo json_encode(array("status" => "success", "data" => $favoriteCars));
+                } else {
+                    http_response_code(200); // OK, but no data
+                    echo json_encode(array("status" => "success", "data" => []));
+                }
             } else {
-                http_response_code(200); // Not Found
-                echo json_encode(array("status" => "success", "data" => []));
+                // Invalid HTTP method
+                http_response_code(405); // Method Not Allowed
+                echo json_encode(array("status" => "failed", "message" => "Only GET method is allowed"));
             }
-        } else{
-             // Invalid HTTP method
-             http_response_code(405); // Method Not Allowed
-             echo json_encode(array("status" => "failed", "Message" => "Only GET Method is allowed"));
+        } else {
+            // Invalid or expired token
+            http_response_code(401); // Unauthorized
+            echo json_encode(array("status" => "failed", "message" => "Unauthorized"));
         }
-    } else {
-        // Invalid or expired token
+    } catch (Exception $e) {
+        // Handle token decoding errors
         http_response_code(401); // Unauthorized
-        echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
+        echo json_encode(array("status" => "failed", "message" => "Invalid token: " . $e->getMessage()));
     }
 } else {
     // Missing or invalid Authorization header
     http_response_code(401); // Unauthorized
-    echo json_encode(array("status" => "failed", "Message" => "Unauthorized"));
+    echo json_encode(array("status" => "failed", "message" => "Unauthorized"));
 }
+?>
