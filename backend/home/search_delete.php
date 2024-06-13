@@ -2,6 +2,9 @@
 require_once("../includes/connection.php"); // Include your database connection file
 require __DIR__ . '/../vendor/autoload.php'; // Include JWT library
 
+// Set content type to JSON
+header('Content-Type: application/json');
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
@@ -49,8 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 http_response_code(400); // Bad Request
             }
 
-            // Set content type to JSON
-            header('Content-Type: application/json');
             // Output JSON response
             echo json_encode($response);
 

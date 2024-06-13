@@ -1,6 +1,9 @@
 <?php
 require_once("../includes/connection.php");
 
+// Set content type to JSON
+header('Content-Type: application/json');
+
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Initialize SQL query and parameters
