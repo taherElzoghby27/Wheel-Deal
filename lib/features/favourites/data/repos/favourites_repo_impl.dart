@@ -81,6 +81,7 @@ class FavouritesRepoImpl extends FavouritesRepo {
       final response = await _favouritesRemoteDataSourceImpl.getFav();
 
       if (response.statusCode == 200) {
+        debugPrint("successsssssssssss");
         debugPrint("data : ${response.data}");
         return _getFavSuccess(response, localFavourites);
       } else {

@@ -1,6 +1,5 @@
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/errors/failure_message.dart';
-import 'package:cars/core/models/car_model.dart';
 import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
@@ -117,8 +116,9 @@ class HomeRepoImpl extends HomeRepo {
       final response = await remoteDataSourceCall();
       if (response.statusCode == 200) {
         Map<String, dynamic> data = response.data;
+        debugPrint('data : ${data.runtimeType}');
         List<BrandEntity> convertedData = convertMapToBrandsModel(
-          data['pagination']['data'],
+          data['data'],
         );
         //save brand in local
         _hiveDbBrandsHome.saveBrands(brands: convertedData);
