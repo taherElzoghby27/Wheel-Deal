@@ -34,7 +34,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
 
                 $favoriteCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Prepare response
+                /// Prepare response
                 if ($favoriteCars) {
                     http_response_code(200); // OK
                     echo json_encode(array("status" => "success", "data" => $favoriteCars));
