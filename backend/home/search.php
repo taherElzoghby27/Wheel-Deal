@@ -2,6 +2,9 @@
 require_once("../includes/connection.php");
 require __DIR__ . '/../vendor/autoload.php';
 
+// Set content type to JSON
+header('Content-Type: application/json');
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 

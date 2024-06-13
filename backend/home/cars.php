@@ -1,6 +1,9 @@
 <?php
 require_once("../includes/connection.php");
 
+// Set content type to JSON
+header('Content-Type: application/json');
+
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
     try {
@@ -69,8 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
         http_response_code(500);
     }
 
-    // Set content type to JSON
-    header('Content-Type: application/json');
 
     // Output JSON response
     echo json_encode($response);
