@@ -13,6 +13,7 @@ import 'package:cars/features/delete_account/presentation/screens/delete_account
 import 'package:cars/features/delete_account/presentation/screens/delete_account_view.dart';
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
+import 'package:cars/features/gate/presentation/views/gate_view.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/home_view_bloc_provider.dart';
@@ -50,6 +51,7 @@ import '../../features/sign_in_security/presentation/screens/phone_number/phone_
 import '../helper/custom_animation.dart';
 
 const String splashPath = '/';
+const String gatePath = '/gate';
 const String boardPath = '/board';
 const String loginPath = '/loginPath';
 const String createAccountPath = '/createAccountPath';
@@ -96,6 +98,14 @@ final router = GoRouter(
     GoRoute(
       path: splashPath,
       builder: (context, state) => const SplashView(),
+    ),
+    GoRoute(
+      path: gatePath,
+      pageBuilder: (context, state) => buildPageWithDefaultTransition(
+        context: context,
+        state: state,
+        child: const GateView(),
+      ),
     ),
     GoRoute(
       path: loginPath,

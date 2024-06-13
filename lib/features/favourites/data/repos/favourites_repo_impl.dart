@@ -2,7 +2,6 @@ import 'dart:ffi';
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/errors/failure_message.dart';
-import 'package:cars/core/models/car_model.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/favourites/data/data_source/remote_data_source.dart';
 import 'package:cars/features/favourites/domain/repos/favourites_repo.dart';
@@ -81,8 +80,8 @@ class FavouritesRepoImpl extends FavouritesRepo {
       final response = await _favouritesRemoteDataSourceImpl.getFav();
 
       if (response.statusCode == 200) {
-        debugPrint("successsssssssssss");
-        debugPrint("data : ${response.data}");
+        debugPrint("success");
+        debugPrint("data : ${response.data.runtimeType}");
         return _getFavSuccess(response, localFavourites);
       } else {
         return Left(
