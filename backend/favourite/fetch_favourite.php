@@ -43,12 +43,12 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                     "status" => "success", "data" => $favoriteCars));
             } else {
                 http_response_code(200); // Not Found
-                echo json_encode(array("status" => "success", "data" => $favoriteCars));
+                echo json_encode(array("status" => "success", "data" => []));
             }
         } else{
              // Invalid HTTP method
              http_response_code(405); // Method Not Allowed
-             echo json_encode(array("status" => "failed", "Message" => "Method POST Method is allowed"));
+             echo json_encode(array("status" => "failed", "Message" => "Only GET Method is allowed"));
         }
     } else {
         // Invalid or expired token
