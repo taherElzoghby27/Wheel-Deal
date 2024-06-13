@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                 $orderCars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Prepare response
+                /// Prepare response
                 if ($orderCars) {
                     http_response_code(200); // OK
                     echo json_encode(array("status" => "success", "data" => $orderCars));
