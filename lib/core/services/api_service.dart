@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cars/core/consts/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,13 @@ class ApiService {
   static const String baseUrl = ApiConsts.baseUrl;
 
   static initDio() {
-    dio = Dio();
+    dio = Dio(
+      BaseOptions(
+        headers: {
+          HttpHeaders.contentTypeHeader: 'application/json',
+        },
+      ),
+    );
   }
 
   Future<Response> get({
@@ -17,12 +25,13 @@ class ApiService {
     dio.options.headers = token == null
         ? {}
         : {
-            'authorization': 'Bearer $token',
+            'Authorization': 'Bearer $token',
           };
     Response response = await dio.get(
       '$baseUrl$endPoint',
     );
-    debugPrint('$endPoint ---- data : ${response.data}');
+    debugPrint(
+        '$endPoint ---- data : ${response.data.runtimeType} ${response.data}');
     return response;
   }
 

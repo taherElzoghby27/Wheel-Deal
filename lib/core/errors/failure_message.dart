@@ -39,7 +39,8 @@ class ServerFailure extends FailureServ {
 
   factory ServerFailure.fromDioResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure.fromJson(response);
+     // return ServerFailure.fromJson(response);
+      return ServerFailure.fromMap(response);
     } else if (statusCode == 404) {
       // return ServerFailure(
       //   message: 'Your request was not found, please try later',
