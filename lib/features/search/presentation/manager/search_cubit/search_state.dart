@@ -7,6 +7,8 @@ class SearchState extends Equatable {
   final RequestState recentSearchState;
   final List<RecentSearchModel> recentSearchList;
   final String failureMessageRecentSearch;
+  final RequestState deleteRecentSearchState;
+  final String failureMessageDeleteRecentSearch;
 
   const SearchState({
     this.searchState = RequestState.initial,
@@ -15,6 +17,8 @@ class SearchState extends Equatable {
     this.recentSearchState = RequestState.loading,
     this.recentSearchList = const [],
     this.failureMessageRecentSearch = 'No Data',
+    this.deleteRecentSearchState = RequestState.initial,
+    this.failureMessageDeleteRecentSearch = 'No Data',
   });
 
   SearchState copyWith({
@@ -24,6 +28,8 @@ class SearchState extends Equatable {
     RequestState? recentSearchState,
     List<RecentSearchModel>? recentSearchList,
     String? failureMessageRecentSearch,
+    RequestState? deleteRecentSearchState,
+    String? failureMessageDeleteRecentSearch,
   }) =>
       SearchState(
         searchState: searchState ?? this.searchState,
@@ -33,6 +39,10 @@ class SearchState extends Equatable {
         recentSearchList: recentSearchList ?? this.recentSearchList,
         failureMessageRecentSearch:
             failureMessageRecentSearch ?? this.failureMessageRecentSearch,
+        deleteRecentSearchState:
+            deleteRecentSearchState ?? this.deleteRecentSearchState,
+        failureMessageDeleteRecentSearch: failureMessageDeleteRecentSearch ??
+            this.failureMessageDeleteRecentSearch,
       );
 
   @override
@@ -43,5 +53,7 @@ class SearchState extends Equatable {
         recentSearchState,
         recentSearchList,
         failureMessageRecentSearch,
+        deleteRecentSearchState,
+        failureMessageDeleteRecentSearch,
       ];
 }
