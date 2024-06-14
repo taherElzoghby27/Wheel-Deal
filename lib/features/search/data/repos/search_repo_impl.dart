@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/errors/failure_message.dart';
@@ -84,5 +86,31 @@ class SearchRepoImpl extends SearchRepo {
         (item) => RecentSearchModel.fromMap(item),
       ),
     );
+  }
+
+  @override
+  Future<Either<FailureServ, void>> deleteRecentSearch(
+      {required String searchQuery}) async {
+    try {
+      final response = await _searchRemoteDataSource.deleteRecentSearch(
+        searchQuery: searchQuery,
+      );
+
+      if (response.statusCode == 200) {
+        return const Right(Void);
+      } else {
+        return Left(
+          ServerFailure.fromDioResponse(
+            response.statusCode!,
+            response.data,
+          ),
+        );
+      }
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
   }
 }
