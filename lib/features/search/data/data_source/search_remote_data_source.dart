@@ -10,6 +10,8 @@ abstract class SearchRemoteDataSource {
   });
 
   Future<Response> recentSearch();
+
+  Future<Response> deleteRecentSearch({required String searchQuery});
 }
 
 class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
@@ -36,6 +38,20 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
     String? token = await readFromCache(StringsEn.token);
     Response response = await _apiService.post(
       endPoint: ApiConsts.recentSearchEndPoint,
+      token: token,
+      data: data,
+    );
+    return response;
+  }
+
+  @override
+  Future<Response> deleteRecentSearch({required String searchQuery}) async{
+    FormData data = convertMapToFormData(
+      {'search_query': searchQuery},
+    );
+    String? token = await readFromCache(StringsEn.token);
+    Response response = await _apiService.post(
+      endPoint: ApiConsts.deleteRecentSearchEndPoint,
       token: token,
       data: data,
     );
