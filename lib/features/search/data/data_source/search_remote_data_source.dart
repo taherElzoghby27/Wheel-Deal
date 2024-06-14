@@ -4,7 +4,6 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:dio/dio.dart';
 
-
 abstract class SearchRemoteDataSource {
   Future<Response> search({
     required String searchWord,
@@ -32,9 +31,7 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
   @override
   Future<Response> search({required String searchWord}) async {
     FormData data = convertMapToFormData(
-      {
-        'search_word': searchWord,
-      },
+      {'q': searchWord},
     );
     String? token = await readFromCache(StringsEn.token);
     Response response = await _apiService.post(
