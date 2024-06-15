@@ -2,11 +2,11 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 
 class CarModel extends CarEntity {
-  num? carId;
+  String? carId;
   String? brand;
   String? model;
   String? bodyType;
-  num? price;
+  String? price;
   String? imagePath;
   String? fuelType;
   String? transmission;
@@ -47,10 +47,10 @@ class CarModel extends CarEntity {
     this.newUsed,
     this.installmentAvailability,
   }) : super(
-          id: carId ?? 0,
-          image: imagePath ?? '',
+          id: carId ??"",
+          image: imagePath ?? "",
           title: model ?? '',
-          priceCar: price ?? 0,
+          priceCar: price ?? "0",
         );
 
 

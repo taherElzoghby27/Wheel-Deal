@@ -3,6 +3,7 @@ import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:cars/features/search/data/repos/search_repo_impl.dart';
+import 'package:cars/features/search/domain/use_cases/delete_recent_search_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/recent_search_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/search_use_case.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
@@ -33,7 +34,10 @@ class SearchView extends StatelessWidget {
           SearchUseCase(
             searchRepo: getIt.get<SearchRepoImpl>(),
           ),
-        ),
+          DeleteRecentSearchUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+        )..recentSearch(),
         child: const SafeArea(
           child: SearchBody(),
         ),

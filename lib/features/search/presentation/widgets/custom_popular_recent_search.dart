@@ -7,14 +7,14 @@ class CustomRecentOrPopularWidget extends StatelessWidget {
   const CustomRecentOrPopularWidget({
     super.key,
     this.leading,
-    required this.jop,
+    required this.searchWord,
     required this.trailingOnTap,
     required this.trailing,
     this.trailingColor,
   });
 
   final IconData? leading;
-  final String jop;
+  final String searchWord;
   final void Function() trailingOnTap;
   final IconData trailing;
   final Color? trailingColor;
@@ -38,7 +38,7 @@ class CustomRecentOrPopularWidget extends StatelessWidget {
           SizedBox(
             width: size.width * .5,
             child: Text(
-              jop,
+              searchWord,
               style: AppConsts.style14.copyWith(
                 fontWeight: FontWeight.w400,
                 color: Theme.of(context).canvasColor.withOpacity(.5),

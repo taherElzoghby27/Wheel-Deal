@@ -19,6 +19,12 @@ class SearchCubit extends Cubit<SearchState> {
     this._searchUseCase,
     this._deleteRecentSearchUseCase,
   ) : super(const SearchState());
+  bool initial = true;
+
+  changeFieldSearch(String value) async {
+    initial = false;
+    await search(searchWord: value);
+  }
 
   search({required String searchWord}) async {
     emit(state.copyWith(searchState: RequestState.loading));

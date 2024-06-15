@@ -41,7 +41,7 @@ class CarDetailsBlocProviderView extends StatelessWidget {
               carDetailsRepo: getIt.get<CarDetailsRepoImpl>(),
             ),
           )..add(
-              CrDetailsEvent(carId: carEntity.id.toInt()),
+              CrDetailsEvent(carId: int.parse(carEntity.id)),
             ),
         ),
         BlocProvider(

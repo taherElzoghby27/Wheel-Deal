@@ -1,6 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'recent_searchs.dart';
 import 'result_section.dart';
@@ -12,7 +14,6 @@ class SearchBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bool initial = true;
 
     return ListView(
       children: [
@@ -23,11 +24,15 @@ class SearchBody extends StatelessWidget {
         SizedBox(height: size.height * .015.h),
 
         ///section result
-        initial
-            ? RecentSearch(
-                tileHint: StringsEn.recentSearches,
-              )
-            : const SectionResult(),
+        BlocBuilder<SearchCubit, SearchState>(
+          builder: (context, state) {
+            return context.read<SearchCubit>().initial
+                ? RecentSearch(
+                    tileHint: StringsEn.recentSearches,
+                  )
+                : const SectionResult();
+          },
+        ),
       ],
     );
   }

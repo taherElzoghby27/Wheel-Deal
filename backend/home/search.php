@@ -65,7 +65,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                     echo json_encode(array("status" => "success", "data" => $results)); // Encode data as JSON
                 } else {
                     // No data found
-                    http_response_code(200); // Set success code
+                    http_response_code(204); // Set success code
                     echo json_encode(array("status" => "success", "data" => $results)); // Encode data as JSON
                 }
             }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cars/core/consts/api.dart';
@@ -11,9 +12,9 @@ class ApiService {
   static initDio() {
     dio = Dio(
       BaseOptions(
-        headers: {
-          HttpHeaders.contentTypeHeader: 'application/json',
-        },
+        validateStatus: (_) => true,
+        contentType: Headers.jsonContentType,
+        responseType: ResponseType.json,
       ),
     );
   }
@@ -22,13 +23,17 @@ class ApiService {
     required String endPoint,
     String? token,
   }) async {
-    dio.options.headers = token == null
-        ? {}
-        : {
-            'Authorization': 'Bearer $token',
-          };
+    debugPrint(token);
+
     Response response = await dio.get(
-      '$baseUrl$endPoint',
+      "$baseUrl$endPoint",
+      options: Options(
+        headers: {
+          //'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8;application/json;multipart/form-data',
+          //'Accept': 'application/json',
+          'Authorization': 'Bearer ${token ?? ''}',
+        },
+      ),
     );
     debugPrint(
         '$endPoint ---- data : ${response.data.runtimeType} ${response.data}');
@@ -40,11 +45,9 @@ class ApiService {
     Object? data,
     String? token,
   }) async {
-    dio.options.headers = token == null
-        ? {}
-        : {
-            'Authorization': 'Bearer $token',
-          };
+    dio.options.headers = {
+      HttpHeaders.authorizationHeader: 'Bearer $token',
+    };
     Response response = await dio.post(
       '$baseUrl$endPoint',
       data: data,

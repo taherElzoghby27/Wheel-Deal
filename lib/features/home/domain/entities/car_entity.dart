@@ -6,26 +6,18 @@ part 'car_entity.g.dart';
 @HiveType(typeId: 1)
 class CarEntity {
   @HiveField(0)
-  final num id;
+  final String id;
   @HiveField(1)
   final String image;
   @HiveField(2)
   final String title;
   @HiveField(3)
-  final num priceCar;
-  static num? _carId;
+  final String priceCar;
 
   CarEntity({
     required this.id,
     required this.image,
     required this.title,
     required this.priceCar,
-  }) {
-    _carId = id;
-    debugPrint(_carId.toString());
-  }
-
-  static num? getCarId() {
-    return _carId;
-  }
+  });
 }

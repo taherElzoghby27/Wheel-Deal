@@ -70,7 +70,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     emit(
       state.copyWith(deleteFavouritesState: RequestState.loading),
     );
-    await _deleteFavUseCase.call(event.carEntity.id.toInt()).then(
+    await _deleteFavUseCase.call(int.parse(event.carEntity.id)).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -101,7 +101,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     emit(
       state.copyWith(addFavouritesState: RequestState.loading),
     );
-    await _addFavUseCase.call(event.carEntity.id.toInt()).then(
+    await _addFavUseCase.call(int.parse(event.carEntity.id)).then(
           (value) => value.fold(
             (failure) {
               emit(

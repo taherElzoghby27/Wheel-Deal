@@ -49,7 +49,7 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
       ],
     ).animate(controller);
     favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
-      widget.carEntity.id.toInt(),
+      int.parse(widget.carEntity.id),
     );
     handleAnimation();
     super.initState();
@@ -79,7 +79,7 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
               splashColor: Colors.transparent,
               onTap: () {
                 favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
-                  widget.carEntity.id.toInt(),
+                  int.parse(widget.carEntity.id),
                 );
                 if (favouritesBloc.isSaved) {
                   favouritesBloc.add(

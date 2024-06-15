@@ -1,4 +1,5 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/handle_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,11 +24,14 @@ class EmptyWidget extends StatelessWidget {
         children: [
           SizedBox(height: size.height * .15.h),
           //icon
-          SvgPicture.asset(
-            icon,
-            fit: BoxFit.fill,
-            height: size.height * .15.h,
+          HandleImageWidget(
+            image: icon,
           ),
+          // SvgPicture.asset(
+          //   icon,
+          //   fit: BoxFit.fill,
+          //   height: size.height * .15.h,
+          // ),
           SizedBox(height: size.height * .04.h),
           //title
           Text(

@@ -17,10 +17,10 @@ class CarEntityAdapter extends TypeAdapter<CarEntity> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CarEntity(
-      id: fields[0] as num,
+      id: fields[0] as String,
       image: fields[1] as String,
       title: fields[2] as String,
-      priceCar: fields[3] as num,
+      priceCar: fields[3] as String,
     );
   }
 

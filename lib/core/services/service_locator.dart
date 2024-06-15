@@ -91,6 +91,7 @@ setupServiceLocator() {
   getIt.registerSingleton<FavouritesRemoteDataSourceImpl>(
     FavouritesRemoteDataSourceImpl(
       apiService: getIt.get<ApiService>(),
+      hiveDbCarsHome: getIt.get<HiveDbCarsHome>(),
     ),
   );
   getIt.registerSingleton<FavouritesLocalDataSourceImpl>(
@@ -100,9 +101,7 @@ setupServiceLocator() {
   );
   getIt.registerSingleton<FavouritesRepoImpl>(
     FavouritesRepoImpl(
-      favouritesRemoteDataSourceImpl:
-          getIt.get<FavouritesRemoteDataSourceImpl>(),
-      hiveDbCarsHome: getIt.get<HiveDbCarsHome>(),
+      favouritesRemoteDataSource: getIt.get<FavouritesRemoteDataSourceImpl>(),
       favouritesLocalDataSource: getIt.get<FavouritesLocalDataSourceImpl>(),
     ),
   );
