@@ -48,15 +48,16 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
         ),
       ],
     ).animate(controller);
-    favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
-      widget.carEntity.id,
-    );
     handleAnimation();
     super.initState();
   }
 
   void handleAnimation() {
-    favouritesBloc.isSaved ? controller.forward() : controller.stop();
+    debugPrint(
+        "${widget.carEntity.title} ${favouritesBloc.isFav(widget.carEntity.id)}");
+    favouritesBloc.isFav(widget.carEntity.id)
+        ? controller.forward()
+        : controller.stop();
   }
 
   @override
@@ -78,10 +79,7 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
             return InkWell(
               splashColor: Colors.transparent,
               onTap: () {
-                favouritesBloc.isSaved = favouritesBloc.checkIfFavOrNot(
-                  widget.carEntity.id,
-                );
-                if (favouritesBloc.isSaved) {
+                if (favouritesBloc.isFav(widget.carEntity.id)) {
                   favouritesBloc.add(
                     DeleteFavEvent(carEntity: widget.carEntity),
                   );
@@ -100,7 +98,7 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
                   child: Icon(
                     widget.icon,
                     size: sizeAnimation.value,
-                    color: favouritesBloc.isSaved
+                    color: favouritesBloc.isFav(widget.carEntity.id)
                         ? AppConsts.mainColor
                         : AppConsts.neutral500,
                   ),

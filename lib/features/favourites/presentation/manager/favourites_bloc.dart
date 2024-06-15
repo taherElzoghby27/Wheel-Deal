@@ -36,7 +36,10 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
   }
 
   List<CarEntity> favouritesList = [];
-  bool isSaved = false;
+
+  bool isFav(String idCar) {
+    return favouritesList.any((item) => item.id == idCar);
+  }
 
   Future<void> getFavEventMethod(Emitter<FavouritesState> emit) async {
     await _getFavouritesUseCase.call().then(
@@ -81,7 +84,6 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
               );
             },
             (success) async {
-              isSaved = false;
               //delete car from list
               deleteCarFromFavList(event.carEntity);
               debugPrint(favouritesList.length.toString());
@@ -113,7 +115,6 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
               );
             },
             (success) {
-              isSaved = true;
               //add car to list
               favouritesList.add(event.carEntity);
               emit(
@@ -128,9 +129,5 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
 
   void deleteCarFromFavList(CarEntity carEntity) {
     favouritesList.removeWhere((item) => item.id == carEntity.id);
-  }
-
-  bool checkIfFavOrNot(String carId) {
-    return favouritesList.any((e) => carId == e.id);
   }
 }
