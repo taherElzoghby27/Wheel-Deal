@@ -6,7 +6,6 @@ import 'package:cars/features/favourites/domain/repos/favourites_repo.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 import '../data_source/local_data_source.dart';
 
@@ -21,7 +20,7 @@ class FavouritesRepoImpl extends FavouritesRepo {
         _favouritesLocalDataSource = favouritesLocalDataSource;
 
   @override
-  Future<Either<FailureServ, void>> addFav({required int carId}) async {
+  Future<Either<FailureServ, void>> addFav({required String carId}) async {
     try {
       await _favouritesRemoteDataSource.addFav(
         carId: carId,
@@ -36,7 +35,7 @@ class FavouritesRepoImpl extends FavouritesRepo {
   }
 
   @override
-  Future<Either<FailureServ, void>> deleteFav({required int carId}) async {
+  Future<Either<FailureServ, void>> deleteFav({required String carId}) async {
     try {
       await _favouritesRemoteDataSource.deleteFav(
         carId: carId,

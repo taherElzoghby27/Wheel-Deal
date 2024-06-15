@@ -10,16 +10,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/consts/enums.dart';
 import 'favourites_grid_view.dart';
 
-class FavouritesBlocBuilder extends StatelessWidget {
+class FavouritesBlocBuilder extends StatefulWidget {
   const FavouritesBlocBuilder({super.key});
+
+  @override
+  State<FavouritesBlocBuilder> createState() => _FavouritesBlocBuilderState();
+}
+
+class _FavouritesBlocBuilderState extends State<FavouritesBlocBuilder> {
+  List<CarEntity> favourites = [];
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavouritesBloc, FavouritesState>(
       builder: (context, state) {
-        if (state.getFavouritesState == RequestState.loaded) {
-          List<CarEntity> favourites =
-              context.read<FavouritesBloc>().favouritesList;
+        if (state.getFavouritesState == RequestState.loaded ||
+            state.deleteFavouritesState == RequestState.loaded) {
+          favourites = context.read<FavouritesBloc>().favouritesList;
           return favourites.isEmpty
               ? const EmptyWidget(icon: Assets.favAsset)
               : FavouritesGridView(favourites: favourites);

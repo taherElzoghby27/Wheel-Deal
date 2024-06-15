@@ -38,7 +38,7 @@ String handlePrice(int number) {
   return newNum;
 }
 
-List<CarEntity> convertListOfObjectToListOfModels(
+List<CarModel> convertListOfObjectToListOfModels(
   List<dynamic> data,
 ) {
   return List<CarModel>.from(

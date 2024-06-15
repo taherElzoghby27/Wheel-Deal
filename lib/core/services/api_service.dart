@@ -24,7 +24,6 @@ class ApiService {
     String? token,
   }) async {
     debugPrint(token);
-
     Response response = await dio.get(
       "$baseUrl$endPoint",
       options: Options(
@@ -45,14 +44,16 @@ class ApiService {
     Object? data,
     String? token,
   }) async {
-    dio.options.headers = {
-      HttpHeaders.authorizationHeader: 'Bearer $token',
-    };
     Response response = await dio.post(
       '$baseUrl$endPoint',
       data: data,
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer ${token ?? ''}',
+        },
+      ),
     );
-    debugPrint("${response.data} -- ${response.data.runtimeType}");
+    debugPrint("post ${response.data} -- ${response.data.runtimeType}");
     return response;
   }
 

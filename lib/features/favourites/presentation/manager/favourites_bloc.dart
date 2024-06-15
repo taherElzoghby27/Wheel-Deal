@@ -70,7 +70,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     emit(
       state.copyWith(deleteFavouritesState: RequestState.loading),
     );
-    await _deleteFavUseCase.call(int.parse(event.carEntity.id)).then(
+    await _deleteFavUseCase.call(event.carEntity.id).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -84,6 +84,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
               isSaved = false;
               //delete car from list
               deleteCarFromFavList(event.carEntity);
+              debugPrint(favouritesList.length.toString());
               emit(
                 state.copyWith(
                   deleteFavouritesState: RequestState.loaded,
@@ -101,7 +102,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     emit(
       state.copyWith(addFavouritesState: RequestState.loading),
     );
-    await _addFavUseCase.call(int.parse(event.carEntity.id)).then(
+    await _addFavUseCase.call(event.carEntity.id).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -114,7 +115,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
             (success) {
               isSaved = true;
               //add car to list
-              addCarToFavList(event.carEntity);
+              favouritesList.add(event.carEntity);
               emit(
                 state.copyWith(
                   addFavouritesState: RequestState.loaded,
@@ -125,19 +126,11 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
         );
   }
 
-  void addCarToFavList(CarEntity carEntity) {
-    favouritesList.add(carEntity);
-  }
-
   void deleteCarFromFavList(CarEntity carEntity) {
-    favouritesList = favouritesList
-        .where(
-          (item) => item.id == carEntity.id,
-        )
-        .toList();
+    favouritesList.removeWhere((item) => item.id == carEntity.id);
   }
 
-  bool checkIfFavOrNot(int carId) {
-    return favouritesList.any((e) => e.id == carId);
+  bool checkIfFavOrNot(String carId) {
+    return favouritesList.any((e) => carId == e.id);
   }
 }
