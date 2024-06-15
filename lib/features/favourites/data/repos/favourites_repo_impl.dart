@@ -53,8 +53,7 @@ class FavouritesRepoImpl extends FavouritesRepo {
   Future<Either<FailureServ, List<CarEntity>>> getFav() async {
     try {
       final localFavourites = _favouritesLocalDataSource.getFavourites();
-      final List<CarEntity> favourites =
-          await _favouritesRemoteDataSource.getFav();
+      final favourites = await _favouritesRemoteDataSource.getFav();
       // Check if local and remote are in sync
       if (localFavourites.isNotEmpty &&
           localFavourites.length == favourites.length) {

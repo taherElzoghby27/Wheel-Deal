@@ -80,7 +80,6 @@ class HomeRepoImpl extends HomeRepo {
         List<CarEntity> convertedData = convertListOfObjectToListOfModels(
           data['data'],
         );
-        debugPrint("success  data$convertedData");
         //save cars in local
         _hiveDbCarsHome.saveCars(
           boxName: boxName,
@@ -116,7 +115,6 @@ class HomeRepoImpl extends HomeRepo {
       final response = await remoteDataSourceCall();
       if (response.statusCode == 200) {
         Map<String, dynamic> data = response.data;
-        debugPrint('data : ${data.runtimeType}');
         List<BrandEntity> convertedData = convertMapToBrandsModel(
           data['data'],
         );

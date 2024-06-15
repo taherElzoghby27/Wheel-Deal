@@ -63,7 +63,7 @@ class FavouritesRemoteDataSourceImpl extends FavouritesRemoteDataSource {
     );
     List<CarEntity> favourites = convertListOfObjectToListOfModels(
       response.data['data'],
-    ) as List<CarEntity>;
+    );
     //save data in local
     _hiveDbCarsHome.saveCars(
       boxName: StringsEn.kFavourites,

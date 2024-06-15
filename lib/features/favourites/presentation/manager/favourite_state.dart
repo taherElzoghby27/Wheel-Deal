@@ -1,6 +1,6 @@
-part of 'favourites_bloc.dart';
+part of 'favourite_cubit.dart';
 
-class FavouritesState extends Equatable {
+class FavouriteState extends Equatable {
   final RequestState addFavouritesState;
   final String addFavouritesFailureMessage;
   final RequestState deleteFavouritesState;
@@ -9,7 +9,7 @@ class FavouritesState extends Equatable {
   final String getFavouritesFailureMessage;
   final List<CarEntity> favourites;
 
-  const FavouritesState({
+  const FavouriteState({
     this.addFavouritesState = RequestState.initial,
     this.addFavouritesFailureMessage = 'no data',
     this.deleteFavouritesState = RequestState.initial,
@@ -19,7 +19,7 @@ class FavouritesState extends Equatable {
     this.favourites = const [],
   });
 
-  FavouritesState copyWith({
+  FavouriteState copyWith({
     RequestState? addFavouritesState,
     String? addFavouritesFailureMessage,
     RequestState? deleteFavouritesState,
@@ -28,28 +28,28 @@ class FavouritesState extends Equatable {
     String? getFavouritesFailureMessage,
     List<CarEntity>? favourites,
   }) =>
-      FavouritesState(
+      FavouriteState(
         addFavouritesState: addFavouritesState ?? this.addFavouritesState,
         addFavouritesFailureMessage:
-            addFavouritesFailureMessage ?? this.addFavouritesFailureMessage,
+        addFavouritesFailureMessage ?? this.addFavouritesFailureMessage,
         deleteFavouritesState:
-            deleteFavouritesState ?? this.deleteFavouritesState,
+        deleteFavouritesState ?? this.deleteFavouritesState,
         deleteFavouritesFailureMessage: deleteFavouritesFailureMessage ??
             this.deleteFavouritesFailureMessage,
         getFavouritesState: getFavouritesState ?? this.getFavouritesState,
         getFavouritesFailureMessage:
-            getFavouritesFailureMessage ?? this.getFavouritesFailureMessage,
+        getFavouritesFailureMessage ?? this.getFavouritesFailureMessage,
         favourites: favourites ?? this.favourites,
       );
 
   @override
   List<Object?> get props => [
-        addFavouritesState,
-        addFavouritesFailureMessage,
-        deleteFavouritesState,
-        deleteFavouritesFailureMessage,
-        getFavouritesState,
-        getFavouritesFailureMessage,
-        favourites,
-      ];
+    addFavouritesState,
+    addFavouritesFailureMessage,
+    deleteFavouritesState,
+    deleteFavouritesFailureMessage,
+    getFavouritesState,
+    getFavouritesFailureMessage,
+    favourites,
+  ];
 }

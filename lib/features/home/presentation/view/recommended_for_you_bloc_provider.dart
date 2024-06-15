@@ -5,7 +5,6 @@ import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
 import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
-import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
@@ -16,6 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/consts/strings.dart';
+import '../../../favourites/presentation/manager/favourite_cubit.dart';
 import 'widgets/recommended_for_you_body.dart';
 
 class RecommendedForYouView extends StatelessWidget {
@@ -54,7 +54,7 @@ class RecommendedForYouView extends StatelessWidget {
               ..add(const AddRecommendedForYouEvent()),
           ),
           BlocProvider(
-            create: (_) => FavouritesBloc(
+            create: (_) => FavouriteCubit(
               GetFavouritesUseCase(
                 favouritesRepo: getIt.get<FavouritesRepoImpl>(),
               ),
@@ -64,7 +64,7 @@ class RecommendedForYouView extends StatelessWidget {
               DeleteFavUseCase(
                 favouritesRepo: getIt.get<FavouritesRepoImpl>(),
               ),
-            )..add(GetFavEvent()),
+            )..getFav(),
           ),
         ],
         child: const SafeArea(

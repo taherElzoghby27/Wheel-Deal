@@ -8,7 +8,7 @@ import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
 import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
-import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
+import 'package:cars/features/favourites/presentation/manager/favourite_cubit.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,7 +45,7 @@ class CarDetailsBlocProviderView extends StatelessWidget {
             ),
         ),
         BlocProvider(
-          create: (_) => FavouritesBloc(
+          create: (_) => FavouriteCubit(
             GetFavouritesUseCase(
               favouritesRepo: getIt.get<FavouritesRepoImpl>(),
             ),
@@ -55,7 +55,7 @@ class CarDetailsBlocProviderView extends StatelessWidget {
             DeleteFavUseCase(
               favouritesRepo: getIt.get<FavouritesRepoImpl>(),
             ),
-          )..add(GetFavEvent()),
+          )..getFav(),
         ),
       ],
       child: Scaffold(

@@ -1,8 +1,8 @@
-import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/favourites/presentation/manager/favourite_cubit.dart';
 import '../consts/style.dart';
 
 class IconWidgetAnimation extends StatefulWidget {
@@ -25,11 +25,11 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> sizeAnimation;
-  late FavouritesBloc favouritesBloc;
+  late FavouriteCubit favCubit;
 
   @override
   void initState() {
-    favouritesBloc = context.read<FavouritesBloc>();
+    favCubit = context.read<FavouriteCubit>();
     controller = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -53,7 +53,7 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
   }
 
   void handleAnimation() {
-    favouritesBloc.isFav(widget.carEntity.id)
+    favCubit.isFav(widget.carEntity.id)
         ? controller.forward()
         : controller.stop();
   }
@@ -72,20 +72,16 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
         borderRadius: AppConsts.mainRadius,
       ),
       child: Center(
-        child: BlocBuilder<FavouritesBloc, FavouritesState>(
+        child: BlocBuilder<FavouriteCubit, FavouriteState>(
           builder: (context, state) {
             return InkWell(
               splashColor: Colors.transparent,
               onTap: () {
-                if (favouritesBloc.isFav(widget.carEntity.id)) {
-                  favouritesBloc.add(
-                    DeleteFavEvent(carEntity: widget.carEntity),
-                  );
+                if (favCubit.isFav(widget.carEntity.id)) {
+                  favCubit.deleteFav(widget.carEntity);
                   controller.reverse();
                 } else {
-                  favouritesBloc.add(
-                    AddFavEvent(carEntity: widget.carEntity),
-                  );
+                  favCubit.addFav(widget.carEntity);
                   controller.forward();
                 }
               },
@@ -96,7 +92,7 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
                   child: Icon(
                     widget.icon,
                     size: sizeAnimation.value,
-                    color: favouritesBloc.isFav(widget.carEntity.id)
+                    color: favCubit.isFav(widget.carEntity.id)
                         ? AppConsts.mainColor
                         : AppConsts.neutral500,
                   ),

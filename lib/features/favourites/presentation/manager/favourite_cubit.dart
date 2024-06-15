@@ -1,47 +1,85 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/enums.dart';
 import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
+import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/widgets.dart';
 
-import '../../domain/use_cases/get_favourites_use_case.dart';
+import '../../../../core/consts/enums.dart';
 
-part 'favourites_event.dart';
+part 'favourite_state.dart';
 
-part 'favourites_state.dart';
-
-class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
+class FavouriteCubit extends Cubit<FavouriteState> {
   final GetFavouritesUseCase _getFavouritesUseCase;
   final AddFavUseCase _addFavUseCase;
   final DeleteFavUseCase _deleteFavUseCase;
 
-  FavouritesBloc(
+  FavouriteCubit(
     this._getFavouritesUseCase,
     this._addFavUseCase,
     this._deleteFavUseCase,
-  ) : super(const FavouritesState()) {
-    on<FavouritesEvent>(
-      (event, emit) async {
-        if (event is AddFavEvent) {
-          await addFavouriteEventMethod(emit, event);
-        } else if (event is DeleteFavEvent) {
-          await deleteFavouriteEventMethod(emit, event);
-        } else if (event is GetFavEvent) {
-          await getFavEventMethod(emit);
-        }
-      },
-    );
-  }
-
+  ) : super(const FavouriteState());
   List<CarEntity> favouritesList = [];
 
   bool isFav(String idCar) {
     return favouritesList.any((item) => item.id == idCar);
   }
 
-  Future<void> getFavEventMethod(Emitter<FavouritesState> emit) async {
+  addFav(CarEntity carEntity) async {
+    emit(
+      state.copyWith(addFavouritesState: RequestState.loading),
+    );
+    await _addFavUseCase.call(carEntity.id).then(
+          (value) => value.fold(
+            (failure) {
+              emit(
+                state.copyWith(
+                  addFavouritesState: RequestState.error,
+                  addFavouritesFailureMessage: failure.message,
+                ),
+              );
+            },
+            (success) {
+              //add car to list
+              favouritesList.add(carEntity);
+              emit(
+                state.copyWith(
+                  addFavouritesState: RequestState.loaded,
+                ),
+              );
+            },
+          ),
+        );
+  }
+
+  deleteFav(CarEntity carEntity) async {
+    emit(
+      state.copyWith(deleteFavouritesState: RequestState.loading),
+    );
+    await _deleteFavUseCase.call(carEntity.id).then(
+          (value) => value.fold(
+            (failure) {
+              emit(
+                state.copyWith(
+                  deleteFavouritesState: RequestState.error,
+                  deleteFavouritesFailureMessage: failure.message,
+                ),
+              );
+            },
+            (success) async {
+              //delete car from list
+              deleteCarFromFavList(carEntity);
+              emit(
+                state.copyWith(
+                  deleteFavouritesState: RequestState.loaded,
+                ),
+              );
+            },
+          ),
+        );
+  }
+
+  getFav() async {
     await _getFavouritesUseCase.call().then(
           (value) => value.fold(
             (failure) {
@@ -54,72 +92,10 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
             },
             (List<CarEntity> favourites) {
               favouritesList = favourites;
-              debugPrint('list ${favouritesList.length.toString()}');
               emit(
                 state.copyWith(
                   getFavouritesState: RequestState.loaded,
                   favourites: favourites,
-                ),
-              );
-            },
-          ),
-        );
-  }
-
-  Future<void> deleteFavouriteEventMethod(
-    Emitter<FavouritesState> emit,
-    DeleteFavEvent event,
-  ) async {
-    emit(
-      state.copyWith(deleteFavouritesState: RequestState.loading),
-    );
-    await _deleteFavUseCase.call(event.carEntity.id).then(
-          (value) => value.fold(
-            (failure) {
-              emit(
-                state.copyWith(
-                  deleteFavouritesState: RequestState.error,
-                  deleteFavouritesFailureMessage: failure.message,
-                ),
-              );
-            },
-            (success) async {
-              //delete car from list
-              deleteCarFromFavList(event.carEntity);
-              debugPrint(favouritesList.length.toString());
-              emit(
-                state.copyWith(
-                  deleteFavouritesState: RequestState.loaded,
-                ),
-              );
-            },
-          ),
-        );
-  }
-
-  Future<void> addFavouriteEventMethod(
-    Emitter<FavouritesState> emit,
-    AddFavEvent event,
-  ) async {
-    emit(
-      state.copyWith(addFavouritesState: RequestState.loading),
-    );
-    await _addFavUseCase.call(event.carEntity.id).then(
-          (value) => value.fold(
-            (failure) {
-              emit(
-                state.copyWith(
-                  addFavouritesState: RequestState.error,
-                  addFavouritesFailureMessage: failure.message,
-                ),
-              );
-            },
-            (success) {
-              //add car to list
-              favouritesList.add(event.carEntity);
-              emit(
-                state.copyWith(
-                  addFavouritesState: RequestState.loaded,
                 ),
               );
             },

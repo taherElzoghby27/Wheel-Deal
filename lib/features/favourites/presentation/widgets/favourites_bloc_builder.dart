@@ -1,13 +1,13 @@
 import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/widgets/empty_widget.dart';
 import 'package:cars/core/widgets/error_widget.dart';
-import 'package:cars/features/favourites/presentation/manager/favourites_bloc.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view/widgets/loading_shimmer_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/consts/enums.dart';
+import '../manager/favourite_cubit.dart';
 import 'favourites_grid_view.dart';
 
 class FavouritesBlocBuilder extends StatefulWidget {
@@ -22,11 +22,11 @@ class _FavouritesBlocBuilderState extends State<FavouritesBlocBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavouritesBloc, FavouritesState>(
+    return BlocBuilder<FavouriteCubit, FavouriteState>(
       builder: (context, state) {
         if (state.getFavouritesState == RequestState.loaded ||
             state.deleteFavouritesState == RequestState.loaded) {
-          favourites = context.read<FavouritesBloc>().favouritesList;
+          favourites = context.read<FavouriteCubit>().favouritesList;
           return favourites.isEmpty
               ? const EmptyWidget(icon: Assets.favAsset)
               : FavouritesGridView(favourites: favourites);
