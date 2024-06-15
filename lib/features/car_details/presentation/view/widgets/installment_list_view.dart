@@ -19,9 +19,9 @@ class InstallmentListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return TileDialogInstallment(
           first: '${installments[index].installmentPlan} ${StringsEn.months}',
-          second: handlePrice(installments[index].deposit!.toInt()),
-          third: handlePrice(installments[index].monthly!.toInt()),
-          forth: handlePrice(installments[index].total!.toInt()),
+          second: handlePrice(installments[index].deposit!),
+          third: handlePrice(installments[index].monthly!),
+          forth: handlePrice(installments[index].total!),
           color: AppConsts.mainColor,
         );
       },

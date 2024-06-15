@@ -53,8 +53,6 @@ class _IconWidgetAnimationState extends State<IconWidgetAnimation>
   }
 
   void handleAnimation() {
-    debugPrint(
-        "${widget.carEntity.title} ${favouritesBloc.isFav(widget.carEntity.id)}");
     favouritesBloc.isFav(widget.carEntity.id)
         ? controller.forward()
         : controller.stop();

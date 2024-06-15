@@ -296,63 +296,63 @@ List<CarSpecificModel> listOfSpecification(CarModel carModel) {
 List<CarFeatureModel> listOfFeatures(CarModel carModel) => [
       CarFeatureModel(
         key: StringsEn.airCondition,
-        value: carModel.airConditioner == 1 ? true : false,
+        value: carModel.airConditioner == '1' ? true : false,
       ),
       CarFeatureModel(
         key: StringsEn.airbag,
-        value: carModel.brakeAssist == 1 ? true : false,
+        value: carModel.brakeAssist == '1'? true : false,
       ),
       CarFeatureModel(
         key: StringsEn.breakAssist,
-        value: carModel.brakeAssist == 1 ? true : false,
+        value: carModel.brakeAssist == '1' ? true : false,
       ),
       CarFeatureModel(
         key: StringsEn.navigationSystem,
-        value: carModel.navigationSystem == 1 ? true : false,
+        value: carModel.navigationSystem == '1' ? true : false,
       ),
       CarFeatureModel(
         key: StringsEn.touchScreen,
-        value: carModel.touchScreen == 1 ? true : false,
+        value: carModel.touchScreen == '1' ? true : false,
       ),
       CarFeatureModel(
         key: StringsEn.connectivity,
-        value: carModel.connectivity == 1 ? true : false,
+        value: carModel.connectivity == '1' ? true : false,
       ),
       CarFeatureModel(
         key: StringsEn.remoteEngine,
-        value: carModel.remoteEngineStartStop == 1 ? true : false,
+        value: carModel.remoteEngineStartStop == '1' ? true : false,
       ),
     ];
 List<InstallmentAvailableModel> installments = [
   InstallmentAvailableModel(
-    installmentPlan: 12,
-    deposit: 266266,
-    monthly: 266266,
-    total: 266266,
+    installmentPlan: '12',
+    deposit: '266266',
+    monthly: '266266',
+    total: '266266',
   ),
   InstallmentAvailableModel(
-    installmentPlan: 24,
-    deposit: 266266,
-    monthly: 266266,
-    total: 266266,
+    installmentPlan: '24',
+    deposit: '266266',
+    monthly: '266266',
+    total: '266266',
   ),
   InstallmentAvailableModel(
-    installmentPlan: 36,
-    deposit: 266266,
-    monthly: 266266,
-    total: 266266,
+    installmentPlan: '36',
+    deposit: '266266',
+    monthly: '266266',
+    total: '266266',
   ),
   InstallmentAvailableModel(
-    installmentPlan: 48,
-    deposit: 266266,
-    monthly: 266266,
-    total: 266266,
+    installmentPlan: '48',
+    deposit: '266266',
+    monthly: '266266',
+    total: '266266',
   ),
   InstallmentAvailableModel(
-    installmentPlan: 60,
-    deposit: 266266,
-    monthly: 266266,
-    total: 266266,
+    installmentPlan: '60',
+    deposit: '266266',
+    monthly: '266266',
+    total: '266266',
   ),
 ];
 List<IdentityTypeModel> identities = [

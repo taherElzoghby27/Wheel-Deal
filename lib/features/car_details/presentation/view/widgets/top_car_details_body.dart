@@ -24,7 +24,7 @@ class TopCarDetailsBody extends StatelessWidget {
         children: [
           SectionDetails(
             leading: carModel.title,
-            trailing:'EGP ${handlePrice(carModel.priceCar as int)}',
+            trailing:'EGP ${handlePrice(carModel.priceCar)}',
           ),
           //Section image
           SectionImages(carModel: carModel),
