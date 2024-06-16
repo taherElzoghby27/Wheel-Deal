@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
@@ -62,7 +63,7 @@ class CarDetailsBlocProviderView extends StatelessWidget {
         appBar: CustomAppBarScaffold(
           leading: CustomSquareButton(
             icon: Icons.arrow_back_ios_new_rounded,
-            onTap: () => GoRouter.of(context).pop(),
+            onTap: () => GoRouter.of(context).pushReplacement(navPath),
           ),
           title: StringsEn.details,
           trailing: IconWidgetAnimation(
