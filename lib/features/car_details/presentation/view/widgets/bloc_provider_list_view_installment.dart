@@ -7,6 +7,7 @@ import 'package:cars/features/car_details/data/repos/car_details_repo_impl.dart'
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_installment_available_use_case.dart';
 import 'package:cars/features/car_details/presentation/view_model/car_details_bloc/car_details_bloc.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,7 +41,7 @@ class BlocProviderInstallmentListView extends StatelessWidget {
             return InstallmentListView(
               installments: installmentsList,
             );
-          } else if (state.installmentState == RequestState.error) {
+          } else if (state.installmentState == RequestState.failure) {
             return SomeThingErrorWidget(
               message: state.installmentFailureMessage,
             );

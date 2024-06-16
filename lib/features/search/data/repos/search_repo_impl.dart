@@ -9,6 +9,7 @@ import 'package:cars/features/search/data/models/recent_search_model.dart';
 import 'package:cars/features/search/domain/repos/search_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class SearchRepoImpl extends SearchRepo {
   final SearchRemoteDataSource _searchRemoteDataSource;
@@ -79,7 +80,7 @@ class SearchRepoImpl extends SearchRepo {
 
 //convert list of maps to list of cars
   List<RecentSearchModel> convertMapsToRecentSearch(
-    List<Map<String, dynamic>> data,
+    List<dynamic> data,
   ) {
     return List.from(
       data.map(
@@ -89,8 +90,9 @@ class SearchRepoImpl extends SearchRepo {
   }
 
   @override
-  Future<Either<FailureServ, void>> deleteRecentSearch(
-      {required String searchQuery}) async {
+  Future<Either<FailureServ, void>> deleteRecentSearch({
+    required String searchQuery,
+  }) async {
     try {
       final response = await _searchRemoteDataSource.deleteRecentSearch(
         searchQuery: searchQuery,

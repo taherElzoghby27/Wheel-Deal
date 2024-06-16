@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/enums.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/search/data/models/recent_search_model.dart';
 import 'package:cars/features/search/domain/use_cases/delete_recent_search_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/recent_search_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/search_use_case.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 
 part 'search_state.dart';
 
@@ -20,10 +21,11 @@ class SearchCubit extends Cubit<SearchState> {
     this._deleteRecentSearchUseCase,
   ) : super(const SearchState());
   bool initial = true;
+  TextEditingController searchController = TextEditingController();
 
-  changeFieldSearch(String value) async {
+  searchMethod() async {
     initial = false;
-    await search(searchWord: value);
+    await search(searchWord: searchController.text);
   }
 
   search({required String searchWord}) async {
@@ -33,7 +35,7 @@ class SearchCubit extends Cubit<SearchState> {
             (failure) {
               emit(
                 state.copyWith(
-                  searchState: RequestState.error,
+                  searchState: RequestState.failure,
                   failureMessageSearch: failure.message,
                 ),
               );
@@ -57,7 +59,7 @@ class SearchCubit extends Cubit<SearchState> {
             (failure) {
               emit(
                 state.copyWith(
-                  recentSearchState: RequestState.error,
+                  recentSearchState: RequestState.failure,
                   failureMessageRecentSearch: failure.message,
                 ),
               );
@@ -85,15 +87,16 @@ class SearchCubit extends Cubit<SearchState> {
           (failure) {
             emit(
               state.copyWith(
-                deleteRecentSearchState: RequestState.error,
+                deleteRecentSearchState: RequestState.failure,
                 failureMessageDeleteRecentSearch: failure.message,
               ),
             );
           },
-          (success) {
+          (success) async {
             emit(
               state.copyWith(deleteRecentSearchState: RequestState.loaded),
             );
+            await recentSearch();
           },
         );
       },

@@ -3,7 +3,7 @@ import 'package:cars/features/search/data/models/facilities_model.dart';
 
 enum Gender { Male, Female }
 
-enum RequestState { initial, loading, loaded, error }
+//enum RequestState { initial, loading, loaded, error }
 //filters
 
 List<String> conditions = [StringsEn.condition, 'new', 'used'];

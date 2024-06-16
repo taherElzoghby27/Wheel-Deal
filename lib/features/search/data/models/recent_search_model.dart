@@ -1,11 +1,11 @@
 class RecentSearchModel {
   String? searchQuery;
-  String? searchTimestamp;
+  String? userId;
 
-  RecentSearchModel({this.searchQuery, this.searchTimestamp});
+  RecentSearchModel({this.searchQuery, this.userId});
 
   RecentSearchModel.fromMap(Map<String, dynamic> json) {
     searchQuery = json['search_query'];
-    searchTimestamp = json['search_timestamp'];
+    userId = json['user_id'];
   }
 }

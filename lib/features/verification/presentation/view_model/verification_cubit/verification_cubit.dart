@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/verification/data/models/identity_type_model.dart';
 import 'package:image_picker/image_picker.dart';
 
