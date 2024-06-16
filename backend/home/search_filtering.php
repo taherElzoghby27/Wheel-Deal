@@ -40,29 +40,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     foreach ($features as $feature) {
-        if (isset($_POST[$feature]) && ($_POST[$feature] === 'true' || $_POST[$feature] === 'false')) {
+        if (isset($_POST[$feature]) && $_POST[$feature] === '1') {
             $sql .= " AND $feature = :" . $feature;
-            $params[':' . $feature] = ($_POST[$feature] === 'true') ? 1 : 0;
+            $params[':' . $feature] = 1;
         }
     }
 
     // Prepare and execute the SQL statement with parameters
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
 
-    // Fetch all matching cars
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Fetch all matching cars
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($results) {
-    // Return results as JSON response
-    http_response_code(200); // OK
-    echo json_encode(array(
-        "status" => "success",
-        "data" => $results
-    ));
-   }
+        if ($results) {
+            // Return results as JSON response
+            http_response_code(200); // OK
+            echo json_encode(array(
+                "status" => "success",
+                "data" => $results
+            ));
+        } else {
+            // No matching cars found
+            http_response_code(200); // Not Found
+            echo json_encode(array("status" => "success", "data" => $results));
+        }
+    } catch (PDOException $e) {
+        // Database error
+        http_response_code(500); // Internal Server Error
+        echo json_encode(array("status" => "failed", "message" => "Database error: " . $e->getMessage()));
+    }
 } else {
     // Handle non-POST requests with correct response codes
     http_response_code(405); // Method Not Allowed
-    echo json_encode(array("status" => "failed", "Message" => "Only POST Method is allowed"));
+    echo json_encode(array("status" => "failed", "message" => "Only POST method is allowed"));
 }
+?>
