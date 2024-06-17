@@ -1,11 +1,9 @@
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../core/consts/enums.dart';
-import '../../../../home/presentation/view_model/home_bloc/home_bloc.dart';
 
 class ImageIdentityBlocBuilderSelfie extends StatelessWidget {
   const ImageIdentityBlocBuilderSelfie({

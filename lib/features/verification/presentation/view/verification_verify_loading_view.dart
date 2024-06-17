@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/consts/strings.dart';
-import 'widgets/verification_verify_loading_body.dart';
+import '../widgets/verification_verify_loading_body.dart';
 
 class VerificationVerifyLoadingView extends StatelessWidget {
   const VerificationVerifyLoadingView({super.key});

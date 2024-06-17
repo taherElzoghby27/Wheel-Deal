@@ -7,6 +7,7 @@ import 'package:cars/features/search/presentation/manager/search_cubit/search_cu
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'alert_dialog_delete_search.dart';
 import 'custom_popular_recent_search.dart';
 
 class RecentSearchBlocBuilder extends StatelessWidget {
@@ -30,14 +31,22 @@ class RecentSearchBlocBuilder extends StatelessWidget {
           return ListView.builder(
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              return CustomRecentOrPopularWidget(
-                leading: FontAwesomeIcons.clock,
-                searchWord: listRecentSearches[index].searchQuery!,
-                trailingOnTap: () =>
-                    context.read<SearchCubit>().deleteRecentSearch(
-                          searchWord: listRecentSearches[index].searchQuery!,
-                        ),
-                trailing: FontAwesomeIcons.circleXmark,
+              return Builder(
+                builder: (BuildContext contextBuilder) =>
+                    CustomRecentOrPopularWidget(
+                  leading: FontAwesomeIcons.clock,
+                  searchWord: listRecentSearches[index].searchQuery!,
+                  trailingOnTap: () => showDialog(
+                    context: contextBuilder,
+                    builder: (_) => BlocProvider.value(
+                      value: contextBuilder.read<SearchCubit>(),
+                      child: AlertDialogDeleteHistory(
+                        searchWord: listRecentSearches[index].searchQuery!,
+                      ),
+                    ),
+                  ),
+                  trailing: FontAwesomeIcons.circleXmark,
+                ),
               );
             },
             itemCount: listRecentSearches.length,

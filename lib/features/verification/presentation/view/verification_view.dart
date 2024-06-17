@@ -3,7 +3,7 @@ import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/consts/strings.dart';
-import 'widgets/verification_body.dart';
+import '../widgets/verification_body.dart';
 
 class VerificationView extends StatelessWidget {
   const VerificationView({super.key});

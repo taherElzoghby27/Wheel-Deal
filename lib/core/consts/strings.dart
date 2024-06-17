@@ -345,7 +345,9 @@ at least 1 number and 1 special character.
       'Press the star icon on the job you want to save.';
   static String notification = 'Notification';
   static String yesterDay = 'Yesterday';
-  static String noCvs = 'No Cv...';
+  static String areYouSureToDeleteHistory = 'Are you sure to delete this history?';
+  static String yes = 'Yes';
+  static String no = 'No';
   static String installmentAvailable = 'Installment Available';
   static String installmentPlan = 'Installment plan';
   static String deposit = 'Deposit';

@@ -1,6 +1,6 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/verification/presentation/view/widgets/tile_bottom_sheet.dart';
+import 'package:cars/features/verification/presentation/widgets/tile_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/widgets/custom_divider.dart';
 

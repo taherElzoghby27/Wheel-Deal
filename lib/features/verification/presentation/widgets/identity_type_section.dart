@@ -110,7 +110,6 @@ class IdentityTypeWidget extends StatelessWidget {
       },
     );
   }
-
   buildShowModalBottomSheet(
     BuildContext builderContext, {
     required String status,
