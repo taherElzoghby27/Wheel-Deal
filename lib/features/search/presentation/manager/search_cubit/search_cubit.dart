@@ -30,7 +30,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   search({required String searchWord}) async {
     emit(state.copyWith(searchState: RequestState.loading));
-    await _searchUseCase.call(searchWord).then(
+    await _searchUseCase.call(searchWord.trim()).then(
           (value) => value.fold(
             (failure) {
               emit(
