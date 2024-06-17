@@ -1,11 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_installment_available_use_case.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 part 'car_details_event.dart';
 
@@ -38,7 +37,7 @@ class CarDetailsBloc extends Bloc<CarDetailsEvent, CarDetailsState> {
           (value) => value.fold(
             (failure) {
               emit(state.copyWith(
-                installmentState: RequestState.error,
+                installmentState: RequestState.failure,
                 installmentFailureMessage: failure.message,
               ));
             },
@@ -62,7 +61,7 @@ class CarDetailsBloc extends Bloc<CarDetailsEvent, CarDetailsState> {
           (value) => value.fold(
             (failure) {
               emit(state.copyWith(
-                carDetailsState: RequestState.error,
+                carDetailsState: RequestState.failure,
                 carDetailsFailureMessage: failure.message,
               ));
             },

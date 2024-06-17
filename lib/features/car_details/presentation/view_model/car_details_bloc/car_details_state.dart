@@ -1,6 +1,5 @@
 part of 'car_details_bloc.dart';
 
-@immutable
 class CarDetailsState extends Equatable {
   final RequestState carDetailsState;
   final CarModel? carModel;

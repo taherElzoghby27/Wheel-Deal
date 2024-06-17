@@ -2,6 +2,7 @@ import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/custom_snack.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,9 +28,9 @@ class ContentBottomSheetPhoto extends StatelessWidget {
             state.backImageState == RequestState.loaded ||
             state.selfieImageState == RequestState.loaded) {
           GoRouter.of(context).pop();
-        } else if (state.frontImageState == RequestState.error ||
-            state.backImageState == RequestState.error ||
-            state.selfieImageState == RequestState.error) {
+        } else if (state.frontImageState == RequestState.failure ||
+            state.backImageState == RequestState.failure ||
+            state.selfieImageState == RequestState.failure) {
           showSnack(
             context,
             message: state.imageError,

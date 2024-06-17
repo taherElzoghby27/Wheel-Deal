@@ -37,7 +37,7 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
     );
     String? token = await readFromCache(StringsEn.token);
     Response response = await _apiService.post(
-      endPoint: ApiConsts.recentSearchEndPoint,
+      endPoint: ApiConsts.searchEndPoint,
       token: token,
       data: data,
     );

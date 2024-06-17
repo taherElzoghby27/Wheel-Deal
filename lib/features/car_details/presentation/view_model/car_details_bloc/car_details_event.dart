@@ -1,6 +1,5 @@
 part of 'car_details_bloc.dart';
 
-@immutable
 sealed class CarDetailsEvent {}
 
 class CrDetailsEvent extends CarDetailsEvent {

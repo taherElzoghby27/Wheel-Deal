@@ -1,11 +1,12 @@
+import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/custom_snack.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../../../core/consts/enums.dart';
 import 'custom_popular_recent_search.dart';
 
 class RecentSearchBlocBuilder extends StatelessWidget {
@@ -13,7 +14,16 @@ class RecentSearchBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SearchCubit, SearchState>(
+    return BlocConsumer<SearchCubit, SearchState>(
+      listener: (context, state) {
+        if (state.deleteRecentSearchState == RequestState.failure) {
+          showSnack(
+            context,
+            message: state.failureMessageDeleteRecentSearch,
+            backGroundColor: AppConsts.danger500,
+          );
+        }
+      },
       builder: (context, state) {
         final listRecentSearches = state.recentSearchList;
         if (state.recentSearchState == RequestState.loaded) {
@@ -23,13 +33,16 @@ class RecentSearchBlocBuilder extends StatelessWidget {
               return CustomRecentOrPopularWidget(
                 leading: FontAwesomeIcons.clock,
                 searchWord: listRecentSearches[index].searchQuery!,
-                trailingOnTap: () {},
+                trailingOnTap: () =>
+                    context.read<SearchCubit>().deleteRecentSearch(
+                          searchWord: listRecentSearches[index].searchQuery!,
+                        ),
                 trailing: FontAwesomeIcons.circleXmark,
               );
             },
             itemCount: listRecentSearches.length,
           );
-        } else if (state.recentSearchState == RequestState.error) {
+        } else if (state.recentSearchState == RequestState.failure) {
           return SomeThingErrorWidget(
             message: state.failureMessageRecentSearch,
           );

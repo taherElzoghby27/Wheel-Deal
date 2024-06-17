@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/enums.dart';
+import '../../../../home/presentation/view_model/home_bloc/home_bloc.dart';
 
 class ImageIdentityBlocBuilderSelfie extends StatelessWidget {
   const ImageIdentityBlocBuilderSelfie({

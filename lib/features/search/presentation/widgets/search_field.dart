@@ -16,14 +16,14 @@ class SearchField extends StatelessWidget {
     return Padding(
       padding: AppConsts.mainPadding,
       child: CustomTextField(
-        onChanged: (String value) =>
-            context.read<SearchCubit>().changeFieldSearch(
-                  value,
-                ),
+        controller: context.read<SearchCubit>().searchController,
         filled: AppConsts.neutral100.withOpacity(.05),
-        perfixIcon: Icon(
-          FontAwesomeIcons.magnifyingGlass,
-          color: Theme.of(context).canvasColor.withOpacity(.5),
+        perfixIcon: IconButton(
+          onPressed: () => context.read<SearchCubit>().searchMethod(),
+          icon: Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            color: Theme.of(context).canvasColor.withOpacity(.5),
+          ),
         ),
         suffixIcon: IconButton(
           onPressed: () => GoRouter.of(context).push(filterPath),

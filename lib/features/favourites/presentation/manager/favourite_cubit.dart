@@ -3,6 +3,7 @@ import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case
 import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/get_favourites_use_case.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../core/consts/enums.dart';
@@ -34,7 +35,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
             (failure) {
               emit(
                 state.copyWith(
-                  addFavouritesState: RequestState.error,
+                  addFavouritesState: RequestState.failure,
                   addFavouritesFailureMessage: failure.message,
                 ),
               );
@@ -61,7 +62,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
             (failure) {
               emit(
                 state.copyWith(
-                  deleteFavouritesState: RequestState.error,
+                  deleteFavouritesState: RequestState.failure,
                   deleteFavouritesFailureMessage: failure.message,
                 ),
               );
@@ -85,7 +86,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
             (failure) {
               emit(
                 state.copyWith(
-                  getFavouritesState: RequestState.error,
+                  getFavouritesState: RequestState.failure,
                   getFavouritesFailureMessage: failure.message,
                 ),
               );

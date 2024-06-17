@@ -39,7 +39,9 @@ class CustomTextField extends StatelessWidget {
       maxLines: maxLines,
       readOnly: readOnly,
       obscureText: obscureText,
-      style: AppConsts.style14.copyWith(color: AppConsts.neutral900),
+      style: AppConsts.style14.copyWith(
+        color: Theme.of(context).canvasColor,
+      ),
       cursorColor: AppConsts.mainColor,
       onChanged: onChanged,
       decoration: InputDecoration(
