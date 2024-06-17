@@ -17,6 +17,7 @@ class ApiConsts {
   static const addFavEndPoint = 'favourite/favourite_add.php';
   static const deleteFavEndPoint = 'favourite/delete_item.php';
   static const searchEndPoint = 'home/search.php';
+  static const searchFilterEndPoint = 'home/search_filtering.php';
   static const recentSearchEndPoint = 'home/search_fetch.php';
   static const deleteRecentSearchEndPoint = 'home/search_delete.php';
 }

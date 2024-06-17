@@ -47,14 +47,6 @@ class SectionFieldsFilter extends StatelessWidget {
           ),
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-        //model
-        FilterField(
-          label: StringsEn.model,
-          widget: BlocBuilderDialog(
-            list: models,
-            status: StringsEn.model,
-          ),
-        ),
       ],
     );
   }

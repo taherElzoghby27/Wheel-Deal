@@ -111,13 +111,13 @@ at least 1 number and 1 special character.
   static const String useCurrentLocation = "Use Current Location";
   static const String chooseRegion = "Choose Region";
   static const String details = "Details";
-  static const String airCondition = 'Air Conditioner';
-  static const String breakAssist = 'Break Assist';
-  static const String airbag = 'Airbag';
-  static const String navigationSystem = 'Navigation System';
-  static const String touchScreen = 'Touch Screen';
-  static const String connectivity = 'Connectivity';
-  static const String remoteEngine = 'Remote Engine start/stop';
+  static const String airCondition = 'air_conditioner';
+  static const String breakAssist = 'brake_assist';
+  static const String airbag = 'airbag';
+  static const String navigationSystem = 'navigation_system';
+  static const String touchScreen = 'touch_screen';
+  static const String connectivity = 'connectivity';
+  static const String remoteEngine = 'remote_engine_start_stop';
 
   static const String adType = 'Ad Type:';
   static const String transmission = 'Transmission:';

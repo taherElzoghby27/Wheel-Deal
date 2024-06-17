@@ -1,15 +1,14 @@
 import 'dart:ffi';
-
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/errors/failure_message.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/search/data/data_source/search_remote_data_source.dart';
 import 'package:cars/features/search/data/models/recent_search_model.dart';
+import 'package:cars/features/search/domain/entities/search_entity.dart';
 import 'package:cars/features/search/domain/repos/search_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 class SearchRepoImpl extends SearchRepo {
   final SearchRemoteDataSource _searchRemoteDataSource;
@@ -100,6 +99,38 @@ class SearchRepoImpl extends SearchRepo {
 
       if (response.statusCode == 200) {
         return const Right(Void);
+      } else {
+        return Left(
+          ServerFailure.fromDioResponse(
+            response.statusCode!,
+            response.data,
+          ),
+        );
+      }
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<FailureServ, List<CarEntity>>> searchFilter({
+    required SearchFilterEntity searchEntity,
+  }) async {
+    try {
+      final response = await _searchRemoteDataSource.searchFilter(
+        searchEntity: searchEntity,
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> data = response.data;
+        List<CarEntity> cars = convertListOfObjectToListOfModels(
+          data['data'],
+        );
+
+        return Right(cars);
       } else {
         return Left(
           ServerFailure.fromDioResponse(

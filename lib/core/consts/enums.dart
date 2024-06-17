@@ -33,11 +33,11 @@ List<String> models = [
   '2024',
 ];
 List<FacilityModel> facilities = [
-  FacilityModel(label: StringsEn.airCondition),
-  FacilityModel(label: StringsEn.breakAssist),
   FacilityModel(label: StringsEn.airbag),
-  FacilityModel(label: StringsEn.navigationSystem),
   FacilityModel(label: StringsEn.touchScreen),
   FacilityModel(label: StringsEn.connectivity),
+  FacilityModel(label: StringsEn.airCondition),
+  FacilityModel(label: StringsEn.breakAssist),
   FacilityModel(label: StringsEn.remoteEngine),
+  FacilityModel(label: StringsEn.navigationSystem),
 ];

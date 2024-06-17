@@ -4,6 +4,7 @@ import 'package:cars/core/widgets/custom_radio_list_tile.dart';
 import 'package:cars/features/search/presentation/manager/filter_cubit/filter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class BlocBuilderDialog extends StatelessWidget {
   const BlocBuilderDialog({
     super.key,
@@ -34,9 +35,7 @@ class BlocBuilderDialog extends StatelessWidget {
                         ? bloc.condition
                         : status == StringsEn.brand
                             ? bloc.brand
-                            : status == StringsEn.bodyType
-                                ? bloc.bodyType
-                                : bloc.model,
+                            : bloc.bodyType,
                     onChanged: (value) => bloc.changeValue(
                       value: value!,
                       status: status,

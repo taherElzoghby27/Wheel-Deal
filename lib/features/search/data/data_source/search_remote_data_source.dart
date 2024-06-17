@@ -2,11 +2,16 @@ import 'package:cars/core/consts/api.dart';
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/api_service.dart';
+import 'package:cars/features/search/domain/entities/search_entity.dart';
 import 'package:dio/dio.dart';
 
 abstract class SearchRemoteDataSource {
   Future<Response> search({
     required String searchWord,
+  });
+
+  Future<Response> searchFilter({
+    required SearchFilterEntity searchEntity,
   });
 
   Future<Response> recentSearch();
@@ -45,7 +50,21 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
   }
 
   @override
-  Future<Response> deleteRecentSearch({required String searchQuery}) async{
+  Future<Response> searchFilter({
+    required SearchFilterEntity searchEntity,
+  }) async {
+    FormData data = convertMapToFormData(
+      searchEntity.toMap(),
+    );
+    Response response = await _apiService.post(
+      endPoint: ApiConsts.searchFilterEndPoint,
+      data: data,
+    );
+    return response;
+  }
+
+  @override
+  Future<Response> deleteRecentSearch({required String searchQuery}) async {
     FormData data = convertMapToFormData(
       {'search_query': searchQuery},
     );
