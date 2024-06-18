@@ -15,6 +15,11 @@ abstract class SearchRepo {
     required SearchFilterEntity searchEntity,
   });
 
+  //fetch bodyType
+  Future<Either<FailureServ, List<SearchFilterEntity>>> bodyTypeFilter({
+    required String brand,
+  });
+
 //fetch recent search
   Future<Either<FailureServ, List<RecentSearchModel>>> recentSearch();
 

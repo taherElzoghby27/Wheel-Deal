@@ -1,31 +1,36 @@
 class SearchFilterEntity {
-  final String condition;
-  final String brand;
-  final String bodyType;
-  final String minPrice;
-  final String maxPrice;
-  final String airBag;
-  final String touchScreen;
-  final String airCondition;
-  final String brakeAssist;
-  final String navigationSystem;
-  final String connectivity;
-  final String remoteEngineStartStop;
+  String? condition;
+  String? brand;
+  String? bodyType;
+  String? minPrice;
+  String? maxPrice;
+  String? airBag;
+  String? touchScreen;
+  String? airCondition;
+  String? brakeAssist;
+  String? navigationSystem;
+  String? connectivity;
+  String? remoteEngineStartStop;
 
   SearchFilterEntity({
-    required this.condition,
-    required this.brand,
-    required this.bodyType,
-    required this.minPrice,
-    required this.maxPrice,
-    required this.airBag,
-    required this.touchScreen,
-    required this.airCondition,
-    required this.brakeAssist,
-    required this.navigationSystem,
-    required this.connectivity,
-    required this.remoteEngineStartStop,
+    this.condition,
+    this.brand,
+    this.bodyType,
+    this.minPrice,
+    this.maxPrice,
+    this.airBag,
+    this.touchScreen,
+    this.airCondition,
+    this.brakeAssist,
+    this.navigationSystem,
+    this.connectivity,
+    this.remoteEngineStartStop,
   });
+
+  factory SearchFilterEntity.fromMap(Map<String, dynamic> data) =>
+      SearchFilterEntity(
+        bodyType: data['body_type'],
+      );
 
   Map<String, dynamic> toMap() {
     return {

@@ -16,7 +16,13 @@ abstract class SearchRemoteDataSource {
 
   Future<Response> recentSearch();
 
-  Future<Response> deleteRecentSearch({required String searchQuery});
+  Future<Response> deleteRecentSearch({
+    required String searchQuery,
+  });
+
+  Future<Response> bodyTypeFilter({
+    required String brand,
+  });
 }
 
 class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
@@ -72,6 +78,18 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
     Response response = await _apiService.post(
       endPoint: ApiConsts.deleteRecentSearchEndPoint,
       token: token,
+      data: data,
+    );
+    return response;
+  }
+
+  @override
+  Future<Response> bodyTypeFilter({required String brand}) async {
+    FormData data = convertMapToFormData(
+      {'brand': brand},
+    );
+    Response response = await _apiService.post(
+      endPoint: ApiConsts.bodyTypeFilter,
       data: data,
     );
     return response;

@@ -77,17 +77,6 @@ class SearchRepoImpl extends SearchRepo {
     }
   }
 
-//convert list of maps to list of cars
-  List<RecentSearchModel> convertMapsToRecentSearch(
-    List<dynamic> data,
-  ) {
-    return List.from(
-      data.map(
-        (item) => RecentSearchModel.fromMap(item),
-      ),
-    );
-  }
-
   @override
   Future<Either<FailureServ, void>> deleteRecentSearch({
     required String searchQuery,
@@ -131,6 +120,39 @@ class SearchRepoImpl extends SearchRepo {
         );
 
         return Right(cars);
+      } else {
+        return Left(
+          ServerFailure.fromDioResponse(
+            response.statusCode!,
+            response.data,
+          ),
+        );
+      }
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<FailureServ, List<SearchFilterEntity>>> bodyTypeFilter({
+    required String brand,
+  }) async {
+    try {
+      final response = await _searchRemoteDataSource.bodyTypeFilter(
+        brand: brand,
+      );
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> data = response.data;
+        List<SearchFilterEntity> bodyTypes =
+            convertListOfObjectToListOfBodyTypes(
+          data['data'],
+        );
+
+        return Right(bodyTypes);
       } else {
         return Left(
           ServerFailure.fromDioResponse(

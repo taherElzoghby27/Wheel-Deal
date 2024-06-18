@@ -20,4 +20,5 @@ class ApiConsts {
   static const searchFilterEndPoint = 'home/search_filtering.php';
   static const recentSearchEndPoint = 'home/search_fetch.php';
   static const deleteRecentSearchEndPoint = 'home/search_delete.php';
+  static const bodyTypeFilter = 'home/search_bodytype.php';
 }

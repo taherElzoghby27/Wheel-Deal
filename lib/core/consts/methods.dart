@@ -1,5 +1,7 @@
 import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
+import 'package:cars/features/search/data/models/recent_search_model.dart';
+import 'package:cars/features/search/domain/entities/search_entity.dart';
 import 'package:dio/dio.dart';
 
 import '../helper/flutter_secure_storage.dart';
@@ -44,6 +46,27 @@ List<CarModel> convertListOfObjectToListOfModels(
   return List<CarModel>.from(
     data.map(
       (item) => CarModel.fromMap(item),
+    ),
+  );
+}
+
+List<SearchFilterEntity> convertListOfObjectToListOfBodyTypes(
+  List<dynamic> data,
+) {
+  return List<SearchFilterEntity>.from(
+    data.map(
+      (item) => SearchFilterEntity.fromMap(item),
+    ),
+  );
+}
+
+//convert list of maps to list of cars
+List<RecentSearchModel> convertMapsToRecentSearch(
+  List<dynamic> data,
+) {
+  return List.from(
+    data.map(
+      (item) => RecentSearchModel.fromMap(item),
     ),
   );
 }
