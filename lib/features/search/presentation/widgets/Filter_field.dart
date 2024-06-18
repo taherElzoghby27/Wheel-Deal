@@ -1,5 +1,6 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/text_field.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +22,7 @@ class FilterField extends StatelessWidget {
       builder: (context, state) {
         SearchCubit bloc = BlocProvider.of<SearchCubit>(context);
         String status = '';
-        if (state is ValueChange) {
+        if (state.valueChanged==RequestState.changed) {
           if (label == StringsEn.condition) {
             status = bloc.condition;
           } else if (label == StringsEn.brand) {

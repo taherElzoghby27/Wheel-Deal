@@ -7,6 +7,7 @@ enum RequestState {
   loaded,
   failure,
   failurePagination,
+  changed,
 }
 
 class HomeState extends Equatable {

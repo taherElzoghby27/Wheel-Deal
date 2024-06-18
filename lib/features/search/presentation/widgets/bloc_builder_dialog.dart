@@ -25,25 +25,25 @@ class BlocBuilderDialog extends StatelessWidget {
           surfaceTintColor: Theme.of(context).splashColor.withOpacity(.3),
           backgroundColor: Theme.of(context).splashColor,
           shape: AppConsts.dialogShape,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: list
-                .map(
-                  (e) => CustomRadiusListTile<String>(
-                    label: e.brand!,
-                    value: e.brand!,
-                    groupValue: status == StringsEn.condition
-                        ? bloc.condition
-                        : status == StringsEn.brand
-                            ? bloc.brand
-                            : bloc.bodyType,
-                    onChanged: (value) => bloc.changeValue(
-                      value: value!,
-                      status: status,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: list
+                  .map(
+                    (e) => CustomRadiusListTile<String>(
+                      label: e.brand!,
+                      value: e.brand!,
+                      groupValue: status == StringsEn.brand
+                          ? bloc.brand
+                          : bloc.bodyType,
+                      onChanged: (value) => bloc.changeValue(
+                        value: value!,
+                        status: status,
+                      ),
                     ),
-                  ),
-                )
-                .toList(),
+                  )
+                  .toList(),
+            ),
           ),
         );
       },

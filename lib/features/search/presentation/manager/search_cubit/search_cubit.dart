@@ -136,7 +136,9 @@ class SearchCubit extends Cubit<SearchState> {
       bodyType = value;
     }
     debugPrint(condition);
-    emit(ValueChange());
+    emit(
+      state.copyWith(valueChanged: RequestState.changed),
+    );
   }
 
   changePriceRange(RangeValues values) {
@@ -205,7 +207,7 @@ class SearchCubit extends Cubit<SearchState> {
   resetMethod() {}
 
   searchFilter() async {
-    emit(SearchFilterLoading());
+    emit(state.copyWith(searchState: RequestState.loading));
     await _searchFilterUseCase
         .call(
           SearchFilterEntity(
@@ -227,12 +229,18 @@ class SearchCubit extends Cubit<SearchState> {
           (value) => value.fold(
             (failure) {
               emit(
-                SearchFilterFailure(message: failure.message),
+                state.copyWith(
+                  searchState: RequestState.failure,
+                  failureMessageSearch: failure.message,
+                ),
               );
             },
             (List<CarEntity> success) {
               emit(
-                SearchFilterLoaded(cars: success),
+                state.copyWith(
+                  searchState: RequestState.loaded,
+                  searchList: success,
+                ),
               );
             },
           ),

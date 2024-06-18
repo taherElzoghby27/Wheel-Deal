@@ -15,6 +15,7 @@ class SearchState extends Equatable {
   final RequestState brandsState;
   final List<SearchFilterEntity> brands;
   final String failureBrands;
+  final RequestState valueChanged;
 
   const SearchState({
     this.searchState = RequestState.initial,
@@ -31,6 +32,7 @@ class SearchState extends Equatable {
     this.brandsState = RequestState.initial,
     this.brands = const [],
     this.failureBrands = 'no data',
+    this.valueChanged = RequestState.initial,
   });
 
   SearchState copyWith({
@@ -48,6 +50,7 @@ class SearchState extends Equatable {
     RequestState? brandsState,
     List<SearchFilterEntity>? brands,
     String? failureBrands,
+    RequestState? valueChanged,
   }) =>
       SearchState(
         searchState: searchState ?? this.searchState,
@@ -67,6 +70,7 @@ class SearchState extends Equatable {
         brandsState: brandsState ?? this.brandsState,
         brands: brands ?? this.brands,
         failureBrands: failureBrands ?? this.failureBrands,
+        valueChanged: valueChanged ?? this.valueChanged,
       );
 
   @override
@@ -85,27 +89,12 @@ class SearchState extends Equatable {
         brandsState,
         brands,
         failureBrands,
+        valueChanged,
       ];
 }
 
 class ConditionInitial extends SearchState {}
 
-class ValueChange extends SearchState {}
-
 class PriceRangeChanged extends SearchState {}
 
 class ValueFacilityChange extends SearchState {}
-
-class SearchFilterLoading extends SearchState {}
-
-class SearchFilterLoaded extends SearchState {
-  final List<CarEntity> cars;
-
-  const SearchFilterLoaded({required this.cars});
-}
-
-class SearchFilterFailure extends SearchState {
-  final String message;
-
-  const SearchFilterFailure({required this.message});
-}
