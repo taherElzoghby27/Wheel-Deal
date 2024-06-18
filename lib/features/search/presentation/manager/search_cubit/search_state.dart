@@ -9,6 +9,12 @@ class SearchState extends Equatable {
   final String failureMessageRecentSearch;
   final RequestState deleteRecentSearchState;
   final String failureMessageDeleteRecentSearch;
+  final RequestState bodyTypesState;
+  final List<SearchFilterEntity> bodyTypes;
+  final String failureBodyTypes;
+  final RequestState brandsState;
+  final List<SearchFilterEntity> brands;
+  final String failureBrands;
 
   const SearchState({
     this.searchState = RequestState.initial,
@@ -19,6 +25,12 @@ class SearchState extends Equatable {
     this.failureMessageRecentSearch = 'No Data',
     this.deleteRecentSearchState = RequestState.initial,
     this.failureMessageDeleteRecentSearch = 'No Data',
+    this.bodyTypesState = RequestState.initial,
+    this.bodyTypes = const [],
+    this.failureBodyTypes = 'no data',
+    this.brandsState = RequestState.initial,
+    this.brands = const [],
+    this.failureBrands = 'no data',
   });
 
   SearchState copyWith({
@@ -30,6 +42,12 @@ class SearchState extends Equatable {
     String? failureMessageRecentSearch,
     RequestState? deleteRecentSearchState,
     String? failureMessageDeleteRecentSearch,
+    RequestState? bodyTypesState,
+    List<SearchFilterEntity>? bodyTypes,
+    String? failureBodyTypes,
+    RequestState? brandsState,
+    List<SearchFilterEntity>? brands,
+    String? failureBrands,
   }) =>
       SearchState(
         searchState: searchState ?? this.searchState,
@@ -43,6 +61,12 @@ class SearchState extends Equatable {
             deleteRecentSearchState ?? this.deleteRecentSearchState,
         failureMessageDeleteRecentSearch: failureMessageDeleteRecentSearch ??
             this.failureMessageDeleteRecentSearch,
+        bodyTypesState: bodyTypesState ?? this.bodyTypesState,
+        bodyTypes: bodyTypes ?? this.bodyTypes,
+        failureBodyTypes: failureBodyTypes ?? this.failureBodyTypes,
+        brandsState: brandsState ?? this.brandsState,
+        brands: brands ?? this.brands,
+        failureBrands: failureBrands ?? this.failureBrands,
       );
 
   @override
@@ -55,5 +79,33 @@ class SearchState extends Equatable {
         failureMessageRecentSearch,
         deleteRecentSearchState,
         failureMessageDeleteRecentSearch,
+        bodyTypesState,
+        bodyTypes,
+        failureBodyTypes,
+        brandsState,
+        brands,
+        failureBrands,
       ];
+}
+
+class ConditionInitial extends SearchState {}
+
+class ValueChange extends SearchState {}
+
+class PriceRangeChanged extends SearchState {}
+
+class ValueFacilityChange extends SearchState {}
+
+class SearchFilterLoading extends SearchState {}
+
+class SearchFilterLoaded extends SearchState {
+  final List<CarEntity> cars;
+
+  const SearchFilterLoaded({required this.cars});
+}
+
+class SearchFilterFailure extends SearchState {
+  final String message;
+
+  const SearchFilterFailure({required this.message});
 }

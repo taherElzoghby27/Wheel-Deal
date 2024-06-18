@@ -27,4 +27,7 @@ abstract class SearchRepo {
   Future<Either<FailureServ, void>> deleteRecentSearch({
     required String searchQuery,
   });
+
+  //get brands
+  Future<Either<FailureServ, List<SearchFilterEntity>>> getBrands();
 }

@@ -11,8 +11,11 @@ import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_top_brands.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/search/data/repos/search_repo_impl.dart';
+import 'package:cars/features/search/domain/use_cases/body_type_filter_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/delete_recent_search_use_case.dart';
+import 'package:cars/features/search/domain/use_cases/get_brands_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/recent_search_use_case.dart';
+import 'package:cars/features/search/domain/use_cases/search_filter_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/search_use_case.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +50,15 @@ class SearchView extends StatelessWidget {
                 searchRepo: getIt.get<SearchRepoImpl>(),
               ),
               DeleteRecentSearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              SearchFilterUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              BodyTypeFilterUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              GetBrandsUseCase(
                 searchRepo: getIt.get<SearchRepoImpl>(),
               ),
             )..recentSearch(),

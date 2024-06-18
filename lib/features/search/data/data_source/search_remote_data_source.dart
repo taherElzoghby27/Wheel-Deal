@@ -23,6 +23,8 @@ abstract class SearchRemoteDataSource {
   Future<Response> bodyTypeFilter({
     required String brand,
   });
+
+  Future<Response> getBrands();
 }
 
 class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
@@ -91,6 +93,14 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
     Response response = await _apiService.post(
       endPoint: ApiConsts.bodyTypeFilter,
       data: data,
+    );
+    return response;
+  }
+
+  @override
+  Future<Response> getBrands() async {
+    Response response = await _apiService.get(
+      endPoint: ApiConsts.getBrandsFilter,
     );
     return response;
   }

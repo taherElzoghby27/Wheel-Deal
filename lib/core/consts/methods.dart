@@ -55,7 +55,17 @@ List<SearchFilterEntity> convertListOfObjectToListOfBodyTypes(
 ) {
   return List<SearchFilterEntity>.from(
     data.map(
-      (item) => SearchFilterEntity.fromMap(item),
+      (item) => SearchFilterEntity.bodyTypeFromMap(item),
+    ),
+  );
+}
+
+List<SearchFilterEntity> convertListOfObjectToListOfBrands(
+  List<dynamic> data,
+) {
+  return List<SearchFilterEntity>.from(
+    data.map(
+      (item) => SearchFilterEntity.brandFromMap(item),
     ),
   );
 }

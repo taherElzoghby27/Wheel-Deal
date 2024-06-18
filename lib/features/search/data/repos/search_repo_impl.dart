@@ -168,4 +168,32 @@ class SearchRepoImpl extends SearchRepo {
       return Left(ServerFailure(message: StringsEn.errorMessage));
     }
   }
+
+  @override
+  Future<Either<FailureServ, List<SearchFilterEntity>>> getBrands() async {
+    try {
+      final response = await _searchRemoteDataSource.getBrands();
+
+      if (response.statusCode == 200) {
+        Map<String, dynamic> data = response.data;
+        List<SearchFilterEntity> brands = convertListOfObjectToListOfBrands(
+          data['data'],
+        );
+
+        return Right(brands);
+      } else {
+        return Left(
+          ServerFailure.fromDioResponse(
+            response.statusCode!,
+            response.data,
+          ),
+        );
+      }
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
 }

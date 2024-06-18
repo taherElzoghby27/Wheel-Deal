@@ -1,8 +1,9 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/text_field.dart';
-import 'package:cars/features/search/presentation/manager/filter_cubit/filter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../manager/search_cubit/search_cubit.dart';
 
 class FilterField extends StatelessWidget {
   const FilterField({
@@ -16,15 +17,15 @@ class FilterField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FilterCubit, FilterState>(
+    return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
-        FilterCubit bloc = BlocProvider.of<FilterCubit>(context);
+        SearchCubit bloc = BlocProvider.of<SearchCubit>(context);
         String status = '';
         if (state is ValueChange) {
           if (label == StringsEn.condition) {
             status = bloc.condition;
           } else if (label == StringsEn.brand) {
-            status = bloc.brand;
+            status = bloc.brand!;
           } else if (label == StringsEn.bodyType) {
             status = bloc.bodyType;
           }
@@ -56,7 +57,7 @@ class FilterField extends StatelessWidget {
       barrierColor: Theme.of(builderContext).canvasColor.withOpacity(.5),
       builder: (_) {
         return BlocProvider.value(
-          value: builderContext.read<FilterCubit>(),
+          value: builderContext.read<SearchCubit>(),
           child: widget,
         );
       },

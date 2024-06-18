@@ -3,10 +3,11 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_checkbox_tile.dart';
 import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
-import 'package:cars/features/search/presentation/manager/filter_cubit/filter_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../manager/search_cubit/search_cubit.dart';
 
 
 class SectionFacilities extends StatelessWidget {
@@ -14,9 +15,9 @@ class SectionFacilities extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FilterCubit, FilterState>(
+    return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
-        FilterCubit bloc = BlocProvider.of<FilterCubit>(context);
+        SearchCubit bloc = BlocProvider.of<SearchCubit>(context);
         return Wrap(
           direction: Axis.horizontal,
           children: [

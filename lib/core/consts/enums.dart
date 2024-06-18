@@ -8,15 +8,6 @@ enum Gender { Male, Female }
 
 List<String> conditions = [StringsEn.condition, 'new', 'used'];
 
-List<String> brands = [
-  StringsEn.brand,
-  'sedan',
-  'suv',
-  'coupe',
-  'hatchback',
-  'minivan',
-  'sportsCar',
-];
 List<String> bodyTypes = [
   StringsEn.bodyType,
   'sedan',

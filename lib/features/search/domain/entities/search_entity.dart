@@ -27,9 +27,14 @@ class SearchFilterEntity {
     this.remoteEngineStartStop,
   });
 
-  factory SearchFilterEntity.fromMap(Map<String, dynamic> data) =>
+  factory SearchFilterEntity.bodyTypeFromMap(Map<String, dynamic> data) =>
       SearchFilterEntity(
         bodyType: data['body_type'],
+      );
+
+  factory SearchFilterEntity.brandFromMap(Map<String, dynamic> data) =>
+      SearchFilterEntity(
+        brand: data['source_name'],
       );
 
   Map<String, dynamic> toMap() {

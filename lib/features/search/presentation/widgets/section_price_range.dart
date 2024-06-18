@@ -1,10 +1,9 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
+import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../manager/filter_cubit/filter_cubit.dart';
 
 class SectionPriceRange extends StatelessWidget {
   const SectionPriceRange({super.key});
@@ -16,9 +15,9 @@ class SectionPriceRange extends StatelessWidget {
         const TopLeadingTrailing(
           leading: StringsEn.priceRange,
         ),
-        BlocBuilder<FilterCubit, FilterState>(
+        BlocBuilder<SearchCubit, SearchState>(
           builder: (context, state) {
-            FilterCubit bloc = BlocProvider.of<FilterCubit>(context);
+            SearchCubit bloc = BlocProvider.of<SearchCubit>(context);
 
             return RangeSlider(
               labels: RangeLabels(

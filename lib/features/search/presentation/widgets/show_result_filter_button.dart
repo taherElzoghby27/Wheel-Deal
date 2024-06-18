@@ -1,6 +1,5 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/customButton.dart';
-import 'package:cars/features/search/presentation/manager/filter_cubit/filter_cubit.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +14,7 @@ class ShowResultFilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: AppConsts.aspectRatioButtonAuth,
-      child: BlocListener<FilterCubit, FilterState>(
+      child: BlocListener<SearchCubit, SearchState>(
         listener: (context, state) {
           if (state is SearchFilterLoaded) {
             //
@@ -29,7 +28,7 @@ class ShowResultFilterButton extends StatelessWidget {
         child: CustomButton(
           text: StringsEn.showResult,
           styleText: AppConsts.style16White,
-          onTap: () async => await context.read<FilterCubit>().searchFilter(),
+          onTap: () async => await context.read<SearchCubit>().searchFilter(),
         ),
       ),
     );
