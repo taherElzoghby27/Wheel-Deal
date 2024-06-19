@@ -30,17 +30,25 @@ class BlocBuilderDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: list
                   .map(
-                    (e) => CustomRadiusListTile<String>(
-                      label: e.brand!,
-                      value: e.brand!,
-                      groupValue: status == StringsEn.brand
-                          ? bloc.brand
-                          : bloc.bodyType,
-                      onChanged: (value) => bloc.changeValue(
-                        value: value!,
-                        status: status,
-                      ),
-                    ),
+                    (e) => status == StringsEn.brand
+                        ? CustomRadiusListTile<String>(
+                            label: e.brand!,
+                            value: e.brand!,
+                            groupValue: bloc.brand,
+                            onChanged: (value) => bloc.changeValue(
+                              value: value!,
+                              status: status,
+                            ),
+                          )
+                        : CustomRadiusListTile<String>(
+                            label: e.bodyType!,
+                            value: e.bodyType!,
+                            groupValue: bloc.bodyType,
+                            onChanged: (value) => bloc.changeValue(
+                              value: value!,
+                              status: status,
+                            ),
+                          ),
                   )
                   .toList(),
             ),

@@ -1,6 +1,6 @@
 part of 'search_cubit.dart';
 
-class SearchState extends Equatable {
+class SearchState {
   final RequestState searchState;
   final List<CarEntity> searchList;
   final String failureMessageSearch;
@@ -16,6 +16,8 @@ class SearchState extends Equatable {
   final List<SearchFilterEntity> brands;
   final String failureBrands;
   final RequestState valueChanged;
+  final RequestState priceRangeChanged;
+  final RequestState valueFacilityChange;
 
   const SearchState({
     this.searchState = RequestState.initial,
@@ -33,6 +35,8 @@ class SearchState extends Equatable {
     this.brands = const [],
     this.failureBrands = 'no data',
     this.valueChanged = RequestState.initial,
+    this.priceRangeChanged = RequestState.initial,
+    this.valueFacilityChange = RequestState.initial,
   });
 
   SearchState copyWith({
@@ -51,6 +55,8 @@ class SearchState extends Equatable {
     List<SearchFilterEntity>? brands,
     String? failureBrands,
     RequestState? valueChanged,
+    RequestState? priceRangeChanged,
+    RequestState? valueFacilityChange,
   }) =>
       SearchState(
         searchState: searchState ?? this.searchState,
@@ -71,30 +77,8 @@ class SearchState extends Equatable {
         brands: brands ?? this.brands,
         failureBrands: failureBrands ?? this.failureBrands,
         valueChanged: valueChanged ?? this.valueChanged,
+        priceRangeChanged: priceRangeChanged??this.priceRangeChanged,
+        valueFacilityChange: valueFacilityChange??this.valueFacilityChange,
       );
-
-  @override
-  List<Object?> get props => [
-        searchState,
-        searchList,
-        failureMessageSearch,
-        recentSearchState,
-        recentSearchList,
-        failureMessageRecentSearch,
-        deleteRecentSearchState,
-        failureMessageDeleteRecentSearch,
-        bodyTypesState,
-        bodyTypes,
-        failureBodyTypes,
-        brandsState,
-        brands,
-        failureBrands,
-        valueChanged,
-      ];
 }
 
-class ConditionInitial extends SearchState {}
-
-class PriceRangeChanged extends SearchState {}
-
-class ValueFacilityChange extends SearchState {}

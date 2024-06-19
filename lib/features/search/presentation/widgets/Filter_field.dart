@@ -26,9 +26,9 @@ class FilterField extends StatelessWidget {
           if (label == StringsEn.condition) {
             status = bloc.condition;
           } else if (label == StringsEn.brand) {
-            status = bloc.brand!;
-          } else if (label == StringsEn.bodyType) {
-            status = bloc.bodyType;
+            status = bloc.brand??'';
+          } else{
+            status = bloc.bodyType??'';
           }
           debugPrint('status $status');
         }

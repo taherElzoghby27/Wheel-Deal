@@ -119,7 +119,7 @@ class SearchCubit extends Cubit<SearchState> {
   //fields
   String condition = conditions.first;
   String? brand;
-  String bodyType = bodyTypes.first;
+  String? bodyType;
 
   //price range
   RangeValues currentRangeValues = const RangeValues(500000, 700000);
@@ -143,39 +143,52 @@ class SearchCubit extends Cubit<SearchState> {
 
   changePriceRange(RangeValues values) {
     currentRangeValues = values;
-    emit(PriceRangeChanged());
+    emit(
+      state.copyWith(priceRangeChanged: RequestState.loaded),
+    );
   }
 
   changeFacility(bool value, FacilityModel facilityModel) {
     facilityModel.value = value;
-    emit(ValueFacilityChange());
+    emit(
+      state.copyWith(valueFacilityChange: RequestState.loaded),
+    );
   }
 
 //get body types by brand name
   getBodyTypes() async {
-    emit(
-      state.copyWith(bodyTypesState: RequestState.loading),
-    );
-    await _bodyTypeFilterUseCase.call('').then(
-          (value) => value.fold(
-            (failure) {
-              emit(
-                state.copyWith(
-                  bodyTypesState: RequestState.failure,
-                  failureBodyTypes: failure.message,
-                ),
-              );
-            },
-            (success) {
-              emit(
-                state.copyWith(
-                  bodyTypesState: RequestState.loaded,
-                  bodyTypes: success,
-                ),
-              );
-            },
-          ),
-        );
+    if (brand != null) {
+      emit(
+        state.copyWith(bodyTypesState: RequestState.loading),
+      );
+      await _bodyTypeFilterUseCase.call(brand ?? '').then(
+            (value) => value.fold(
+              (failure) {
+                emit(
+                  state.copyWith(
+                    bodyTypesState: RequestState.failure,
+                    failureBodyTypes: failure.message,
+                  ),
+                );
+              },
+              (success) {
+                emit(
+                  state.copyWith(
+                    bodyTypesState: RequestState.loaded,
+                    bodyTypes: success,
+                  ),
+                );
+              },
+            ),
+          );
+    } else {
+      emit(
+        state.copyWith(
+          bodyTypesState: RequestState.failure,
+          failureBodyTypes: 'Please ,Select brand',
+        ),
+      );
+    }
   }
 
   getBrands() async {
@@ -236,6 +249,7 @@ class SearchCubit extends Cubit<SearchState> {
               );
             },
             (List<CarEntity> success) {
+              initial = false;
               emit(
                 state.copyWith(
                   searchState: RequestState.loaded,
