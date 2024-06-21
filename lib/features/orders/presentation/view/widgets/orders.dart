@@ -1,5 +1,6 @@
 import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/models/order_model.dart';
+import 'package:cars/features/orders/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 
 import 'order_component.dart';
@@ -26,7 +27,7 @@ class _OrdersState extends State<Orders> {
   //add jobs
   addOrders() {
     orders.addAll([
-      OrderModel(image:'https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/RYX545TZURAGPJAQRKHQBUVIJU.jpg', name: 'BMW 320i M Sport', price: 300000),
+      OrderModel(imagePath:'https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/RYX545TZURAGPJAQRKHQBUVIJU.jpg', model: 'BMW 320i M Sport', price: '300000', userId: '', carId: '', brand: ''),
       OrderModel(image: Assets.car2, name: 'BMW 320i M Sport', price: 300400),
       OrderModel(image: Assets.car3, name: 'BMW 320i M Sport', price: 600000),
       OrderModel(image: Assets.car1, name: 'BMW 320i M Sport', price: 300000),

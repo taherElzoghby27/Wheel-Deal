@@ -22,4 +22,7 @@ class ApiConsts {
   static const deleteRecentSearchEndPoint = 'home/search_delete.php';
   static const bodyTypeFilter = 'home/search_bodytype.php';
   static const getBrandsFilter = 'home/search_brands.php';
+  static const fetchOrdersEndPoint = 'order/order_fetch.php';
+  static const addOrderEndPoint = 'favourite/order_add.php';
+  static const deleteOrderEndPoint = 'favourite/delete_order.php';
 }
