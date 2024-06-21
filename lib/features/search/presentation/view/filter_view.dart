@@ -19,6 +19,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../home/data/repos/home_repo_impl.dart';
+import '../../../home/domain/entities/car_entity.dart';
 import '../../domain/use_cases/body_type_filter_use_case.dart';
 import '../../domain/use_cases/delete_recent_search_use_case.dart';
 import '../../domain/use_cases/get_brands_use_case.dart';
@@ -27,7 +28,9 @@ import '../manager/search_cubit/search_cubit.dart';
 import '../widgets/filter_body.dart';
 
 class FilterView extends StatelessWidget {
-  const FilterView({super.key});
+  const FilterView({super.key, required this.cars});
+
+  final List<CarEntity> cars;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,14 @@ class FilterView extends StatelessWidget {
       appBar: CustomAppBarScaffold(
         leading: CustomSquareButton(
           icon: Icons.arrow_back_ios_new_rounded,
-          onTap: () => GoRouter.of(context).pop(),
+          onTap: () {
+            if (cars.isNotEmpty) {
+              cars.clear();
+              GoRouter.of(context).pop();
+            } else {
+              GoRouter.of(context).pop();
+            }
+          },
         ),
         title: StringsEn.filter,
       ),
@@ -93,8 +103,8 @@ class FilterView extends StatelessWidget {
             ),
           ),
         ],
-        child: const SafeArea(
-          child: FilterBody(),
+        child: SafeArea(
+          child: FilterBody(cars: cars),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
@@ -17,9 +18,12 @@ class ShowResultFilterButton extends StatelessWidget {
       aspectRatio: AppConsts.aspectRatioButtonAuth,
       child: BlocListener<SearchCubit, SearchState>(
         listener: (context, state) {
-          if (state.searchState == RequestState.loaded) {
+          if (state.searchFilterState == RequestState.loaded) {
             //pop
-            GoRouter.of(context).pop();
+            GoRouter.of(context).push(
+              filterPath,
+              extra: state.searchList,
+            );
           }
         },
         child: CustomButton(

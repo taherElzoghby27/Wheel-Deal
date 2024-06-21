@@ -33,11 +33,15 @@ class SearchCubit extends Cubit<SearchState> {
     this._bodyTypeFilterUseCase,
     this._getBrandsUseCase,
   ) : super(const SearchState());
-  bool initial = true;
+
+  //fields
   TextEditingController searchController = TextEditingController();
 
+  //price range
+  RangeValues currentRangeValues = const RangeValues(500000, 700000);
+
   searchMethod() async {
-    initial = false;
+    emit(state.copyWith(initial: false));
     await search(searchWord: searchController.text);
   }
 
@@ -116,26 +120,17 @@ class SearchCubit extends Cubit<SearchState> {
     );
   }
 
-  //fields
-  String condition = conditions.first;
-  String? brand;
-  String? bodyType;
-
-  //price range
-  RangeValues currentRangeValues = const RangeValues(500000, 700000);
-
   changeValue({
     required String value,
     required String status,
   }) {
     if (status == StringsEn.condition) {
-      condition = value;
+      emit(state.copyWith(condition: value));
     } else if (status == StringsEn.brand) {
-      brand = value;
+      emit(state.copyWith(brand: value));
     } else if (status == StringsEn.bodyType) {
-      bodyType = value;
+      emit(state.copyWith(bodyType: value));
     }
-    debugPrint(condition);
     emit(
       state.copyWith(valueChanged: RequestState.changed),
     );
@@ -157,11 +152,11 @@ class SearchCubit extends Cubit<SearchState> {
 
 //get body types by brand name
   getBodyTypes() async {
-    if (brand != null) {
+    if (state.brand.isNotEmpty) {
       emit(
         state.copyWith(bodyTypesState: RequestState.loading),
       );
-      await _bodyTypeFilterUseCase.call(brand ?? '').then(
+      await _bodyTypeFilterUseCase.call(state.brand).then(
             (value) => value.fold(
               (failure) {
                 emit(
@@ -217,16 +212,24 @@ class SearchCubit extends Cubit<SearchState> {
         );
   }
 
-  resetMethod() {}
+  resetMethod() {
+    currentRangeValues = const RangeValues(500000, 700000);
+    for (FacilityModel item in facilities) {
+      item.value = false;
+    }
+    emit(
+      state.copyWith(brand: '', bodyType: '', condition: ''),
+    );
+  }
 
   searchFilter() async {
     emit(state.copyWith(searchState: RequestState.loading));
     await _searchFilterUseCase
         .call(
           SearchFilterEntity(
-            condition: condition,
-            bodyType: bodyType,
-            brand: brand,
+            condition: state.condition,
+            bodyType: state.bodyType,
+            brand: state.brand,
             minPrice: currentRangeValues.start.toString(),
             maxPrice: currentRangeValues.end.toString(),
             airBag: facilities[0].value ? '1' : '0',
@@ -249,10 +252,9 @@ class SearchCubit extends Cubit<SearchState> {
               );
             },
             (List<CarEntity> success) {
-              initial = false;
               emit(
                 state.copyWith(
-                  searchState: RequestState.loaded,
+                  searchFilterState: RequestState.loaded,
                   searchList: success,
                 ),
               );

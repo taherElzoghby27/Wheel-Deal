@@ -1,6 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
+import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/consts/style.dart';
 import 'Filter_field.dart';
 import 'condition_bloc_builder.dart';
@@ -17,7 +19,7 @@ class SectionFieldsFilter extends StatelessWidget {
         TopLeadingTrailing(
           leading: StringsEn.filterBy,
           trailing: StringsEn.reset,
-          trailingOnTap: () {},
+          trailingOnTap: () => context.read<SearchCubit>().resetMethod(),
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
         //brand

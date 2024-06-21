@@ -4,6 +4,7 @@ class SearchState {
   final RequestState searchState;
   final List<CarEntity> searchList;
   final String failureMessageSearch;
+  final RequestState searchFilterState;
   final RequestState recentSearchState;
   final List<RecentSearchModel> recentSearchList;
   final String failureMessageRecentSearch;
@@ -18,9 +19,15 @@ class SearchState {
   final RequestState valueChanged;
   final RequestState priceRangeChanged;
   final RequestState valueFacilityChange;
+  final String condition;
+
+  final String brand;
+  final String bodyType;
+  final bool initial;
 
   const SearchState({
     this.searchState = RequestState.initial,
+    this.searchFilterState = RequestState.initial,
     this.searchList = const [],
     this.failureMessageSearch = 'No Data',
     this.recentSearchState = RequestState.loading,
@@ -37,10 +44,15 @@ class SearchState {
     this.valueChanged = RequestState.initial,
     this.priceRangeChanged = RequestState.initial,
     this.valueFacilityChange = RequestState.initial,
+    this.condition = '',
+    this.brand = '',
+    this.bodyType = '',
+    this.initial = true,
   });
 
   SearchState copyWith({
     RequestState? searchState,
+    RequestState? searchFilterState,
     List<CarEntity>? searchList,
     String? failureMessageSearch,
     RequestState? recentSearchState,
@@ -57,9 +69,14 @@ class SearchState {
     RequestState? valueChanged,
     RequestState? priceRangeChanged,
     RequestState? valueFacilityChange,
+    String? condition,
+    String? brand,
+    String? bodyType,
+    bool? initial,
   }) =>
       SearchState(
         searchState: searchState ?? this.searchState,
+        searchFilterState: searchFilterState ?? this.searchFilterState,
         searchList: searchList ?? this.searchList,
         failureMessageSearch: failureMessageSearch ?? this.failureMessageSearch,
         recentSearchState: recentSearchState ?? this.recentSearchState,
@@ -77,8 +94,11 @@ class SearchState {
         brands: brands ?? this.brands,
         failureBrands: failureBrands ?? this.failureBrands,
         valueChanged: valueChanged ?? this.valueChanged,
-        priceRangeChanged: priceRangeChanged??this.priceRangeChanged,
-        valueFacilityChange: valueFacilityChange??this.valueFacilityChange,
+        priceRangeChanged: priceRangeChanged ?? this.priceRangeChanged,
+        valueFacilityChange: valueFacilityChange ?? this.valueFacilityChange,
+        condition: condition ?? this.condition,
+        brand: brand ?? this.brand,
+        bodyType: bodyType ?? this.bodyType,
+        initial: initial ?? this.initial,
       );
 }
-

@@ -13,7 +13,7 @@ class BlocBuilderSectionResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
-        return context.read<SearchCubit>().initial
+        return context.read<SearchCubit>().state.initial
             ? RecentSearch(
                 tileHint: StringsEn.recentSearches,
               )

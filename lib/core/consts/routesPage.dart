@@ -223,11 +223,14 @@ final router = GoRouter(
     ),
     GoRoute(
       path: filterPath,
-      pageBuilder: (context, state) => buildPageWithDefaultTransition(
-        context: context,
-        state: state,
-        child: const FilterView(),
-      ),
+      pageBuilder: (context, state) {
+        List<CarEntity> cars = state.extra as List<CarEntity>;
+        return buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: FilterView(cars: cars),
+        );
+      },
     ),
     GoRoute(
       path: locationPath,

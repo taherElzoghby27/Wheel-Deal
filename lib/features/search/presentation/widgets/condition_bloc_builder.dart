@@ -25,7 +25,7 @@ class ConditionBlocBuilder extends StatelessWidget {
                   (e) => CustomRadiusListTile<String>(
                     label: e,
                     value: e,
-                    groupValue: bloc.condition,
+                    groupValue: bloc.state.condition,
                     onChanged: (value) => bloc.changeValue(
                       value: value!,
                       status: StringsEn.condition,

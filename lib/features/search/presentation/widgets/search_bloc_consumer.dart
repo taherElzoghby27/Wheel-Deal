@@ -29,7 +29,8 @@ class _SearchBlocConsumerState extends State<SearchBlocConsumer> {
     return BlocConsumer<SearchCubit, SearchState>(
       builder: (context, state) {
         Size size = MediaQuery.of(context).size;
-        if (state.searchState == RequestState.loaded) {
+        if (state.searchState == RequestState.loaded ||
+            state.searchFilterState == RequestState.loaded) {
           return Column(
             children: [
               SizedBox(

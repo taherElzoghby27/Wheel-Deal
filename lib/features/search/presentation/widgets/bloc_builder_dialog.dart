@@ -34,7 +34,7 @@ class BlocBuilderDialog extends StatelessWidget {
                         ? CustomRadiusListTile<String>(
                             label: e.brand!,
                             value: e.brand!,
-                            groupValue: bloc.brand,
+                            groupValue: bloc.state.brand,
                             onChanged: (value) => bloc.changeValue(
                               value: value!,
                               status: status,
@@ -43,7 +43,7 @@ class BlocBuilderDialog extends StatelessWidget {
                         : CustomRadiusListTile<String>(
                             label: e.bodyType!,
                             value: e.bodyType!,
-                            groupValue: bloc.bodyType,
+                            groupValue: bloc.state.bodyType,
                             onChanged: (value) => bloc.changeValue(
                               value: value!,
                               status: status,

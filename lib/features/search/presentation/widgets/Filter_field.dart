@@ -22,13 +22,13 @@ class FilterField extends StatelessWidget {
       builder: (context, state) {
         SearchCubit bloc = BlocProvider.of<SearchCubit>(context);
         String status = '';
-        if (state.valueChanged==RequestState.changed) {
+        if (state.valueChanged == RequestState.changed) {
           if (label == StringsEn.condition) {
-            status = bloc.condition;
+            status = bloc.state.condition;
           } else if (label == StringsEn.brand) {
-            status = bloc.brand??'';
-          } else{
-            status = bloc.bodyType??'';
+            status = bloc.state.brand ?? '';
+          } else {
+            status = bloc.state.bodyType ?? '';
           }
           debugPrint('status $status');
         }
