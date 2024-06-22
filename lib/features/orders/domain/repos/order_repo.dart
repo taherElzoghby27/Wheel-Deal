@@ -8,11 +8,11 @@ abstract class OrderRepo {
 
   //add order
   Future<Either<FailureServ, String>> addOrder({
-    required int carId,
+    required String carId,
   });
 
   //delete order
   Future<Either<FailureServ, String>> deleteOrder({
-    required int carId,
+    required String carId,
   });
 }

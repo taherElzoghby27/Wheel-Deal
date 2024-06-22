@@ -8,13 +8,13 @@ import 'package:dio/dio.dart';
 import '../../../../core/consts/strings.dart';
 
 class OrderRepoImpl extends OrderRepo {
-  final RemoteDataSourceRepo _remoteDataSourceRepo;
+  final RemoteDataSourceOrderRepo _remoteDataSourceRepo;
 
-  OrderRepoImpl({required RemoteDataSourceRepo remoteDataSourceRepo})
+  OrderRepoImpl({required RemoteDataSourceOrderRepo remoteDataSourceRepo})
       : _remoteDataSourceRepo = remoteDataSourceRepo;
 
   @override
-  Future<Either<FailureServ, String>> addOrder({required int carId}) async {
+  Future<Either<FailureServ, String>> addOrder({required String carId}) async {
     try {
       String result = await _remoteDataSourceRepo.addOrder(carId: carId);
       return Right(result);
@@ -27,7 +27,7 @@ class OrderRepoImpl extends OrderRepo {
   }
 
   @override
-  Future<Either<FailureServ, String>> deleteOrder({required int carId}) async {
+  Future<Either<FailureServ, String>> deleteOrder({required String carId}) async {
     try {
       String result = await _remoteDataSourceRepo.deleteOrder(carId: carId);
       return Right(result);

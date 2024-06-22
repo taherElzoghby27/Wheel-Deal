@@ -15,6 +15,8 @@ import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
 import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/repos/home_repo_impl.dart';
+import 'package:cars/features/orders/data/data_source/remote_data_source.dart';
+import 'package:cars/features/orders/data/repos/order_repo_impl.dart';
 import 'package:cars/features/search/data/data_source/search_remote_data_source.dart';
 import 'package:cars/features/search/data/repos/search_repo_impl.dart';
 import 'package:get_it/get_it.dart';
@@ -113,6 +115,14 @@ setupServiceLocator() {
   getIt.registerSingleton<SearchRepoImpl>(
     SearchRepoImpl(
       searchRemoteDataSource: getIt.get<SearchRemoteDataSourceImpl>(),
+    ),
+  );
+  getIt.registerSingleton<RemoteDataSourceOrderRepoImpl>(
+    RemoteDataSourceOrderRepoImpl(apiService: getIt.get<ApiService>()),
+  );
+  getIt.registerSingleton<OrderRepoImpl>(
+    OrderRepoImpl(
+      remoteDataSourceRepo: getIt.get<RemoteDataSourceOrderRepoImpl>(),
     ),
   );
 }

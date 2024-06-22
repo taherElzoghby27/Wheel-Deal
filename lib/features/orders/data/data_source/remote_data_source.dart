@@ -6,26 +6,26 @@ import 'package:dio/dio.dart';
 import '../../../../core/consts/api.dart';
 import '../models/order_model.dart';
 
-abstract class RemoteDataSourceRepo {
+abstract class RemoteDataSourceOrderRepo {
   //get orders
   Future<List<OrderModel>> getOrders();
 
   //add order
-  Future<String> addOrder({required int carId});
+  Future<String> addOrder({required String carId});
 
   //delete order
-  Future<String> deleteOrder({required int carId});
+  Future<String> deleteOrder({required String carId});
 }
 
-class RemoteDataSourceRepoImpl extends RemoteDataSourceRepo {
+class RemoteDataSourceOrderRepoImpl extends RemoteDataSourceOrderRepo {
   final ApiService _apiService;
 
-  RemoteDataSourceRepoImpl({
+  RemoteDataSourceOrderRepoImpl({
     required ApiService apiService,
   }) : _apiService = apiService;
 
   @override
-  Future<String> addOrder({required int carId}) async {
+  Future<String> addOrder({required String carId}) async {
     String? token = await readFromCache(
       StringsEn.token,
     );
@@ -40,7 +40,7 @@ class RemoteDataSourceRepoImpl extends RemoteDataSourceRepo {
   }
 
   @override
-  Future<String> deleteOrder({required int carId}) async {
+  Future<String> deleteOrder({required String carId}) async {
     String? token = await readFromCache(
       StringsEn.token,
     );

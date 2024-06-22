@@ -1,15 +1,17 @@
-import 'package:cars/core/consts/assets.dart';
+import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/customButton.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../data/models/order_model.dart';
+
 class OrderComponent extends StatelessWidget {
-  const OrderComponent({super.key});
+  const OrderComponent({super.key, required this.order});
+
+  final OrderModel order;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +35,8 @@ class OrderComponent extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     child: AspectRatio(
                       aspectRatio: AppConsts.aspectRatioImage.sp,
-                      child: const HandleImageWidget(
-                        image:
-                            'https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/RYX545TZURAGPJAQRKHQBUVIJU.jpg',
+                      child: HandleImageWidget(
+                        image: order.imagePath,
                       ),
                     ),
                   ),
@@ -55,14 +56,14 @@ class OrderComponent extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'BMW 320i M Sport',
+                                order.brand,
                                 style: AppConsts.style16White.copyWith(
                                   fontWeight: FontWeight.w400,
                                   color: Theme.of(context).canvasColor,
                                 ),
                               ),
                               Text(
-                                'EGP 3,000,000',
+                                'EGP ${handlePrice(order.price)}',
                                 style: AppConsts.style14.copyWith(
                                   color: AppConsts.mainColor,
                                   fontWeight: FontWeight.w400,
