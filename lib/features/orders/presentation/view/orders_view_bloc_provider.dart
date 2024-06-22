@@ -31,7 +31,7 @@ class OrdersView extends StatelessWidget {
           DeleteOrderUseCase(
             orderRepo: getIt.get<OrderRepoImpl>(),
           ),
-        ),
+        )..getOrders(),
         child: const SafeArea(
           child: OrdersBody(),
         ),

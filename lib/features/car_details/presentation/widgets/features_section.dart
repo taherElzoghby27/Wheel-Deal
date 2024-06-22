@@ -2,10 +2,9 @@ import 'package:cars/core/consts/data.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/models/car_model.dart';
+import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../home/presentation/view/widgets/top_leading_trailing.dart';
 import 'box_decortaion_widget.dart';
 import 'tile_feature_widget.dart';
 

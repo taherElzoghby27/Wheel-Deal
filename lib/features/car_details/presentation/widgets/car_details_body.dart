@@ -17,7 +17,7 @@ class CarDetailsBody extends StatelessWidget {
         TopCarDetailsBody(carModel: carModel),
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
         //add to orders
-        const SectionAddToOrders(),
+        SectionAddToOrders(carId: carModel.id),
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
       ],
     );

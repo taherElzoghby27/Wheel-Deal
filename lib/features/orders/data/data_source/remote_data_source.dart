@@ -2,6 +2,7 @@ import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../../../core/consts/api.dart';
 import '../models/order_model.dart';
@@ -29,6 +30,7 @@ class RemoteDataSourceOrderRepoImpl extends RemoteDataSourceOrderRepo {
     String? token = await readFromCache(
       StringsEn.token,
     );
+    debugPrint("car id :$carId");
     FormData data = FormData.fromMap({'car_id': carId});
     Response response = await _apiService.post(
       endPoint: ApiConsts.addOrderEndPoint,
