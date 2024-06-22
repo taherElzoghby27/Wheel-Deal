@@ -1,11 +1,12 @@
-import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/models/order_model.dart';
+import 'package:cars/features/orders/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 
 import 'order_component.dart';
 
 class Orders extends StatefulWidget {
-  const Orders({super.key});
+  const Orders({super.key, required this.orders});
+
+  final List<OrderModel> orders;
 
   @override
   State<Orders> createState() => _OrdersState();
@@ -25,23 +26,9 @@ class _OrdersState extends State<Orders> {
 
   //add jobs
   addOrders() {
-    orders.addAll([
-      OrderModel(image:'https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/RYX545TZURAGPJAQRKHQBUVIJU.jpg', name: 'BMW 320i M Sport', price: 300000),
-      OrderModel(image: Assets.car2, name: 'BMW 320i M Sport', price: 300400),
-      OrderModel(image: Assets.car3, name: 'BMW 320i M Sport', price: 600000),
-      OrderModel(image: Assets.car1, name: 'BMW 320i M Sport', price: 300000),
-      OrderModel(image: Assets.car2, name: 'BMW 320i M Sport', price: 300400),
-      OrderModel(image: Assets.car3, name: 'BMW 320i M Sport', price: 600000),
-      OrderModel(image: Assets.car1, name: 'BMW 320i M Sport', price: 300000),
-      OrderModel(image: Assets.car2, name: 'BMW 320i M Sport', price: 300400),
-      OrderModel(image: Assets.car3, name: 'BMW 320i M Sport', price: 600000),
-      OrderModel(image: Assets.car1, name: 'BMW 320i M Sport', price: 300000),
-      OrderModel(image: Assets.car2, name: 'BMW 320i M Sport', price: 300400),
-      OrderModel(image: Assets.car3, name: 'BMW 320i M Sport', price: 600000),
-
-    ]);
+    orders.addAll(widget.orders);
     Future future = Future(() {});
-    for (var order in orders) {
+    for (OrderModel order in orders) {
       future = future.then(
         (value) => Future.delayed(const Duration(milliseconds: 100)).then(
           (value) {
@@ -88,6 +75,6 @@ class _OrdersState extends State<Orders> {
 
 //build widget
   Widget _buildWidget(OrderModel order) {
-    return const OrderComponent();
+    return OrderComponent(order: order);
   }
 }

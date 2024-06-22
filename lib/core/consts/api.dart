@@ -1,6 +1,6 @@
 class ApiConsts {
   //baseurl
-  static const baseUrl = 'http://192.168.1.10/car_trading_app/';
+  static const baseUrl = 'http://192.168.1.3/car_trading_app/';
 
   //endpoints
   static const signUpEndpoint = 'auth/signup.php';
@@ -22,4 +22,7 @@ class ApiConsts {
   static const deleteRecentSearchEndPoint = 'home/search_delete.php';
   static const bodyTypeFilter = 'home/search_bodytype.php';
   static const getBrandsFilter = 'home/search_brands.php';
+  static const fetchOrdersEndPoint = 'order/order_fetch.php';
+  static const addOrderEndPoint = 'order/order_add.php';
+  static const deleteOrderEndPoint = 'order/delete_order.php';
 }
