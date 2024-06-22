@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/orders/data/models/order_model.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 import '../../domain/use_cases/add_order_use_case.dart';
 import '../../domain/use_cases/delete_order_use_case.dart';
@@ -19,6 +20,7 @@ class OrderCubit extends Cubit<OrderState> {
     this._addOrderUseCase,
     this._deleteOrderUseCase,
   ) : super(const OrderState());
+  List<OrderModel> orders = [];
 
   addOrder(String carId) async {
     emit(
@@ -48,13 +50,13 @@ class OrderCubit extends Cubit<OrderState> {
         );
   }
 
-  deleteOrder(String carId) async {
+  deleteOrder(OrderModel order) async {
     emit(
       state.copyWith(
         deleteOrderState: RequestState.loading,
       ),
     );
-    await _deleteOrderUseCase.call(carId).then(
+    await _deleteOrderUseCase.call(order.carId).then(
           (value) => value.fold(
             (failure) {
               emit(
@@ -64,7 +66,8 @@ class OrderCubit extends Cubit<OrderState> {
                 ),
               );
             },
-            (success) {
+            (success)  {
+              removeFromList(order);
               emit(
                 state.copyWith(
                   deleteOrderState: RequestState.loaded,
@@ -93,6 +96,7 @@ class OrderCubit extends Cubit<OrderState> {
               );
             },
             (success) {
+              orders = success;
               emit(
                 state.copyWith(
                   getOrdersState: RequestState.loaded,
@@ -102,5 +106,9 @@ class OrderCubit extends Cubit<OrderState> {
             },
           ),
         );
+  }
+
+  removeFromList(OrderModel order) {
+    orders.removeWhere((item) => item.carId == order.carId);
   }
 }

@@ -1,3 +1,5 @@
+import '../../../../core/consts/strings.dart';
+
 class OrderModel {
   final String userId;
   final String carId;
@@ -17,13 +19,21 @@ class OrderModel {
     required this.imagePath,
   });
 
-  factory OrderModel.fromMap(Map<String, dynamic> json) => OrderModel(
-        userId: json['user_id'] ?? '',
-        carId: json['car_id'] ?? '',
-        brand: json['brand'] ?? '',
-        model: json['model'] ?? '',
-        bodyType: json['body_type'] ?? '',
-        price: json['price'] ?? '',
-        imagePath: json['image_path'] ?? '',
-      );
+  factory OrderModel.fromMap(Map<String, dynamic> dataMap) {
+    String imageAfterEdit = dataMap['image_path'] == null
+        ? ''
+        : dataMap['image_path'].replaceAll(
+            StringsEn.oldImagesPath,
+            StringsEn.newImagesPath,
+          );
+    return OrderModel(
+      userId: dataMap['user_id'] ?? '',
+      carId: dataMap['car_id'] ?? '',
+      brand: dataMap['brand'] ?? '',
+      model: dataMap['model'] ?? '',
+      bodyType: dataMap['body_type'] ?? '',
+      price: dataMap['price'] ?? '',
+      imagePath: imageAfterEdit ?? '',
+    );
+  }
 }

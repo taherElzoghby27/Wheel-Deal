@@ -3,7 +3,9 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/customButton.dart';
+import 'package:cars/features/orders/presentation/manager/order_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../data/models/order_model.dart';
@@ -56,7 +58,7 @@ class OrderComponent extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                order.brand,
+                                '${order.brand} ${order.model}',
                                 style: AppConsts.style16White.copyWith(
                                   fontWeight: FontWeight.w400,
                                   color: Theme.of(context).canvasColor,
@@ -76,25 +78,17 @@ class OrderComponent extends StatelessWidget {
                           flex: 2,
                           child: Row(
                             children: [
-                              const Spacer(),
-                              Expanded(
-                                flex: 21,
-                                child: CustomButton(
-                                  text: StringsEn.trackOrder,
-                                  onTap: () {},
-                                ),
-                              ),
-                              const Spacer(),
-                              Expanded(
-                                flex: 2,
-                                child: IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: Theme.of(context)
-                                        .canvasColor
-                                        .withOpacity(.5),
-                                  ),
+                              const Spacer(flex: 10),
+                              IconButton(
+                                onPressed: () =>
+                                    context.read<OrderCubit>().deleteOrder(
+                                          order,
+                                        ),
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Theme.of(context)
+                                      .canvasColor
+                                      .withOpacity(.5),
                                 ),
                               ),
                               const Spacer(),

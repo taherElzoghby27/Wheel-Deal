@@ -1,6 +1,8 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/custom_snack.dart';
 import 'package:cars/core/widgets/empty_widget.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
+import 'package:cars/features/orders/data/models/order_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,19 +17,23 @@ class BlocBuilderOrders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OrderCubit, OrderState>(
-      builder: (context, state) {
-        if (state.getOrdersState == RequestState.loaded) {
-          return ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
-              //orders car
-              state.orders.isEmpty
-                  ? const EmptyWidget(icon: Assets.orderAsset)
-                  : Orders(orders: state.orders),
-            ],
+    return BlocConsumer<OrderCubit, OrderState>(
+      listener: (context, state) {
+        if (state.deleteOrderState == RequestState.failure) {
+          showSnack(
+            context,
+            message: state.failureDeleteOrderMessage,
+            backGroundColor: AppConsts.danger500,
           );
+        }
+      },
+      builder: (context, state) {
+        if (state.getOrdersState == RequestState.loaded ||
+            state.deleteOrderState == RequestState.loaded) {
+          List<OrderModel> orders = context.read<OrderCubit>().orders;
+          return orders.isEmpty
+              ? const EmptyWidget(icon: Assets.orderAsset)
+              : Orders(orders: orders);
         } else if (state.getOrdersState == RequestState.failure) {
           return SomeThingErrorWidget(
             message: state.failureGetOrderMessage,
