@@ -1,6 +1,7 @@
 <?php
 
-/* this endpoint takes verification code token (generated from email_verify.php) and input (inputCode)  */
+/* this endpoint takes verification code token (generated from email_verify.php) 
+input (inputCode)  */
 
 require_once("../includes/connection.php"); // Include your database connection file
 require __DIR__ . '/../vendor/autoload.php'; // Include JWT library

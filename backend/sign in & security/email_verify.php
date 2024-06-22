@@ -75,16 +75,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
 
         if (!$email) {
+            http_response_code(400); // Bad Request
             echo json_encode(["status" => "failed", "Message" => 'Email is required']);
             exit;
         }
 
         if (!isValidEmail($email)) {
+            http_response_code(400); // Bad Request
             echo json_encode(["status" => "failed", "Message" => 'Invalid email format']);
             exit;
         }
 
         if ($email !== $token_email) {
+            http_response_code(403); // Forbidden
             echo json_encode(["status" => "failed", "Message" => "Please Enter the Email That Assign To This Account"]);
             exit;
         } else {
@@ -102,8 +105,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Send the verification code
             if (sendVerificationCode($email, $verificationCode, $token_email)) {
+                http_response_code(200); // OK
                 echo json_encode(["status" => "success", "jwt" => $jwt]);
             } else {
+                http_response_code(500); // Internal Server Error
                 echo json_encode(["status" => "failed", "Message" => 'Failed to send verification code']);
             }
         }

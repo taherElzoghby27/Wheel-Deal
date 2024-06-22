@@ -1,6 +1,7 @@
 <?php
 
-/* this endpoint takes user token and input (image) */
+/* this endpoint takes user token
+ input (image) */
 
 require_once("../includes/connection.php"); // Include your database connection file
 require __DIR__ . '/../vendor/autoload.php'; // Include JWT library
