@@ -5,7 +5,7 @@
 
 require_once("../includes/connection.php"); // Include your database connection file
 require_once("../includes/function.php");
-require __DIR__ . '/../vendor/autoload.php'; // Include JWT library
+require __DIR__ . '/../vendor/autoload.php'; /// Include JWT library
 
 // Set content type to JSON
 header('Content-Type: application/json');
