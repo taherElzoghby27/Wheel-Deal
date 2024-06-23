@@ -30,10 +30,10 @@ class BlocBuilderOrders extends StatelessWidget {
       builder: (context, state) {
         if (state.getOrdersState == RequestState.loaded ||
             state.deleteOrderState == RequestState.loaded) {
-          List<OrderModel> orders = context.read<OrderCubit>().orders;
-          return orders.isEmpty
+          List<OrderModel> ordersList = context.read<OrderCubit>().orders;
+          return ordersList.isEmpty
               ? const EmptyWidget(icon: Assets.orderAsset)
-              : Orders(orders: orders);
+              : Orders(orders: ordersList);
         } else if (state.getOrdersState == RequestState.failure) {
           return SomeThingErrorWidget(
             message: state.failureGetOrderMessage,

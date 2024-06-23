@@ -66,8 +66,9 @@ class OrderCubit extends Cubit<OrderState> {
                 ),
               );
             },
-            (success)  {
+            (success) async {
               removeFromList(order);
+
               emit(
                 state.copyWith(
                   deleteOrderState: RequestState.loaded,
