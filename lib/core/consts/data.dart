@@ -5,7 +5,7 @@ import 'package:cars/features/chats/data/models/chat_model.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
 import 'package:cars/features/orders/presentation/view/orders_view_bloc_provider.dart';
-import 'package:cars/features/profile/presentation/view/profile_view.dart';
+import 'package:cars/features/profile/presentation/view/profile_view_bloc_provider.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/car_details/data/models/car_specification_model.dart';

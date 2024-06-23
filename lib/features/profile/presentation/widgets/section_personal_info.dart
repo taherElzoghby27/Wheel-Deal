@@ -1,10 +1,10 @@
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/widgets/error_widget.dart';
+import 'package:cars/core/widgets/small_loading_widget.dart';
 import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
+import 'package:cars/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../../../core/consts/routesPage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/consts/strings.dart';
 import '../../../../../core/widgets/custom_button_three_widget.dart';
 
@@ -15,50 +15,62 @@ class SectionPersonalInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: AppConsts.mainPadding,
-      child: Column(
-        children: [
-          TopLeadingTrailing(
-            leading: StringsEn.personalInfo,
-            leadingColor: AppConsts.mainColor,
-          ),
-          const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
-          CustomButtonThreeWidget(
-            leading: Icon(
-             Icons.person_2_outlined,
-              color: Theme.of(context).canvasColor.withOpacity(.8),
-            ),
-            title: StringsEn.id,
-            trailing: const Text(
-              '35154642',
-              style: AppConsts.style14,
-            ),
-            onTap: (){},
-          ),
-          CustomButtonThreeWidget(
-            leading: Icon(
-              Icons.email_outlined,
-              color: Theme.of(context).canvasColor.withOpacity(.8),
-            ),
-            trailing: const Text(
-              'taherAmin@gmail.com',
-              style: AppConsts.style14,
-            ),
-            title: StringsEn.email,
-            onTap: (){},
-          ),
-          CustomButtonThreeWidget(
-            leading: Icon(
-              Icons.phone,
-              color: Theme.of(context).canvasColor.withOpacity(.8),
-            ),
-            trailing: const Text(
-              '01023412234',
-              style: AppConsts.style14,
-            ),
-            title: StringsEn.phone,
-            onTap: (){},
-          ),
-        ],
+      child: BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          if (state is GetProfileLoaded) {
+            return Column(
+              children: [
+                TopLeadingTrailing(
+                  leading: StringsEn.personalInfo,
+                  leadingColor: AppConsts.mainColor,
+                ),
+                const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
+                CustomButtonThreeWidget(
+                  leading: Icon(
+                    Icons.person_2_outlined,
+                    color: Theme.of(context).canvasColor.withOpacity(.8),
+                  ),
+                  title: StringsEn.id,
+                  trailing: Text(
+                    state.userProfileEntity.id,
+                    style: AppConsts.style14,
+                  ),
+                  onTap: () {},
+                ),
+                CustomButtonThreeWidget(
+                  leading: Icon(
+                    Icons.email_outlined,
+                    color: Theme.of(context).canvasColor.withOpacity(.8),
+                  ),
+                  trailing: Text(
+                    state.userProfileEntity.email,
+                    style: AppConsts.style14,
+                  ),
+                  title: StringsEn.email,
+                  onTap: () {},
+                ),
+                CustomButtonThreeWidget(
+                  leading: Icon(
+                    Icons.phone,
+                    color: Theme.of(context).canvasColor.withOpacity(.8),
+                  ),
+                  trailing: Text(
+                    state.userProfileEntity.phone,
+                    style: AppConsts.style14,
+                  ),
+                  title: StringsEn.phone,
+                  onTap: () {},
+                ),
+              ],
+            );
+          } else if (state is GetProfileFailure) {
+            return SomeThingErrorWidget(
+              message: state.message,
+            );
+          } else {
+            return const LoadingWidget();
+          }
+        },
       ),
     );
   }

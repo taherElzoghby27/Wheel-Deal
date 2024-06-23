@@ -1,3 +1,4 @@
+import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_circle_image.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,7 @@ class SectionInfoUser extends StatelessWidget {
       children: [
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
         CustomCircleImage(
-          image:
-              'https://www.dmarge.com/wp-content/uploads/2021/01/dwayne-the-rock-.jpg',
+          image: Assets.personUnknown,
           onTap: () {},
         ),
         const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
