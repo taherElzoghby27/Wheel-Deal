@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
         if ($user_id) {
-            // Token is valid, proceed to fetch user's details
+            /// Token is valid, proceed to fetch user's details
             $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->execute();
