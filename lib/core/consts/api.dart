@@ -25,4 +25,5 @@ class ApiConsts {
   static const fetchOrdersEndPoint = 'order/order_fetch.php';
   static const addOrderEndPoint = 'order/order_add.php';
   static const deleteOrderEndPoint = 'order/delete_order.php';
+  static const profileEndPoint = 'profile/user_profile.php';
 }

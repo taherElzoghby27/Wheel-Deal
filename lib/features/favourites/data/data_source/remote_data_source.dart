@@ -1,12 +1,10 @@
 import 'package:cars/core/consts/api.dart';
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/models/car_model.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 abstract class FavouritesRemoteDataSource {
   Future<void> addFav({required String carId});
