@@ -15,7 +15,7 @@ class ProfileRepoImpl extends ProfileRepo {
   @override
   Future<Either<FailureServ, UserProfileEntity>> getProfile() async {
     try {
-      final userProfile = await _profileRemoteDataSource.getProfile();
+      final UserProfileEntity userProfile = await _profileRemoteDataSource.getProfile();
       return Right(userProfile);
     } catch (error) {
       if (error is DioException) {

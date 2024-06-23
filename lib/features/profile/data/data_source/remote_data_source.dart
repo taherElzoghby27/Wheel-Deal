@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:cars/core/consts/api.dart';
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import '../../domain/entities/user_profile_entity.dart';
 
 abstract class ProfileRemoteDataSource {
@@ -24,8 +27,10 @@ class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
       endPoint: ApiConsts.profileEndPoint,
       token: token,
     );
+    Map<String, dynamic> result = jsonDecode(response.data);
+    debugPrint('type ${result.runtimeType}');
     UserProfileEntity user = UserProfileEntity.fromMap(
-      response.data['data'],
+      result['data'][0],
     );
     return user;
   }
