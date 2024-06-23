@@ -23,7 +23,7 @@ class ProfileView extends StatelessWidget {
           GetProfileUseCase(
             profileRepo: getIt.get<ProfileRepoImpl>(),
           ),
-        ),
+        )..getProfile(),
         child: const SafeArea(
           child: ProfileBody(),
         ),

@@ -127,14 +127,14 @@ setupServiceLocator() {
       remoteDataSourceRepo: getIt.get<RemoteDataSourceOrderRepoImpl>(),
     ),
   );
-  getIt.registerSingleton<ProfileRepoImpl>(
-    ProfileRepoImpl(
-      profileRemoteDataSource: getIt.get<ProfileRemoteDataSourceImpl>(),
-    ),
-  );
   getIt.registerSingleton<ProfileRemoteDataSourceImpl>(
     ProfileRemoteDataSourceImpl(
       apiService: getIt.get<ApiService>(),
+    ),
+  );
+  getIt.registerSingleton<ProfileRepoImpl>(
+    ProfileRepoImpl(
+      profileRemoteDataSource: getIt.get<ProfileRemoteDataSourceImpl>(),
     ),
   );
 }
