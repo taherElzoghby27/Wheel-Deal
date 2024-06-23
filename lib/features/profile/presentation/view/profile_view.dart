@@ -1,8 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/features/profile/presentation/view/widgets/profile_body.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_app_bar_scaffold.dart';
+import '../widgets/profile_body.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});

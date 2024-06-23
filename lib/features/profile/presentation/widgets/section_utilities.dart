@@ -1,13 +1,11 @@
-import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/custom_button_three_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../home/presentation/view/widgets/top_leading_trailing.dart';
+import '../../../home/presentation/view/widgets/top_leading_trailing.dart';
 import 'content_bottom_sheet_logout.dart';
 
 class SectionUtilities extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
 import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/edit_profile/presentation/view/widgets/fields_section.dart';
-import 'package:cars/features/profile/presentation/view/widgets/section_info_user.dart';
+import 'package:cars/features/profile/presentation/widgets/section_info_user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
