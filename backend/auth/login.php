@@ -46,7 +46,7 @@ try {
             echo json_encode(array("Message" => "Login Successful", "jwt" => $token));
         } else {
             // Password is incorrect
-            http_response_code(401);
+            http_response_code(400);
             echo json_encode(array("Message" => "Password Is Incorrect"));
         }
     } else {
