@@ -79,7 +79,10 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
     await _loginUseCase
         .call(
-          UserModel(email: email, password: password),
+          UserModel(
+            email: email,
+            password: password,
+          ),
         )
         .then(
           (value) => value.fold(
@@ -87,7 +90,7 @@ class LoginCubit extends Cubit<LoginState> {
               emit(LoginFailure(message: failure.message));
             },
             (user) {
-              debugPrint(user.token);
+              //debugPrint(user.token);
               saveTokenLocal(user.token!);
               emit(LoginLoaded());
             },

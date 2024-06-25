@@ -18,17 +18,10 @@ class AuthRepoImpl extends AuthRepo {
     required UserModel userEntity,
   }) async {
     try {
-      Response result = await _remoteDataSource.login(
+      UserModel result = await _remoteDataSource.login(
         userEntity: userEntity,
       );
-      if (result.statusCode == 200) {
-        UserModel model = UserModel.fromJson(result.data);
-        return Right(model);
-      } else {
-        return Left(
-          ServerFailure.fromDioResponse(result.statusCode!, result.data),
-        );
-      }
+      return Right(result);
     } catch (error) {
       if (error is DioException) {
         return Left(ServerFailure.fromDioError(error));
@@ -44,17 +37,10 @@ class AuthRepoImpl extends AuthRepo {
     required UserModel userEntity,
   }) async {
     try {
-      Response result = await _remoteDataSource.resetPassword(
+      UserModel result = await _remoteDataSource.resetPassword(
         userEntity: userEntity,
       );
-      if (result.statusCode == 200) {
-        UserModel model = UserModel.fromJson(result.data);
-        return Right(model);
-      } else {
-        return Left(
-          ServerFailure.fromDioResponse(result.statusCode!, result.data),
-        );
-      }
+      return Right(result);
     } catch (error) {
       if (error is DioException) {
         return Left(ServerFailure.fromDioError(error));
@@ -70,17 +56,11 @@ class AuthRepoImpl extends AuthRepo {
     required UserModel userEntity,
   }) async {
     try {
-      Response result = await _remoteDataSource.signUp(
+      UserModel result = await _remoteDataSource.signUp(
         userEntity: userEntity,
       );
-      if (result.statusCode == 200) {
-        UserModel model = UserModel.fromJson(result.data);
-        return Right(model);
-      } else {
-        return Left(
-          ServerFailure.fromDioResponse(result.statusCode!, result.data),
-        );
-      }
+
+      return Right(result);
     } catch (error) {
       if (error is DioException) {
         return Left(ServerFailure.fromDioError(error));
@@ -96,17 +76,10 @@ class AuthRepoImpl extends AuthRepo {
     required UserModel userEntity,
   }) async {
     try {
-      Response result = await _remoteDataSource.verifyEmail(
+      UserModel result = await _remoteDataSource.verifyEmail(
         userEntity: userEntity,
       );
-      if (result.statusCode == 200) {
-        UserModel model = UserModel.fromJson(result.data);
-        return Right(model);
-      } else {
-        return Left(
-          ServerFailure.fromDioResponse(result.statusCode!, result.data),
-        );
-      }
+      return Right(result);
     } catch (error) {
       if (error is DioException) {
         return Left(ServerFailure.fromDioError(error));
