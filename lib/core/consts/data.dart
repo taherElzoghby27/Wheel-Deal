@@ -5,6 +5,7 @@ import 'package:cars/features/chats/data/models/chat_model.dart';
 import 'package:cars/features/chats/presentation/view/chat_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
 import 'package:cars/features/orders/presentation/view/orders_view_bloc_provider.dart';
+import 'package:cars/features/profile/data/models/identity_type_model.dart';
 import 'package:cars/features/profile/presentation/view/profile_view_bloc_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,6 @@ import '../../features/car_details/data/models/car_specification_model.dart';
 import '../../features/chats/data/models/message_model.dart';
 import '../../features/home/presentation/view/home_view_bloc_provider.dart';
 import '../../features/on_boarding/presentation/view/widgets/board_structure.dart';
-import '../../features/verification/data/models/identity_type_model.dart';
 import '../models/car_model.dart';
 import 'assets.dart';
 

@@ -137,4 +137,5 @@ setupServiceLocator() {
       profileRemoteDataSource: getIt.get<ProfileRemoteDataSourceImpl>(),
     ),
   );
+
 }

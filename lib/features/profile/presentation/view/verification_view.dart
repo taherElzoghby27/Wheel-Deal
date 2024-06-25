@@ -1,13 +1,12 @@
+import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../widgets/verification_body.dart';
 
-import '../../../../core/consts/strings.dart';
-import '../widgets/verification_verify_loading_body.dart';
-
-class VerificationVerifyLoadingView extends StatelessWidget {
-  const VerificationVerifyLoadingView({super.key});
+class VerificationView extends StatelessWidget {
+  const VerificationView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class VerificationVerifyLoadingView extends StatelessWidget {
         title: StringsEn.verification,
       ),
       body: const SafeArea(
-        child: VerificationVerifyLoadingBody(),
+        child: VerificationBody(),
       ),
     );
   }

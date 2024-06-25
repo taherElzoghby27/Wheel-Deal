@@ -3,10 +3,11 @@ import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
-import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../manager/verification_cubit/verification_cubit.dart';
 
 class VerificationVerifyLoadingBody extends StatefulWidget {
   const VerificationVerifyLoadingBody({super.key});
@@ -65,17 +66,23 @@ class _VerificationVerifyLoadingBodyState
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 HandleImageWidget(
-                  image: current == 0
+                  image: current == 0 &&
+                          state.userVerificationState == RequestState.loading
                       ? Assets.loadingVerify
-                      : current == 1
+                      : current == 1 &&
+                              state.userVerificationState ==
+                                  RequestState.loading
                           ? Assets.stillProcessing
                           : Assets.verified,
                 ),
                 const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
                 Text(
-                  current == 0
+                  current == 0 &&
+                          state.userVerificationState == RequestState.loading
                       ? StringsEn.loadingVerify
-                      : current == 1
+                      : current == 1 &&
+                              state.userVerificationState ==
+                                  RequestState.loading
                           ? StringsEn.stillProcessing
                           : StringsEn.verified,
                   textAlign: TextAlign.center,
@@ -86,9 +93,10 @@ class _VerificationVerifyLoadingBodyState
                 ),
                 const AspectRatio(aspectRatio: AppConsts.aspectRatio40on1),
                 Padding(
-                  padding:AppConsts.padding50H,
+                  padding: AppConsts.padding50H,
                   child: Text(
-                    current == 1
+                    current == 1 &&
+                            state.userVerificationState == RequestState.loading
                         ? StringsEn.stillProcessingSubTitle
                         : current == 2
                             ? StringsEn.verifiedSubTitle

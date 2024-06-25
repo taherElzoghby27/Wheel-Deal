@@ -50,7 +50,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                     }
 
                     // Define the upload directory
-                    $uploadDir = 'C:\\xampp\\htdocs\\CarTrading\\backend\\user_verification\\';
+                    $uploadDir = 'assets/user_verification/';
                     if (!is_dir($uploadDir)) {
                         mkdir($uploadDir, 0777, true);
                     }

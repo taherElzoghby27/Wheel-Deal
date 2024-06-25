@@ -15,6 +15,9 @@ class VerificationState {
 
   //error
   final String imageError;
+  final RequestState userVerificationState;
+  final String userVerificationResult;
+  final String failureUserVerification;
 
   const VerificationState({
     this.frontImage,
@@ -24,6 +27,9 @@ class VerificationState {
     this.selfieImage,
     this.selfieImageState = RequestState.initial,
     this.imageError = 'No Image',
+    this.userVerificationState = RequestState.initial,
+    this.userVerificationResult = 'No Data',
+    this.failureUserVerification = 'No Data',
   });
 
   VerificationState copyWith({
@@ -34,6 +40,9 @@ class VerificationState {
     File? selfieImage,
     RequestState? selfieImageState,
     String? imageError,
+    RequestState? userVerificationState,
+    String? userVerificationResult,
+    String? failureUserVerification,
   }) {
     return VerificationState(
       frontImage: frontImage ?? this.frontImage,
@@ -43,6 +52,12 @@ class VerificationState {
       selfieImage: selfieImage ?? this.selfieImage,
       selfieImageState: selfieImageState ?? this.selfieImageState,
       imageError: imageError ?? this.imageError,
+      userVerificationState:
+          userVerificationState ?? this.userVerificationState,
+      userVerificationResult:
+          userVerificationResult ?? this.userVerificationResult,
+      failureUserVerification:
+          failureUserVerification ?? this.failureUserVerification,
     );
   }
 }

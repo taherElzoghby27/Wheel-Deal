@@ -499,6 +499,7 @@ metho in addition to your password
       'Please, make sure that every detail of the ID card is clearly visible';
   static String whatCanWeHelp = 'What can we help?';
   static String messageErrorPhoto = 'User canceled or failed to pick image';
+  static String hintPickedImage = 'Please, Enter your id image';
   static String camera = 'camera';
   static String gallery = 'gallery';
   static String takeAPhoto = 'Take photo';

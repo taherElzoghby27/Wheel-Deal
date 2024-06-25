@@ -1,10 +1,10 @@
 import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/consts/style.dart';
+import '../manager/verification_cubit/verification_cubit.dart';
 import 'content_bottom_sheet_photos.dart';
 import 'identity_bloc_builder_selfie.dart';
 import 'identity_type_bloc_builder_scan_the_back.dart';
