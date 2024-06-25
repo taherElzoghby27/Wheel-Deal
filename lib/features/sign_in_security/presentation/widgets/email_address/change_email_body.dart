@@ -1,9 +1,12 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../../core/consts/routesPage.dart';
+import 'confirm_new_email_button_bloc_consumer.dart';
 
 class ChangeEmailBody extends StatelessWidget {
   const ChangeEmailBody({super.key});
@@ -15,12 +18,13 @@ class ChangeEmailBody extends StatelessWidget {
       child: Column(
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
-          const CustomTextFormField(
+          CustomTextFormField(
             hint: StringsEn.newEmailAddress,
-            perfixIcon: Icon(
+            perfixIcon: const Icon(
               Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
+            controller: context.read<SignInSecurityCubit>().email,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           const CustomTextFormField(
@@ -44,11 +48,12 @@ class ChangeEmailBody extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
             ),
+            controller: context.read<SignInSecurityCubit>().password,
           ),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () =>GoRouter.of(context).pushReplacement(resetPassPath),
               child: Text(
                 StringsEn.forgotPass,
                 style: AppConsts.style12.copyWith(
@@ -59,15 +64,9 @@ class ChangeEmailBody extends StatelessWidget {
             ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
-          AspectRatio(
+          const AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth,
-            child: CustomButton(
-              text: StringsEn.confirmNewEmail,
-              styleText: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-              onTap: () => GoRouter.of(context).push(''),
-            ),
+            child: ConfirmNewEmailButtonBlocConsumer(),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],

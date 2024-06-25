@@ -21,6 +21,8 @@ import 'package:cars/features/profile/data/data_source/remote_data_source.dart';
 import 'package:cars/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:cars/features/search/data/data_source/search_remote_data_source.dart';
 import 'package:cars/features/search/data/repos/search_repo_impl.dart';
+import 'package:cars/features/sign_in_security/data/data_source/sign_in_security_remote.dart';
+import 'package:cars/features/sign_in_security/data/repos/sign_in_and_security_repo_impl.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -137,5 +139,14 @@ setupServiceLocator() {
       profileRemoteDataSource: getIt.get<ProfileRemoteDataSourceImpl>(),
     ),
   );
-
+  getIt.registerSingleton<SignInSecurityRemoteImpl>(
+    SignInSecurityRemoteImpl(
+      apiService: getIt.get<ApiService>(),
+    ),
+  );
+  getIt.registerSingleton<SignInAndSecurityRepoImpl>(
+    SignInAndSecurityRepoImpl(
+      signInSecurityRemote: getIt.get<SignInSecurityRemoteImpl>(),
+    ),
+  );
 }

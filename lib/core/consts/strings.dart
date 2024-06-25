@@ -202,6 +202,7 @@ at least 1 number and 1 special character.
       'Are you sure you want to delete your account?';
   static const String keepAccount = 'Keep Account';
   static String token = 'token';
+  static String tokenVerifyEmail = 'token_verify_email';
   static String kBrands = 'KeyBrands';
   static String kBestOffers = 'KeyOffersForYou';
   static String kRecommendedForYou = 'KeyRecommendedForYou';

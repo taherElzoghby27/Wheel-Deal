@@ -1,8 +1,12 @@
 import 'package:bloc/bloc.dart';
+import 'package:cars/core/consts/methods.dart';
+import 'package:cars/core/consts/strings.dart';
 import 'package:cars/features/sign_in_security/domain/entities/sign_in_security_entity.dart';
 import 'package:cars/features/sign_in_security/domain/use_cases/check_code_input_use_case.dart';
 import 'package:cars/features/sign_in_security/domain/use_cases/update_email_use_case.dart';
 import 'package:cars/features/sign_in_security/domain/use_cases/update_password_use_case.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 import '../../../domain/use_cases/verify_email_use_case.dart';
@@ -21,21 +25,24 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
     this._updateEmailUseCase,
     this._checkCodeInputUseCase,
   ) : super(SignInSecurityInitial());
-  String? email;
-  String? password;
-  String? newPassword;
-  String? confirmPassword;
-  String? code;
+  GlobalKey<FormState> keyCode = GlobalKey<FormState>();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController newPassword = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+  TextEditingController code = TextEditingController();
 
   verifyEmail() async {
-    if (email != null) {
+    if (email.text.isNotEmpty) {
       emit(VerifyEmailLoading());
-      await _verifyEmailUseCase.call(email!).then(
+      await _verifyEmailUseCase.call(email.text).then(
             (value) => value.fold(
               (left) {
                 emit(VerifyEmailFailure(message: left.message));
               },
-              (right) {
+              (right) async {
+                email.clear();
+                await saveTokenLocal(StringsEn.tokenVerifyEmail, right);
                 emit(VerifyEmailLoaded(message: right));
               },
             ),
@@ -48,13 +55,13 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
   }
 
   updateEmail() async {
-    if (email != null || password != null) {
+    if (email.text.isNotEmpty || password.text.isNotEmpty) {
       emit(UpdateEmailLoading());
       await _updateEmailUseCase
           .call(
             SignInSecurityEntity(
-              email: email,
-              password: password,
+              email: email.text,
+              password: password.text,
             ),
           )
           .then(
@@ -63,6 +70,8 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
                 emit(UpdateEmailFailure(message: left.message));
               },
               (right) {
+                email.clear();
+                password.clear();
                 emit(UpdateEmailLoaded(message: right));
               },
             ),
@@ -77,14 +86,16 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
   }
 
   updatePassword() async {
-    if (password != null || newPassword != null || confirmPassword != null) {
+    if (password.text.isNotEmpty ||
+        newPassword.text.isNotEmpty ||
+        confirmPassword.text.isNotEmpty) {
       emit(UpdatePasswordLoading());
       await _updatePasswordUseCase
           .call(
             SignInSecurityEntity(
-              password: password,
-              newPassword: newPassword,
-              confirmNewPassword: confirmPassword,
+              password: password.text,
+              newPassword: newPassword.text,
+              confirmNewPassword: confirmPassword.text,
             ),
           )
           .then(
@@ -93,6 +104,9 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
                 emit(UpdatePasswordFailure(message: left.message));
               },
               (right) {
+                password.clear();
+                newPassword.clear();
+                confirmPassword.clear();
                 emit(UpdatePasswordLoaded(message: right));
               },
             ),
@@ -108,12 +122,13 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
   }
 
   checkCodeInput() async {
-    if (code != null) {
+    if (code.text.isNotEmpty) {
       emit(CheckCodeInputLoading());
       await _checkCodeInputUseCase
           .call(
             SignInSecurityEntity(
-              code: code,
+              email: email.text,
+              code: code.text,
             ),
           )
           .then(
@@ -122,6 +137,8 @@ class SignInSecurityCubit extends Cubit<SignInSecurityState> {
                 emit(CheckCodeInputFailure(message: left.message));
               },
               (right) {
+                email.clear();
+                code.clear();
                 emit(CheckCodeInputLoaded(message: right));
               },
             ),

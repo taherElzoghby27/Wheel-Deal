@@ -1,21 +1,17 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class SectionOtp extends StatefulWidget {
+class SectionOtp extends StatelessWidget {
   const SectionOtp({super.key});
 
   @override
-  State<SectionOtp> createState() => _SectionOtpState();
-}
-
-class _SectionOtpState extends State<SectionOtp> {
-  @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Form(
-      //key: cont.formKey,
+      key: context.read<SignInSecurityCubit>().keyCode,
       child: Padding(
         padding: AppConsts.padding25h,
         child: PinCodeTextField(
@@ -36,7 +32,6 @@ class _SectionOtpState extends State<SectionOtp> {
           },
           enableActiveFill: true,
           errorTextSpace: 30,
-
           pinTheme: PinTheme(
             activeColor: AppConsts.mainColor,
             selectedColor: AppConsts.mainColor,
@@ -51,7 +46,7 @@ class _SectionOtpState extends State<SectionOtp> {
           cursorColor: AppConsts.mainColor,
           animationDuration: const Duration(milliseconds: 300),
           //errorAnimationController: cont.errorController,
-          //controller: cont.textEditingController,
+          controller: context.read<SignInSecurityCubit>().code,
           keyboardType: TextInputType.number,
           onCompleted: (v) {
             debugPrint("Completed");

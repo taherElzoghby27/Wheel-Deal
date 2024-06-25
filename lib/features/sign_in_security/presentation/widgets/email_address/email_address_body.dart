@@ -1,10 +1,11 @@
-import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'change_email_address_verify_bloc_consumer.dart';
 
 class EmailAddressBody extends StatelessWidget {
   const EmailAddressBody({super.key});
@@ -17,30 +18,25 @@ class EmailAddressBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on3),
-           Text(
+          Text(
             StringsEn.yourEmail,
             style: AppConsts.style16White.copyWith(
               color: Theme.of(context).canvasColor,
             ),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
-          const CustomTextFormField(
+          CustomTextFormField(
             hint: StringsEn.enterYouEmail,
-            perfixIcon: Icon(
+            perfixIcon: const Icon(
               Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
+            controller: context.read<SignInSecurityCubit>().email,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
-          AspectRatio(
+          const AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth,
-            child: CustomButton(
-              text: StringsEn.changeEmailAddressLabel,
-              styleText: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-              onTap: () => GoRouter.of(context).push(verificationEmailPath),
-            ),
+            child: ChangeEmailAddressButtonVerifyBlocConsumer(),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],

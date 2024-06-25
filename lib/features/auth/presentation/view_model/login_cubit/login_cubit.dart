@@ -91,7 +91,7 @@ class LoginCubit extends Cubit<LoginState> {
             },
             (user) {
               //debugPrint(user.token);
-              saveTokenLocal(user.token!);
+              saveTokenLocal(StringsEn.token,user.token!);
               emit(LoginLoaded());
             },
           ),

@@ -11,9 +11,9 @@ FormData convertMapToFormData(Map<String, dynamic> data) {
   return FormData.fromMap(data);
 }
 
-saveTokenLocal(String token) async {
+saveTokenLocal(String key,String token) async {
   await FlutterSecureStorageEncrypted.writeData(
-    StringsEn.token,
+    key,
     token,
   );
 }

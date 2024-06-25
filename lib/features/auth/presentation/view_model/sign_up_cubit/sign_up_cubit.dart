@@ -148,11 +148,10 @@ class SignUpCubit extends Cubit<SignUpState> {
               );
             },
             (user) {
-              saveTokenLocal(user.token!);
+              saveTokenLocal(StringsEn.token, user.token!);
               emit(SignUpLoaded());
             },
           ),
         );
   }
-
 }

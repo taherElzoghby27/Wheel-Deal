@@ -40,7 +40,7 @@ class SignInSecurityRemoteImpl extends SignInSecurityRemote {
       model.toMapCodeInput(),
     );
     String? token = await readFromCache(
-      StringsEn.token,
+      StringsEn.tokenVerifyEmail,
     );
     Response response = await _apiService.post(
       endPoint: ApiConsts.checkCodeInputEndPoint,
@@ -99,7 +99,9 @@ class SignInSecurityRemoteImpl extends SignInSecurityRemote {
       token: token,
       data: data,
     );
-    return convertJsonToMessage(response);
+    Map<String, dynamic> mapData = jsonDecode(response.data);
+    String jwt = mapData['jwt'];
+    return jwt;
   }
 
   String convertJsonToMessage(Response<dynamic> response) {

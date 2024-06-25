@@ -30,6 +30,12 @@ import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
 import 'package:cars/features/settings/presentation/view_model/settings_cubit/setting_cubit.dart';
+import 'package:cars/features/sign_in_security/data/repos/sign_in_and_security_repo_impl.dart';
+import 'package:cars/features/sign_in_security/domain/use_cases/check_code_input_use_case.dart';
+import 'package:cars/features/sign_in_security/domain/use_cases/update_email_use_case.dart';
+import 'package:cars/features/sign_in_security/domain/use_cases/update_password_use_case.dart';
+import 'package:cars/features/sign_in_security/domain/use_cases/verify_email_use_case.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/two_step_verification_cubit/two_step_verification_cubit.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/email_address/change_email_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/email_address/verification_email_view.dart';
@@ -337,7 +343,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const EmailAddressView(),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const EmailAddressView(),
+        ),
       ),
     ),
     GoRoute(
@@ -345,7 +367,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const PhoneNumberView(),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const PhoneNumberView(),
+        ),
       ),
     ),
     GoRoute(
@@ -353,7 +391,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const PasswordView(),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const PasswordView(),
+        ),
       ),
     ),
     GoRoute(
@@ -372,7 +426,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const VerificationEmailView(),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const VerificationEmailView(),
+        ),
       ),
     ),
     GoRoute(
@@ -380,10 +450,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child:  BlocProvider(
-  create: (context) => SubjectBloc(),
-  child:const ChangeEmailView(),
-),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const ChangeEmailView(),
+        ),
       ),
     ),
     GoRoute(
@@ -391,7 +474,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const VerificationPhoneView(),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const VerificationPhoneView(),
+        ),
       ),
     ),
     GoRoute(
@@ -399,7 +498,23 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const ChangePhoneView(),
+        child: BlocProvider(
+          create: (context) => SignInSecurityCubit(
+            VerifyEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdatePasswordUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            UpdateEmailUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+            CheckCodeInputUseCase(
+              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
+            ),
+          ),
+          child: const ChangePhoneView(),
+        ),
       ),
     ),
     GoRoute(
