@@ -9,4 +9,6 @@ abstract class ProfileRepo {
   Future<Either<FailureServ, String>> userVerification({
     required UserVerificationEntity userVerificationEntity,
   });
+
+  Future<Either<FailureServ, String>> logout();
 }
