@@ -1,7 +1,7 @@
-import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class UserVerificationEntity {
-  final XFile image;
+  final File image;
 
   UserVerificationEntity({required this.image});
 }

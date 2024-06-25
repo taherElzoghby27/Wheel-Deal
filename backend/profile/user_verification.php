@@ -44,7 +44,7 @@ if ($authorizationHeader && preg_match('/Bearer\s+(.*)$/i', $authorizationHeader
                     }
 
                     // Validate the file type (e.g., only allow jpg, png)
-                    $allowedTypes = ['image/jpeg', 'image/png'];
+                    $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
                     if (!in_array($image['type'], $allowedTypes)) {
                         throw new Exception('Invalid file type!');
                     }

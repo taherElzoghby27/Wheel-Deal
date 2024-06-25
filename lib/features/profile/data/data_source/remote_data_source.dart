@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:cars/core/consts/api.dart';
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/consts/strings.dart';
@@ -54,7 +53,7 @@ class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
       {
         "image": await MultipartFile.fromFile(
           userVerificationEntity.image.path,
-          filename: userVerificationEntity.image.name,
+          filename: fileName,
         ),
       },
     );

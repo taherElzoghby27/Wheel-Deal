@@ -21,7 +21,7 @@ class CustomCircleImage extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: size.height * .1.h,
-          backgroundImage: NetworkImage(image),
+          backgroundImage: AssetImage(image),
         ),
         Container(
           decoration: BoxDecoration(
