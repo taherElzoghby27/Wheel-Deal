@@ -380,7 +380,10 @@ final router = GoRouter(
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
         state: state,
-        child: const ChangeEmailView(),
+        child:  BlocProvider(
+  create: (context) => SubjectBloc(),
+  child:const ChangeEmailView(),
+),
       ),
     ),
     GoRoute(
