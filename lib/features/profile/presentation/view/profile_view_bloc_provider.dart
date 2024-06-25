@@ -2,7 +2,8 @@ import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:cars/features/profile/domain/use_cases/get_profile_use_case.dart';
-import 'package:cars/features/profile/presentation/manager/profile_cubit.dart';
+import 'package:cars/features/profile/domain/use_cases/logout_use_case.dart';
+import 'package:cars/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,7 +24,10 @@ class ProfileView extends StatelessWidget {
           GetProfileUseCase(
             profileRepo: getIt.get<ProfileRepoImpl>(),
           ),
-        ),
+          LogoutUseCase(
+            profileRepo: getIt.get<ProfileRepoImpl>(),
+          ),
+        )..getProfile(),
         child: const SafeArea(
           child: ProfileBody(),
         ),

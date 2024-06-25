@@ -18,3 +18,13 @@ class GetProfileFailure extends ProfileState {
 
   GetProfileFailure({required this.message});
 }
+
+class LogoutLoading extends ProfileState {}
+
+class LogoutLoaded extends ProfileState {}
+
+class LogoutFailure extends ProfileState {
+  final String message;
+
+  LogoutFailure({required this.message});
+}

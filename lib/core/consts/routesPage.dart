@@ -1,3 +1,4 @@
+import 'package:cars/core/services/service_locator.dart';
 import 'package:cars/features/auth/presentation/view/create_account_bloc_provider_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/auth/presentation/view/login_view_bloc_provider.dart';
@@ -22,6 +23,9 @@ import 'package:cars/features/location/presentation/view/search_location_view.da
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:cars/features/notifications/presentation/view/notifications_view.dart';
+import 'package:cars/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:cars/features/profile/domain/use_cases/user_verification_use_case.dart';
+import 'package:cars/features/profile/presentation/manager/verification_cubit/verification_cubit.dart';
 import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
@@ -37,14 +41,13 @@ import 'package:cars/features/sign_in_security/presentation/screens/two_step_ver
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verification_code.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verification_security_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
-import 'package:cars/features/verification/presentation/view/verification_verify_loading_view.dart';
-import 'package:cars/features/verification/presentation/view/verification_view.dart';
-import 'package:cars/features/verification/presentation/view/verification_welcome_view.dart';
-import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
+import '../../features/profile/presentation/view/verification_verify_loading_view.dart';
+import '../../features/profile/presentation/view/verification_view.dart';
+import '../../features/profile/presentation/view/verification_welcome_view.dart';
 import '../../features/sign_in_security/presentation/screens/email_address/email_address_view.dart';
 import '../../features/sign_in_security/presentation/screens/phone_number/phone_number_view.dart';
 import '../helper/custom_animation.dart';
@@ -297,7 +300,11 @@ final router = GoRouter(
         context: context,
         state: state,
         child: BlocProvider(
-          create: (_) => VerificationCubit(),
+          create: (_) => VerificationCubit(
+            UserVerificationUseCase(
+              profileRepo: getIt.get<ProfileRepoImpl>(),
+            ),
+          ),
           child: const VerificationView(),
         ),
       ),
@@ -308,7 +315,11 @@ final router = GoRouter(
         context: context,
         state: state,
         child: BlocProvider(
-          create: (_) => VerificationCubit(),
+          create: (_) => VerificationCubit(
+            UserVerificationUseCase(
+              profileRepo: getIt.get<ProfileRepoImpl>(),
+            ),
+          ),
           child: const VerificationVerifyLoadingView(),
         ),
       ),

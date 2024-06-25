@@ -1,15 +1,13 @@
-import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/custom_snack.dart';
+import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
-import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../../core/widgets/custom_divider.dart';
+import '../manager/verification_cubit/verification_cubit.dart';
 import 'tile_bottom_sheet.dart';
 
 class ContentBottomSheetPhoto extends StatelessWidget {

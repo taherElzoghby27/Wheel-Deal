@@ -1,20 +1,20 @@
+import 'dart:convert';
+
 import 'package:cars/core/consts/api.dart';
 import 'package:cars/core/consts/methods.dart';
 import 'package:cars/core/services/api_service.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-
 import '../../../../core/consts/strings.dart';
 
 abstract class RemoteDataSource {
-  Future<Response> signUp({required UserModel userEntity});
+  Future<UserModel> signUp({required UserModel userEntity});
 
-  Future<Response> login({required UserModel userEntity});
+  Future<UserModel> login({required UserModel userEntity});
 
-  Future<Response> resetPassword({required UserModel userEntity});
+  Future<UserModel> resetPassword({required UserModel userEntity});
 
-  Future<Response> verifyEmail({required UserModel userEntity});
+  Future<UserModel> verifyEmail({required UserModel userEntity});
 }
 
 class RemoteDataSourceImpl extends RemoteDataSource {
@@ -24,28 +24,35 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       : _apiService = apiService;
 
   @override
-  Future<Response> login({required UserModel userEntity}) async {
-    FormData data = convertMapToFormData(userEntity.toMapLogin());
+  Future<UserModel> login({required UserModel userEntity}) async {
+    FormData data = convertMapToFormData(
+      userEntity.toMapLogin(),
+    );
     Response result = await _apiService.post(
       endPoint: ApiConsts.loginEndpoint,
       data: data,
     );
-    debugPrint(result.toString());
-    return result;
+    UserModel model = UserModel.fromMap(
+      jsonDecode(result.data),
+    );
+    return model;
   }
 
   @override
-  Future<Response> signUp({required UserModel userEntity}) async {
+  Future<UserModel> signUp({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(userEntity.toMapSignUp());
     Response result = await _apiService.post(
       endPoint: ApiConsts.signUpEndpoint,
       data: data,
     );
-    return result;
+    UserModel model = UserModel.fromMap(
+      jsonDecode(result.data),
+    );
+    return model;
   }
 
   @override
-  Future<Response> verifyEmail({required UserModel userEntity}) async {
+  Future<UserModel> verifyEmail({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(
       userEntity.toMapCheckingForResetPassword(),
     );
@@ -53,11 +60,14 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       endPoint: ApiConsts.checkingForResetPasswordEndpoint,
       data: data,
     );
-    return result;
+    UserModel model = UserModel.fromMap(
+      jsonDecode(result.data),
+    );
+    return model;
   }
 
   @override
-  Future<Response> resetPassword({required UserModel userEntity}) async {
+  Future<UserModel> resetPassword({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(
       userEntity.toMapResetPass(),
     );
@@ -69,6 +79,9 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       data: data,
       token: tokenForResetPass,
     );
-    return result;
+    UserModel model = UserModel.fromMap(
+      jsonDecode(result.data),
+    );
+    return model;
   }
 }

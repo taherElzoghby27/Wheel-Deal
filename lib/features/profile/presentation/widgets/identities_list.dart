@@ -1,8 +1,7 @@
 import 'package:cars/core/consts/data.dart';
-import 'package:cars/features/verification/presentation/view_model/verification_cubit/verification_cubit.dart';
+import 'package:cars/features/profile/presentation/manager/verification_cubit/verification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'radio_button_row.dart';
 
 class IdentitiesList extends StatelessWidget {
