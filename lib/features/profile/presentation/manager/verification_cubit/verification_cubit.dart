@@ -102,7 +102,7 @@ class VerificationCubit extends Cubit<VerificationState> {
       await _userVerificationUseCase
           .call(
             UserVerificationEntity(
-              image: imagePickerResult!,
+              image: File(imagePickerResult!.path),
             ),
           )
           .then(
