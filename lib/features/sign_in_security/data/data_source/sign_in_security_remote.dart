@@ -47,7 +47,9 @@ class SignInSecurityRemoteImpl extends SignInSecurityRemote {
       token: token,
       data: data,
     );
-    return convertJsonToMessage(response);
+    Map<String, dynamic> dataMap = jsonDecode(response.data);
+    String message = dataMap['Message'];
+    return message;
   }
 
   @override
@@ -65,7 +67,8 @@ class SignInSecurityRemoteImpl extends SignInSecurityRemote {
       token: token,
       data: data,
     );
-    return convertJsonToMessage(response);
+    String message = response.data['Message'];
+    return message;
   }
 
   @override
@@ -83,7 +86,8 @@ class SignInSecurityRemoteImpl extends SignInSecurityRemote {
       token: token,
       data: data,
     );
-    return convertJsonToMessage(response);
+    String message = response.data['Message'];
+    return message;
   }
 
   @override
@@ -99,14 +103,7 @@ class SignInSecurityRemoteImpl extends SignInSecurityRemote {
       token: token,
       data: data,
     );
-    Map<String, dynamic> mapData = jsonDecode(response.data);
-    String jwt = mapData['jwt'];
+    String jwt = response.data['jwt'];
     return jwt;
-  }
-
-  String convertJsonToMessage(Response<dynamic> response) {
-    Map<String, dynamic> mapData = jsonDecode(response.data);
-    String message = mapData['Message'];
-    return message;
   }
 }

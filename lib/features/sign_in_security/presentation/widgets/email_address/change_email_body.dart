@@ -15,7 +15,7 @@ class ChangeEmailBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: AppConsts.mainPadding,
-      child: Column(
+      child: ListView(
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
           CustomTextFormField(
@@ -63,7 +63,7 @@ class ChangeEmailBody extends StatelessWidget {
               ),
             ),
           ),
-          const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio16on12),
           const AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth,
             child: ConfirmNewEmailButtonBlocConsumer(),
