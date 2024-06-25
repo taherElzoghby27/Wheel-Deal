@@ -5,14 +5,14 @@ import 'package:cars/features/sign_in_security/domain/repos/sign_in_and_security
 import 'package:dartz/dartz.dart';
 
 class UpdateEmailUseCase
-    extends BaseUseCase<SignInSecurityEntity, SignInSecurityEntity> {
+    extends BaseUseCase<String, SignInSecurityEntity> {
   final SignInAndSecurityRepo _signInAndSecurityRepo;
 
   UpdateEmailUseCase({required SignInAndSecurityRepo signInAndSecurityRepo})
       : _signInAndSecurityRepo = signInAndSecurityRepo;
 
   @override
-  Future<Either<FailureServ, SignInSecurityEntity>> call(
+  Future<Either<FailureServ, String>> call(
     SignInSecurityEntity parameter,
   ) async {
     return await _signInAndSecurityRepo.updateEmail(

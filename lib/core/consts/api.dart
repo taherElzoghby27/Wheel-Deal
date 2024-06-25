@@ -27,4 +27,10 @@ class ApiConsts {
   static const deleteOrderEndPoint = 'order/delete_order.php';
   static const profileEndPoint = 'profile/user_profile.php';
   static const userVerificationEndPoint = 'profile/user_verification.php';
+  static const checkCodeInputEndPoint =
+      'sign_in_and_security/check_code_input.php';
+  static const emailVerifyEndPoint = 'sign_in_and_security/email_verify.php';
+  static const updateEmailEndPoint = 'sign_in_and_security/update_email.php';
+  static const updatePasswordEndPoint =
+      'sign_in_and_security/update_password.php';
 }

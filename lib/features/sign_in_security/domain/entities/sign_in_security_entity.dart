@@ -1,18 +1,18 @@
 class SignInSecurityEntity {
-  final String email;
-  final String code;
-  final String token;
-  final String password;
-  final String newPassword;
-  final String confirmNewPassword;
+  final String? email;
+  final String? code;
+  final String? token;
+  final String? password;
+  final String? newPassword;
+  final String? confirmNewPassword;
 
   SignInSecurityEntity({
-    required this.email,
-    required this.code,
-    required this.token,
-    required this.password,
-    required this.newPassword,
-    required this.confirmNewPassword,
+    this.email,
+    this.code,
+    this.token,
+    this.password,
+    this.newPassword,
+    this.confirmNewPassword,
   });
 
   toMapCodeInput() {
@@ -35,5 +35,9 @@ class SignInSecurityEntity {
       'new_password': newPassword,
       'confirm_new_password': confirmNewPassword,
     };
+  }
+
+  factory SignInSecurityEntity.fromMap(Map<String, dynamic> data){
+    return SignInSecurityEntity();
   }
 }
