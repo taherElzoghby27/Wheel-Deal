@@ -36,8 +36,9 @@ class DoneButtonBlocConsumer extends StatelessWidget {
           replacement: const LoadingWidget(),
           child: CustomButton(
             text: StringsEn.done,
-            onTap: () =>
-                context.read<RecommendationFeatureCubit>().previousCar(),
+            // onTap: () =>
+            //     context.read<RecommendationFeatureCubit>().previousCar(),
+            onTap: () => GoRouter.of(context).pushReplacement(navPath),
           ),
         );
       },

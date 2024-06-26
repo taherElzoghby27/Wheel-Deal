@@ -7,6 +7,8 @@ class RecommendationFeatureState {
   final RequestState getModelsTypesState;
   final String failureGetModelsTypes;
   final List<PreviousCarEntity> carNames;
+  final RequestState valueChangedRating;
+  final double valueChRating;
 
   const RecommendationFeatureState({
     this.valueChanged = RequestState.initial,
@@ -14,6 +16,8 @@ class RecommendationFeatureState {
     this.getModelsTypesState = RequestState.initial,
     this.failureGetModelsTypes = 'No Data',
     this.carNames = const [],
+    this.valueChangedRating = RequestState.initial,
+    this.valueChRating = 1.0,
   });
 
   RecommendationFeatureState copyWith({
@@ -22,6 +26,8 @@ class RecommendationFeatureState {
     RequestState? getModelsTypesState,
     String? failureGetModelsTypes,
     List<PreviousCarEntity>? carNames,
+    RequestState? valueChangedRating,
+    double? valueChRating,
   }) {
     return RecommendationFeatureState(
       valueChanged: valueChanged ?? this.valueChanged,
@@ -30,6 +36,8 @@ class RecommendationFeatureState {
       failureGetModelsTypes:
           failureGetModelsTypes ?? this.failureGetModelsTypes,
       carNames: carNames ?? this.carNames,
+      valueChangedRating: valueChangedRating ?? this.valueChangedRating,
+      valueChRating: valueChRating ?? this.valueChRating,
     );
   }
 }
@@ -56,8 +64,4 @@ class PreviousCarFailure extends RecommendationFeatureState {
   const PreviousCarFailure({required this.message});
 }
 
-class ChangedValueRating extends RecommendationFeatureState {
-  final double value;
 
-  const ChangedValueRating({required this.value});
-}

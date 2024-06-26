@@ -8,7 +8,10 @@ class BestOffersListView extends StatefulWidget {
   const BestOffersListView({
     super.key,
     required this.bestOfferCars,
+    required this.axisDirection,
   });
+
+  final Axis axisDirection;
 
   final List<CarEntity> bestOfferCars;
 
@@ -52,7 +55,7 @@ class _BestOffersListViewState extends State<BestOffersListView> {
     return ListView.builder(
       shrinkWrap: true,
       controller: _scrollController,
-      scrollDirection: Axis.horizontal,
+      scrollDirection: widget.axisDirection,
       itemBuilder: (context, index) => CarComponent(
         car: widget.bestOfferCars[index],
       ),

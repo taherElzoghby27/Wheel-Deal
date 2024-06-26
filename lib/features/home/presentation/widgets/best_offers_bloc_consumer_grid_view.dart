@@ -8,14 +8,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'best_offers_grid_view.dart';
 import 'loading_shimmer_grid_view.dart';
 
-class BestOffersBlocConsumer extends StatefulWidget {
-  const BestOffersBlocConsumer({super.key});
+class BestOffersBlocConsumerGrid extends StatefulWidget {
+  const BestOffersBlocConsumerGrid({super.key});
 
   @override
-  State<BestOffersBlocConsumer> createState() => _BestOffersBlocConsumerState();
+  State<BestOffersBlocConsumerGrid> createState() =>
+      _BestOffersBlocConsumerGridState();
 }
 
-class _BestOffersBlocConsumerState extends State<BestOffersBlocConsumer> {
+class _BestOffersBlocConsumerGridState
+    extends State<BestOffersBlocConsumerGrid> {
   List<CarEntity> bestOffers = [];
 
   @override
@@ -25,7 +27,9 @@ class _BestOffersBlocConsumerState extends State<BestOffersBlocConsumer> {
         if (state.bestOffersState == RequestState.loaded ||
             state.bestOffersState == RequestState.loadingPagination ||
             state.bestOffersState == RequestState.failurePagination) {
-          return BestOffersGridView(bestOffers: bestOffers);
+          return BestOffersGridView(
+            bestOffers: bestOffers.reversed.toList(),
+          );
         } else if (state.bestOffersState == RequestState.failure) {
           return SomeThingErrorWidget(
             message: state.failureMessageBestOffers,

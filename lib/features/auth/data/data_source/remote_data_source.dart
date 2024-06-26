@@ -10,7 +10,7 @@ import '../../../../core/consts/strings.dart';
 abstract class RemoteDataSource {
   Future<UserModel> signUp({required UserModel userEntity});
 
-  Future<UserModel> login({required UserModel userEntity});
+  Future<Response> login({required UserModel userEntity});
 
   Future<UserModel> resetPassword({required UserModel userEntity});
 
@@ -24,7 +24,7 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       : _apiService = apiService;
 
   @override
-  Future<UserModel> login({required UserModel userEntity}) async {
+  Future<Response> login({required UserModel userEntity}) async {
     FormData data = convertMapToFormData(
       userEntity.toMapLogin(),
     );
@@ -32,10 +32,8 @@ class RemoteDataSourceImpl extends RemoteDataSource {
       endPoint: ApiConsts.loginEndpoint,
       data: data,
     );
-    UserModel model = UserModel.fromMap(
-      jsonDecode(result.data),
-    );
-    return model;
+
+    return result;
   }
 
   @override

@@ -40,7 +40,12 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
 
   changeValueRating(double value) {
     rating = value;
-    emit(ChangedValueRating(value: rating));
+    emit(
+      state.copyWith(
+        valueChangedRating: RequestState.loaded,
+        valueChRating: value,
+      ),
+    );
   }
 
   getModelBrand(String brand) async {

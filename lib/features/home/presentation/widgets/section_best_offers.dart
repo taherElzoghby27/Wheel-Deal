@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/strings.dart';
-import 'best_offers_bloc_consumer.dart';
+import 'best_offers_bloc_consumer_home.dart';
 import 'top_leading_trailing.dart';
 
 class SectionBestOffers extends StatelessWidget {
@@ -28,7 +28,7 @@ class SectionBestOffers extends StatelessWidget {
             const Spacer(),
             const Expanded(
               flex: 25,
-              child: BestOffersBlocConsumer(),
+              child: BestOffersBlocConsumerHome(),
             ),
           ],
         ),

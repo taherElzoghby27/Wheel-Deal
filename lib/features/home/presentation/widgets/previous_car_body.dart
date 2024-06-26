@@ -16,36 +16,39 @@ class PreviousCarBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
+    return Padding(
+      padding: AppConsts.mainPadding,
+      child: Column(
+        children: [
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
 
-        //previous car brand
-        const FilterField(
-          label: StringsEn.brand,
-          widget: GetBrandsDialogBlocBuilder(),
-        ),
+          //previous car brand
+          const FilterField(
+            label: StringsEn.brand,
+            widget: GetBrandsDialogBlocBuilder(),
+          ),
 
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
-        //previous car
-        const BlocBuilderPrevCar(),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
-        //rating
-        const CustomTextFormField(
-          hint: StringsEn.rating,
-          readOnly: true,
-          suffixIcon: RatingBlocBuilder(),
-        ),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
+          //previous car
+          const BlocBuilderPrevCar(),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
+          //rating
+          const CustomTextFormField(
+            hint: StringsEn.rating,
+            readOnly: true,
+            suffixIcon: RatingBlocBuilder(),
+          ),
 
-        const Spacer(),
+          const Spacer(),
 
-        //continue
-        AspectRatio(
-          aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
-          child: const DoneButtonBlocConsumer(),
-        ),
-        const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
-      ],
+          //continue
+          AspectRatio(
+            aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
+            child: const DoneButtonBlocConsumer(),
+          ),
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
+        ],
+      ),
     );
   }
 }

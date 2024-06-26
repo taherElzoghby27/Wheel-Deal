@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/style.dart';
 import '../view_model/home_bloc/home_bloc.dart';
-import 'best_offers_bloc_consumer.dart';
+import 'best_offers_bloc_consumer_grid_view.dart';
+import 'best_offers_bloc_consumer_widget.dart';
 
 class BestOffersBody extends StatefulWidget {
   const BestOffersBody({super.key});
@@ -27,7 +28,7 @@ class _BestOffersBodyState extends State<BestOffersBody> {
         children: [
           AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
           Expanded(
-            child: BestOffersBlocConsumer(),
+            child: BestOffersBlocConsumerGrid(),
           ),
         ],
       ),

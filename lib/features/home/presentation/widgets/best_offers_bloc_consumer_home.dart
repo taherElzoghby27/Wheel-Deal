@@ -9,14 +9,16 @@ import '../../domain/entities/car_entity.dart';
 import 'best_offers_list_view.dart';
 import 'shimmer_loading_widget_home.dart';
 
-class BestOffersBlocConsumer extends StatefulWidget {
-  const BestOffersBlocConsumer({super.key});
+class BestOffersBlocConsumerHome extends StatefulWidget {
+  const BestOffersBlocConsumerHome({super.key});
 
   @override
-  State<BestOffersBlocConsumer> createState() => _BestOffersBlocConsumerState();
+  State<BestOffersBlocConsumerHome> createState() =>
+      _BestOffersBlocConsumerHomeState();
 }
 
-class _BestOffersBlocConsumerState extends State<BestOffersBlocConsumer> {
+class _BestOffersBlocConsumerHomeState
+    extends State<BestOffersBlocConsumerHome> {
   List<CarEntity> bestOfferCars = [];
 
   @override
@@ -27,7 +29,8 @@ class _BestOffersBlocConsumerState extends State<BestOffersBlocConsumer> {
             state.bestOffersState == RequestState.loadingPagination ||
             state.bestOffersState == RequestState.failurePagination) {
           return BestOffersListView(
-            bestOfferCars: bestOfferCars,
+            bestOfferCars: bestOfferCars.reversed.toList(),
+            axisDirection: Axis.horizontal,
           );
         } else if (state.bestOffersState == RequestState.failure) {
           return SomeThingErrorWidget(
