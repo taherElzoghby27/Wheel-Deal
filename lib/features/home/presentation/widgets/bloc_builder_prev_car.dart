@@ -1,5 +1,7 @@
 import 'package:cars/core/consts/strings.dart';
+import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/home/presentation/view_model/recommendation_feature_cubit/recommendation_feature_cubit.dart';
+import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,8 +16,8 @@ class BlocBuilderPrevCar extends StatelessWidget {
     return BlocBuilder<RecommendationFeatureCubit, RecommendationFeatureState>(
       builder: (context, state) {
         String status = '';
-        if (state is ChangedValue) {
-          status = state.value;
+        if (state.valueChanged == RequestState.loaded) {
+          status = state.valueCh;
         }
         return Builder(
           builder: (builderContext) {
@@ -42,6 +44,17 @@ class BlocBuilderPrevCar extends StatelessWidget {
       context: builderContext,
       barrierColor: Theme.of(builderContext).canvasColor.withOpacity(.5),
       builder: (_) {
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: builderContext.read<RecommendationFeatureCubit>(),
+            ),
+            BlocProvider.value(
+              value: builderContext.read<SearchCubit>(),
+            ),
+          ],
+          child: const GetModelsBrandsDialogBlocBuilder(),
+        );
         return BlocProvider.value(
           value: builderContext.read<RecommendationFeatureCubit>(),
           child: const GetModelsBrandsDialogBlocBuilder(),

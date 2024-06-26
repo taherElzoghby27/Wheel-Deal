@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 
 import '../../../domain/usecases/get_model_brand.dart';
+import '../home_bloc/home_bloc.dart';
 
 part 'recommendation_feature_state.dart';
 
@@ -29,7 +30,12 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
 
   changeValue({required String value}) {
     previousCarController.text = value;
-    emit(ChangedValue(value: previousCarController.text));
+    emit(
+      state.copyWith(
+        valueChanged: RequestState.loaded,
+        valueCh: previousCarController.text,
+      ),
+    );
   }
 
   changeValueRating(double value) {
@@ -37,23 +43,38 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
     emit(ChangedValueRating(value: rating));
   }
 
-  getModelBrand(String? brand) async {
-    if (brand != null) {
-      emit(GetModelBrandLoading());
+  getModelBrand(String brand) async {
+    if (brand.isNotEmpty) {
+      emit(
+        state.copyWith(getModelsTypesState: RequestState.loading),
+      );
       await _getModelBrandUseCase.call(brand).then(
             (value) => value.fold(
               (left) {
                 emit(
-                  GetModelBrandFailure(message: left.message),
+                  state.copyWith(
+                    getModelsTypesState: RequestState.failure,
+                    failureGetModelsTypes: left.message,
+                  ),
                 );
               },
               (right) {
-                emit(GetModelBrandLoaded(previousCarEntity: right));
+                emit(
+                  state.copyWith(
+                    getModelsTypesState: RequestState.loaded,
+                    carNames: right,
+                  ),
+                );
               },
             ),
           );
     } else {
-      emit(GetModelBrandFailure(message: 'Please, select brand'));
+      emit(
+        state.copyWith(
+          getModelsTypesState: RequestState.failure,
+          failureGetModelsTypes: 'Please, select brand',
+        ),
+      );
     }
   }
 
@@ -73,7 +94,7 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
             ),
           );
     } else {
-      emit(UserInfoFailure(message: 'Please, Enter your Income'));
+      emit(const UserInfoFailure(message: 'Please, Enter your Income'));
     }
   }
 
@@ -101,7 +122,7 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
           );
     } else {
       emit(
-        PreviousCarFailure(message: 'Please, Enter Your Data'),
+        const PreviousCarFailure(message: 'Please, Enter Your Data'),
       );
     }
   }

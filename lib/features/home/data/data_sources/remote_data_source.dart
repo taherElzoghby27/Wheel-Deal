@@ -75,7 +75,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   @override
   Future<List<PreviousCarEntity>> getModelBrand({required String brand}) async {
     FormData data = convertMapToFormData(
-      {'brand': brand},
+      {'previous_car_brand': brand},
     );
     String? token = await readFromCache(
       StringsEn.token,

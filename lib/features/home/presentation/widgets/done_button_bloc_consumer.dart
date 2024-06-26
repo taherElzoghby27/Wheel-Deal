@@ -17,6 +17,10 @@ class DoneButtonBlocConsumer extends StatelessWidget {
     return BlocConsumer<RecommendationFeatureCubit, RecommendationFeatureState>(
       listener: (context, state) {
         if (state is PreviousCarLoaded) {
+          showSnack(
+            context,
+            message: StringsEn.thankYouForHelp,
+          );
           GoRouter.of(context).pushReplacement(navPath);
         } else if (state is PreviousCarFailure) {
           showSnack(

@@ -33,7 +33,8 @@ class ContinueButtonBlocConsumer extends StatelessWidget {
           replacement: const LoadingWidget(),
           child: CustomButton(
             text: StringsEn.continueLabel,
-            onTap: () => context.read<RecommendationFeatureCubit>().userInfo(),
+            //onTap: () => context.read<RecommendationFeatureCubit>().userInfo(),
+            onTap: () => GoRouter.of(context).push(prevCarPath),
           ),
         );
       },

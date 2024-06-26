@@ -12,6 +12,7 @@ abstract class StringsEn {
   static const String pleaseCreateAccount =
       'Please create an account to find your dream job';
   static const String userName = 'Username';
+  static const String thankYouForHelp = 'Thank You For Your Help';
   static const String email = 'Email';
   static const String salary = 'Salary';
   static const String previousCar = 'Previous Car';
