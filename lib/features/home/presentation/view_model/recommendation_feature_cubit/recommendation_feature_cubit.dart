@@ -27,6 +27,16 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
 
   double rating = 1;
 
+  changeValue({required String value}) {
+    previousCarController.text = value;
+    emit(ChangedValue(value: previousCarController.text));
+  }
+
+  changeValueRating(double value) {
+    rating = value;
+    emit(ChangedValueRating(value: rating));
+  }
+
   getModelBrand(String? brand) async {
     if (brand != null) {
       emit(GetModelBrandLoading());
@@ -37,7 +47,7 @@ class RecommendationFeatureCubit extends Cubit<RecommendationFeatureState> {
                   GetModelBrandFailure(message: left.message),
                 );
               },
-              (PreviousCarEntity right) {
+              (right) {
                 emit(GetModelBrandLoaded(previousCarEntity: right));
               },
             ),

@@ -12,7 +12,6 @@ import 'package:cars/features/search/domain/use_cases/get_brands_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/recent_search_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/search_filter_use_case.dart';
 import 'package:cars/features/search/domain/use_cases/search_use_case.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 part 'search_state.dart';

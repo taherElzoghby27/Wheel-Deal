@@ -28,7 +28,7 @@ class PreviousCarFailure extends RecommendationFeatureState {
 class GetModelBrandLoading extends RecommendationFeatureState {}
 
 class GetModelBrandLoaded extends RecommendationFeatureState {
-  final PreviousCarEntity previousCarEntity;
+  final List<PreviousCarEntity> previousCarEntity;
 
   GetModelBrandLoaded({required this.previousCarEntity});
 }
@@ -37,4 +37,16 @@ class GetModelBrandFailure extends RecommendationFeatureState {
   final String message;
 
   GetModelBrandFailure({required this.message});
+}
+
+class ChangedValue extends RecommendationFeatureState {
+  final String value;
+
+  ChangedValue({required this.value});
+}
+
+class ChangedValueRating extends RecommendationFeatureState {
+  final double value;
+
+  ChangedValueRating({required this.value});
 }

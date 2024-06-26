@@ -1,13 +1,12 @@
-import 'package:cars/core/consts/routesPage.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/home/presentation/view_model/recommendation_feature_cubit/recommendation_feature_cubit.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../../core/consts/strings.dart';
 import '../../../../../core/consts/style.dart';
-import '../../../../../core/widgets/customButton.dart';
-import '../../../../../core/widgets/small_loading_widget.dart';
+import 'continue_button_bloc_consumer.dart';
 
 class MoreInfoBody extends StatelessWidget {
   const MoreInfoBody({super.key});
@@ -22,23 +21,15 @@ class MoreInfoBody extends StatelessWidget {
 
           CustomTextFormField(
             hint: StringsEn.salary,
-            //controller: ,
+            controller:
+                context.read<RecommendationFeatureCubit>().incomeController,
           ),
           const Spacer(),
 
           //continue
           AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth.sp,
-            child: Visibility(
-              visible: true,
-              replacement: const LoadingWidget(),
-              child: CustomButton(
-                text: StringsEn.continueLabel,
-                onTap: () => GoRouter.of(context).pushReplacement(
-                  prevCarPath,
-                ),
-              ),
-            ),
+            child: const ContinueButtonBlocConsumer(),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
         ],

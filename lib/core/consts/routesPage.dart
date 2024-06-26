@@ -15,12 +15,17 @@ import 'package:cars/features/delete_account/presentation/screens/delete_account
 import 'package:cars/features/edit_profile/presentation/view/edit_profile_view.dart';
 import 'package:cars/features/favourites/presentation/view/favourites_view_bloc_provider.dart';
 import 'package:cars/features/gate/presentation/views/gate_view.dart';
+import 'package:cars/features/home/data/repos/home_repo_impl.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
+import 'package:cars/features/home/domain/usecases/get_model_brand.dart';
+import 'package:cars/features/home/domain/usecases/previous_car_use_case.dart';
+import 'package:cars/features/home/domain/usecases/user_info_use_case.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/home_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/more_info_view.dart';
 import 'package:cars/features/home/presentation/view/previos_car_view.dart';
 import 'package:cars/features/home/presentation/view/recommended_for_you_bloc_provider.dart';
+import 'package:cars/features/home/presentation/view_model/recommendation_feature_cubit/recommendation_feature_cubit.dart';
 import 'package:cars/features/location/presentation/view/search_location_view.dart';
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
@@ -117,31 +122,75 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: moreInfoPath,
-      builder: (context, state) => const MoreInfoView(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => RecommendationFeatureCubit(
+              GetModelBrandUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+              UserInfoUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+              PreviousCarUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => SearchCubit(
+              GetRecentSearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              SearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              DeleteRecentSearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              SearchFilterUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              BodyTypeFilterUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              GetBrandsUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+            ),
+          ),
+        ],
+        child: const MoreInfoView(),
+      ),
     ),
     GoRoute(
       path: prevCarPath,
-      builder: (context, state) => BlocProvider(
-        create: (context) => SearchCubit(
-          GetRecentSearchUseCase(
-            searchRepo: getIt.get<SearchRepoImpl>(),
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => RecommendationFeatureCubit(
+              GetModelBrandUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+              UserInfoUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+              PreviousCarUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
+            ),
           ),
-          SearchUseCase(
-            searchRepo: getIt.get<SearchRepoImpl>(),
+          BlocProvider(
+            create: (context) => SearchCubit(
+              GetRecentSearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              SearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              DeleteRecentSearchUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              SearchFilterUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              BodyTypeFilterUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+              GetBrandsUseCase(
+                searchRepo: getIt.get<SearchRepoImpl>(),
+              ),
+            ),
           ),
-          DeleteRecentSearchUseCase(
-            searchRepo: getIt.get<SearchRepoImpl>(),
-          ),
-          SearchFilterUseCase(
-            searchRepo: getIt.get<SearchRepoImpl>(),
-          ),
-          BodyTypeFilterUseCase(
-            searchRepo: getIt.get<SearchRepoImpl>(),
-          ),
-          GetBrandsUseCase(
-            searchRepo: getIt.get<SearchRepoImpl>(),
-          ),
-        ),
+        ],
         child: const PreviousCarView(),
       ),
     ),

@@ -21,7 +21,7 @@ abstract class HomeRemoteDataSource {
     required PreviousCarEntity previousCar,
   });
 
-  Future<PreviousCarEntity> getModelBrand({
+  Future<List<PreviousCarEntity>> getModelBrand({
     required String brand,
   });
 }
@@ -73,7 +73,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<PreviousCarEntity> getModelBrand({required String brand}) async {
+  Future<List<PreviousCarEntity>> getModelBrand({required String brand}) async {
     FormData data = convertMapToFormData(
       {'brand': brand},
     );
@@ -86,10 +86,12 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       token: token,
       data: data,
     );
-    PreviousCarEntity model = PreviousCarEntity.fromMap(
-      response.data['data'],
+    List<PreviousCarEntity> models = List.from(
+      (response.data['data'] as List<dynamic>).map(
+        (e) => PreviousCarEntity.fromMap(e),
+      ),
     );
-    return model;
+    return models;
   }
 
   @override

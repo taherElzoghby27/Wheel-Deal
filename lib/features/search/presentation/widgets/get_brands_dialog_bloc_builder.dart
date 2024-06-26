@@ -10,20 +10,21 @@ import '../manager/search_cubit/search_cubit.dart';
 import 'bloc_builder_dialog.dart';
 
 class GetBrandsDialogBlocBuilder extends StatefulWidget {
-  const GetBrandsDialogBlocBuilder({
-    super.key,
-  });
+  const GetBrandsDialogBlocBuilder({super.key});
 
   @override
-  State<GetBrandsDialogBlocBuilder> createState() => _GetBrandsDialogBlocBuilderState();
+  State<GetBrandsDialogBlocBuilder> createState() =>
+      _GetBrandsDialogBlocBuilderState();
 }
 
-class _GetBrandsDialogBlocBuilderState extends State<GetBrandsDialogBlocBuilder> {
+class _GetBrandsDialogBlocBuilderState
+    extends State<GetBrandsDialogBlocBuilder> {
   @override
   void initState() {
     context.read<SearchCubit>().getBrands();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(

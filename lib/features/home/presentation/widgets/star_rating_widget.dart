@@ -38,11 +38,7 @@ class _StarRatingState extends State<StarRating> {
         color: Colors.amber,
       ),
       onRatingUpdate: (rating) {
-        setState(
-          () {
-            _rating = rating;
-          },
-        );
+        _rating = rating;
         widget.onRatingUpdate(rating);
       },
     );

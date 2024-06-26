@@ -1,41 +1,27 @@
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/widgets/text_field.dart';
-import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
+import 'package:cars/features/home/presentation/view_model/recommendation_feature_cubit/recommendation_feature_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../manager/search_cubit/search_cubit.dart';
+import '../../../../core/widgets/text_field.dart';
+import 'get_models_brands_bloc_builder.dart';
 
-class FilterField extends StatelessWidget {
-  const FilterField({
-    super.key,
-    required this.label,
-    required this.widget,
-  });
-
-  final String label;
-  final Widget widget;
+class BlocBuilderPrevCar extends StatelessWidget {
+  const BlocBuilderPrevCar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SearchCubit, SearchState>(
+    return BlocBuilder<RecommendationFeatureCubit, RecommendationFeatureState>(
       builder: (context, state) {
-        SearchCubit bloc = BlocProvider.of<SearchCubit>(context);
         String status = '';
-        if (state.valueChanged == RequestState.changed) {
-          if (label == StringsEn.condition) {
-            status = bloc.state.condition;
-          } else if (label == StringsEn.brand) {
-            status = bloc.state.brand ?? '';
-          } else {
-            status = bloc.state.bodyType ?? '';
-          }
+        if (state is ChangedValue) {
+          status = state.value;
         }
         return Builder(
           builder: (builderContext) {
             return CustomTextField(
               filled: Theme.of(context).canvasColor.withOpacity(.05),
-              hint: status.isEmpty ? label : status,
+              hint: status.isEmpty ? StringsEn.prevCar : status,
               readOnly: true,
               suffixIcon: IconButton(
                 onPressed: () => _onTapSubmit(builderContext),
@@ -57,8 +43,8 @@ class FilterField extends StatelessWidget {
       barrierColor: Theme.of(builderContext).canvasColor.withOpacity(.5),
       builder: (_) {
         return BlocProvider.value(
-          value: builderContext.read<SearchCubit>(),
-          child: widget,
+          value: builderContext.read<RecommendationFeatureCubit>(),
+          child: const GetModelsBrandsDialogBlocBuilder(),
         );
       },
     );

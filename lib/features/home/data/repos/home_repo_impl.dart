@@ -146,7 +146,7 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<FailureServ, PreviousCarEntity>> getModelBrand({
+  Future<Either<FailureServ, List<PreviousCarEntity>>> getModelBrand({
     required String brand,
   }) async {
     try {

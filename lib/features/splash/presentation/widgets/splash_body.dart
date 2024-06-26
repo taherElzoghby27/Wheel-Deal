@@ -23,7 +23,7 @@ class _SplashBodyState extends State<SplashBody> {
     Future.delayed(
       const Duration(seconds: 3),
       //() => GoRouter.of(context).pushReplacement(gatePath),
-      () => GoRouter.of(context).pushReplacement(prevCarPath),
+      () => GoRouter.of(context).pushReplacement(moreInfoPath),
     );
   }
 

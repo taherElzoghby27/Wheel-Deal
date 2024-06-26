@@ -25,7 +25,7 @@ abstract class HomeRepo {
     required PreviousCarEntity previousCar,
   });
 
-  Future<Either<FailureServ, PreviousCarEntity>> getModelBrand({
+  Future<Either<FailureServ, List<PreviousCarEntity>>> getModelBrand({
     required String brand,
   });
 }
