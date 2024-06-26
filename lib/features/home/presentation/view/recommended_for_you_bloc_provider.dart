@@ -16,7 +16,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/consts/strings.dart';
 import '../../../favourites/presentation/manager/favourite_cubit.dart';
-import 'widgets/recommended_for_you_body.dart';
+import '../widgets/recommended_for_you_body.dart';
 
 class RecommendedForYouView extends StatelessWidget {
   const RecommendedForYouView({super.key});

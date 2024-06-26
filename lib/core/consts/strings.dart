@@ -13,6 +13,10 @@ abstract class StringsEn {
       'Please create an account to find your dream job';
   static const String userName = 'Username';
   static const String email = 'Email';
+  static const String salary = 'Salary';
+  static const String previousCar = 'Previous Car';
+  static const String previousCarBrand = 'Previous Car Brand';
+  static const String rating = 'Rating';
   static const String sms = 'Sms';
   static const String firstName = 'first name';
   static const String lastName = 'last name';
@@ -38,6 +42,8 @@ at least 1 number and 1 special character.
   static const String enterLoginInformation =
       'Enter the login information for your account to confirm deletion';
   static const String signUp = 'Sign Up';
+  static const String moreInfo = 'More Info';
+  static const String prevCar = 'Previous Car';
   static const String welcome = 'Welcome!';
   static const String enterYourDetailsBelow = 'Enter Your Details Below';
   static const String orSignUp = 'Or Sign up With Account';
@@ -54,6 +60,7 @@ at least 1 number and 1 special character.
   static const String dontHaveAccount = 'Dont’t have an account?';
   static const String youRemeberYourPassword = 'You remember your password ?';
   static const String register = 'Register';
+  static const String continueLabel = 'continue';
   static const String orLoginWithAccount = 'Or Login With Account';
   static const String resetPass = 'Reset Password';
   static const String reset = 'Reset';
@@ -346,7 +353,8 @@ at least 1 number and 1 special character.
       'Press the star icon on the job you want to save.';
   static String notification = 'Notification';
   static String yesterDay = 'Yesterday';
-  static String areYouSureToDeleteHistory = 'Are you sure to delete this history?';
+  static String areYouSureToDeleteHistory =
+      'Are you sure to delete this history?';
   static String yes = 'Yes';
   static String no = 'No';
   static String installmentAvailable = 'Installment Available';

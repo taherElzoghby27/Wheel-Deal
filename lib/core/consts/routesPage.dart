@@ -18,6 +18,8 @@ import 'package:cars/features/gate/presentation/views/gate_view.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view/best_offers_view_bloc_provider.dart';
 import 'package:cars/features/home/presentation/view/home_view_bloc_provider.dart';
+import 'package:cars/features/home/presentation/view/more_info_view.dart';
+import 'package:cars/features/home/presentation/view/previos_car_view.dart';
 import 'package:cars/features/home/presentation/view/recommended_for_you_bloc_provider.dart';
 import 'package:cars/features/location/presentation/view/search_location_view.dart';
 import 'package:cars/features/nav/presentation/view/nav_view.dart';
@@ -26,6 +28,12 @@ import 'package:cars/features/notifications/presentation/view/notifications_view
 import 'package:cars/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:cars/features/profile/domain/use_cases/user_verification_use_case.dart';
 import 'package:cars/features/profile/presentation/manager/verification_cubit/verification_cubit.dart';
+import 'package:cars/features/search/domain/use_cases/body_type_filter_use_case.dart';
+import 'package:cars/features/search/domain/use_cases/delete_recent_search_use_case.dart';
+import 'package:cars/features/search/domain/use_cases/get_brands_use_case.dart';
+import 'package:cars/features/search/domain/use_cases/recent_search_use_case.dart';
+import 'package:cars/features/search/domain/use_cases/search_use_case.dart';
+import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:cars/features/search/presentation/view/filter_view.dart';
 import 'package:cars/features/search/presentation/view/search_view.dart';
 import 'package:cars/features/settings/presentation/view/settings_view.dart';
@@ -54,6 +62,8 @@ import '../../features/on_boarding/presentation/view/on_boarding_view.dart';
 import '../../features/profile/presentation/view/verification_verify_loading_view.dart';
 import '../../features/profile/presentation/view/verification_view.dart';
 import '../../features/profile/presentation/view/verification_welcome_view.dart';
+import '../../features/search/data/repos/search_repo_impl.dart';
+import '../../features/search/domain/use_cases/search_filter_use_case.dart';
 import '../../features/sign_in_security/presentation/screens/email_address/email_address_view.dart';
 import '../../features/sign_in_security/presentation/screens/phone_number/phone_number_view.dart';
 import '../helper/custom_animation.dart';
@@ -100,9 +110,41 @@ const String deleteAccountPath = '/deleteAccount';
 const String deleteAccountVerifiPath = '/deleteAccountVerifi';
 const String deleteAccountCodePath = '/deleteAccountCode';
 const String areYouSureDeletePath = '/areYouSureDeletePath';
+const String moreInfoPath = '/moreInfoPath';
+const String prevCarPath = '/prev_car_path';
 // GoRouter configuration
 final router = GoRouter(
   routes: [
+    GoRoute(
+      path: moreInfoPath,
+      builder: (context, state) => const MoreInfoView(),
+    ),
+    GoRoute(
+      path: prevCarPath,
+      builder: (context, state) => BlocProvider(
+        create: (context) => SearchCubit(
+          GetRecentSearchUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+          SearchUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+          DeleteRecentSearchUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+          SearchFilterUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+          BodyTypeFilterUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+          GetBrandsUseCase(
+            searchRepo: getIt.get<SearchRepoImpl>(),
+          ),
+        ),
+        child: const PreviousCarView(),
+      ),
+    ),
     GoRoute(
       path: splashPath,
       builder: (context, state) => const SplashView(),

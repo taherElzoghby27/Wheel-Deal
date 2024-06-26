@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../domain/usecases/reset_password_use_case.dart';
-import 'widgets/create_new_pass_body.dart';
-import 'widgets/leading_button_icon_app_bar.dart';
+import '../widgets/create_new_pass_body.dart';
+import '../widgets/leading_button_icon_app_bar.dart';
 
 class CreatePassView extends StatelessWidget {
   const CreatePassView({super.key});

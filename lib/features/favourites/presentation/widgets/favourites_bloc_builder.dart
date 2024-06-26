@@ -2,10 +2,10 @@ import 'package:cars/core/consts/assets.dart';
 import 'package:cars/core/widgets/empty_widget.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
-import 'package:cars/features/home/presentation/view/widgets/loading_shimmer_grid_view.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../home/presentation/widgets/loading_shimmer_grid_view.dart';
 import '../manager/favourite_cubit.dart';
 import 'favourites_grid_view.dart';
 

@@ -1,9 +1,9 @@
-import 'package:cars/features/home/presentation/view/widgets/best_offers_bloc_consumer_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/consts/style.dart';
-import '../../view_model/home_bloc/home_bloc.dart';
+import '../view_model/home_bloc/home_bloc.dart';
+import 'best_offers_bloc_consumer.dart';
 
 class BestOffersBody extends StatefulWidget {
   const BestOffersBody({super.key});

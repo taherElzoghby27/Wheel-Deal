@@ -1,9 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/models/car_model.dart';
-import 'package:cars/features/home/domain/entities/car_entity.dart';
-import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
 import 'package:flutter/material.dart';
+import '../../../home/presentation/widgets/top_leading_trailing.dart';
 import 'specifications.dart';
 
 class SpecificationsCarComponent extends StatelessWidget {

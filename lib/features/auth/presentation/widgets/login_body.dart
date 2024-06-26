@@ -1,26 +1,28 @@
-import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/auth/presentation/view/widgets/sign_up_body_info_bloc_consumer.dart';
-import 'package:flutter/material.dart';
 
-class CreateAccountBody extends StatelessWidget {
-  const CreateAccountBody({super.key});
+import 'package:flutter/material.dart';
+import '../../../../../core/consts/style.dart';
+import 'auth_top_page.dart';
+import 'login_body_info.dart';
+
+class LoginBody extends StatelessWidget {
+  const LoginBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          flex: 1,
-          child: Container(),
+        const Expanded(
+          flex: 2,
+          child: AuthTopPage(),
         ),
         Expanded(
-          flex: 13,
+          flex: 4,
           child: Container(
             decoration: BoxDecoration(
               borderRadius: AppConsts.radiusTop30,
               color: Theme.of(context).splashColor,
             ),
-            child: const SignUpBodyInfoBlocConsumer(),
+            child: const LoginBodyInfo(),
           ),
         ),
       ],

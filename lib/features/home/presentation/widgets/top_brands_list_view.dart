@@ -1,24 +1,22 @@
-import 'package:cars/core/widgets/car_component.dart';
+import 'package:cars/features/home/domain/entities/brand_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../view_model/home_bloc/home_bloc.dart';
+import 'brand_item.dart';
 
-import '../../../domain/entities/car_entity.dart';
-import '../../view_model/home_bloc/home_bloc.dart';
-
-class RecommendedForYouListView extends StatefulWidget {
-  const RecommendedForYouListView({
+class TopBrandsListView extends StatefulWidget {
+  const TopBrandsListView({
     super.key,
-    required this.recommendedForYou,
+    required this.brands,
   });
 
-  final List<CarEntity> recommendedForYou;
+  final List<BrandEntity> brands;
 
   @override
-  State<RecommendedForYouListView> createState() =>
-      _RecommendedForYouListViewState();
+  State<TopBrandsListView> createState() => _TopBrandsListViewState();
 }
 
-class _RecommendedForYouListViewState extends State<RecommendedForYouListView> {
+class _TopBrandsListViewState extends State<TopBrandsListView> {
   late ScrollController _scrollController;
   bool isLoading = false;
   int page = 1;
@@ -43,7 +41,7 @@ class _RecommendedForYouListViewState extends State<RecommendedForYouListView> {
       isLoading = true;
       if (isLoading) {
         BlocProvider.of<HomeBloc>(context).add(
-          AddRecommendedForYouEvent(page: page++),
+          AddTopBrandsEvent(page: page++),
         );
         isLoading = false;
       }
@@ -52,14 +50,14 @@ class _RecommendedForYouListViewState extends State<RecommendedForYouListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
+    return ListView(
       scrollDirection: Axis.horizontal,
       controller: _scrollController,
-      itemBuilder: (context, index) => CarComponent(
-        car: widget.recommendedForYou[index],
-      ),
-      itemCount: widget.recommendedForYou.length,
+      children: widget.brands
+          .map(
+            (item) => BrandItem(brand: item),
+          )
+          .toList(),
     );
   }
 }

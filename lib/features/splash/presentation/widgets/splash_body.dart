@@ -22,7 +22,8 @@ class _SplashBodyState extends State<SplashBody> {
   _navigateToAnotherScreen() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => GoRouter.of(context).pushReplacement(gatePath),
+      //() => GoRouter.of(context).pushReplacement(gatePath),
+      () => GoRouter.of(context).pushReplacement(prevCarPath),
     );
   }
 

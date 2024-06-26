@@ -1,9 +1,10 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/auth/presentation/view/widgets/reset_pass_body_info.dart';
 import 'package:flutter/material.dart';
 
-class ResetPassBody extends StatelessWidget {
-  const ResetPassBody({super.key});
+import 'create_new_pass_body_info.dart';
+
+class CreateNewPassBody extends StatelessWidget {
+  const CreateNewPassBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class ResetPassBody extends StatelessWidget {
               borderRadius: AppConsts.radiusTop30,
               color: Theme.of(context).splashColor,
             ),
-            child: const ResetPassBodyInfo(),
+            child: const CreateNewPasswordBodyInfo(),
           ),
         ),
       ],

@@ -1,7 +1,7 @@
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
-import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
+import 'package:cars/features/home/presentation/widgets/top_leading_trailing.dart';
 import 'package:cars/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

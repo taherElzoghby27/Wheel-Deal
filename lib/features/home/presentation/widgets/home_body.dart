@@ -1,7 +1,6 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
-import 'package:cars/features/home/presentation/view/widgets/top_brands_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +8,7 @@ import 'custom_notification_top_home.dart';
 import 'search_section.dart';
 import 'section_best_offers.dart';
 import 'section_recommended_for_you.dart';
+import 'top_brands_section.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});

@@ -95,7 +95,7 @@ class _SignUpBodyInfoState extends State<SignUpBodyInfo>
                 isLoading = true;
               } else if (state is SignUpLoaded) {
                 isLoading = false;
-                GoRouter.of(context).pushReplacement(navPath);
+                GoRouter.of(context).pushReplacement(moreInfoPath);
               } else if (state is SignUpFailure) {
                 isLoading = false;
                 BlocProvider.of<ChangeSignUpCurrentPageCubit>(context)

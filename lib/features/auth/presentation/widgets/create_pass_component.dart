@@ -1,7 +1,8 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/auth/presentation/view/widgets/password_reset_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'password_reset_widget.dart';
 
 class CreatePassComponent extends StatelessWidget {
   const CreatePassComponent({super.key});

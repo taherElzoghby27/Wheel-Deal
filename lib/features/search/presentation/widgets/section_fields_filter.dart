@@ -1,5 +1,5 @@
 import 'package:cars/core/consts/strings.dart';
-import 'package:cars/features/home/presentation/view/widgets/top_leading_trailing.dart';
+import 'package:cars/features/home/presentation/widgets/top_leading_trailing.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,4 +43,5 @@ class SectionFieldsFilter extends StatelessWidget {
       ],
     );
   }
+
 }

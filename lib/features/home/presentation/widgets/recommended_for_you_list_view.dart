@@ -1,23 +1,24 @@
-import 'package:cars/features/home/domain/entities/brand_entity.dart';
+import 'package:cars/core/widgets/car_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../view_model/home_bloc/home_bloc.dart';
-import 'brand_item.dart';
+import '../../domain/entities/car_entity.dart';
+import '../view_model/home_bloc/home_bloc.dart';
 
-class TopBrandsListView extends StatefulWidget {
-  const TopBrandsListView({
+class RecommendedForYouListView extends StatefulWidget {
+  const RecommendedForYouListView({
     super.key,
-    required this.brands,
+    required this.recommendedForYou,
   });
 
-  final List<BrandEntity> brands;
+  final List<CarEntity> recommendedForYou;
 
   @override
-  State<TopBrandsListView> createState() => _TopBrandsListViewState();
+  State<RecommendedForYouListView> createState() =>
+      _RecommendedForYouListViewState();
 }
 
-class _TopBrandsListViewState extends State<TopBrandsListView> {
+class _RecommendedForYouListViewState extends State<RecommendedForYouListView> {
   late ScrollController _scrollController;
   bool isLoading = false;
   int page = 1;
@@ -42,7 +43,7 @@ class _TopBrandsListViewState extends State<TopBrandsListView> {
       isLoading = true;
       if (isLoading) {
         BlocProvider.of<HomeBloc>(context).add(
-          AddTopBrandsEvent(page: page++),
+          AddRecommendedForYouEvent(page: page++),
         );
         isLoading = false;
       }
@@ -51,14 +52,14 @@ class _TopBrandsListViewState extends State<TopBrandsListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return ListView.builder(
+      shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       controller: _scrollController,
-      children: widget.brands
-          .map(
-            (item) => BrandItem(brand: item),
-          )
-          .toList(),
+      itemBuilder: (context, index) => CarComponent(
+        car: widget.recommendedForYou[index],
+      ),
+      itemCount: widget.recommendedForYou.length,
     );
   }
 }

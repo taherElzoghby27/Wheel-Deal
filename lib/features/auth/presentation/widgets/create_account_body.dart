@@ -1,9 +1,10 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/auth/presentation/view/widgets/create_new_pass_body_info.dart';
 import 'package:flutter/material.dart';
 
-class CreateNewPassBody extends StatelessWidget {
-  const CreateNewPassBody({super.key});
+import 'sign_up_body_info_bloc_consumer.dart';
+
+class CreateAccountBody extends StatelessWidget {
+  const CreateAccountBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CreateNewPassBody extends StatelessWidget {
               borderRadius: AppConsts.radiusTop30,
               color: Theme.of(context).splashColor,
             ),
-            child: const CreateNewPasswordBodyInfo(),
+            child: const SignUpBodyInfoBlocConsumer(),
           ),
         ),
       ],

@@ -7,11 +7,10 @@ import 'package:cars/features/home/data/data_sources/remote_data_source.dart';
 import 'package:cars/features/home/data/models/brand_model.dart';
 import 'package:cars/features/home/domain/entities/brand_entity.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
+import 'package:cars/features/home/domain/entities/previous_car_entity.dart';
 import 'package:cars/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-
 import '../../../../core/consts/strings.dart';
 
 class HomeRepoImpl extends HomeRepo {
@@ -144,5 +143,56 @@ class HomeRepoImpl extends HomeRepo {
         (e) => BrandModel.fromMap(e),
       ),
     );
+  }
+
+  @override
+  Future<Either<FailureServ, PreviousCarEntity>> getModelBrand({
+    required String brand,
+  }) async {
+    try {
+      final response = await _homeRemoteDataSource.getModelBrand(
+        brand: brand,
+      );
+      return Right(response);
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<FailureServ, String>> previousCar({
+    required PreviousCarEntity previousCar,
+  }) async {
+    try {
+      final response = await _homeRemoteDataSource.previousCar(
+        previousCar: previousCar,
+      );
+      return Right(response);
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<FailureServ, String>> userInfo({
+    required String income,
+  }) async {
+    try {
+      final response = await _homeRemoteDataSource.userInfo(
+        income: income,
+      );
+      return Right(response);
+    } catch (error) {
+      if (error is DioException) {
+        return Left(ServerFailure.fromDioError(error));
+      }
+      return Left(ServerFailure(message: StringsEn.errorMessage));
+    }
   }
 }

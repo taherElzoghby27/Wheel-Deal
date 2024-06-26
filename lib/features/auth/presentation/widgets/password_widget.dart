@@ -4,7 +4,7 @@ import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../view_model/sign_up_cubit/sign_up_cubit.dart';
+import '../view_model/sign_up_cubit/sign_up_cubit.dart';
 
 class PasswordWidget extends StatelessWidget {
   const PasswordWidget({super.key, required this.hint});

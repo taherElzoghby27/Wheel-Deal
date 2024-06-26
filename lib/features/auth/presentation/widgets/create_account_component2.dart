@@ -1,10 +1,10 @@
 import 'package:cars/core/consts/strings.dart';
 import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
-import 'package:cars/features/auth/presentation/view/widgets/gender_section.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'gender_section.dart';
 import 'section_terms_and_conditions.dart';
 
 class CreateAccountComponent2 extends StatelessWidget {

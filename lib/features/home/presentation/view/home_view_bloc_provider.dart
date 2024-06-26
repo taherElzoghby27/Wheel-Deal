@@ -7,12 +7,12 @@ import 'package:cars/features/home/data/repos/home_repo_impl.dart';
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
 import 'package:cars/features/home/domain/usecases/get_top_brands.dart';
-import 'package:cars/features/home/presentation/view/widgets/home_body.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../favourites/presentation/manager/favourite_cubit.dart';
+import '../widgets/home_body.dart';
 
 class HomeViewBlocProvider extends StatelessWidget {
   const HomeViewBlocProvider({super.key});

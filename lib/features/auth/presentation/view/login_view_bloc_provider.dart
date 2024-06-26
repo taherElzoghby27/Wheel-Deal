@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/usecases/login_use_case.dart';
-import 'widgets/login_body.dart';
+import '../widgets/login_body.dart';
 
 class LoginViewBlocProvider extends StatelessWidget {
   const LoginViewBlocProvider({super.key});

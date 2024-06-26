@@ -10,13 +10,13 @@ import 'package:cars/features/favourites/presentation/manager/favourite_cubit.da
 import 'package:cars/features/home/domain/usecases/get_best_offers.dart';
 import 'package:cars/features/home/domain/usecases/get_recommended_for_you.dart';
 import 'package:cars/features/home/domain/usecases/get_top_brands.dart';
-import 'package:cars/features/home/presentation/view/widgets/best_offers_body.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../data/repos/home_repo_impl.dart';
+import '../widgets/best_offers_body.dart';
 
 class BlocProviderBestOffersView extends StatelessWidget {
   const BlocProviderBestOffersView({super.key});

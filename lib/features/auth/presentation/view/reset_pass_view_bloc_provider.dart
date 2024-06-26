@@ -6,8 +6,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../domain/usecases/checking_for_reset_password_use_case.dart';
 import '../view_model/check_for_reset_cubit/check_for_reset_cubit.dart';
-import 'widgets/leading_button_icon_app_bar.dart';
-import 'widgets/reset_pass_body.dart';
+import '../widgets/leading_button_icon_app_bar.dart';
+import '../widgets/reset_pass_body.dart';
 
 class ResetPassViewBlocProvider extends StatelessWidget {
   const ResetPassViewBlocProvider({super.key});

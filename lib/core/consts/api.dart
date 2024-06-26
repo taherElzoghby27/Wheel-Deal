@@ -10,6 +10,11 @@ class ApiConsts {
       'auth/checking_for_reset_password.php';
   static const bestOffersEndpoint = 'home/cars.php';
   static const recommendedForYouEndPoint = 'home/cars.php';
+  static const getModelTypeEndPoint = 'home/cars.php';
+  static const userInfoEndpoint = 'home/user_extra_info.php';
+
+  static const previousCarEndpoint = 'home/prev_car.php';
+
   static const topBrandsEndpoint = 'home/top_brands.php';
   static const carDetailsEndPoint = 'home/car_details.php';
   static const installmentAvailableEndPoint = 'home/installment_available.php';

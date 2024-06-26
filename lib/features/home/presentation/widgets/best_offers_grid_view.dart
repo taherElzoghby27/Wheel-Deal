@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
-import '../../view_model/home_bloc/home_bloc.dart';
+import '../view_model/home_bloc/home_bloc.dart';
 
 class BestOffersGridView extends StatefulWidget {
   const BestOffersGridView({

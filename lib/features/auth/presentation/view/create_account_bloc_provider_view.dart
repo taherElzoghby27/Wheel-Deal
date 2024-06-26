@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/usecases/sign_up_usecase.dart';
 import '../view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
-import 'widgets/create_account_body.dart';
-import 'widgets/icon_button_sign_up_bloc_consumer.dart';
+import '../widgets/create_account_body.dart';
+import '../widgets/icon_button_sign_up_bloc_consumer.dart';
 
 class CreateAccountBlocProviderView extends StatelessWidget {
   const CreateAccountBlocProviderView({super.key});

@@ -1,9 +1,10 @@
 import 'package:cars/core/consts/style.dart';
-import 'package:cars/features/auth/presentation/view/widgets/sign_up_body_info.dart';
 import 'package:cars/features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'sign_up_body_info.dart';
 
 class SignUpBodyInfoBlocConsumer extends StatefulWidget {
   const SignUpBodyInfoBlocConsumer({super.key});
