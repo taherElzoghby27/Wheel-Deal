@@ -17,7 +17,7 @@ class ResetPassButtonWidget extends StatelessWidget {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is ResetPasswordLoaded) {
-          GoRouter.of(context).pushReplacement(homePath);
+          GoRouter.of(context).pushReplacement(loginPath);
         } else if (state is ResetPasswordFailure) {
           showSnack(
             context,

@@ -94,7 +94,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 ),
               );
             },
-            (success) {
+            (List<CarEntity> success) {
               emit(
                 state.copyWith(
                   favouritesState: RequestState.loaded,

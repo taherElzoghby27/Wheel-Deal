@@ -18,7 +18,8 @@ class FavouritesBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         if (state.getFavouritesState == RequestState.loaded ||
             state.deleteFavouritesState == RequestState.loaded) {
-          List<CarEntity>  favourites = context.read<FavouriteCubit>().favouritesList;
+          List<CarEntity> favourites =
+              context.read<FavouriteCubit>().favouriteList as List<CarEntity>;
           return favourites.isEmpty
               ? const EmptyWidget(icon: Assets.favAsset)
               : FavouritesGridView(favourites: favourites);

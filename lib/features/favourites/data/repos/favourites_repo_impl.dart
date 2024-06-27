@@ -52,13 +52,14 @@ class FavouritesRepoImpl extends FavouritesRepo {
   @override
   Future<Either<FailureServ, List<CarEntity>>> getFav() async {
     try {
-      final localFavourites = _favouritesLocalDataSource.getFavourites();
-      final favourites = await _favouritesRemoteDataSource.getFav();
+      List<CarEntity> localFavourites =
+          _favouritesLocalDataSource.getFavourites();
+      List<CarEntity> favourites = await _favouritesRemoteDataSource.getFav();
       // Check if local and remote are in sync
-      if (localFavourites.isNotEmpty &&
-          localFavourites.length == favourites.length) {
-        return Right(localFavourites);
-      }
+      // if (localFavourites.isNotEmpty &&
+      //     localFavourites.length == favourites.length) {
+      //   return Right(localFavourites);
+      // }
       return Right(favourites);
     } catch (error) {
       if (error is DioException) {

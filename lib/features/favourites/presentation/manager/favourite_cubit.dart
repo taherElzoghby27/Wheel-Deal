@@ -6,8 +6,6 @@ import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/consts/enums.dart';
-
 part 'favourite_state.dart';
 
 class FavouriteCubit extends Cubit<FavouriteState> {
@@ -20,10 +18,10 @@ class FavouriteCubit extends Cubit<FavouriteState> {
     this._addFavUseCase,
     this._deleteFavUseCase,
   ) : super(const FavouriteState());
-  List<CarEntity> favouritesList = [];
+  var favouriteList = [];
 
   bool isFav(String idCar) {
-    return favouritesList.any((item) => item.id == idCar);
+    return favouriteList.any((item) => item.id == idCar);
   }
 
   addFav(CarEntity carEntity) async {
@@ -42,7 +40,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
             },
             (success) {
               //add car to list
-              favouritesList.add(carEntity);
+              favouriteList.add(carEntity);
               emit(
                 state.copyWith(
                   addFavouritesState: RequestState.loaded,
@@ -53,7 +51,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
         );
   }
 
-  deleteFav(CarEntity carEntity) async {
+  void deleteFav(CarEntity carEntity) async {
     emit(
       state.copyWith(deleteFavouritesState: RequestState.loading),
     );
@@ -80,7 +78,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
         );
   }
 
-  getFav() async {
+  void getFav() async {
     await _getFavouritesUseCase.call().then(
           (value) => value.fold(
             (failure) {
@@ -92,7 +90,7 @@ class FavouriteCubit extends Cubit<FavouriteState> {
               );
             },
             (List<CarEntity> favourites) {
-              favouritesList = favourites;
+              favouriteList = favourites;
               emit(
                 state.copyWith(
                   getFavouritesState: RequestState.loaded,
@@ -105,6 +103,6 @@ class FavouriteCubit extends Cubit<FavouriteState> {
   }
 
   void deleteCarFromFavList(CarEntity carEntity) {
-    favouritesList.removeWhere((item) => item.id == carEntity.id);
+    favouriteList.removeWhere((item) => item.id == carEntity.id);
   }
 }

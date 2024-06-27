@@ -34,7 +34,8 @@ class VerificationButton extends StatelessWidget {
           styleText: AppConsts.style16White.copyWith(
             fontWeight: FontWeight.w600,
           ),
-          onTap: () =>context.read<VerificationCubit>().userVerification(),
+          //onTap: () =>context.read<VerificationCubit>().userVerification(),
+          onTap: ()=>GoRouter.of(context).pushReplacement(verificationVerifyLoadingPath),
         ),
       ),
     );
