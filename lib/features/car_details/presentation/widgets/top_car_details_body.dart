@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/methods.dart';
+import 'package:cars/core/helper/methods.dart';
 import 'package:cars/core/models/car_model.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';

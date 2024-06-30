@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 

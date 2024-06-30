@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../consts/strings.dart';
+import 'strings.dart';
 import '../widgets/small_loading_widget.dart';
 
 class HandleImageWidget extends StatelessWidget {

@@ -1,6 +1,6 @@
-import 'package:cars/core/consts/enums.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/enums.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/custom_radio_list_tile.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';

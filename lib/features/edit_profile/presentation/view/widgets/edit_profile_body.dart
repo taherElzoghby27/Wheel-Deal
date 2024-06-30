@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/custom_app_bar.dart';
 import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/edit_profile/presentation/view/widgets/fields_section.dart';

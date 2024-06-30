@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 
 class TopLeadingTrailing extends StatelessWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 
 class CustomTypeJopWidget extends StatelessWidget {
   const CustomTypeJopWidget({

@@ -1,6 +1,6 @@
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/features/orders/presentation/manager/order_cubit.dart';

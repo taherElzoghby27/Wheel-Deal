@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import 'best_offers_bloc_consumer_home.dart';
 import 'top_leading_trailing.dart';
 

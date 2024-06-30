@@ -1,7 +1,7 @@
-import 'package:cars/core/consts/data.dart';
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/data.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/helper/custom_snack.dart';
 import 'package:cars/core/widgets/auth_top_section.dart';
 import 'package:cars/core/widgets/customButton.dart';

@@ -1,4 +1,4 @@
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
 import 'package:cars/features/favourites/domain/use_cases/add_favourite_use_case.dart';
 import 'package:cars/features/favourites/domain/use_cases/delete_favourite_use_case.dart';

@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/nav/presentation/view/widgets/bottom_nav_bar_item.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';

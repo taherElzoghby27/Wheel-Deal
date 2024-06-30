@@ -3,7 +3,7 @@ import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/strings.dart';
+import '../../../../../core/helper/strings.dart';
 import '../../widgets/email_address/verification_email_body.dart';
 
 class VerificationEmailView extends StatelessWidget {

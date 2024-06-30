@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/api.dart';
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/services/api_service.dart';
+import 'package:cars/core/networking/api.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/networking/api_service.dart';
 import 'package:dio/dio.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import '../../domain/entities/previous_car_entity.dart';
 
 abstract class HomeRemoteDataSource {

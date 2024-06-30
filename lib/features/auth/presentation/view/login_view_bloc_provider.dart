@@ -1,4 +1,4 @@
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

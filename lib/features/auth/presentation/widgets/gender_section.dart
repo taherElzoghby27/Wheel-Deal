@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/enums.dart';
+import 'package:cars/core/helper/enums.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:cars/features/profile/domain/use_cases/get_profile_use_case.dart';
 import 'package:cars/features/profile/domain/use_cases/logout_use_case.dart';

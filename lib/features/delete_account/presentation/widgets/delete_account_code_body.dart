@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/features/sign_in_security/presentation/widgets/content_dialog_verified.dart';
 import 'package:cars/features/sign_in_security/presentation/widgets/email_address/section_note.dart';
@@ -6,9 +6,9 @@ import 'package:cars/features/sign_in_security/presentation/widgets/email_addres
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/consts/assets.dart';
-import '../../../../core/consts/routesPage.dart';
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/assets.dart';
+import '../../../../core/routing/routes_page.dart';
+import '../../../../core/helper/strings.dart';
 import '../../../../core/helper/handle_image.dart';
 
 class DeleteAccountCodeBody extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/car_component.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';

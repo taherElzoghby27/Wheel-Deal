@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';

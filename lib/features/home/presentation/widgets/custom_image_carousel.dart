@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/handle_custom_image.dart';

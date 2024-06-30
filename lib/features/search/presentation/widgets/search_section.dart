@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 
 class SectionSearch extends StatelessWidget {
   const SectionSearch({

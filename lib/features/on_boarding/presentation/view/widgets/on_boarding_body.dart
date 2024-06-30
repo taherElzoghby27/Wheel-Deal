@@ -1,13 +1,13 @@
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/indicator_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/data.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../../core/helper/data.dart';
+import 'package:cars/core/theming/style.dart';
 
 class OnBoardingBody extends StatefulWidget {
   const OnBoardingBody({super.key});

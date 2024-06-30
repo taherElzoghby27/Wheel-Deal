@@ -1,4 +1,4 @@
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 class OrderModel {
   final String userId;

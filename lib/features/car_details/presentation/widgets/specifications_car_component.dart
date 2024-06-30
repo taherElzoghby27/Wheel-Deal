@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/models/car_model.dart';
 import 'package:flutter/material.dart';
 import '../../../home/presentation/widgets/top_leading_trailing.dart';

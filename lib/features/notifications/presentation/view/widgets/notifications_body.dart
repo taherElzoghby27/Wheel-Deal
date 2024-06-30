@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'notification_item.dart';

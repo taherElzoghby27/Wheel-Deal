@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/data.dart';
+import 'package:cars/core/helper/data.dart';
 import 'package:cars/features/nav/presentation/view/widgets/nav_body.dart';
 import 'package:cars/features/nav/presentation/view_model/nav_cubit/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';

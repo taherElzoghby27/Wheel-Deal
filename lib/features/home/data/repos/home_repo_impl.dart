@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/networking/failure_message.dart';
 import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/home/data/data_sources/local_data_source.dart';
@@ -11,7 +11,7 @@ import 'package:cars/features/home/domain/entities/previous_car_entity.dart';
 import 'package:cars/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 class HomeRepoImpl extends HomeRepo {
   final HomeRemoteDataSource _homeRemoteDataSource;

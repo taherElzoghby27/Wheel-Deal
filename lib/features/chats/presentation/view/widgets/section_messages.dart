@@ -1,15 +1,13 @@
-import 'package:cars/core/consts/data.dart';
-import 'package:cars/core/consts/routesPage.dart';
+
+import 'package:cars/core/helper/data.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/core/widgets/fade_animation_widget.dart';
 import 'package:cars/core/widgets/logo_title_icon_widget.dart';
 import 'package:cars/core/widgets/tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 
 class SectionMessages extends StatelessWidget {
   const SectionMessages({super.key});

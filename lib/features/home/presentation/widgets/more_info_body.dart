@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'continue_button_bloc_consumer.dart';
 
 class MoreInfoBody extends StatelessWidget {

@@ -1,8 +1,8 @@
-import 'package:cars/core/consts/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+import '../theming/style.dart';
 
 class EmptyWidget extends StatelessWidget {
   const EmptyWidget({

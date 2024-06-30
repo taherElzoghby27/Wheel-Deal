@@ -1,4 +1,4 @@
-import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/networking/failure_message.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:dartz/dartz.dart';
 

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/sign_in_security/domain/entities/sign_in_security_entity.dart';
 import 'package:cars/features/sign_in_security/domain/use_cases/check_code_input_use_case.dart';
 import 'package:cars/features/sign_in_security/domain/use_cases/update_email_use_case.dart';

@@ -1,8 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/validate.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:cars/core/consts/style.dart';
+
+import '../helper/validate.dart';
+import '../theming/style.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import '../widgets/more_info_body.dart';
 
 class MoreInfoView extends StatelessWidget {

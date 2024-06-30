@@ -1,11 +1,11 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/search/presentation/widgets/Filter_field.dart';
 import 'package:cars/features/search/presentation/widgets/get_brands_dialog_bloc_builder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import '../../../../../core/widgets/text_form_field.dart';
 import 'bloc_builder_prev_car.dart';
 import 'done_button_bloc_consumer.dart';

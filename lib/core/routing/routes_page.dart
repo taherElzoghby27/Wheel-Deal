@@ -1,4 +1,4 @@
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/features/auth/presentation/view/create_account_bloc_provider_view.dart';
 import 'package:cars/features/auth/presentation/view/create_new_pass_view.dart';
 import 'package:cars/features/auth/presentation/view/login_view_bloc_provider.dart';

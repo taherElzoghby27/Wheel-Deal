@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 import 'two_step_method.dart';
 import 'two_step_verification_widget.dart';

@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/core/widgets/custom_button_with_border.dart';
 import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/profile/data/repos/profile_repo_impl.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import '../../domain/use_cases/logout_use_case.dart';
 import '../manager/profile_cubit/profile_cubit.dart';
 import 'bloc_consumer_yes_button_logout.dart';

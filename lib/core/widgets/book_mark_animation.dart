@@ -1,9 +1,9 @@
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/favourites/presentation/manager/favourite_cubit.dart';
-import '../consts/style.dart';
 
 class IconWidgetAnimation extends StatefulWidget {
   const IconWidgetAnimation({

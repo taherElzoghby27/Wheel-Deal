@@ -1,5 +1,5 @@
-import 'package:cars/core/errors/failure_message.dart';
-import 'package:cars/core/usecases/use_case.dart';
+import 'package:cars/core/networking/failure_message.dart';
+import 'package:cars/core/helper/use_case.dart';
 import 'package:cars/features/search/domain/repos/search_repo.dart';
 import 'package:dartz/dartz.dart';
 

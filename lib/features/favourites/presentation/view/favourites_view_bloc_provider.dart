@@ -1,4 +1,4 @@
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:cars/features/favourites/data/repos/favourites_repo_impl.dart';
@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import '../manager/favourite_cubit.dart';
 import '../widgets/favourites_body.dart';
 

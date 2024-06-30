@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/networking/failure_message.dart';
 import 'package:cars/features/auth/data/data_source/remote_data_source.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:cars/features/auth/domain/repos/auth_repo.dart';

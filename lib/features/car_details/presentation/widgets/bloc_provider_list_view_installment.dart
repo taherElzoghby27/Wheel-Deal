@@ -1,5 +1,4 @@
-import 'package:cars/core/consts/enums.dart';
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
 import 'package:cars/features/car_details/data/models/installment_model.dart';

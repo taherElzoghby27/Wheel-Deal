@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/data.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/data.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/profile/domain/entities/user_verification_entity.dart';
 import 'package:image_picker/image_picker.dart';

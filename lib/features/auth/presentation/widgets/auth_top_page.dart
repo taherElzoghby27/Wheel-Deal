@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:flutter/material.dart';
 
 class AuthTopPage extends StatelessWidget {

@@ -1,10 +1,10 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/auth/presentation/view_model/check_for_reset_cubit/check_for_reset_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 class ResetPasswordComponent extends StatelessWidget {
   const ResetPasswordComponent({super.key});

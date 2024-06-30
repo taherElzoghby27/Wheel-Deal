@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/data.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/data.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 
 import 'chat_bubble.dart';

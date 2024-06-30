@@ -1,11 +1,11 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/two_step_verification_cubit/two_step_verification_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/routesPage.dart';
+import '../../../../../core/routing/routes_page.dart';
 import '../sign_in_security_tile.dart';
 
 class TwoStepVerificationWidget extends StatefulWidget {

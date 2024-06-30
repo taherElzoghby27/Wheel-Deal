@@ -1,11 +1,11 @@
-import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/auth/presentation/view_model/reset_password_cubit/reset_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 
 class PasswordResetPageWidget extends StatelessWidget {
   const PasswordResetPageWidget({

@@ -1,7 +1,7 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/consts/strings.dart';
+import '../../../../../core/helper/strings.dart';
 
 class CustomTileInfoHelpCenter extends StatefulWidget {
   const CustomTileInfoHelpCenter({super.key});

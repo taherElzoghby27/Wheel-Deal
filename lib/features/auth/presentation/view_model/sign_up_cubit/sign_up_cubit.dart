@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/enums.dart';
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/enums.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/helper/flutter_secure_storage.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:cars/features/auth/domain/usecases/sign_up_usecase.dart';

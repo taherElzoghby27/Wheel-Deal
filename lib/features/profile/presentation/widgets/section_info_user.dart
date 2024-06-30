@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/custom_circle_image.dart';
 import 'package:cars/features/profile/presentation/manager/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';

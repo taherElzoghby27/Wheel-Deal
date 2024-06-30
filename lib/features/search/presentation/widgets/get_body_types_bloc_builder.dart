@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/search/domain/entities/search_entity.dart';

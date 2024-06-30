@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 
 class RemeberMeWidget extends StatelessWidget {
   const RemeberMeWidget({super.key});

@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 import 'bloc_provider_list_view_installment.dart';
 import 'tile_dialog_installment.dart';

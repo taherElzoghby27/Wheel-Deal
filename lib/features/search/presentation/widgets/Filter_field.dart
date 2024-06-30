@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/text_field.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';

@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/home/presentation/widgets/top_leading_trailing.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'Filter_field.dart';
 import 'condition_bloc_builder.dart';
 import 'get_body_types_bloc_builder.dart';

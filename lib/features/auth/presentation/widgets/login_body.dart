@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
-import '../../../../../core/consts/style.dart';
 import 'auth_top_page.dart';
 import 'login_body_info.dart';
+import 'package:cars/core/theming/style.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});

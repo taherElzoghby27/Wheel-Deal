@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:cars/core/consts/api.dart';
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/services/api_service.dart';
+import 'package:cars/core/networking/api.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/networking/api_service.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 abstract class RemoteDataSource {
   Future<UserModel> signUp({required UserModel userEntity});

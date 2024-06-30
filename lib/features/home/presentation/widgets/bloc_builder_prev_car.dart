@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/home/presentation/view_model/recommendation_feature_cubit/recommendation_feature_cubit.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';

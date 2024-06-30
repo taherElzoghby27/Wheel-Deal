@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/auth/presentation/view_model/change_current_sign_up_cubit/change_sign_up_current_page_cubit.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';

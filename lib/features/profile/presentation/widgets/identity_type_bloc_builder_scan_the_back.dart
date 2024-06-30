@@ -1,4 +1,3 @@
-import 'package:cars/core/consts/enums.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';

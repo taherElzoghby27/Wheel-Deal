@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import '../view_model/home_bloc/home_bloc.dart';
 import 'best_offers_bloc_consumer_grid_view.dart';
 import 'best_offers_bloc_consumer_widget.dart';

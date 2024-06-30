@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

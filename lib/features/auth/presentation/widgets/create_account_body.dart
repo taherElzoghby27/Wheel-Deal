@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 
 import 'sign_up_body_info_bloc_consumer.dart';

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/auth/data/models/user_model.dart';
 import 'package:cars/features/auth/domain/usecases/reset_password_use_case.dart';
 import 'package:flutter/material.dart';

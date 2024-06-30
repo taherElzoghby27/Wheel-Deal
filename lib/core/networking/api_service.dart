@@ -1,7 +1,4 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:cars/core/consts/api.dart';
+import 'package:cars/core/networking/api.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 

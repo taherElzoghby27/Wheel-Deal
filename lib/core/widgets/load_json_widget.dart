@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';

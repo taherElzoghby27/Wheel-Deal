@@ -1,10 +1,10 @@
-import 'package:cars/core/consts/methods.dart';
+import 'package:cars/core/helper/methods.dart';
 import 'package:cars/core/widgets/custom_divider.dart';
 import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'tile_dialog_installment.dart';
 
 class InstallmentListView extends StatelessWidget {

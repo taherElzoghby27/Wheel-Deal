@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:flutter/material.dart';

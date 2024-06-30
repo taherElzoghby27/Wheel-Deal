@@ -1,6 +1,5 @@
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
-
-import '../consts/style.dart';
 
 class CustomAppBarScaffold extends StatelessWidget
     implements PreferredSizeWidget {

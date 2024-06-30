@@ -1,5 +1,6 @@
-import 'package:cars/core/consts/style.dart';
 import 'package:flutter/material.dart';
+
+import '../theming/style.dart';
 
 class CustomCheckBoxTile extends StatelessWidget {
   const CustomCheckBoxTile({

@@ -1,8 +1,8 @@
+import 'package:cars/core/helper/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/consts/assets.dart';
-import '../../../../../core/consts/strings.dart';
+import '../../../../core/helper/assets.dart';
 import '../../../../../core/widgets/custom_button_with_widget.dart';
 
 class SignWithGoogleAndFaceBookWidget extends StatelessWidget {

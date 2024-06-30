@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/routesPage.dart';
+import 'package:cars/core/routing/routes_page.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 
 class CustomNotificationTopHome extends StatelessWidget {
   const CustomNotificationTopHome({super.key});

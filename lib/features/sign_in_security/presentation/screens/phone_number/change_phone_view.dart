@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
 import 'package:cars/features/sign_in_security/presentation/widgets/phone_number/change_phone_body.dart';

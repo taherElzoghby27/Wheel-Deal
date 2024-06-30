@@ -1,11 +1,11 @@
-import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/networking/failure_message.dart';
 import 'package:cars/features/sign_in_security/data/data_source/sign_in_security_remote.dart';
 import 'package:cars/features/sign_in_security/domain/entities/sign_in_security_entity.dart';
 import 'package:cars/features/sign_in_security/domain/repos/sign_in_and_security_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 class SignInAndSecurityRepoImpl extends SignInAndSecurityRepo {
   final SignInSecurityRemote _signInSecurityRemote;

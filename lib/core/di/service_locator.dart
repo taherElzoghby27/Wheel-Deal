@@ -1,4 +1,4 @@
-import 'package:cars/core/services/api_service.dart';
+import 'package:cars/core/networking/api_service.dart';
 import 'package:cars/core/services/hive_db/hive_db_brands_home.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
 import 'package:cars/features/auth/data/data_source/remote_data_source.dart';

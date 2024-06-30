@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/previous_car_body.dart';

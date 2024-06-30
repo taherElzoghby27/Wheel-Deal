@@ -1,12 +1,12 @@
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/custom_button_with_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import '../../../../core/widgets/text_form_field.dart';
 
 class DeleteAccountVerifiBody extends StatelessWidget {

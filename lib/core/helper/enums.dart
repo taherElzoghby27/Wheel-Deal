@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/search/data/models/facilities_model.dart';
 
 enum Gender { Male, Female }

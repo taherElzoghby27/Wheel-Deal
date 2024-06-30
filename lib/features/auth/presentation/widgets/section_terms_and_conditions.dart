@@ -1,8 +1,7 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class SectionTermsAndConditions extends StatelessWidget {
   const SectionTermsAndConditions({super.key});

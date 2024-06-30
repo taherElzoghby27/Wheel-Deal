@@ -1,7 +1,7 @@
 import 'dart:ffi';
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/networking/failure_message.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/search/data/data_source/search_remote_data_source.dart';
 import 'package:cars/features/search/data/models/recent_search_model.dart';

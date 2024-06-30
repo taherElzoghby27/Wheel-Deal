@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/helper/custom_snack.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/routesPage.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../../core/routing/routes_page.dart';
+import 'package:cars/core/theming/style.dart';
 
 class ChangeEmailAddressButtonVerifyBlocConsumer extends StatelessWidget {
   const ChangeEmailAddressButtonVerifyBlocConsumer({super.key});

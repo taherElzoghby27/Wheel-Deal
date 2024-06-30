@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 
 class ShowResultFilterButton extends StatelessWidget {
   const ShowResultFilterButton({super.key});

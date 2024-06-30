@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/car_details/data/models/car_feature_model.dart';
 import 'package:cars/features/car_details/data/models/installment_model.dart';
 import 'package:cars/features/chats/data/models/chat_model.dart';

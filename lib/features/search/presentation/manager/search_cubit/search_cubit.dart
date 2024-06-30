@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:cars/core/consts/enums.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/enums.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:cars/features/search/data/models/facilities_model.dart';

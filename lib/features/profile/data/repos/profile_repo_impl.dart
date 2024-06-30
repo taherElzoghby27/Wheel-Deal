@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/errors/failure_message.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/networking/failure_message.dart';
 import 'package:cars/core/helper/flutter_secure_storage.dart';
 import 'package:cars/features/profile/data/data_source/remote_data_source.dart';
 import 'package:cars/features/profile/domain/entities/user_profile_entity.dart';

@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/theming/style.dart';
 import 'password_widget.dart';
 
 class CreateAccountComponent1 extends StatelessWidget {

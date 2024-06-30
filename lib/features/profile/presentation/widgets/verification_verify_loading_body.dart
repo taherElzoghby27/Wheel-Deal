@@ -1,7 +1,7 @@
-import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/features/home/presentation/view_model/home_bloc/home_bloc.dart';
 import 'package:flutter/material.dart';

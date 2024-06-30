@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:cars/core/consts/api.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/services/api_service.dart';
+import 'package:cars/core/networking/api.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/networking/api_service.dart';
 import 'package:dio/dio.dart';
 
-import '../../../../core/consts/methods.dart';
+import '../../../../core/helper/methods.dart';
 import '../../domain/entities/sign_in_security_entity.dart';
 
 abstract class SignInSecurityRemote {

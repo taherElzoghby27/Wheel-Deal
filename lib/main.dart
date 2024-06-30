@@ -1,13 +1,13 @@
 import 'package:cars/core/helper/flutter_secure_storage.dart';
 import 'package:cars/core/services/hive_db/hive_db_cars_home.dart';
-import 'package:cars/core/services/service_locator.dart';
+import 'package:cars/core/di/service_locator.dart';
 import 'package:cars/features/settings/presentation/view_model/mode_cubit/mode_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'core/consts/routesPage.dart';
-import 'core/consts/theme.dart';
-import 'core/services/api_service.dart';
+import 'core/routing/routes_page.dart';
+import 'core/theming/theme.dart';
+import 'core/networking/api_service.dart';
 import 'core/services/hive_db/hive_db_brands_home.dart';
 import 'observer_bloc.dart';
 
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             builder: (context, state) {
               final themeState = BlocProvider.of<ModeCubit>(context).state;
               return MaterialApp.router(
-                title: 'Flutter Demo',
+                title: 'Wheel Deal',
                 debugShowCheckedModeBanner: false,
                 routerConfig: router,
                 theme: MyAppThemes.lightTheme,

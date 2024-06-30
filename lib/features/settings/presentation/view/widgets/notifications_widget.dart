@@ -1,7 +1,7 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/consts/strings.dart';
+import '../../../../../core/helper/strings.dart';
 import 'tile_settings.dart';
 
 class NotificationsWidget extends StatelessWidget {

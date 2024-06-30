@@ -1,3 +1,4 @@
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/custom_radio_list_tile.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/features/home/domain/entities/previous_car_entity.dart';
@@ -6,8 +7,6 @@ import 'package:cars/features/home/presentation/view_model/recommendation_featur
 import 'package:cars/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/consts/style.dart';
 import '../../../../core/widgets/small_loading_widget.dart';
 
 class GetModelsBrandsDialogBlocBuilder extends StatefulWidget {

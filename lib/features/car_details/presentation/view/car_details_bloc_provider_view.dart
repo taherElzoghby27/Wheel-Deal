@@ -1,6 +1,6 @@
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_car_details_use_case.dart';
 import 'package:cars/features/car_details/domain/use_cases/get_installment_available_use_case.dart';
 import 'package:cars/features/car_details/presentation/view_model/car_details_bloc/car_details_bloc.dart';
@@ -15,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/services/service_locator.dart';
+import '../../../../core/di/service_locator.dart';
 import '../../../../core/widgets/book_mark_animation.dart';
 import '../../../../core/widgets/custom_app_bar_scaffold.dart';
 import '../../../../core/widgets/custom_squre_button.dart';

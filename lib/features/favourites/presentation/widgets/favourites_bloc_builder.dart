@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/assets.dart';
+import 'package:cars/core/helper/assets.dart';
 import 'package:cars/core/widgets/empty_widget.dart';
 import 'package:cars/core/widgets/error_widget.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';

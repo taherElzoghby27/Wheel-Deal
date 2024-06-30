@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/assets.dart';
-import 'package:cars/core/consts/routesPage.dart';
+import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/routing/routes_page.dart';
 import 'package:cars/core/helper/handle_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

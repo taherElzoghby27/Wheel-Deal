@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import '../manager/search_cubit/search_cubit.dart';
 import 'recent_searchs.dart';
 import 'search_bloc_consumer.dart';

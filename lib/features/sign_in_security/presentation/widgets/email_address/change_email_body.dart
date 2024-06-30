@@ -1,11 +1,11 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/consts/routesPage.dart';
+import '../../../../../core/routing/routes_page.dart';
 import 'confirm_new_email_button_bloc_consumer.dart';
 
 class ChangeEmailBody extends StatelessWidget {

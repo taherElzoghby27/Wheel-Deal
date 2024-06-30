@@ -1,11 +1,11 @@
-import 'package:cars/core/consts/routesPage.dart';
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/routing/routes_page.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import '../../../../../core/helper/custom_snack.dart';
 import '../../../../../core/widgets/small_loading_widget.dart';
 import '../../controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';

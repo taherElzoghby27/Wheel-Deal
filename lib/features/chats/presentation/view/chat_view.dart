@@ -1,7 +1,7 @@
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 import 'widgets/chat_body.dart';
 
 class ChatView extends StatelessWidget {

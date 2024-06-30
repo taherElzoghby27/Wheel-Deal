@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/data.dart';
+import 'package:cars/core/helper/data.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/auth/presentation/view_model/reset_password_cubit/reset_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/consts/strings.dart';
-import '../../../../../core/consts/style.dart';
+import '../../../../core/helper/strings.dart';
 import '../../../../../core/widgets/auth_top_section.dart';
 import 'create_pass_component.dart';
 import 'reset_pass_button_widget.dart';

@@ -1,10 +1,10 @@
-import 'package:cars/core/consts/methods.dart';
-import 'package:cars/core/consts/routesPage.dart';
+import 'package:cars/core/helper/methods.dart';
+import 'package:cars/core/routing/routes_page.dart';
 import 'package:cars/core/widgets/small_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/consts/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 class GateBody extends StatefulWidget {
   const GateBody({super.key});

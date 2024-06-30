@@ -1,4 +1,4 @@
-import 'package:cars/core/consts/strings.dart';
+import 'package:cars/core/helper/strings.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

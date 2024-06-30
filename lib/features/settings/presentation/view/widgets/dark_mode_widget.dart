@@ -1,9 +1,9 @@
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/features/settings/presentation/view_model/mode_cubit/mode_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/consts/strings.dart';
+import '../../../../../core/helper/strings.dart';
 import 'tile_settings.dart';
 
 class DarkModeWidget extends StatelessWidget {

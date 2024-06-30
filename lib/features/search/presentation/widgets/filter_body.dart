@@ -1,5 +1,5 @@
-import 'package:cars/core/consts/strings.dart';
-import 'package:cars/core/consts/style.dart';
+import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/tile_widget.dart';
 import 'package:cars/features/home/domain/entities/car_entity.dart';
 import 'package:flutter/cupertino.dart';
