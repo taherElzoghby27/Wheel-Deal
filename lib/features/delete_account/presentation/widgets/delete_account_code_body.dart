@@ -1,15 +1,15 @@
 import 'package:cars/core/theming/style.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/features/sign_in_security/presentation/widgets/content_dialog_verified.dart';
-import 'package:cars/features/sign_in_security/presentation/widgets/email_address/section_note.dart';
-import 'package:cars/features/sign_in_security/presentation/widgets/email_address/section_otp.dart';
+import 'package:cars/features/sign_in_security/presentation/widgets/section_note.dart';
+import 'package:cars/features/sign_in_security/presentation/widgets/section_otp.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/helper/assets.dart';
-import '../../../../core/routing/routes_page.dart';
-import '../../../../core/helper/strings.dart';
 import '../../../../core/helper/handle_image.dart';
+import '../../../../core/helper/strings.dart';
+import '../../../../core/routing/routes_page.dart';
 
 class DeleteAccountCodeBody extends StatelessWidget {
   const DeleteAccountCodeBody({super.key});

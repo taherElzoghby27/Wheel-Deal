@@ -1,7 +1,7 @@
 import 'package:cars/core/theming/style.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/helper/strings.dart';
+import '../../../../core/helper/strings.dart';
 
 class SectionNote extends StatelessWidget {
   const SectionNote({super.key});

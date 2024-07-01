@@ -1,15 +1,13 @@
-import 'package:cars/core/routing/routes_page.dart';
 import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/theming/style.dart';
-import 'package:cars/core/widgets/customButton.dart';
-import 'package:cars/features/sign_in_security/presentation/widgets/email_address/section_note.dart';
+import 'package:cars/features/sign_in_security/presentation/widgets/section_note.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../email_address/section_otp.dart';
+import 'section_otp.dart';
+import 'send_button_bloc_consumer.dart';
 
-class VerificationPhoneBody extends StatelessWidget {
-  const VerificationPhoneBody({super.key});
+class VerificationEmailBody extends StatelessWidget {
+  const VerificationEmailBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class VerificationPhoneBody extends StatelessWidget {
           Padding(
             padding: AppConsts.padding50H,
             child: Text(
-              StringsEn.pleaseEnterVerificationPhoneNumber,
+              StringsEn.pleaseEnterVerificationEmail,
               textAlign: TextAlign.center,
               style: AppConsts.style14.copyWith(
                 fontWeight: FontWeight.w400,
@@ -34,15 +32,9 @@ class VerificationPhoneBody extends StatelessWidget {
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on2),
           const SectionNote(),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
-          AspectRatio(
+          const AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth,
-            child: CustomButton(
-              text: StringsEn.send,
-              styleText: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-              onTap: () => GoRouter.of(context).push(changePhonePath),
-            ),
+            child: SendButtonBlocConsumer(),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],

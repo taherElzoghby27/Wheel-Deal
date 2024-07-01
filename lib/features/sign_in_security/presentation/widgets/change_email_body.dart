@@ -1,32 +1,37 @@
 import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/theming/style.dart';
-import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class ChangePhoneBody extends StatelessWidget {
-  const ChangePhoneBody({super.key});
+import '../../../../core/routing/routes_page.dart';
+import 'confirm_new_email_button_bloc_consumer.dart';
+
+class ChangeEmailBody extends StatelessWidget {
+  const ChangeEmailBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: AppConsts.mainPadding,
-      child: Column(
+      child: ListView(
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
-          const CustomTextFormField(
-            hint: StringsEn.changePhoneNumberLabel,
-            perfixIcon: Icon(
-              Icons.phone,
+          CustomTextFormField(
+            hint: StringsEn.newEmailAddress,
+            perfixIcon: const Icon(
+              Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
+            controller: context.read<SignInSecurityCubit>().email,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           const CustomTextFormField(
-            hint: StringsEn.confirmNewPhone,
+            hint: StringsEn.confirmNewEmail,
             perfixIcon: Icon(
-              Icons.phone,
+              Icons.email_outlined,
               color: AppConsts.neutral500,
             ),
           ),
@@ -44,11 +49,12 @@ class ChangePhoneBody extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
             ),
+            controller: context.read<SignInSecurityCubit>().password,
           ),
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () =>GoRouter.of(context).pushReplacement(resetPassPath),
               child: Text(
                 StringsEn.forgotPass,
                 style: AppConsts.style12.copyWith(
@@ -58,16 +64,10 @@ class ChangePhoneBody extends StatelessWidget {
               ),
             ),
           ),
-          const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
-          AspectRatio(
+          const AspectRatio(aspectRatio: AppConsts.aspectRatio16on12),
+          const AspectRatio(
             aspectRatio: AppConsts.aspectRatioButtonAuth,
-            child: CustomButton(
-              text: StringsEn.confirmNewPhone,
-              styleText: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-              onTap: () => GoRouter.of(context).push(''),
-            ),
+            child: ConfirmNewEmailButtonBlocConsumer(),
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio24on2),
         ],

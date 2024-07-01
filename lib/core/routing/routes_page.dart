@@ -50,15 +50,13 @@ import 'package:cars/features/sign_in_security/domain/use_cases/update_password_
 import 'package:cars/features/sign_in_security/domain/use_cases/verify_email_use_case.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/two_step_verification_cubit/two_step_verification_cubit.dart';
-import 'package:cars/features/sign_in_security/presentation/screens/email_address/change_email_view.dart';
-import 'package:cars/features/sign_in_security/presentation/screens/email_address/verification_email_view.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/change_email_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/password_view.dart';
-import 'package:cars/features/sign_in_security/presentation/screens/phone_number/change_phone_view.dart';
-import 'package:cars/features/sign_in_security/presentation/screens/phone_number/verification_phone_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/sign_in_security_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verifi_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verification_code.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verification_security_view.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/verification_email_view.dart';
 import 'package:cars/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -69,8 +67,7 @@ import '../../features/profile/presentation/view/verification_view.dart';
 import '../../features/profile/presentation/view/verification_welcome_view.dart';
 import '../../features/search/data/repos/search_repo_impl.dart';
 import '../../features/search/domain/use_cases/search_filter_use_case.dart';
-import '../../features/sign_in_security/presentation/screens/email_address/email_address_view.dart';
-import '../../features/sign_in_security/presentation/screens/phone_number/phone_number_view.dart';
+import '../../features/sign_in_security/presentation/screens/email_address_view.dart';
 import '../helper/custom_animation.dart';
 
 const String splashPath = '/';
@@ -105,7 +102,6 @@ const String changePasswordPath = '/changePasswordPath';
 const String twoStepVerificationPath = '/twoStepVerificationPath';
 const String changeEmailAddressPath = '/changeEmailAddressPath';
 const String verificationEmailPath = '/verificationEmailPath';
-const String phonePath = '/phonePath';
 const String verificationPhonePath = '/verificationPhonePath';
 const String changePhonePath = '/changePhonePath';
 const String twoStepVerificationCodePath = '/twoStepVerificationCodePath';
@@ -454,30 +450,6 @@ final router = GoRouter(
       ),
     ),
     GoRoute(
-      path: phonePath,
-      pageBuilder: (context, state) => buildPageWithDefaultTransition(
-        context: context,
-        state: state,
-        child: BlocProvider(
-          create: (context) => SignInSecurityCubit(
-            VerifyEmailUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            UpdatePasswordUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            UpdateEmailUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            CheckCodeInputUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-          ),
-          child: const PhoneNumberView(),
-        ),
-      ),
-    ),
-    GoRoute(
       path: changePasswordPath,
       pageBuilder: (context, state) => buildPageWithDefaultTransition(
         context: context,
@@ -557,54 +529,6 @@ final router = GoRouter(
             ),
           ),
           child: const ChangeEmailView(),
-        ),
-      ),
-    ),
-    GoRoute(
-      path: verificationPhonePath,
-      pageBuilder: (context, state) => buildPageWithDefaultTransition(
-        context: context,
-        state: state,
-        child: BlocProvider(
-          create: (context) => SignInSecurityCubit(
-            VerifyEmailUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            UpdatePasswordUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            UpdateEmailUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            CheckCodeInputUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-          ),
-          child: const VerificationPhoneView(),
-        ),
-      ),
-    ),
-    GoRoute(
-      path: changePhonePath,
-      pageBuilder: (context, state) => buildPageWithDefaultTransition(
-        context: context,
-        state: state,
-        child: BlocProvider(
-          create: (context) => SignInSecurityCubit(
-            VerifyEmailUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            UpdatePasswordUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            UpdateEmailUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-            CheckCodeInputUseCase(
-              signInAndSecurityRepo: getIt.get<SignInAndSecurityRepoImpl>(),
-            ),
-          ),
-          child: const ChangePhoneView(),
         ),
       ),
     ),
