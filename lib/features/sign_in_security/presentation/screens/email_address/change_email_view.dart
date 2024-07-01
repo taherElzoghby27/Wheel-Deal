@@ -1,7 +1,7 @@
 import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/widgets/custom_app_bar_scaffold.dart';
 import 'package:cars/core/widgets/custom_squre_button.dart';
-import 'package:cars/features/sign_in_security/presentation/widgets/email_address/change_email_body.dart';
+import 'package:cars/features/sign_in_security/presentation/widgets/change_email_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

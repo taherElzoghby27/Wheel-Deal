@@ -1,6 +1,7 @@
-import 'package:cars/core/routing/routes_page.dart';
 import 'package:cars/core/helper/strings.dart';
+import 'package:cars/core/routing/routes_page.dart';
 import 'package:cars/core/theming/style.dart';
+import 'package:cars/features/sign_in_security/domain/entities/sign_in__security_type_class.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -20,19 +21,19 @@ class SignInSecurityBody extends StatelessWidget {
           SignInSecurityTile(
             leading: StringsEn.emailAddress,
             subLeading: StringsEn.changeEmailAddress,
-            onTap: () => GoRouter.of(context).push(emailAddressPath),
-          ),
-          const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
-          SignInSecurityTile(
-            leading: StringsEn.phoneNumber,
-            subLeading: StringsEn.addPhoneNumber,
-            onTap: () => GoRouter.of(context).push(phonePath),
+            onTap: () {
+              GoRouter.of(context).push(emailAddressPath);
+              SignInSecurityType.type = SignInType.email;
+            },
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           SignInSecurityTile(
             leading: StringsEn.changePassword,
             subLeading: StringsEn.chooseUniquePassword,
-            onTap: () => GoRouter.of(context).push(changePasswordPath),
+            onTap: () {
+              GoRouter.of(context).push(changePasswordPath);
+              SignInSecurityType.type = SignInType.password;
+            },
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           SignInSecurityTile(

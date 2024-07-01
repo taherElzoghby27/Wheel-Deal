@@ -1,13 +1,14 @@
 import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/theming/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/widgets/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../content_dialog_verified.dart';
-import '../email_address/section_note.dart';
-import '../email_address/section_otp.dart';
+import '../section_note.dart';
+import '../section_otp.dart';
 
 class TwoStepVerificationCodeBody extends StatelessWidget {
   const TwoStepVerificationCodeBody({super.key});
