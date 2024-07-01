@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'strings.dart';
 import '../widgets/small_loading_widget.dart';
+import 'strings.dart';
 
 class HandleImageWidget extends StatelessWidget {
   const HandleImageWidget({
@@ -23,7 +23,7 @@ class HandleImageWidget extends StatelessWidget {
         return Image.asset(
           image,
           color: color,
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         );
       case 'svg':
         return SvgPicture.asset(

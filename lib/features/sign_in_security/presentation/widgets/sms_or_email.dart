@@ -12,12 +12,7 @@ class SmsOrEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TwoStepVerificationCubit, TwoStepVerificationState>(
       builder: (context, state) {
-        TwoStepVerificationCubit bloc =
-            context.read<TwoStepVerificationCubit>();
-        String status = StringsEn.sms;
-        if (state is SmsOrEmailState) {
-          status = state.value;
-        }
+        final bloc = context.read<TwoStepVerificationCubit>();
         return Padding(
           padding: AppConsts.padding25h,
           child: Column(
@@ -26,12 +21,7 @@ class SmsOrEmail extends StatelessWidget {
                 aspectRatio: AppConsts.aspectRatioButtonAuth,
                 child: CustomButtonWithBorder(
                   text: StringsEn.sms,
-                  isBorder: status == StringsEn.sms ? true : false,
-                  onTap: () {
-                    bloc.changeSmsOrEmail(StringsEn.sms);
-                    bloc.changePage(StringsEn.sms);
-                  },
-                  onLongTap: () => bloc.changeSmsOrEmail(StringsEn.sms),
+                  onTap: () => bloc.changePage(StringsEn.sms),
                 ),
               ),
               const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
@@ -39,12 +29,7 @@ class SmsOrEmail extends StatelessWidget {
                 aspectRatio: AppConsts.aspectRatioButtonAuth,
                 child: CustomButtonWithBorder(
                   text: StringsEn.email,
-                  isBorder: status == StringsEn.email ? true : false,
-                  onTap: () {
-                    bloc.changeSmsOrEmail(StringsEn.email);
-                    bloc.changePage(StringsEn.email);
-                  },
-                  onLongTap: () => bloc.changeSmsOrEmail(StringsEn.email),
+                  onTap: () => bloc.changePage(StringsEn.email),
                 ),
               ),
             ],
