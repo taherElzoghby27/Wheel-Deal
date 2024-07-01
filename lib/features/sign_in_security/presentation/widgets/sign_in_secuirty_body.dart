@@ -31,7 +31,7 @@ class SignInSecurityBody extends StatelessWidget {
             leading: StringsEn.changePassword,
             subLeading: StringsEn.chooseUniquePassword,
             onTap: () {
-              GoRouter.of(context).push(changePasswordPath);
+              GoRouter.of(context).push(emailAddressPath);
               SignInSecurityType.type = SignInType.password;
             },
           ),

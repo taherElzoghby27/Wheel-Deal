@@ -1,8 +1,10 @@
 import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/theming/style.dart';
-import 'package:cars/core/widgets/customButton.dart';
 import 'package:cars/core/widgets/text_form_field.dart';
+import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
+import 'package:cars/features/sign_in_security/presentation/widgets/confirm_update_password_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PasswordBody extends StatelessWidget {
   const PasswordBody({super.key});
@@ -14,12 +16,13 @@ class PasswordBody extends StatelessWidget {
       child: Column(
         children: [
           const AspectRatio(aspectRatio: AppConsts.aspectRatioTopSpace),
-          const CustomTextFormField(
+          CustomTextFormField(
             hint: StringsEn.yourPassword,
-            perfixIcon: Icon(
+            perfixIcon: const Icon(
               Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
+            controller: context.read<SignInSecurityCubit>().password,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           CustomTextFormField(
@@ -28,6 +31,7 @@ class PasswordBody extends StatelessWidget {
               Icons.lock_outline,
               color: AppConsts.neutral500,
             ),
+            controller: context.read<SignInSecurityCubit>().newPassword,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio20on1),
           CustomTextFormField(
@@ -43,20 +47,14 @@ class PasswordBody extends StatelessWidget {
                 color: AppConsts.neutral500,
               ),
             ),
+            controller: context.read<SignInSecurityCubit>().confirmPassword,
           ),
           const AspectRatio(aspectRatio: AppConsts.aspectRatio16on5),
-          AspectRatio(
-            aspectRatio: AppConsts.aspectRatioButtonAuth,
-            child: CustomButton(
-              text: StringsEn.confirmNewPass,
-              styleText: AppConsts.style16White.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
-              onTap: () {},
-            ),
-          ),
+          const ConfirmUpdatePasswordButton(),
         ],
       ),
     );
   }
 }
+
+

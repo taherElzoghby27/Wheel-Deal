@@ -50,7 +50,7 @@ import 'package:cars/features/sign_in_security/domain/use_cases/update_password_
 import 'package:cars/features/sign_in_security/domain/use_cases/verify_email_use_case.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/sign_in_and_security_cubit/sign_in_security_cubit.dart';
 import 'package:cars/features/sign_in_security/presentation/controllers/two_step_verification_cubit/two_step_verification_cubit.dart';
-import 'package:cars/features/sign_in_security/presentation/screens/email_address/change_email_view.dart';
+import 'package:cars/features/sign_in_security/presentation/screens/change_email_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/password_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/sign_in_security_view.dart';
 import 'package:cars/features/sign_in_security/presentation/screens/two_step_verifi/two_step_verifi_view.dart';
