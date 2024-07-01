@@ -1,7 +1,7 @@
 import 'package:cars/core/helper/assets.dart';
+import 'package:cars/core/helper/handle_image.dart';
 import 'package:cars/core/helper/strings.dart';
 import 'package:cars/core/theming/style.dart';
-import 'package:cars/core/helper/handle_image.dart';
 import 'package:flutter/material.dart';
 
 import 'sms_or_email.dart';

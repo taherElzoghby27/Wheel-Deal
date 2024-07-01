@@ -6,14 +6,7 @@ part 'two_step_verification_state.dart';
 class TwoStepVerificationCubit extends Cubit<TwoStepVerificationState> {
   TwoStepVerificationCubit() : super(TwoStepVerificationInitial());
   String page = '';
-
-  changeSwitch(bool value) {
-    emit(Switched(value: value));
-  }
-
-  changeSmsOrEmail(String value) {
-    emit(SmsOrEmailState(value: value));
-  }
+  bool twoStepVerification = false;
 
   changePage(String value) {
     page = value;
